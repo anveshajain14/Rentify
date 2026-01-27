@@ -1,0 +1,22 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "API routes, models, and lib — used by the frontend Next.js app (frontend/app/api re-exports this folder). Do not run this folder alone.",
+  "scripts": {
+    "dev": "echo Run the app from the frontend folder: cd ../frontend && npm run dev",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cloudinary": "^2.9.0",
+    "cors": "^2.8.6",
+    "dotenv": "^17.2.3",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^9.1.5",
+    "stripe": "^20.2.0"
+  }
+}
