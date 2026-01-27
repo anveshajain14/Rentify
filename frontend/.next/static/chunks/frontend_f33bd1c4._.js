@@ -1,0 +1,2782 @@
+(globalThis.TURBOPACK || (globalThis.TURBOPACK = [])).push([typeof document === "object" ? document.currentScript : undefined,
+"[project]/frontend/components/Navbar.jsx [app-client] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([
+    "default",
+    ()=>Navbar
+]);
+var __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/frontend/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/frontend/node_modules/next/dist/client/app-dir/link.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$react$2d$redux$2f$dist$2f$react$2d$redux$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/frontend/node_modules/react-redux/dist/react-redux.mjs [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$store$2f$slices$2f$authSlice$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/frontend/store/slices/authSlice.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$shopping$2d$cart$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__ShoppingCart$3e$__ = __turbopack_context__.i("[project]/frontend/node_modules/lucide-react/dist/esm/icons/shopping-cart.js [app-client] (ecmascript) <export default as ShoppingCart>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$log$2d$out$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__LogOut$3e$__ = __turbopack_context__.i("[project]/frontend/node_modules/lucide-react/dist/esm/icons/log-out.js [app-client] (ecmascript) <export default as LogOut>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$menu$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Menu$3e$__ = __turbopack_context__.i("[project]/frontend/node_modules/lucide-react/dist/esm/icons/menu.js [app-client] (ecmascript) <export default as Menu>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$x$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__X$3e$__ = __turbopack_context__.i("[project]/frontend/node_modules/lucide-react/dist/esm/icons/x.js [app-client] (ecmascript) <export default as X>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$calendar$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Calendar$3e$__ = __turbopack_context__.i("[project]/frontend/node_modules/lucide-react/dist/esm/icons/calendar.js [app-client] (ecmascript) <export default as Calendar>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$heart$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Heart$3e$__ = __turbopack_context__.i("[project]/frontend/node_modules/lucide-react/dist/esm/icons/heart.js [app-client] (ecmascript) <export default as Heart>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$credit$2d$card$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__CreditCard$3e$__ = __turbopack_context__.i("[project]/frontend/node_modules/lucide-react/dist/esm/icons/credit-card.js [app-client] (ecmascript) <export default as CreditCard>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/frontend/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/frontend/node_modules/framer-motion/dist/es/render/components/motion/proxy.mjs [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$components$2f$AnimatePresence$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/frontend/node_modules/framer-motion/dist/es/components/AnimatePresence/index.mjs [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/frontend/node_modules/next/image.js [app-client] (ecmascript)");
+;
+var _s = __turbopack_context__.k.signature();
+'use client';
+;
+;
+;
+;
+;
+;
+;
+function Navbar() {
+    var _user_name_charAt, _user_name;
+    _s();
+    const dispatch = (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$react$2d$redux$2f$dist$2f$react$2d$redux$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useDispatch"])();
+    const { user } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$react$2d$redux$2f$dist$2f$react$2d$redux$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useSelector"])({
+        "Navbar.useSelector": (state)=>state.auth
+    }["Navbar.useSelector"]);
+    const cartCount = (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$react$2d$redux$2f$dist$2f$react$2d$redux$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useSelector"])({
+        "Navbar.useSelector[cartCount]": (state)=>state.cart.items.length
+    }["Navbar.useSelector[cartCount]"]);
+    const [isOpen, setIsOpen] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
+    const [profileOpen, setProfileOpen] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
+    const [scrolled, setScrolled] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
+    const profileRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])(null);
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
+        "Navbar.useEffect": ()=>{
+            const handleScroll = {
+                "Navbar.useEffect.handleScroll": ()=>setScrolled(window.scrollY > 20)
+            }["Navbar.useEffect.handleScroll"];
+            window.addEventListener('scroll', handleScroll);
+            return ({
+                "Navbar.useEffect": ()=>window.removeEventListener('scroll', handleScroll)
+            })["Navbar.useEffect"];
+        }
+    }["Navbar.useEffect"], []);
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
+        "Navbar.useEffect": ()=>{
+            const handleClickOutside = {
+                "Navbar.useEffect.handleClickOutside": (e)=>{
+                    if (profileRef.current && !profileRef.current.contains(e.target)) setProfileOpen(false);
+                }
+            }["Navbar.useEffect.handleClickOutside"];
+            document.addEventListener('mousedown', handleClickOutside);
+            return ({
+                "Navbar.useEffect": ()=>document.removeEventListener('mousedown', handleClickOutside)
+            })["Navbar.useEffect"];
+        }
+    }["Navbar.useEffect"], []);
+    const handleLogout = ()=>{
+        dispatch((0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$store$2f$slices$2f$authSlice$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["logout"])());
+        setProfileOpen(false);
+    };
+    const profileLinks = [
+        {
+            href: '/dashboard',
+            label: 'My Rentals',
+            icon: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$calendar$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Calendar$3e$__["Calendar"], {
+                "data-orchids-id": "components\\Navbar.jsx:40:53",
+                "data-orchids-name": "Calendar",
+                size: 18
+            }, void 0, false, {
+                fileName: "[project]/frontend/components/Navbar.jsx",
+                lineNumber: 40,
+                columnNumber: 54
+            }, this)
+        },
+        {
+            href: '/dashboard',
+            label: 'Order History',
+            icon: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$calendar$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Calendar$3e$__["Calendar"], {
+                "data-orchids-id": "components\\Navbar.jsx:41:56",
+                "data-orchids-name": "Calendar",
+                size: 18
+            }, void 0, false, {
+                fileName: "[project]/frontend/components/Navbar.jsx",
+                lineNumber: 41,
+                columnNumber: 57
+            }, this)
+        },
+        {
+            href: '/wishlist',
+            label: 'Wishlist',
+            icon: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$heart$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Heart$3e$__["Heart"], {
+                "data-orchids-id": "components\\Navbar.jsx:42:50",
+                "data-orchids-name": "Heart",
+                size: 18
+            }, void 0, false, {
+                fileName: "[project]/frontend/components/Navbar.jsx",
+                lineNumber: 42,
+                columnNumber: 51
+            }, this)
+        },
+        {
+            href: '/cart',
+            label: 'Cart',
+            icon: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$shopping$2d$cart$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__ShoppingCart$3e$__["ShoppingCart"], {
+                "data-orchids-id": "components\\Navbar.jsx:43:42",
+                "data-orchids-name": "ShoppingCart",
+                size: 18
+            }, void 0, false, {
+                fileName: "[project]/frontend/components/Navbar.jsx",
+                lineNumber: 43,
+                columnNumber: 43
+            }, this)
+        },
+        {
+            href: '/profile',
+            label: 'Profile & Payments',
+            icon: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$credit$2d$card$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__CreditCard$3e$__["CreditCard"], {
+                "data-orchids-id": "components\\Navbar.jsx:44:59",
+                "data-orchids-name": "CreditCard",
+                size: 18
+            }, void 0, false, {
+                fileName: "[project]/frontend/components/Navbar.jsx",
+                lineNumber: 44,
+                columnNumber: 60
+            }, this)
+        }
+    ];
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("nav", {
+        "data-orchids-id": "components\\Navbar.jsx:48:4",
+        "data-orchids-name": "nav",
+        className: "fixed w-full z-50 transition-all duration-300 ".concat(scrolled ? 'bg-white/80 backdrop-blur-lg shadow-sm py-3' : 'bg-transparent py-5'),
+        children: [
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                "data-orchids-id": "components\\Navbar.jsx:49:6",
+                "data-orchids-name": "div",
+                className: "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8",
+                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    "data-orchids-id": "components\\Navbar.jsx:50:8",
+                    "data-orchids-name": "div",
+                    className: "flex justify-between items-center",
+                    children: [
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
+                            "data-orchids-id": "components\\Navbar.jsx:51:10",
+                            "data-orchids-name": "Link",
+                            href: "/",
+                            className: "flex items-center gap-2",
+                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                "data-orchids-id": "components\\Navbar.jsx:52:12",
+                                "data-orchids-name": "span",
+                                className: "text-2xl font-bold tracking-tighter text-black",
+                                children: [
+                                    "LUXE",
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                        "data-orchids-id": "components\\Navbar.jsx:52:81",
+                                        "data-orchids-name": "span",
+                                        className: "text-emerald-600",
+                                        children: "RENT"
+                                    }, void 0, false, {
+                                        fileName: "[project]/frontend/components/Navbar.jsx",
+                                        lineNumber: 52,
+                                        columnNumber: 153
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/frontend/components/Navbar.jsx",
+                                lineNumber: 52,
+                                columnNumber: 13
+                            }, this)
+                        }, void 0, false, {
+                            fileName: "[project]/frontend/components/Navbar.jsx",
+                            lineNumber: 51,
+                            columnNumber: 11
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            "data-orchids-id": "components\\Navbar.jsx:54:10",
+                            "data-orchids-name": "div",
+                            className: "hidden md:flex items-center gap-8",
+                            children: [
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
+                                    "data-orchids-id": "components\\Navbar.jsx:55:12",
+                                    "data-orchids-name": "Link",
+                                    href: "/products",
+                                    className: "text-gray-600 hover:text-black font-medium transition-colors",
+                                    children: "Browse"
+                                }, void 0, false, {
+                                    fileName: "[project]/frontend/components/Navbar.jsx",
+                                    lineNumber: 55,
+                                    columnNumber: 13
+                                }, this),
+                                (user === null || user === void 0 ? void 0 : user.role) === 'renter' && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
+                                    "data-orchids-id": "components\\Navbar.jsx:56:40",
+                                    "data-orchids-name": "Link",
+                                    href: "/discover",
+                                    className: "text-gray-600 hover:text-black font-medium transition-colors",
+                                    children: "Discover"
+                                }, void 0, false, {
+                                    fileName: "[project]/frontend/components/Navbar.jsx",
+                                    lineNumber: 56,
+                                    columnNumber: 41
+                                }, this),
+                                (user === null || user === void 0 ? void 0 : user.role) === 'seller' && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
+                                    "data-orchids-id": "components\\Navbar.jsx:57:40",
+                                    "data-orchids-name": "Link",
+                                    href: "/seller/dashboard",
+                                    className: "text-gray-600 hover:text-black font-medium transition-colors",
+                                    children: "Seller Panel"
+                                }, void 0, false, {
+                                    fileName: "[project]/frontend/components/Navbar.jsx",
+                                    lineNumber: 57,
+                                    columnNumber: 41
+                                }, this),
+                                (user === null || user === void 0 ? void 0 : user.role) === 'admin' && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
+                                    "data-orchids-id": "components\\Navbar.jsx:58:39",
+                                    "data-orchids-name": "Link",
+                                    href: "/admin",
+                                    className: "text-gray-600 hover:text-black font-medium transition-colors",
+                                    children: "Admin"
+                                }, void 0, false, {
+                                    fileName: "[project]/frontend/components/Navbar.jsx",
+                                    lineNumber: 58,
+                                    columnNumber: 40
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "[project]/frontend/components/Navbar.jsx",
+                            lineNumber: 54,
+                            columnNumber: 11
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            "data-orchids-id": "components\\Navbar.jsx:60:10",
+                            "data-orchids-name": "div",
+                            className: "hidden md:flex items-center gap-3",
+                            children: user ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
+                                        "data-orchids-id": "components\\Navbar.jsx:63:16",
+                                        "data-orchids-name": "Link",
+                                        href: "/cart",
+                                        className: "relative p-2 rounded-full hover:bg-gray-100 transition-colors",
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$shopping$2d$cart$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__ShoppingCart$3e$__["ShoppingCart"], {
+                                                "data-orchids-id": "components\\Navbar.jsx:64:18",
+                                                "data-orchids-name": "ShoppingCart",
+                                                size: 22,
+                                                className: "text-gray-600"
+                                            }, void 0, false, {
+                                                fileName: "[project]/frontend/components/Navbar.jsx",
+                                                lineNumber: 64,
+                                                columnNumber: 19
+                                            }, this),
+                                            cartCount > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                "data-orchids-id": "components\\Navbar.jsx:66:20",
+                                                "data-orchids-name": "span",
+                                                className: "absolute -top-0.5 -right-0.5 w-5 h-5 rounded-full bg-emerald-500 text-white text-xs font-bold flex items-center justify-center",
+                                                children: cartCount > 9 ? '9+' : cartCount
+                                            }, void 0, false, {
+                                                fileName: "[project]/frontend/components/Navbar.jsx",
+                                                lineNumber: 66,
+                                                columnNumber: 21
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/frontend/components/Navbar.jsx",
+                                        lineNumber: 63,
+                                        columnNumber: 17
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        "data-orchids-id": "components\\Navbar.jsx:71:16@profileRef",
+                                        "data-orchids-name": "div",
+                                        className: "relative",
+                                        ref: profileRef,
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                                "data-orchids-id": "components\\Navbar.jsx:72:18",
+                                                "data-orchids-name": "button",
+                                                onClick: ()=>setProfileOpen(!profileOpen),
+                                                className: "flex items-center gap-2 px-2 py-1.5 rounded-full hover:bg-gray-100 transition-all",
+                                                children: [
+                                                    (user === null || user === void 0 ? void 0 : user.avatar) || (user === null || user === void 0 ? void 0 : user.image) ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                        "data-orchids-id": "components\\Navbar.jsx:74:22",
+                                                        "data-orchids-name": "div",
+                                                        className: "relative w-9 h-9 rounded-full overflow-hidden",
+                                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
+                                                            "data-orchids-id": "components\\Navbar.jsx:75:24",
+                                                            "data-orchids-name": "img",
+                                                            src: user.avatar || user.image,
+                                                            alt: user.name,
+                                                            fill: true,
+                                                            className: "object-cover"
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/frontend/components/Navbar.jsx",
+                                                            lineNumber: 75,
+                                                            columnNumber: 25
+                                                        }, this)
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/frontend/components/Navbar.jsx",
+                                                        lineNumber: 74,
+                                                        columnNumber: 23
+                                                    }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                        "data-orchids-id": "components\\Navbar.jsx:78:22",
+                                                        "data-orchids-name": "div",
+                                                        className: "w-9 h-9 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold",
+                                                        children: (user === null || user === void 0 ? void 0 : (_user_name = user.name) === null || _user_name === void 0 ? void 0 : (_user_name_charAt = _user_name.charAt(0)) === null || _user_name_charAt === void 0 ? void 0 : _user_name_charAt.toUpperCase()) || 'U'
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/frontend/components/Navbar.jsx",
+                                                        lineNumber: 78,
+                                                        columnNumber: 23
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                        "data-orchids-id": "components\\Navbar.jsx:82:20",
+                                                        "data-orchids-name": "span",
+                                                        className: "font-medium text-sm text-gray-700 max-w-[100px] truncate",
+                                                        children: user.name
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/frontend/components/Navbar.jsx",
+                                                        lineNumber: 82,
+                                                        columnNumber: 21
+                                                    }, this)
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/frontend/components/Navbar.jsx",
+                                                lineNumber: 72,
+                                                columnNumber: 19
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$components$2f$AnimatePresence$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["AnimatePresence"], {
+                                                "data-orchids-id": "components\\Navbar.jsx:84:18",
+                                                "data-orchids-name": "AnimatePresence",
+                                                children: profileOpen && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
+                                                    "data-orchids-id": "components\\Navbar.jsx:86:22",
+                                                    "data-orchids-name": "motion.div",
+                                                    initial: {
+                                                        opacity: 0,
+                                                        y: -8
+                                                    },
+                                                    animate: {
+                                                        opacity: 1,
+                                                        y: 0
+                                                    },
+                                                    exit: {
+                                                        opacity: 0,
+                                                        y: -8
+                                                    },
+                                                    transition: {
+                                                        duration: 0.15
+                                                    },
+                                                    className: "absolute right-0 mt-2 w-56 bg-white rounded-2xl border border-gray-100 shadow-xl py-2 overflow-hidden",
+                                                    children: [
+                                                        profileLinks.map((link)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
+                                                                "data-orchids-id": "components\\Navbar.jsx:88:26@profileLinks",
+                                                                "data-orchids-name": "Link",
+                                                                href: link.href,
+                                                                onClick: ()=>setProfileOpen(false),
+                                                                className: "flex items-center gap-3 px-4 py-3 text-gray-700 hover:bg-gray-50 font-medium text-sm",
+                                                                children: [
+                                                                    link.icon,
+                                                                    link.label
+                                                                ]
+                                                            }, link.label, true, {
+                                                                fileName: "[project]/frontend/components/Navbar.jsx",
+                                                                lineNumber: 88,
+                                                                columnNumber: 27
+                                                            }, this)),
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                                            "data-orchids-id": "components\\Navbar.jsx:93:24@handleLogout",
+                                                            "data-orchids-name": "button",
+                                                            onClick: handleLogout,
+                                                            className: "w-full flex items-center gap-3 px-4 py-3 text-red-600 hover:bg-red-50 font-medium text-sm",
+                                                            children: [
+                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$log$2d$out$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__LogOut$3e$__["LogOut"], {
+                                                                    "data-orchids-id": "components\\Navbar.jsx:94:26",
+                                                                    "data-orchids-name": "LogOut",
+                                                                    size: 18
+                                                                }, void 0, false, {
+                                                                    fileName: "[project]/frontend/components/Navbar.jsx",
+                                                                    lineNumber: 94,
+                                                                    columnNumber: 27
+                                                                }, this),
+                                                                " Logout"
+                                                            ]
+                                                        }, void 0, true, {
+                                                            fileName: "[project]/frontend/components/Navbar.jsx",
+                                                            lineNumber: 93,
+                                                            columnNumber: 25
+                                                        }, this)
+                                                    ]
+                                                }, void 0, true, {
+                                                    fileName: "[project]/frontend/components/Navbar.jsx",
+                                                    lineNumber: 86,
+                                                    columnNumber: 23
+                                                }, this)
+                                            }, void 0, false, {
+                                                fileName: "[project]/frontend/components/Navbar.jsx",
+                                                lineNumber: 84,
+                                                columnNumber: 19
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/frontend/components/Navbar.jsx",
+                                        lineNumber: 71,
+                                        columnNumber: 17
+                                    }, this)
+                                ]
+                            }, void 0, true) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                "data-orchids-id": "components\\Navbar.jsx:102:14",
+                                "data-orchids-name": "div",
+                                className: "flex items-center gap-3",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
+                                        "data-orchids-id": "components\\Navbar.jsx:103:16",
+                                        "data-orchids-name": "Link",
+                                        href: "/login",
+                                        className: "px-5 py-2 text-gray-600 font-medium hover:text-black transition-colors",
+                                        children: "Login"
+                                    }, void 0, false, {
+                                        fileName: "[project]/frontend/components/Navbar.jsx",
+                                        lineNumber: 103,
+                                        columnNumber: 17
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
+                                        "data-orchids-id": "components\\Navbar.jsx:104:16",
+                                        "data-orchids-name": "Link",
+                                        href: "/register",
+                                        className: "px-6 py-2 bg-black text-white rounded-full font-medium hover:bg-gray-800 transition-all shadow-lg hover:shadow-black/20",
+                                        children: "Sign Up"
+                                    }, void 0, false, {
+                                        fileName: "[project]/frontend/components/Navbar.jsx",
+                                        lineNumber: 104,
+                                        columnNumber: 17
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/frontend/components/Navbar.jsx",
+                                lineNumber: 102,
+                                columnNumber: 15
+                            }, this)
+                        }, void 0, false, {
+                            fileName: "[project]/frontend/components/Navbar.jsx",
+                            lineNumber: 60,
+                            columnNumber: 11
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            "data-orchids-id": "components\\Navbar.jsx:108:10",
+                            "data-orchids-name": "div",
+                            className: "md:hidden flex items-center gap-2",
+                            children: [
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
+                                    "data-orchids-id": "components\\Navbar.jsx:109:12",
+                                    "data-orchids-name": "Link",
+                                    href: "/cart",
+                                    className: "relative p-2",
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$shopping$2d$cart$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__ShoppingCart$3e$__["ShoppingCart"], {
+                                            "data-orchids-id": "components\\Navbar.jsx:110:14",
+                                            "data-orchids-name": "ShoppingCart",
+                                            size: 22,
+                                            className: "text-gray-600"
+                                        }, void 0, false, {
+                                            fileName: "[project]/frontend/components/Navbar.jsx",
+                                            lineNumber: 110,
+                                            columnNumber: 15
+                                        }, this),
+                                        cartCount > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                            "data-orchids-id": "components\\Navbar.jsx:112:16",
+                                            "data-orchids-name": "span",
+                                            className: "absolute top-0 right-0 w-4 h-4 rounded-full bg-emerald-500 text-white text-[10px] font-bold flex items-center justify-center",
+                                            children: cartCount > 9 ? '9+' : cartCount
+                                        }, void 0, false, {
+                                            fileName: "[project]/frontend/components/Navbar.jsx",
+                                            lineNumber: 112,
+                                            columnNumber: 17
+                                        }, this)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "[project]/frontend/components/Navbar.jsx",
+                                    lineNumber: 109,
+                                    columnNumber: 13
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                    "data-orchids-id": "components\\Navbar.jsx:117:12",
+                                    "data-orchids-name": "button",
+                                    onClick: ()=>setIsOpen(!isOpen),
+                                    children: isOpen ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$x$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__X$3e$__["X"], {
+                                        "data-orchids-id": "components\\Navbar.jsx:117:65",
+                                        "data-orchids-name": "X",
+                                        size: 24
+                                    }, void 0, false, {
+                                        fileName: "[project]/frontend/components/Navbar.jsx",
+                                        lineNumber: 117,
+                                        columnNumber: 140
+                                    }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$menu$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Menu$3e$__["Menu"], {
+                                        "data-orchids-id": "components\\Navbar.jsx:117:83",
+                                        "data-orchids-name": "Menu",
+                                        size: 24
+                                    }, void 0, false, {
+                                        fileName: "[project]/frontend/components/Navbar.jsx",
+                                        lineNumber: 117,
+                                        columnNumber: 227
+                                    }, this)
+                                }, void 0, false, {
+                                    fileName: "[project]/frontend/components/Navbar.jsx",
+                                    lineNumber: 117,
+                                    columnNumber: 13
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "[project]/frontend/components/Navbar.jsx",
+                            lineNumber: 108,
+                            columnNumber: 11
+                        }, this)
+                    ]
+                }, void 0, true, {
+                    fileName: "[project]/frontend/components/Navbar.jsx",
+                    lineNumber: 50,
+                    columnNumber: 9
+                }, this)
+            }, void 0, false, {
+                fileName: "[project]/frontend/components/Navbar.jsx",
+                lineNumber: 49,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$components$2f$AnimatePresence$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["AnimatePresence"], {
+                "data-orchids-id": "components\\Navbar.jsx:121:6",
+                "data-orchids-name": "AnimatePresence",
+                children: isOpen && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
+                    "data-orchids-id": "components\\Navbar.jsx:123:10",
+                    "data-orchids-name": "motion.div",
+                    initial: {
+                        opacity: 0,
+                        y: -20
+                    },
+                    animate: {
+                        opacity: 1,
+                        y: 0
+                    },
+                    exit: {
+                        opacity: 0,
+                        y: -20
+                    },
+                    className: "md:hidden bg-white border-t p-4 space-y-2 shadow-xl",
+                    children: [
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
+                            "data-orchids-id": "components\\Navbar.jsx:124:12",
+                            "data-orchids-name": "Link",
+                            href: "/products",
+                            className: "block py-3 font-medium text-gray-600",
+                            onClick: ()=>setIsOpen(false),
+                            children: "Browse Rentals"
+                        }, void 0, false, {
+                            fileName: "[project]/frontend/components/Navbar.jsx",
+                            lineNumber: 124,
+                            columnNumber: 13
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
+                            "data-orchids-id": "components\\Navbar.jsx:125:12",
+                            "data-orchids-name": "Link",
+                            href: "/discover",
+                            className: "block py-3 font-medium text-gray-600",
+                            onClick: ()=>setIsOpen(false),
+                            children: "Discover"
+                        }, void 0, false, {
+                            fileName: "[project]/frontend/components/Navbar.jsx",
+                            lineNumber: 125,
+                            columnNumber: 13
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
+                            "data-orchids-id": "components\\Navbar.jsx:126:12",
+                            "data-orchids-name": "Link",
+                            href: "/cart",
+                            className: "block py-3 font-medium text-gray-600",
+                            onClick: ()=>setIsOpen(false),
+                            children: [
+                                "Cart ",
+                                cartCount > 0 && "(".concat(cartCount, ")")
+                            ]
+                        }, void 0, true, {
+                            fileName: "[project]/frontend/components/Navbar.jsx",
+                            lineNumber: 126,
+                            columnNumber: 13
+                        }, this),
+                        user && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
+                            children: [
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
+                                    "data-orchids-id": "components\\Navbar.jsx:129:16",
+                                    "data-orchids-name": "Link",
+                                    href: "/dashboard",
+                                    className: "block py-3 font-medium text-gray-600",
+                                    onClick: ()=>setIsOpen(false),
+                                    children: "My Rentals"
+                                }, void 0, false, {
+                                    fileName: "[project]/frontend/components/Navbar.jsx",
+                                    lineNumber: 129,
+                                    columnNumber: 17
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
+                                    "data-orchids-id": "components\\Navbar.jsx:130:16",
+                                    "data-orchids-name": "Link",
+                                    href: "/wishlist",
+                                    className: "block py-3 font-medium text-gray-600",
+                                    onClick: ()=>setIsOpen(false),
+                                    children: "Wishlist"
+                                }, void 0, false, {
+                                    fileName: "[project]/frontend/components/Navbar.jsx",
+                                    lineNumber: 130,
+                                    columnNumber: 17
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
+                                    "data-orchids-id": "components\\Navbar.jsx:131:16",
+                                    "data-orchids-name": "Link",
+                                    href: "/profile",
+                                    className: "block py-3 font-medium text-gray-600",
+                                    onClick: ()=>setIsOpen(false),
+                                    children: "Profile"
+                                }, void 0, false, {
+                                    fileName: "[project]/frontend/components/Navbar.jsx",
+                                    lineNumber: 131,
+                                    columnNumber: 17
+                                }, this),
+                                user.role === 'seller' && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
+                                    "data-orchids-id": "components\\Navbar.jsx:132:43",
+                                    "data-orchids-name": "Link",
+                                    href: "/seller/dashboard",
+                                    className: "block py-3 font-medium text-gray-600",
+                                    onClick: ()=>setIsOpen(false),
+                                    children: "Seller Panel"
+                                }, void 0, false, {
+                                    fileName: "[project]/frontend/components/Navbar.jsx",
+                                    lineNumber: 132,
+                                    columnNumber: 44
+                                }, this)
+                            ]
+                        }, void 0, true),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            "data-orchids-id": "components\\Navbar.jsx:135:12",
+                            "data-orchids-name": "div",
+                            className: "pt-4 border-t",
+                            children: user ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                "data-orchids-id": "components\\Navbar.jsx:137:16",
+                                "data-orchids-name": "button",
+                                onClick: ()=>{
+                                    handleLogout();
+                                    setIsOpen(false);
+                                },
+                                className: "w-full flex items-center justify-center gap-2 py-3 bg-red-50 text-red-600 rounded-xl font-bold",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$log$2d$out$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__LogOut$3e$__["LogOut"], {
+                                        "data-orchids-id": "components\\Navbar.jsx:138:18",
+                                        "data-orchids-name": "LogOut",
+                                        size: 20
+                                    }, void 0, false, {
+                                        fileName: "[project]/frontend/components/Navbar.jsx",
+                                        lineNumber: 138,
+                                        columnNumber: 19
+                                    }, this),
+                                    " Logout"
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/frontend/components/Navbar.jsx",
+                                lineNumber: 137,
+                                columnNumber: 17
+                            }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                "data-orchids-id": "components\\Navbar.jsx:141:16",
+                                "data-orchids-name": "div",
+                                className: "grid grid-cols-2 gap-3",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
+                                        "data-orchids-id": "components\\Navbar.jsx:142:18",
+                                        "data-orchids-name": "Link",
+                                        href: "/login",
+                                        className: "py-3 text-center bg-gray-100 rounded-xl font-bold",
+                                        onClick: ()=>setIsOpen(false),
+                                        children: "Login"
+                                    }, void 0, false, {
+                                        fileName: "[project]/frontend/components/Navbar.jsx",
+                                        lineNumber: 142,
+                                        columnNumber: 19
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
+                                        "data-orchids-id": "components\\Navbar.jsx:143:18",
+                                        "data-orchids-name": "Link",
+                                        href: "/register",
+                                        className: "py-3 text-center bg-black text-white rounded-xl font-bold",
+                                        onClick: ()=>setIsOpen(false),
+                                        children: "Sign Up"
+                                    }, void 0, false, {
+                                        fileName: "[project]/frontend/components/Navbar.jsx",
+                                        lineNumber: 143,
+                                        columnNumber: 19
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/frontend/components/Navbar.jsx",
+                                lineNumber: 141,
+                                columnNumber: 17
+                            }, this)
+                        }, void 0, false, {
+                            fileName: "[project]/frontend/components/Navbar.jsx",
+                            lineNumber: 135,
+                            columnNumber: 13
+                        }, this)
+                    ]
+                }, void 0, true, {
+                    fileName: "[project]/frontend/components/Navbar.jsx",
+                    lineNumber: 123,
+                    columnNumber: 11
+                }, this)
+            }, void 0, false, {
+                fileName: "[project]/frontend/components/Navbar.jsx",
+                lineNumber: 121,
+                columnNumber: 7
+            }, this)
+        ]
+    }, void 0, true, {
+        fileName: "[project]/frontend/components/Navbar.jsx",
+        lineNumber: 48,
+        columnNumber: 5
+    }, this);
+}
+_s(Navbar, "w5WJ6lmKkgpb+uHaJ8v0mRRoATI=", false, function() {
+    return [
+        __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$react$2d$redux$2f$dist$2f$react$2d$redux$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useDispatch"],
+        __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$react$2d$redux$2f$dist$2f$react$2d$redux$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useSelector"],
+        __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$react$2d$redux$2f$dist$2f$react$2d$redux$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useSelector"]
+    ];
+});
+_c = Navbar;
+var _c;
+__turbopack_context__.k.register(_c, "Navbar");
+if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
+    __turbopack_context__.k.registerExports(__turbopack_context__.m, globalThis.$RefreshHelpers$);
+}
+}),
+"[project]/frontend/components/Footer.jsx [app-client] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([
+    "default",
+    ()=>Footer
+]);
+var __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/frontend/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/frontend/node_modules/next/dist/client/app-dir/link.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$facebook$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Facebook$3e$__ = __turbopack_context__.i("[project]/frontend/node_modules/lucide-react/dist/esm/icons/facebook.js [app-client] (ecmascript) <export default as Facebook>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$twitter$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Twitter$3e$__ = __turbopack_context__.i("[project]/frontend/node_modules/lucide-react/dist/esm/icons/twitter.js [app-client] (ecmascript) <export default as Twitter>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$instagram$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Instagram$3e$__ = __turbopack_context__.i("[project]/frontend/node_modules/lucide-react/dist/esm/icons/instagram.js [app-client] (ecmascript) <export default as Instagram>");
+;
+;
+;
+function Footer() {
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("footer", {
+        "data-orchids-id": "components\\Footer.jsx:6:4",
+        "data-orchids-name": "footer",
+        className: "bg-white border-t border-gray-100",
+        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+            "data-orchids-id": "components\\Footer.jsx:7:6",
+            "data-orchids-name": "div",
+            className: "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12",
+            children: [
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    "data-orchids-id": "components\\Footer.jsx:8:8",
+                    "data-orchids-name": "div",
+                    className: "grid grid-cols-1 md:grid-cols-4 gap-8",
+                    children: [
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            "data-orchids-id": "components\\Footer.jsx:9:10",
+                            "data-orchids-name": "div",
+                            className: "space-y-4",
+                            children: [
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
+                                    "data-orchids-id": "components\\Footer.jsx:10:12",
+                                    "data-orchids-name": "Link",
+                                    href: "/",
+                                    className: "flex items-center gap-2",
+                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                        "data-orchids-id": "components\\Footer.jsx:11:14",
+                                        "data-orchids-name": "span",
+                                        className: "text-xl font-bold tracking-tighter text-black",
+                                        children: [
+                                            "LUXE",
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                "data-orchids-id": "components\\Footer.jsx:11:82",
+                                                "data-orchids-name": "span",
+                                                className: "text-emerald-600",
+                                                children: "RENT"
+                                            }, void 0, false, {
+                                                fileName: "[project]/frontend/components/Footer.jsx",
+                                                lineNumber: 11,
+                                                columnNumber: 154
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/frontend/components/Footer.jsx",
+                                        lineNumber: 11,
+                                        columnNumber: 15
+                                    }, this)
+                                }, void 0, false, {
+                                    fileName: "[project]/frontend/components/Footer.jsx",
+                                    lineNumber: 10,
+                                    columnNumber: 13
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                    "data-orchids-id": "components\\Footer.jsx:13:12",
+                                    "data-orchids-name": "p",
+                                    className: "text-gray-500 text-sm leading-relaxed",
+                                    children: "Premium rental marketplace for the modern world. Rent verified high-end products with ease."
+                                }, void 0, false, {
+                                    fileName: "[project]/frontend/components/Footer.jsx",
+                                    lineNumber: 13,
+                                    columnNumber: 13
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    "data-orchids-id": "components\\Footer.jsx:16:12",
+                                    "data-orchids-name": "div",
+                                    className: "flex gap-4",
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
+                                            "data-orchids-id": "components\\Footer.jsx:17:14",
+                                            "data-orchids-name": "a",
+                                            href: "#",
+                                            className: "text-gray-400 hover:text-black transition-colors",
+                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$instagram$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Instagram$3e$__["Instagram"], {
+                                                "data-orchids-id": "components\\Footer.jsx:17:87",
+                                                "data-orchids-name": "Instagram",
+                                                size: 20
+                                            }, void 0, false, {
+                                                fileName: "[project]/frontend/components/Footer.jsx",
+                                                lineNumber: 17,
+                                                columnNumber: 156
+                                            }, this)
+                                        }, void 0, false, {
+                                            fileName: "[project]/frontend/components/Footer.jsx",
+                                            lineNumber: 17,
+                                            columnNumber: 15
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
+                                            "data-orchids-id": "components\\Footer.jsx:18:14",
+                                            "data-orchids-name": "a",
+                                            href: "#",
+                                            className: "text-gray-400 hover:text-black transition-colors",
+                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$twitter$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Twitter$3e$__["Twitter"], {
+                                                "data-orchids-id": "components\\Footer.jsx:18:87",
+                                                "data-orchids-name": "Twitter",
+                                                size: 20
+                                            }, void 0, false, {
+                                                fileName: "[project]/frontend/components/Footer.jsx",
+                                                lineNumber: 18,
+                                                columnNumber: 156
+                                            }, this)
+                                        }, void 0, false, {
+                                            fileName: "[project]/frontend/components/Footer.jsx",
+                                            lineNumber: 18,
+                                            columnNumber: 15
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
+                                            "data-orchids-id": "components\\Footer.jsx:19:14",
+                                            "data-orchids-name": "a",
+                                            href: "#",
+                                            className: "text-gray-400 hover:text-black transition-colors",
+                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$facebook$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Facebook$3e$__["Facebook"], {
+                                                "data-orchids-id": "components\\Footer.jsx:19:87",
+                                                "data-orchids-name": "Facebook",
+                                                size: 20
+                                            }, void 0, false, {
+                                                fileName: "[project]/frontend/components/Footer.jsx",
+                                                lineNumber: 19,
+                                                columnNumber: 156
+                                            }, this)
+                                        }, void 0, false, {
+                                            fileName: "[project]/frontend/components/Footer.jsx",
+                                            lineNumber: 19,
+                                            columnNumber: 15
+                                        }, this)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "[project]/frontend/components/Footer.jsx",
+                                    lineNumber: 16,
+                                    columnNumber: 13
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "[project]/frontend/components/Footer.jsx",
+                            lineNumber: 9,
+                            columnNumber: 11
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            "data-orchids-id": "components\\Footer.jsx:22:10",
+                            "data-orchids-name": "div",
+                            children: [
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h4", {
+                                    "data-orchids-id": "components\\Footer.jsx:23:12",
+                                    "data-orchids-name": "h4",
+                                    className: "font-bold mb-4",
+                                    children: "Marketplace"
+                                }, void 0, false, {
+                                    fileName: "[project]/frontend/components/Footer.jsx",
+                                    lineNumber: 23,
+                                    columnNumber: 13
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
+                                    "data-orchids-id": "components\\Footer.jsx:24:12",
+                                    "data-orchids-name": "ul",
+                                    className: "space-y-2 text-sm text-gray-500",
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
+                                            "data-orchids-id": "components\\Footer.jsx:25:14",
+                                            "data-orchids-name": "li",
+                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
+                                                "data-orchids-id": "components\\Footer.jsx:25:18",
+                                                "data-orchids-name": "Link",
+                                                href: "/products",
+                                                className: "hover:text-black",
+                                                children: "Browse All"
+                                            }, void 0, false, {
+                                                fileName: "[project]/frontend/components/Footer.jsx",
+                                                lineNumber: 25,
+                                                columnNumber: 88
+                                            }, this)
+                                        }, void 0, false, {
+                                            fileName: "[project]/frontend/components/Footer.jsx",
+                                            lineNumber: 25,
+                                            columnNumber: 15
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
+                                            "data-orchids-id": "components\\Footer.jsx:26:14",
+                                            "data-orchids-name": "li",
+                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
+                                                "data-orchids-id": "components\\Footer.jsx:26:18",
+                                                "data-orchids-name": "Link",
+                                                href: "/products?category=Electronics",
+                                                className: "hover:text-black",
+                                                children: "Electronics"
+                                            }, void 0, false, {
+                                                fileName: "[project]/frontend/components/Footer.jsx",
+                                                lineNumber: 26,
+                                                columnNumber: 88
+                                            }, this)
+                                        }, void 0, false, {
+                                            fileName: "[project]/frontend/components/Footer.jsx",
+                                            lineNumber: 26,
+                                            columnNumber: 15
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
+                                            "data-orchids-id": "components\\Footer.jsx:27:14",
+                                            "data-orchids-name": "li",
+                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
+                                                "data-orchids-id": "components\\Footer.jsx:27:18",
+                                                "data-orchids-name": "Link",
+                                                href: "/products?category=Furniture",
+                                                className: "hover:text-black",
+                                                children: "Furniture"
+                                            }, void 0, false, {
+                                                fileName: "[project]/frontend/components/Footer.jsx",
+                                                lineNumber: 27,
+                                                columnNumber: 88
+                                            }, this)
+                                        }, void 0, false, {
+                                            fileName: "[project]/frontend/components/Footer.jsx",
+                                            lineNumber: 27,
+                                            columnNumber: 15
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
+                                            "data-orchids-id": "components\\Footer.jsx:28:14",
+                                            "data-orchids-name": "li",
+                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
+                                                "data-orchids-id": "components\\Footer.jsx:28:18",
+                                                "data-orchids-name": "Link",
+                                                href: "/products?category=Photography",
+                                                className: "hover:text-black",
+                                                children: "Photography"
+                                            }, void 0, false, {
+                                                fileName: "[project]/frontend/components/Footer.jsx",
+                                                lineNumber: 28,
+                                                columnNumber: 88
+                                            }, this)
+                                        }, void 0, false, {
+                                            fileName: "[project]/frontend/components/Footer.jsx",
+                                            lineNumber: 28,
+                                            columnNumber: 15
+                                        }, this)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "[project]/frontend/components/Footer.jsx",
+                                    lineNumber: 24,
+                                    columnNumber: 13
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "[project]/frontend/components/Footer.jsx",
+                            lineNumber: 22,
+                            columnNumber: 11
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            "data-orchids-id": "components\\Footer.jsx:31:10",
+                            "data-orchids-name": "div",
+                            children: [
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h4", {
+                                    "data-orchids-id": "components\\Footer.jsx:32:12",
+                                    "data-orchids-name": "h4",
+                                    className: "font-bold mb-4",
+                                    children: "Support"
+                                }, void 0, false, {
+                                    fileName: "[project]/frontend/components/Footer.jsx",
+                                    lineNumber: 32,
+                                    columnNumber: 13
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
+                                    "data-orchids-id": "components\\Footer.jsx:33:12",
+                                    "data-orchids-name": "ul",
+                                    className: "space-y-2 text-sm text-gray-500",
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
+                                            "data-orchids-id": "components\\Footer.jsx:34:14",
+                                            "data-orchids-name": "li",
+                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
+                                                "data-orchids-id": "components\\Footer.jsx:34:18",
+                                                "data-orchids-name": "Link",
+                                                href: "#",
+                                                className: "hover:text-black",
+                                                children: "Help Center"
+                                            }, void 0, false, {
+                                                fileName: "[project]/frontend/components/Footer.jsx",
+                                                lineNumber: 34,
+                                                columnNumber: 88
+                                            }, this)
+                                        }, void 0, false, {
+                                            fileName: "[project]/frontend/components/Footer.jsx",
+                                            lineNumber: 34,
+                                            columnNumber: 15
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
+                                            "data-orchids-id": "components\\Footer.jsx:35:14",
+                                            "data-orchids-name": "li",
+                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
+                                                "data-orchids-id": "components\\Footer.jsx:35:18",
+                                                "data-orchids-name": "Link",
+                                                href: "#",
+                                                className: "hover:text-black",
+                                                children: "Rental Policies"
+                                            }, void 0, false, {
+                                                fileName: "[project]/frontend/components/Footer.jsx",
+                                                lineNumber: 35,
+                                                columnNumber: 88
+                                            }, this)
+                                        }, void 0, false, {
+                                            fileName: "[project]/frontend/components/Footer.jsx",
+                                            lineNumber: 35,
+                                            columnNumber: 15
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
+                                            "data-orchids-id": "components\\Footer.jsx:36:14",
+                                            "data-orchids-name": "li",
+                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
+                                                "data-orchids-id": "components\\Footer.jsx:36:18",
+                                                "data-orchids-name": "Link",
+                                                href: "#",
+                                                className: "hover:text-black",
+                                                children: "Safety Guidelines"
+                                            }, void 0, false, {
+                                                fileName: "[project]/frontend/components/Footer.jsx",
+                                                lineNumber: 36,
+                                                columnNumber: 88
+                                            }, this)
+                                        }, void 0, false, {
+                                            fileName: "[project]/frontend/components/Footer.jsx",
+                                            lineNumber: 36,
+                                            columnNumber: 15
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
+                                            "data-orchids-id": "components\\Footer.jsx:37:14",
+                                            "data-orchids-name": "li",
+                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
+                                                "data-orchids-id": "components\\Footer.jsx:37:18",
+                                                "data-orchids-name": "Link",
+                                                href: "#",
+                                                className: "hover:text-black",
+                                                children: "Contact Us"
+                                            }, void 0, false, {
+                                                fileName: "[project]/frontend/components/Footer.jsx",
+                                                lineNumber: 37,
+                                                columnNumber: 88
+                                            }, this)
+                                        }, void 0, false, {
+                                            fileName: "[project]/frontend/components/Footer.jsx",
+                                            lineNumber: 37,
+                                            columnNumber: 15
+                                        }, this)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "[project]/frontend/components/Footer.jsx",
+                                    lineNumber: 33,
+                                    columnNumber: 13
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "[project]/frontend/components/Footer.jsx",
+                            lineNumber: 31,
+                            columnNumber: 11
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            "data-orchids-id": "components\\Footer.jsx:40:10",
+                            "data-orchids-name": "div",
+                            children: [
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h4", {
+                                    "data-orchids-id": "components\\Footer.jsx:41:12",
+                                    "data-orchids-name": "h4",
+                                    className: "font-bold mb-4",
+                                    children: "Newsletter"
+                                }, void 0, false, {
+                                    fileName: "[project]/frontend/components/Footer.jsx",
+                                    lineNumber: 41,
+                                    columnNumber: 13
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                    "data-orchids-id": "components\\Footer.jsx:42:12",
+                                    "data-orchids-name": "p",
+                                    className: "text-sm text-gray-500 mb-4",
+                                    children: "Subscribe to get updates on new premium listings."
+                                }, void 0, false, {
+                                    fileName: "[project]/frontend/components/Footer.jsx",
+                                    lineNumber: 42,
+                                    columnNumber: 13
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    "data-orchids-id": "components\\Footer.jsx:43:12",
+                                    "data-orchids-name": "div",
+                                    className: "flex gap-2",
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                            "data-orchids-id": "components\\Footer.jsx:44:14",
+                                            "data-orchids-name": "input",
+                                            type: "email",
+                                            placeholder: "Email address",
+                                            className: "bg-gray-50 border border-gray-200 rounded-lg px-3 py-2 text-sm flex-1 focus:outline-none focus:ring-1 focus:ring-emerald-500"
+                                        }, void 0, false, {
+                                            fileName: "[project]/frontend/components/Footer.jsx",
+                                            lineNumber: 44,
+                                            columnNumber: 15
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                            "data-orchids-id": "components\\Footer.jsx:45:14",
+                                            "data-orchids-name": "button",
+                                            className: "bg-black text-white px-4 py-2 rounded-lg text-sm font-medium",
+                                            children: "Join"
+                                        }, void 0, false, {
+                                            fileName: "[project]/frontend/components/Footer.jsx",
+                                            lineNumber: 45,
+                                            columnNumber: 15
+                                        }, this)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "[project]/frontend/components/Footer.jsx",
+                                    lineNumber: 43,
+                                    columnNumber: 13
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "[project]/frontend/components/Footer.jsx",
+                            lineNumber: 40,
+                            columnNumber: 11
+                        }, this)
+                    ]
+                }, void 0, true, {
+                    fileName: "[project]/frontend/components/Footer.jsx",
+                    lineNumber: 8,
+                    columnNumber: 9
+                }, this),
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    "data-orchids-id": "components\\Footer.jsx:49:8",
+                    "data-orchids-name": "div",
+                    className: "mt-12 pt-8 border-t border-gray-100 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-400",
+                    children: [
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                            "data-orchids-id": "components\\Footer.jsx:50:10",
+                            "data-orchids-name": "p",
+                            children: "© 2026 LuxeRent Marketplace. All rights reserved."
+                        }, void 0, false, {
+                            fileName: "[project]/frontend/components/Footer.jsx",
+                            lineNumber: 50,
+                            columnNumber: 11
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            "data-orchids-id": "components\\Footer.jsx:51:10",
+                            "data-orchids-name": "div",
+                            className: "flex gap-6",
+                            children: [
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
+                                    "data-orchids-id": "components\\Footer.jsx:52:12",
+                                    "data-orchids-name": "Link",
+                                    href: "#",
+                                    className: "hover:text-black transition-colors",
+                                    children: "Privacy Policy"
+                                }, void 0, false, {
+                                    fileName: "[project]/frontend/components/Footer.jsx",
+                                    lineNumber: 52,
+                                    columnNumber: 13
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
+                                    "data-orchids-id": "components\\Footer.jsx:53:12",
+                                    "data-orchids-name": "Link",
+                                    href: "#",
+                                    className: "hover:text-black transition-colors",
+                                    children: "Terms of Service"
+                                }, void 0, false, {
+                                    fileName: "[project]/frontend/components/Footer.jsx",
+                                    lineNumber: 53,
+                                    columnNumber: 13
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "[project]/frontend/components/Footer.jsx",
+                            lineNumber: 51,
+                            columnNumber: 11
+                        }, this)
+                    ]
+                }, void 0, true, {
+                    fileName: "[project]/frontend/components/Footer.jsx",
+                    lineNumber: 49,
+                    columnNumber: 9
+                }, this)
+            ]
+        }, void 0, true, {
+            fileName: "[project]/frontend/components/Footer.jsx",
+            lineNumber: 7,
+            columnNumber: 7
+        }, this)
+    }, void 0, false, {
+        fileName: "[project]/frontend/components/Footer.jsx",
+        lineNumber: 6,
+        columnNumber: 5
+    }, this);
+}
+_c = Footer;
+var _c;
+__turbopack_context__.k.register(_c, "Footer");
+if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
+    __turbopack_context__.k.registerExports(__turbopack_context__.m, globalThis.$RefreshHelpers$);
+}
+}),
+"[project]/frontend/app/seller/dashboard/page.jsx [app-client] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([
+    "default",
+    ()=>SellerDashboard
+]);
+var __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/frontend/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/frontend/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$axios$2f$lib$2f$axios$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/frontend/node_modules/axios/lib/axios.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$react$2d$redux$2f$dist$2f$react$2d$redux$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/frontend/node_modules/react-redux/dist/react-redux.mjs [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$store$2f$slices$2f$authSlice$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/frontend/store/slices/authSlice.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$components$2f$Navbar$2e$jsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/frontend/components/Navbar.jsx [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$components$2f$Footer$2e$jsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/frontend/components/Footer.jsx [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/frontend/node_modules/framer-motion/dist/es/render/components/motion/proxy.mjs [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$components$2f$AnimatePresence$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/frontend/node_modules/framer-motion/dist/es/components/AnimatePresence/index.mjs [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$plus$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Plus$3e$__ = __turbopack_context__.i("[project]/frontend/node_modules/lucide-react/dist/esm/icons/plus.js [app-client] (ecmascript) <export default as Plus>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$package$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Package$3e$__ = __turbopack_context__.i("[project]/frontend/node_modules/lucide-react/dist/esm/icons/package.js [app-client] (ecmascript) <export default as Package>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$dollar$2d$sign$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__DollarSign$3e$__ = __turbopack_context__.i("[project]/frontend/node_modules/lucide-react/dist/esm/icons/dollar-sign.js [app-client] (ecmascript) <export default as DollarSign>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$clock$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Clock$3e$__ = __turbopack_context__.i("[project]/frontend/node_modules/lucide-react/dist/esm/icons/clock.js [app-client] (ecmascript) <export default as Clock>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$circle$2d$check$2d$big$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__CheckCircle$3e$__ = __turbopack_context__.i("[project]/frontend/node_modules/lucide-react/dist/esm/icons/circle-check-big.js [app-client] (ecmascript) <export default as CheckCircle>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$loader$2d$circle$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Loader2$3e$__ = __turbopack_context__.i("[project]/frontend/node_modules/lucide-react/dist/esm/icons/loader-circle.js [app-client] (ecmascript) <export default as Loader2>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$settings$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Settings$3e$__ = __turbopack_context__.i("[project]/frontend/node_modules/lucide-react/dist/esm/icons/settings.js [app-client] (ecmascript) <export default as Settings>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$image$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Image$3e$__ = __turbopack_context__.i("[project]/frontend/node_modules/lucide-react/dist/esm/icons/image.js [app-client] (ecmascript) <export default as Image>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$react$2d$hot$2d$toast$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/frontend/node_modules/react-hot-toast/dist/index.mjs [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/frontend/node_modules/next/image.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/frontend/node_modules/next/dist/client/app-dir/link.js [app-client] (ecmascript)");
+;
+var _s = __turbopack_context__.k.signature();
+'use client';
+;
+;
+;
+;
+;
+;
+;
+;
+;
+;
+;
+const DEFAULT_AVATAR = 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop';
+const DEFAULT_BANNER = 'https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?w=1200&h=400&fit=crop';
+function SellerDashboard() {
+    _s();
+    const dispatch = (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$react$2d$redux$2f$dist$2f$react$2d$redux$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useDispatch"])();
+    const { user } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$react$2d$redux$2f$dist$2f$react$2d$redux$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useSelector"])({
+        "SellerDashboard.useSelector": (state)=>state.auth
+    }["SellerDashboard.useSelector"]);
+    const [tab, setTab] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])('overview');
+    const [products, setProducts] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])([]);
+    const [rentals, setRentals] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])([]);
+    const [loading, setLoading] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(true);
+    const [isModalOpen, setIsModalOpen] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
+    const [isSubmitting, setIsSubmitting] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
+    const [formData, setFormData] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])({
+        title: '',
+        description: '',
+        category: 'Electronics',
+        pricePerDay: '',
+        images: []
+    });
+    // Shop settings form (avatar/banner as files or preview URLs)
+    const [shopForm, setShopForm] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])({
+        bio: '',
+        location: '',
+        policies: '',
+        avatarFile: null,
+        bannerFile: null,
+        avatarPreview: '',
+        bannerPreview: ''
+    });
+    const [shopLoading, setShopLoading] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
+    const [shopSaving, setShopSaving] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
+    const loadShopProfile = (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useCallback"])({
+        "SellerDashboard.useCallback[loadShopProfile]": async ()=>{
+            setShopLoading(true);
+            try {
+                const res = await __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$axios$2f$lib$2f$axios$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].get('/api/auth/me');
+                const u = res.data.user;
+                setShopForm({
+                    "SellerDashboard.useCallback[loadShopProfile]": (prev)=>({
+                            ...prev,
+                            bio: u.bio || '',
+                            location: u.location || '',
+                            policies: u.policies || '',
+                            avatarPreview: u.avatar || DEFAULT_AVATAR,
+                            bannerPreview: u.shopBanner || DEFAULT_BANNER
+                        })
+                }["SellerDashboard.useCallback[loadShopProfile]"]);
+            } catch (e) {
+                __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$react$2d$hot$2d$toast$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["toast"].error('Failed to load shop profile');
+            } finally{
+                setShopLoading(false);
+            }
+        }
+    }["SellerDashboard.useCallback[loadShopProfile]"], []);
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
+        "SellerDashboard.useEffect": ()=>{
+            if (tab === 'shop') loadShopProfile();
+        }
+    }["SellerDashboard.useEffect"], [
+        tab,
+        loadShopProfile
+    ]);
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
+        "SellerDashboard.useEffect": ()=>{
+            const fetchData = {
+                "SellerDashboard.useEffect.fetchData": async ()=>{
+                    try {
+                        const [prodRes, rentRes] = await Promise.all([
+                            __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$axios$2f$lib$2f$axios$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].get("/api/products?seller=".concat(user === null || user === void 0 ? void 0 : user.id, "&approved=false")),
+                            __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$axios$2f$lib$2f$axios$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].get('/api/rentals')
+                        ]);
+                        setProducts(prodRes.data.products);
+                        setRentals(rentRes.data.rentals);
+                    } catch (err) {
+                        console.error(err);
+                    } finally{
+                        setLoading(false);
+                    }
+                }
+            }["SellerDashboard.useEffect.fetchData"];
+            if (user) fetchData();
+        }
+    }["SellerDashboard.useEffect"], [
+        user
+    ]);
+    const handleSubmit = async (e)=>{
+        e.preventDefault();
+        setIsSubmitting(true);
+        try {
+            const data = new FormData();
+            data.append('title', formData.title);
+            data.append('description', formData.description);
+            data.append('category', formData.category);
+            data.append('pricePerDay', formData.pricePerDay);
+            formData.images.forEach((img)=>data.append('images', img));
+            await __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$axios$2f$lib$2f$axios$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].post('/api/products', data);
+            __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$react$2d$hot$2d$toast$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["toast"].success('Product submitted for approval!');
+            setIsModalOpen(false);
+            const res = await __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$axios$2f$lib$2f$axios$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].get("/api/products?seller=".concat(user === null || user === void 0 ? void 0 : user.id, "&approved=false"));
+            setProducts(res.data.products);
+        } catch (err) {
+            var _err_response_data, _err_response;
+            __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$react$2d$hot$2d$toast$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["toast"].error(((_err_response = err.response) === null || _err_response === void 0 ? void 0 : (_err_response_data = _err_response.data) === null || _err_response_data === void 0 ? void 0 : _err_response_data.message) || 'Submission failed');
+        } finally{
+            setIsSubmitting(false);
+        }
+    };
+    const handleShopSubmit = async (e)=>{
+        e.preventDefault();
+        setShopSaving(true);
+        try {
+            const data = new FormData();
+            data.append('bio', shopForm.bio);
+            data.append('location', shopForm.location);
+            data.append('policies', shopForm.policies);
+            if (shopForm.avatarFile) data.append('avatar', shopForm.avatarFile);
+            if (shopForm.bannerFile) data.append('shopBanner', shopForm.bannerFile);
+            const res = await __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$axios$2f$lib$2f$axios$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].patch('/api/seller/profile', data);
+            __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$react$2d$hot$2d$toast$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["toast"].success('Shop profile updated!');
+            dispatch((0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$store$2f$slices$2f$authSlice$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["setUser"])(res.data.user));
+        } catch (err) {
+            var _err_response_data, _err_response;
+            __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$react$2d$hot$2d$toast$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["toast"].error(((_err_response = err.response) === null || _err_response === void 0 ? void 0 : (_err_response_data = _err_response.data) === null || _err_response_data === void 0 ? void 0 : _err_response_data.message) || 'Update failed');
+        } finally{
+            setShopSaving(false);
+        }
+    };
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("main", {
+        "data-orchids-id": "app\\seller\\dashboard\\page.jsx:135:4",
+        "data-orchids-name": "main",
+        className: "min-h-screen bg-gray-50/50",
+        children: [
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$components$2f$Navbar$2e$jsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
+                "data-orchids-id": "app\\seller\\dashboard\\page.jsx:136:6",
+                "data-orchids-name": "Navbar"
+            }, void 0, false, {
+                fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
+                lineNumber: 136,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                "data-orchids-id": "app\\seller\\dashboard\\page.jsx:138:6",
+                "data-orchids-name": "div",
+                className: "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20",
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("header", {
+                        "data-orchids-id": "app\\seller\\dashboard\\page.jsx:139:8",
+                        "data-orchids-name": "header",
+                        className: "flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-8",
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                "data-orchids-id": "app\\seller\\dashboard\\page.jsx:140:10",
+                                "data-orchids-name": "div",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
+                                        "data-orchids-id": "app\\seller\\dashboard\\page.jsx:141:12",
+                                        "data-orchids-name": "h1",
+                                        className: "text-4xl font-black tracking-tighter text-black mb-2",
+                                        children: "Seller Hub"
+                                    }, void 0, false, {
+                                        fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
+                                        lineNumber: 141,
+                                        columnNumber: 13
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                        "data-orchids-id": "app\\seller\\dashboard\\page.jsx:142:12",
+                                        "data-orchids-name": "p",
+                                        className: "text-gray-500",
+                                        children: "Manage your rental inventory and track your earnings."
+                                    }, void 0, false, {
+                                        fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
+                                        lineNumber: 142,
+                                        columnNumber: 13
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
+                                lineNumber: 140,
+                                columnNumber: 11
+                            }, this),
+                            tab === 'overview' && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                "data-orchids-id": "app\\seller\\dashboard\\page.jsx:145:12",
+                                "data-orchids-name": "button",
+                                onClick: ()=>setIsModalOpen(true),
+                                className: "px-8 py-4 bg-emerald-600 text-white rounded-2xl font-bold flex items-center gap-2 hover:bg-emerald-500 transition-all shadow-xl shadow-emerald-500/20",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$plus$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Plus$3e$__["Plus"], {
+                                        "data-orchids-id": "app\\seller\\dashboard\\page.jsx:149:14",
+                                        "data-orchids-name": "Plus",
+                                        size: 20
+                                    }, void 0, false, {
+                                        fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
+                                        lineNumber: 149,
+                                        columnNumber: 15
+                                    }, this),
+                                    " Add New Listing"
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
+                                lineNumber: 145,
+                                columnNumber: 13
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
+                        lineNumber: 139,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        "data-orchids-id": "app\\seller\\dashboard\\page.jsx:155:8",
+                        "data-orchids-name": "div",
+                        className: "flex gap-2 mb-10",
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                "data-orchids-id": "app\\seller\\dashboard\\page.jsx:156:10",
+                                "data-orchids-name": "button",
+                                onClick: ()=>setTab('overview'),
+                                className: "px-6 py-3 rounded-2xl text-sm font-bold transition-all ".concat(tab === 'overview' ? 'bg-black text-white shadow-lg' : 'bg-white text-gray-500 hover:bg-gray-50 border border-gray-100'),
+                                children: "Overview"
+                            }, void 0, false, {
+                                fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
+                                lineNumber: 156,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                "data-orchids-id": "app\\seller\\dashboard\\page.jsx:162:10",
+                                "data-orchids-name": "button",
+                                onClick: ()=>setTab('shop'),
+                                className: "px-6 py-3 rounded-2xl text-sm font-bold transition-all flex items-center gap-2 ".concat(tab === 'shop' ? 'bg-black text-white shadow-lg' : 'bg-white text-gray-500 hover:bg-gray-50 border border-gray-100'),
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$settings$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Settings$3e$__["Settings"], {
+                                        "data-orchids-id": "app\\seller\\dashboard\\page.jsx:166:12",
+                                        "data-orchids-name": "Settings",
+                                        size: 18
+                                    }, void 0, false, {
+                                        fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
+                                        lineNumber: 166,
+                                        columnNumber: 13
+                                    }, this),
+                                    " Shop Settings"
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
+                                lineNumber: 162,
+                                columnNumber: 11
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
+                        lineNumber: 155,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$components$2f$AnimatePresence$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["AnimatePresence"], {
+                        "data-orchids-id": "app\\seller\\dashboard\\page.jsx:170:8",
+                        "data-orchids-name": "AnimatePresence",
+                        mode: "wait",
+                        children: [
+                            tab === 'overview' && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
+                                "data-orchids-id": "app\\seller\\dashboard\\page.jsx:172:12",
+                                "data-orchids-name": "motion.div",
+                                initial: {
+                                    opacity: 0,
+                                    y: 8
+                                },
+                                animate: {
+                                    opacity: 1,
+                                    y: 0
+                                },
+                                exit: {
+                                    opacity: 0,
+                                    y: -8
+                                },
+                                className: "space-y-12",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        "data-orchids-id": "app\\seller\\dashboard\\page.jsx:174:8",
+                                        "data-orchids-name": "div",
+                                        className: "grid grid-cols-1 md:grid-cols-4 gap-6 mb-12",
+                                        children: [
+                                            {
+                                                label: 'Total Earnings',
+                                                value: "$".concat(rentals.reduce((acc, r)=>acc + (r.paymentStatus === 'paid' ? r.totalAmount : 0), 0)),
+                                                icon: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$dollar$2d$sign$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__DollarSign$3e$__["DollarSign"], {
+                                                    "data-orchids-id": "app\\seller\\dashboard\\page.jsx:176:145",
+                                                    "data-orchids-name": "DollarSign",
+                                                    className: "text-emerald-500"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
+                                                    lineNumber: 176,
+                                                    columnNumber: 146
+                                                }, this),
+                                                color: 'bg-emerald-50'
+                                            },
+                                            {
+                                                label: 'Active Products',
+                                                value: products.filter((p)=>p.isApproved).length,
+                                                icon: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$package$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Package$3e$__["Package"], {
+                                                    "data-orchids-id": "app\\seller\\dashboard\\page.jsx:177:98",
+                                                    "data-orchids-name": "Package",
+                                                    className: "text-blue-500"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
+                                                    lineNumber: 177,
+                                                    columnNumber: 99
+                                                }, this),
+                                                color: 'bg-blue-50'
+                                            },
+                                            {
+                                                label: 'Pending Approval',
+                                                value: products.filter((p)=>!p.isApproved).length,
+                                                icon: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$clock$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Clock$3e$__["Clock"], {
+                                                    "data-orchids-id": "app\\seller\\dashboard\\page.jsx:178:100",
+                                                    "data-orchids-name": "Clock",
+                                                    className: "text-amber-500"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
+                                                    lineNumber: 178,
+                                                    columnNumber: 101
+                                                }, this),
+                                                color: 'bg-amber-50'
+                                            },
+                                            {
+                                                label: 'Rental Requests',
+                                                value: rentals.length,
+                                                icon: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$circle$2d$check$2d$big$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__CheckCircle$3e$__["CheckCircle"], {
+                                                    "data-orchids-id": "app\\seller\\dashboard\\page.jsx:179:69",
+                                                    "data-orchids-name": "CheckCircle",
+                                                    className: "text-purple-500"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
+                                                    lineNumber: 179,
+                                                    columnNumber: 70
+                                                }, this),
+                                                color: 'bg-purple-50'
+                                            }
+                                        ].map((stat, i)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                "data-orchids-id": "app\\seller\\dashboard\\page.jsx:181:12",
+                                                "data-orchids-name": "div",
+                                                className: "bg-white p-8 rounded-[32px] border border-gray-100 shadow-sm flex items-center justify-between",
+                                                children: [
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                        "data-orchids-id": "app\\seller\\dashboard\\page.jsx:182:14",
+                                                        "data-orchids-name": "div",
+                                                        children: [
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                                "data-orchids-id": "app\\seller\\dashboard\\page.jsx:183:16",
+                                                                "data-orchids-name": "p",
+                                                                className: "text-[10px] font-black text-gray-400 uppercase tracking-widest mb-1",
+                                                                children: stat.label
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
+                                                                lineNumber: 183,
+                                                                columnNumber: 17
+                                                            }, this),
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                                "data-orchids-id": "app\\seller\\dashboard\\page.jsx:184:16",
+                                                                "data-orchids-name": "p",
+                                                                className: "text-2xl font-black text-black",
+                                                                children: stat.value
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
+                                                                lineNumber: 184,
+                                                                columnNumber: 17
+                                                            }, this)
+                                                        ]
+                                                    }, void 0, true, {
+                                                        fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
+                                                        lineNumber: 182,
+                                                        columnNumber: 15
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                        "data-orchids-id": "app\\seller\\dashboard\\page.jsx:186:14",
+                                                        "data-orchids-name": "div",
+                                                        className: "p-4 ".concat(stat.color, " rounded-2xl"),
+                                                        children: stat.icon
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
+                                                        lineNumber: 186,
+                                                        columnNumber: 15
+                                                    }, this)
+                                                ]
+                                            }, i, true, {
+                                                fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
+                                                lineNumber: 181,
+                                                columnNumber: 13
+                                            }, this))
+                                    }, void 0, false, {
+                                        fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
+                                        lineNumber: 174,
+                                        columnNumber: 9
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        "data-orchids-id": "app\\seller\\dashboard\\page.jsx:191:8",
+                                        "data-orchids-name": "div",
+                                        className: "grid lg:grid-cols-3 gap-12",
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
+                                                "data-orchids-id": "app\\seller\\dashboard\\page.jsx:193:10",
+                                                "data-orchids-name": "section",
+                                                className: "lg:col-span-2 bg-white rounded-[40px] border border-gray-100 shadow-sm overflow-hidden",
+                                                children: [
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                        "data-orchids-id": "app\\seller\\dashboard\\page.jsx:194:12",
+                                                        "data-orchids-name": "div",
+                                                        className: "p-8 border-b border-gray-50",
+                                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
+                                                            "data-orchids-id": "app\\seller\\dashboard\\page.jsx:195:14",
+                                                            "data-orchids-name": "h2",
+                                                            className: "text-xl font-black",
+                                                            children: "My Inventory"
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
+                                                            lineNumber: 195,
+                                                            columnNumber: 15
+                                                        }, this)
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
+                                                        lineNumber: 194,
+                                                        columnNumber: 13
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                        "data-orchids-id": "app\\seller\\dashboard\\page.jsx:197:12",
+                                                        "data-orchids-name": "div",
+                                                        className: "divide-y divide-gray-50",
+                                                        children: products.length > 0 ? products.map((product)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                "data-orchids-id": "app\\seller\\dashboard\\page.jsx:199:16@products",
+                                                                "data-orchids-name": "div",
+                                                                className: "p-8 flex items-center justify-between hover:bg-gray-50/50 transition-colors",
+                                                                children: [
+                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                        "data-orchids-id": "app\\seller\\dashboard\\page.jsx:200:18@products",
+                                                                        "data-orchids-name": "div",
+                                                                        className: "flex items-center gap-4",
+                                                                        children: [
+                                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
+                                                                                "data-orchids-id": "app\\seller\\dashboard\\page.jsx:201:20@products",
+                                                                                "data-orchids-name": "img",
+                                                                                src: product.images[0],
+                                                                                className: "w-16 h-16 rounded-2xl object-cover",
+                                                                                alt: ""
+                                                                            }, void 0, false, {
+                                                                                fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
+                                                                                lineNumber: 201,
+                                                                                columnNumber: 21
+                                                                            }, this),
+                                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                                "data-orchids-id": "app\\seller\\dashboard\\page.jsx:202:20@products",
+                                                                                "data-orchids-name": "div",
+                                                                                children: [
+                                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
+                                                                                        "data-orchids-id": "app\\seller\\dashboard\\page.jsx:203:22@products",
+                                                                                        "data-orchids-name": "h3",
+                                                                                        className: "font-bold text-black",
+                                                                                        children: product.title
+                                                                                    }, void 0, false, {
+                                                                                        fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
+                                                                                        lineNumber: 203,
+                                                                                        columnNumber: 23
+                                                                                    }, this),
+                                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                                                        "data-orchids-id": "app\\seller\\dashboard\\page.jsx:204:22@products",
+                                                                                        "data-orchids-name": "p",
+                                                                                        className: "text-sm text-gray-400",
+                                                                                        children: [
+                                                                                            product.category,
+                                                                                            " • $",
+                                                                                            product.pricePerDay,
+                                                                                            "/day"
+                                                                                        ]
+                                                                                    }, void 0, true, {
+                                                                                        fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
+                                                                                        lineNumber: 204,
+                                                                                        columnNumber: 23
+                                                                                    }, this)
+                                                                                ]
+                                                                            }, void 0, true, {
+                                                                                fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
+                                                                                lineNumber: 202,
+                                                                                columnNumber: 21
+                                                                            }, this)
+                                                                        ]
+                                                                    }, void 0, true, {
+                                                                        fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
+                                                                        lineNumber: 200,
+                                                                        columnNumber: 19
+                                                                    }, this),
+                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                        "data-orchids-id": "app\\seller\\dashboard\\page.jsx:207:18@products",
+                                                                        "data-orchids-name": "div",
+                                                                        className: "flex items-center gap-3",
+                                                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                            "data-orchids-id": "app\\seller\\dashboard\\page.jsx:208:20@products",
+                                                                            "data-orchids-name": "span",
+                                                                            className: "px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider ".concat(product.isApproved ? 'bg-emerald-50 text-emerald-600' : 'bg-amber-50 text-amber-600'),
+                                                                            children: product.isApproved ? 'Approved' : 'Pending'
+                                                                        }, void 0, false, {
+                                                                            fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
+                                                                            lineNumber: 208,
+                                                                            columnNumber: 21
+                                                                        }, this)
+                                                                    }, void 0, false, {
+                                                                        fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
+                                                                        lineNumber: 207,
+                                                                        columnNumber: 19
+                                                                    }, this)
+                                                                ]
+                                                            }, product._id, true, {
+                                                                fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
+                                                                lineNumber: 199,
+                                                                columnNumber: 17
+                                                            }, this)) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                            "data-orchids-id": "app\\seller\\dashboard\\page.jsx:214:16",
+                                                            "data-orchids-name": "div",
+                                                            className: "p-20 text-center text-gray-400 italic",
+                                                            children: "No products listed yet."
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
+                                                            lineNumber: 214,
+                                                            columnNumber: 17
+                                                        }, this)
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
+                                                        lineNumber: 197,
+                                                        columnNumber: 13
+                                                    }, this)
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
+                                                lineNumber: 193,
+                                                columnNumber: 11
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
+                                                "data-orchids-id": "app\\seller\\dashboard\\page.jsx:220:10",
+                                                "data-orchids-name": "section",
+                                                className: "bg-white rounded-[40px] border border-gray-100 shadow-sm overflow-hidden",
+                                                children: [
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                        "data-orchids-id": "app\\seller\\dashboard\\page.jsx:221:12",
+                                                        "data-orchids-name": "div",
+                                                        className: "p-8 border-b border-gray-50",
+                                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
+                                                            "data-orchids-id": "app\\seller\\dashboard\\page.jsx:222:14",
+                                                            "data-orchids-name": "h2",
+                                                            className: "text-xl font-black",
+                                                            children: "Recent Bookings"
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
+                                                            lineNumber: 222,
+                                                            columnNumber: 15
+                                                        }, this)
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
+                                                        lineNumber: 221,
+                                                        columnNumber: 13
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                        "data-orchids-id": "app\\seller\\dashboard\\page.jsx:224:12",
+                                                        "data-orchids-name": "div",
+                                                        className: "p-8 space-y-6",
+                                                        children: rentals.slice(0, 5).map((rental)=>{
+                                                            var _rental_renter_name, _rental_renter, _rental_renter1, _rental_product;
+                                                            return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                "data-orchids-id": "app\\seller\\dashboard\\page.jsx:226:16",
+                                                                "data-orchids-name": "div",
+                                                                className: "flex items-center gap-4",
+                                                                children: [
+                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                        "data-orchids-id": "app\\seller\\dashboard\\page.jsx:227:18",
+                                                                        "data-orchids-name": "div",
+                                                                        className: "w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center font-bold text-gray-500",
+                                                                        children: (_rental_renter = rental.renter) === null || _rental_renter === void 0 ? void 0 : (_rental_renter_name = _rental_renter.name) === null || _rental_renter_name === void 0 ? void 0 : _rental_renter_name.charAt(0)
+                                                                    }, void 0, false, {
+                                                                        fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
+                                                                        lineNumber: 227,
+                                                                        columnNumber: 19
+                                                                    }, this),
+                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                        "data-orchids-id": "app\\seller\\dashboard\\page.jsx:230:18",
+                                                                        "data-orchids-name": "div",
+                                                                        className: "flex-1",
+                                                                        children: [
+                                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                                                "data-orchids-id": "app\\seller\\dashboard\\page.jsx:231:20",
+                                                                                "data-orchids-name": "p",
+                                                                                className: "text-sm font-bold text-black",
+                                                                                children: (_rental_renter1 = rental.renter) === null || _rental_renter1 === void 0 ? void 0 : _rental_renter1.name
+                                                                            }, void 0, false, {
+                                                                                fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
+                                                                                lineNumber: 231,
+                                                                                columnNumber: 21
+                                                                            }, this),
+                                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                                                "data-orchids-id": "app\\seller\\dashboard\\page.jsx:232:20",
+                                                                                "data-orchids-name": "p",
+                                                                                className: "text-xs text-gray-400",
+                                                                                children: (_rental_product = rental.product) === null || _rental_product === void 0 ? void 0 : _rental_product.title
+                                                                            }, void 0, false, {
+                                                                                fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
+                                                                                lineNumber: 232,
+                                                                                columnNumber: 21
+                                                                            }, this)
+                                                                        ]
+                                                                    }, void 0, true, {
+                                                                        fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
+                                                                        lineNumber: 230,
+                                                                        columnNumber: 19
+                                                                    }, this),
+                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                        "data-orchids-id": "app\\seller\\dashboard\\page.jsx:234:18",
+                                                                        "data-orchids-name": "div",
+                                                                        className: "text-right",
+                                                                        children: [
+                                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                                                "data-orchids-id": "app\\seller\\dashboard\\page.jsx:235:20",
+                                                                                "data-orchids-name": "p",
+                                                                                className: "text-sm font-black text-emerald-600",
+                                                                                children: [
+                                                                                    "$",
+                                                                                    rental.totalAmount
+                                                                                ]
+                                                                            }, void 0, true, {
+                                                                                fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
+                                                                                lineNumber: 235,
+                                                                                columnNumber: 21
+                                                                            }, this),
+                                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                                                "data-orchids-id": "app\\seller\\dashboard\\page.jsx:236:20",
+                                                                                "data-orchids-name": "p",
+                                                                                className: "text-[10px] font-bold text-gray-400 uppercase tracking-tighter",
+                                                                                children: rental.paymentStatus
+                                                                            }, void 0, false, {
+                                                                                fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
+                                                                                lineNumber: 236,
+                                                                                columnNumber: 21
+                                                                            }, this)
+                                                                        ]
+                                                                    }, void 0, true, {
+                                                                        fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
+                                                                        lineNumber: 234,
+                                                                        columnNumber: 19
+                                                                    }, this)
+                                                                ]
+                                                            }, rental._id, true, {
+                                                                fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
+                                                                lineNumber: 226,
+                                                                columnNumber: 17
+                                                            }, this);
+                                                        })
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
+                                                        lineNumber: 224,
+                                                        columnNumber: 13
+                                                    }, this)
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
+                                                lineNumber: 220,
+                                                columnNumber: 11
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
+                                        lineNumber: 191,
+                                        columnNumber: 9
+                                    }, this)
+                                ]
+                            }, "overview", true, {
+                                fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
+                                lineNumber: 172,
+                                columnNumber: 13
+                            }, this),
+                            tab === 'shop' && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
+                                "data-orchids-id": "app\\seller\\dashboard\\page.jsx:247:12",
+                                "data-orchids-name": "motion.div",
+                                initial: {
+                                    opacity: 0,
+                                    y: 8
+                                },
+                                animate: {
+                                    opacity: 1,
+                                    y: 0
+                                },
+                                exit: {
+                                    opacity: 0,
+                                    y: -8
+                                },
+                                className: "space-y-10",
+                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    "data-orchids-id": "app\\seller\\dashboard\\page.jsx:248:14",
+                                    "data-orchids-name": "div",
+                                    className: "bg-white rounded-[40px] border border-gray-100 shadow-sm overflow-hidden p-8 md:p-10",
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
+                                            "data-orchids-id": "app\\seller\\dashboard\\page.jsx:249:16",
+                                            "data-orchids-name": "h2",
+                                            className: "text-2xl font-black text-black mb-2",
+                                            children: "Shop Settings"
+                                        }, void 0, false, {
+                                            fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
+                                            lineNumber: 249,
+                                            columnNumber: 17
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                            "data-orchids-id": "app\\seller\\dashboard\\page.jsx:250:16",
+                                            "data-orchids-name": "p",
+                                            className: "text-gray-500 mb-8",
+                                            children: "Edit your public shop profile. Renters see this on your storefront."
+                                        }, void 0, false, {
+                                            fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
+                                            lineNumber: 250,
+                                            columnNumber: 17
+                                        }, this),
+                                        shopLoading ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            "data-orchids-id": "app\\seller\\dashboard\\page.jsx:253:18",
+                                            "data-orchids-name": "div",
+                                            className: "flex items-center justify-center py-20",
+                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$loader$2d$circle$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Loader2$3e$__["Loader2"], {
+                                                "data-orchids-id": "app\\seller\\dashboard\\page.jsx:253:74",
+                                                "data-orchids-name": "Loader2",
+                                                className: "animate-spin text-emerald-600",
+                                                size: 40
+                                            }, void 0, false, {
+                                                fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
+                                                lineNumber: 253,
+                                                columnNumber: 154
+                                            }, this)
+                                        }, void 0, false, {
+                                            fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
+                                            lineNumber: 253,
+                                            columnNumber: 19
+                                        }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("form", {
+                                            "data-orchids-id": "app\\seller\\dashboard\\page.jsx:255:18@handleShopSubmit",
+                                            "data-orchids-name": "form",
+                                            onSubmit: handleShopSubmit,
+                                            className: "space-y-8",
+                                            children: [
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                    "data-orchids-id": "app\\seller\\dashboard\\page.jsx:257:20",
+                                                    "data-orchids-name": "div",
+                                                    children: [
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                                            "data-orchids-id": "app\\seller\\dashboard\\page.jsx:258:22",
+                                                            "data-orchids-name": "label",
+                                                            className: "text-sm font-bold text-gray-700 ml-1 block mb-2",
+                                                            children: "Shop Banner"
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
+                                                            lineNumber: 258,
+                                                            columnNumber: 23
+                                                        }, this),
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                            "data-orchids-id": "app\\seller\\dashboard\\page.jsx:259:22",
+                                                            "data-orchids-name": "div",
+                                                            className: "relative h-48 rounded-2xl border-2 border-dashed border-gray-200 overflow-hidden bg-gray-50 flex items-center justify-center cursor-pointer hover:border-emerald-400 transition-colors",
+                                                            onClick: ()=>{
+                                                                var _document_getElementById;
+                                                                return (_document_getElementById = document.getElementById('banner-input')) === null || _document_getElementById === void 0 ? void 0 : _document_getElementById.click();
+                                                            },
+                                                            children: [
+                                                                shopForm.bannerPreview || shopForm.bannerFile ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
+                                                                    "data-orchids-id": "app\\seller\\dashboard\\page.jsx:264:26",
+                                                                    "data-orchids-name": "img",
+                                                                    src: shopForm.bannerFile ? URL.createObjectURL(shopForm.bannerFile) : shopForm.bannerPreview,
+                                                                    alt: "Banner preview",
+                                                                    className: "w-full h-full object-cover"
+                                                                }, void 0, false, {
+                                                                    fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
+                                                                    lineNumber: 264,
+                                                                    columnNumber: 27
+                                                                }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                    "data-orchids-id": "app\\seller\\dashboard\\page.jsx:270:26",
+                                                                    "data-orchids-name": "div",
+                                                                    className: "text-center text-gray-400",
+                                                                    children: [
+                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$image$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Image$3e$__["Image"], {
+                                                                            "data-orchids-id": "app\\seller\\dashboard\\page.jsx:271:28",
+                                                                            "data-orchids-name": "ImageIcon",
+                                                                            size: 32,
+                                                                            className: "mx-auto mb-2 opacity-60"
+                                                                        }, void 0, false, {
+                                                                            fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
+                                                                            lineNumber: 271,
+                                                                            columnNumber: 29
+                                                                        }, this),
+                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                            "data-orchids-id": "app\\seller\\dashboard\\page.jsx:272:28",
+                                                                            "data-orchids-name": "span",
+                                                                            className: "text-sm font-medium",
+                                                                            children: "Drop image or click"
+                                                                        }, void 0, false, {
+                                                                            fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
+                                                                            lineNumber: 272,
+                                                                            columnNumber: 29
+                                                                        }, this)
+                                                                    ]
+                                                                }, void 0, true, {
+                                                                    fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
+                                                                    lineNumber: 270,
+                                                                    columnNumber: 27
+                                                                }, this),
+                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                                                    "data-orchids-id": "app\\seller\\dashboard\\page.jsx:275:24",
+                                                                    "data-orchids-name": "input",
+                                                                    id: "banner-input",
+                                                                    type: "file",
+                                                                    accept: "image/*",
+                                                                    className: "hidden",
+                                                                    onChange: (e)=>{
+                                                                        var _e_target_files;
+                                                                        const f = (_e_target_files = e.target.files) === null || _e_target_files === void 0 ? void 0 : _e_target_files[0];
+                                                                        if (f) setShopForm((p)=>({
+                                                                                ...p,
+                                                                                bannerFile: f,
+                                                                                bannerPreview: URL.createObjectURL(f)
+                                                                            }));
+                                                                    }
+                                                                }, void 0, false, {
+                                                                    fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
+                                                                    lineNumber: 275,
+                                                                    columnNumber: 25
+                                                                }, this)
+                                                            ]
+                                                        }, void 0, true, {
+                                                            fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
+                                                            lineNumber: 259,
+                                                            columnNumber: 23
+                                                        }, this)
+                                                    ]
+                                                }, void 0, true, {
+                                                    fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
+                                                    lineNumber: 257,
+                                                    columnNumber: 21
+                                                }, this),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                    "data-orchids-id": "app\\seller\\dashboard\\page.jsx:289:20",
+                                                    "data-orchids-name": "div",
+                                                    children: [
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                                            "data-orchids-id": "app\\seller\\dashboard\\page.jsx:290:22",
+                                                            "data-orchids-name": "label",
+                                                            className: "text-sm font-bold text-gray-700 ml-1 block mb-2",
+                                                            children: "Profile Picture"
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
+                                                            lineNumber: 290,
+                                                            columnNumber: 23
+                                                        }, this),
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                            "data-orchids-id": "app\\seller\\dashboard\\page.jsx:291:22",
+                                                            "data-orchids-name": "div",
+                                                            className: "relative w-28 h-28 rounded-2xl border-2 border-dashed border-gray-200 overflow-hidden bg-gray-50 flex items-center justify-center cursor-pointer hover:border-emerald-400 transition-colors",
+                                                            onClick: ()=>{
+                                                                var _document_getElementById;
+                                                                return (_document_getElementById = document.getElementById('avatar-input')) === null || _document_getElementById === void 0 ? void 0 : _document_getElementById.click();
+                                                            },
+                                                            children: [
+                                                                shopForm.avatarPreview || shopForm.avatarFile ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
+                                                                    "data-orchids-id": "app\\seller\\dashboard\\page.jsx:296:26",
+                                                                    "data-orchids-name": "img",
+                                                                    src: shopForm.avatarFile ? URL.createObjectURL(shopForm.avatarFile) : shopForm.avatarPreview,
+                                                                    alt: "Avatar preview",
+                                                                    className: "w-full h-full object-cover"
+                                                                }, void 0, false, {
+                                                                    fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
+                                                                    lineNumber: 296,
+                                                                    columnNumber: 27
+                                                                }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$image$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Image$3e$__["Image"], {
+                                                                    "data-orchids-id": "app\\seller\\dashboard\\page.jsx:302:26",
+                                                                    "data-orchids-name": "ImageIcon",
+                                                                    size: 28,
+                                                                    className: "text-gray-400"
+                                                                }, void 0, false, {
+                                                                    fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
+                                                                    lineNumber: 302,
+                                                                    columnNumber: 27
+                                                                }, this),
+                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                                                    "data-orchids-id": "app\\seller\\dashboard\\page.jsx:304:24",
+                                                                    "data-orchids-name": "input",
+                                                                    id: "avatar-input",
+                                                                    type: "file",
+                                                                    accept: "image/*",
+                                                                    className: "hidden",
+                                                                    onChange: (e)=>{
+                                                                        var _e_target_files;
+                                                                        const f = (_e_target_files = e.target.files) === null || _e_target_files === void 0 ? void 0 : _e_target_files[0];
+                                                                        if (f) setShopForm((p)=>({
+                                                                                ...p,
+                                                                                avatarFile: f,
+                                                                                avatarPreview: URL.createObjectURL(f)
+                                                                            }));
+                                                                    }
+                                                                }, void 0, false, {
+                                                                    fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
+                                                                    lineNumber: 304,
+                                                                    columnNumber: 25
+                                                                }, this)
+                                                            ]
+                                                        }, void 0, true, {
+                                                            fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
+                                                            lineNumber: 291,
+                                                            columnNumber: 23
+                                                        }, this)
+                                                    ]
+                                                }, void 0, true, {
+                                                    fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
+                                                    lineNumber: 289,
+                                                    columnNumber: 21
+                                                }, this),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                    "data-orchids-id": "app\\seller\\dashboard\\page.jsx:317:20",
+                                                    "data-orchids-name": "div",
+                                                    children: [
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                                            "data-orchids-id": "app\\seller\\dashboard\\page.jsx:318:22",
+                                                            "data-orchids-name": "label",
+                                                            className: "text-sm font-bold text-gray-700 ml-1 block mb-2",
+                                                            children: "Location"
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
+                                                            lineNumber: 318,
+                                                            columnNumber: 23
+                                                        }, this),
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                                            "data-orchids-id": "app\\seller\\dashboard\\page.jsx:319:22",
+                                                            "data-orchids-name": "input",
+                                                            type: "text",
+                                                            value: shopForm.location,
+                                                            onChange: (e)=>setShopForm((p)=>({
+                                                                        ...p,
+                                                                        location: e.target.value
+                                                                    })),
+                                                            className: "w-full bg-gray-50 border border-transparent rounded-2xl px-6 py-4 focus:bg-white focus:border-emerald-500 outline-none transition-all",
+                                                            placeholder: "e.g. San Francisco, CA"
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
+                                                            lineNumber: 319,
+                                                            columnNumber: 23
+                                                        }, this)
+                                                    ]
+                                                }, void 0, true, {
+                                                    fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
+                                                    lineNumber: 317,
+                                                    columnNumber: 21
+                                                }, this),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                    "data-orchids-id": "app\\seller\\dashboard\\page.jsx:328:20",
+                                                    "data-orchids-name": "div",
+                                                    children: [
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                                            "data-orchids-id": "app\\seller\\dashboard\\page.jsx:329:22",
+                                                            "data-orchids-name": "label",
+                                                            className: "text-sm font-bold text-gray-700 ml-1 block mb-2",
+                                                            children: "About / Bio"
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
+                                                            lineNumber: 329,
+                                                            columnNumber: 23
+                                                        }, this),
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("textarea", {
+                                                            "data-orchids-id": "app\\seller\\dashboard\\page.jsx:330:22",
+                                                            "data-orchids-name": "textarea",
+                                                            value: shopForm.bio,
+                                                            onChange: (e)=>setShopForm((p)=>({
+                                                                        ...p,
+                                                                        bio: e.target.value
+                                                                    })),
+                                                            className: "w-full bg-gray-50 border border-transparent rounded-2xl px-6 py-4 focus:bg-white focus:border-emerald-500 outline-none transition-all h-32",
+                                                            placeholder: "Tell renters about your shop and what you offer."
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
+                                                            lineNumber: 330,
+                                                            columnNumber: 23
+                                                        }, this)
+                                                    ]
+                                                }, void 0, true, {
+                                                    fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
+                                                    lineNumber: 328,
+                                                    columnNumber: 21
+                                                }, this),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                    "data-orchids-id": "app\\seller\\dashboard\\page.jsx:338:20",
+                                                    "data-orchids-name": "div",
+                                                    children: [
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                                            "data-orchids-id": "app\\seller\\dashboard\\page.jsx:339:22",
+                                                            "data-orchids-name": "label",
+                                                            className: "text-sm font-bold text-gray-700 ml-1 block mb-2",
+                                                            children: "Policies"
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
+                                                            lineNumber: 339,
+                                                            columnNumber: 23
+                                                        }, this),
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("textarea", {
+                                                            "data-orchids-id": "app\\seller\\dashboard\\page.jsx:340:22",
+                                                            "data-orchids-name": "textarea",
+                                                            value: shopForm.policies,
+                                                            onChange: (e)=>setShopForm((p)=>({
+                                                                        ...p,
+                                                                        policies: e.target.value
+                                                                    })),
+                                                            className: "w-full bg-gray-50 border border-transparent rounded-2xl px-6 py-4 focus:bg-white focus:border-emerald-500 outline-none transition-all h-40 font-mono text-sm",
+                                                            placeholder: "Rental rules, cancellation, security deposit, etc. (one per line or short paragraphs)"
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
+                                                            lineNumber: 340,
+                                                            columnNumber: 23
+                                                        }, this)
+                                                    ]
+                                                }, void 0, true, {
+                                                    fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
+                                                    lineNumber: 338,
+                                                    columnNumber: 21
+                                                }, this),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                    "data-orchids-id": "app\\seller\\dashboard\\page.jsx:348:20",
+                                                    "data-orchids-name": "div",
+                                                    className: "flex flex-col sm:flex-row gap-4 pt-4",
+                                                    children: [
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
+                                                            "data-orchids-id": "app\\seller\\dashboard\\page.jsx:349:22",
+                                                            "data-orchids-name": "Link",
+                                                            href: (user === null || user === void 0 ? void 0 : user.id) ? "/seller/".concat(user.id) : '#',
+                                                            className: "flex-1 py-4 bg-gray-100 text-gray-700 rounded-2xl font-bold hover:bg-gray-200 transition-all text-center",
+                                                            children: "View public shop"
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
+                                                            lineNumber: 349,
+                                                            columnNumber: 23
+                                                        }, this),
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                                            "data-orchids-id": "app\\seller\\dashboard\\page.jsx:352:22",
+                                                            "data-orchids-name": "button",
+                                                            type: "submit",
+                                                            disabled: shopSaving,
+                                                            className: "flex-1 py-4 bg-black text-white rounded-2xl font-bold hover:bg-gray-800 transition-all shadow-xl shadow-black/10 flex items-center justify-center gap-2",
+                                                            children: shopSaving ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$loader$2d$circle$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Loader2$3e$__["Loader2"], {
+                                                                "data-orchids-id": "app\\seller\\dashboard\\page.jsx:357:38",
+                                                                "data-orchids-name": "Loader2",
+                                                                className: "animate-spin",
+                                                                size: 20
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
+                                                                lineNumber: 357,
+                                                                columnNumber: 39
+                                                            }, this) : 'Save changes'
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
+                                                            lineNumber: 352,
+                                                            columnNumber: 23
+                                                        }, this)
+                                                    ]
+                                                }, void 0, true, {
+                                                    fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
+                                                    lineNumber: 348,
+                                                    columnNumber: 21
+                                                }, this)
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
+                                            lineNumber: 255,
+                                            columnNumber: 19
+                                        }, this)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
+                                    lineNumber: 248,
+                                    columnNumber: 15
+                                }, this)
+                            }, "shop", false, {
+                                fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
+                                lineNumber: 247,
+                                columnNumber: 13
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
+                        lineNumber: 170,
+                        columnNumber: 9
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
+                lineNumber: 138,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$components$2f$AnimatePresence$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["AnimatePresence"], {
+                "data-orchids-id": "app\\seller\\dashboard\\page.jsx:369:6",
+                "data-orchids-name": "AnimatePresence",
+                children: isModalOpen && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    "data-orchids-id": "app\\seller\\dashboard\\page.jsx:371:10",
+                    "data-orchids-name": "div",
+                    className: "fixed inset-0 z-[100] flex items-center justify-center p-4",
+                    children: [
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
+                            "data-orchids-id": "app\\seller\\dashboard\\page.jsx:372:12",
+                            "data-orchids-name": "motion.div",
+                            initial: {
+                                opacity: 0
+                            },
+                            animate: {
+                                opacity: 1
+                            },
+                            exit: {
+                                opacity: 0
+                            },
+                            onClick: ()=>setIsModalOpen(false),
+                            className: "absolute inset-0 bg-black/60 backdrop-blur-sm"
+                        }, void 0, false, {
+                            fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
+                            lineNumber: 372,
+                            columnNumber: 13
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
+                            "data-orchids-id": "app\\seller\\dashboard\\page.jsx:379:12",
+                            "data-orchids-name": "motion.div",
+                            initial: {
+                                opacity: 0,
+                                scale: 0.9,
+                                y: 20
+                            },
+                            animate: {
+                                opacity: 1,
+                                scale: 1,
+                                y: 0
+                            },
+                            exit: {
+                                opacity: 0,
+                                scale: 0.9,
+                                y: 20
+                            },
+                            className: "relative bg-white w-full max-w-2xl rounded-[40px] shadow-2xl overflow-hidden",
+                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                "data-orchids-id": "app\\seller\\dashboard\\page.jsx:385:14",
+                                "data-orchids-name": "div",
+                                className: "p-10",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
+                                        "data-orchids-id": "app\\seller\\dashboard\\page.jsx:386:16",
+                                        "data-orchids-name": "h2",
+                                        className: "text-3xl font-black mb-2",
+                                        children: "List New Item"
+                                    }, void 0, false, {
+                                        fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
+                                        lineNumber: 386,
+                                        columnNumber: 17
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                        "data-orchids-id": "app\\seller\\dashboard\\page.jsx:387:16",
+                                        "data-orchids-name": "p",
+                                        className: "text-gray-500 mb-8",
+                                        children: "Fill in the details to submit your product for admin approval."
+                                    }, void 0, false, {
+                                        fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
+                                        lineNumber: 387,
+                                        columnNumber: 17
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("form", {
+                                        "data-orchids-id": "app\\seller\\dashboard\\page.jsx:389:16@handleSubmit",
+                                        "data-orchids-name": "form",
+                                        onSubmit: handleSubmit,
+                                        className: "grid grid-cols-2 gap-6",
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                "data-orchids-id": "app\\seller\\dashboard\\page.jsx:390:18",
+                                                "data-orchids-name": "div",
+                                                className: "col-span-2 space-y-2",
+                                                children: [
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                                        "data-orchids-id": "app\\seller\\dashboard\\page.jsx:391:20",
+                                                        "data-orchids-name": "label",
+                                                        className: "text-sm font-bold text-gray-700 ml-1",
+                                                        children: "Product Title"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
+                                                        lineNumber: 391,
+                                                        columnNumber: 21
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                                        "data-orchids-id": "app\\seller\\dashboard\\page.jsx:392:20",
+                                                        "data-orchids-name": "input",
+                                                        required: true,
+                                                        type: "text",
+                                                        value: formData.title,
+                                                        onChange: (e)=>setFormData({
+                                                                ...formData,
+                                                                title: e.target.value
+                                                            }),
+                                                        className: "w-full bg-gray-50 border border-transparent rounded-2xl px-6 py-4 focus:bg-white focus:border-emerald-500 outline-none transition-all",
+                                                        placeholder: "e.g. Professional DJI Drone"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
+                                                        lineNumber: 392,
+                                                        columnNumber: 21
+                                                    }, this)
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
+                                                lineNumber: 390,
+                                                columnNumber: 19
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                "data-orchids-id": "app\\seller\\dashboard\\page.jsx:402:18",
+                                                "data-orchids-name": "div",
+                                                className: "col-span-2 space-y-2",
+                                                children: [
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                                        "data-orchids-id": "app\\seller\\dashboard\\page.jsx:403:20",
+                                                        "data-orchids-name": "label",
+                                                        className: "text-sm font-bold text-gray-700 ml-1",
+                                                        children: "Description"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
+                                                        lineNumber: 403,
+                                                        columnNumber: 21
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("textarea", {
+                                                        "data-orchids-id": "app\\seller\\dashboard\\page.jsx:404:20",
+                                                        "data-orchids-name": "textarea",
+                                                        required: true,
+                                                        value: formData.description,
+                                                        onChange: (e)=>setFormData({
+                                                                ...formData,
+                                                                description: e.target.value
+                                                            }),
+                                                        className: "w-full bg-gray-50 border border-transparent rounded-2xl px-6 py-4 focus:bg-white focus:border-emerald-500 outline-none transition-all h-32",
+                                                        placeholder: "Describe the condition, features, and terms..."
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
+                                                        lineNumber: 404,
+                                                        columnNumber: 21
+                                                    }, this)
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
+                                                lineNumber: 402,
+                                                columnNumber: 19
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                "data-orchids-id": "app\\seller\\dashboard\\page.jsx:413:18",
+                                                "data-orchids-name": "div",
+                                                className: "space-y-2",
+                                                children: [
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                                        "data-orchids-id": "app\\seller\\dashboard\\page.jsx:414:20",
+                                                        "data-orchids-name": "label",
+                                                        className: "text-sm font-bold text-gray-700 ml-1",
+                                                        children: "Category"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
+                                                        lineNumber: 414,
+                                                        columnNumber: 21
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("select", {
+                                                        "data-orchids-id": "app\\seller\\dashboard\\page.jsx:415:20",
+                                                        "data-orchids-name": "select",
+                                                        value: formData.category,
+                                                        onChange: (e)=>setFormData({
+                                                                ...formData,
+                                                                category: e.target.value
+                                                            }),
+                                                        className: "w-full bg-gray-50 border border-transparent rounded-2xl px-6 py-4 focus:bg-white focus:border-emerald-500 outline-none transition-all appearance-none cursor-pointer",
+                                                        children: [
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
+                                                                "data-orchids-id": "app\\seller\\dashboard\\page.jsx:420:22",
+                                                                "data-orchids-name": "option",
+                                                                children: "Electronics"
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
+                                                                lineNumber: 420,
+                                                                columnNumber: 23
+                                                            }, this),
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
+                                                                "data-orchids-id": "app\\seller\\dashboard\\page.jsx:421:22",
+                                                                "data-orchids-name": "option",
+                                                                children: "Furniture"
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
+                                                                lineNumber: 421,
+                                                                columnNumber: 23
+                                                            }, this),
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
+                                                                "data-orchids-id": "app\\seller\\dashboard\\page.jsx:422:22",
+                                                                "data-orchids-name": "option",
+                                                                children: "Photography"
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
+                                                                lineNumber: 422,
+                                                                columnNumber: 23
+                                                            }, this),
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
+                                                                "data-orchids-id": "app\\seller\\dashboard\\page.jsx:423:22",
+                                                                "data-orchids-name": "option",
+                                                                children: "Outdoor"
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
+                                                                lineNumber: 423,
+                                                                columnNumber: 23
+                                                            }, this)
+                                                        ]
+                                                    }, void 0, true, {
+                                                        fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
+                                                        lineNumber: 415,
+                                                        columnNumber: 21
+                                                    }, this)
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
+                                                lineNumber: 413,
+                                                columnNumber: 19
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                "data-orchids-id": "app\\seller\\dashboard\\page.jsx:427:18",
+                                                "data-orchids-name": "div",
+                                                className: "space-y-2",
+                                                children: [
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                                        "data-orchids-id": "app\\seller\\dashboard\\page.jsx:428:20",
+                                                        "data-orchids-name": "label",
+                                                        className: "text-sm font-bold text-gray-700 ml-1",
+                                                        children: "Price / Day ($)"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
+                                                        lineNumber: 428,
+                                                        columnNumber: 21
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                                        "data-orchids-id": "app\\seller\\dashboard\\page.jsx:429:20",
+                                                        "data-orchids-name": "input",
+                                                        required: true,
+                                                        type: "number",
+                                                        value: formData.pricePerDay,
+                                                        onChange: (e)=>setFormData({
+                                                                ...formData,
+                                                                pricePerDay: e.target.value
+                                                            }),
+                                                        className: "w-full bg-gray-50 border border-transparent rounded-2xl px-6 py-4 focus:bg-white focus:border-emerald-500 outline-none transition-all",
+                                                        placeholder: "25"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
+                                                        lineNumber: 429,
+                                                        columnNumber: 21
+                                                    }, this)
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
+                                                lineNumber: 427,
+                                                columnNumber: 19
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                "data-orchids-id": "app\\seller\\dashboard\\page.jsx:439:18",
+                                                "data-orchids-name": "div",
+                                                className: "col-span-2 space-y-2",
+                                                children: [
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                                        "data-orchids-id": "app\\seller\\dashboard\\page.jsx:440:20",
+                                                        "data-orchids-name": "label",
+                                                        className: "text-sm font-bold text-gray-700 ml-1",
+                                                        children: "Product Images"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
+                                                        lineNumber: 440,
+                                                        columnNumber: 21
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                                        "data-orchids-id": "app\\seller\\dashboard\\page.jsx:441:20",
+                                                        "data-orchids-name": "input",
+                                                        type: "file",
+                                                        multiple: true,
+                                                        onChange: (e)=>setFormData({
+                                                                ...formData,
+                                                                images: Array.from(e.target.files || [])
+                                                            }),
+                                                        className: "w-full bg-gray-50 border border-dashed border-gray-200 rounded-2xl px-6 py-8 text-sm file:hidden cursor-pointer hover:border-emerald-500 transition-all"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
+                                                        lineNumber: 441,
+                                                        columnNumber: 21
+                                                    }, this)
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
+                                                lineNumber: 439,
+                                                columnNumber: 19
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                "data-orchids-id": "app\\seller\\dashboard\\page.jsx:449:18",
+                                                "data-orchids-name": "div",
+                                                className: "col-span-2 flex gap-4 pt-4",
+                                                children: [
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                                        "data-orchids-id": "app\\seller\\dashboard\\page.jsx:450:20",
+                                                        "data-orchids-name": "button",
+                                                        type: "button",
+                                                        onClick: ()=>setIsModalOpen(false),
+                                                        className: "flex-1 py-4 bg-gray-100 text-gray-600 rounded-2xl font-bold hover:bg-gray-200 transition-all",
+                                                        children: "Cancel"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
+                                                        lineNumber: 450,
+                                                        columnNumber: 21
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                                        "data-orchids-id": "app\\seller\\dashboard\\page.jsx:457:20",
+                                                        "data-orchids-name": "button",
+                                                        type: "submit",
+                                                        disabled: isSubmitting,
+                                                        className: "flex-1 py-4 bg-black text-white rounded-2xl font-bold hover:bg-gray-800 transition-all shadow-xl shadow-black/10 flex items-center justify-center gap-2",
+                                                        children: isSubmitting ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$loader$2d$circle$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Loader2$3e$__["Loader2"], {
+                                                            "data-orchids-id": "app\\seller\\dashboard\\page.jsx:462:38",
+                                                            "data-orchids-name": "Loader2",
+                                                            className: "animate-spin"
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
+                                                            lineNumber: 462,
+                                                            columnNumber: 39
+                                                        }, this) : 'Submit Listing'
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
+                                                        lineNumber: 457,
+                                                        columnNumber: 21
+                                                    }, this)
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
+                                                lineNumber: 449,
+                                                columnNumber: 19
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
+                                        lineNumber: 389,
+                                        columnNumber: 17
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
+                                lineNumber: 385,
+                                columnNumber: 15
+                            }, this)
+                        }, void 0, false, {
+                            fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
+                            lineNumber: 379,
+                            columnNumber: 13
+                        }, this)
+                    ]
+                }, void 0, true, {
+                    fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
+                    lineNumber: 371,
+                    columnNumber: 11
+                }, this)
+            }, void 0, false, {
+                fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
+                lineNumber: 369,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$components$2f$Footer$2e$jsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
+                "data-orchids-id": "app\\seller\\dashboard\\page.jsx:472:6",
+                "data-orchids-name": "Footer"
+            }, void 0, false, {
+                fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
+                lineNumber: 472,
+                columnNumber: 7
+            }, this)
+        ]
+    }, void 0, true, {
+        fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
+        lineNumber: 135,
+        columnNumber: 5
+    }, this);
+}
+_s(SellerDashboard, "F8Dvp6D+uYjZ7OQO4Ue3HleSasg=", false, function() {
+    return [
+        __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$react$2d$redux$2f$dist$2f$react$2d$redux$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useDispatch"],
+        __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$react$2d$redux$2f$dist$2f$react$2d$redux$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useSelector"]
+    ];
+});
+_c = SellerDashboard;
+var _c;
+__turbopack_context__.k.register(_c, "SellerDashboard");
+if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
+    __turbopack_context__.k.registerExports(__turbopack_context__.m, globalThis.$RefreshHelpers$);
+}
+}),
+]);
+
+//# sourceMappingURL=frontend_f33bd1c4._.js.map
