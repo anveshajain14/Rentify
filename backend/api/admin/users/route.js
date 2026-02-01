@@ -11,7 +11,7 @@ export async function GET() {
     }
 
     await dbConnect();
-    const users = await User.find({}).select('-password').sort({ joinedAt: -1 });
+    const users = await User.find({}).select('-password -emailVerificationOTP -loginOTP -passwordResetToken').sort({ joinedAt: -1 });
     return NextResponse.json({ users });
   } catch (error) {
     return NextResponse.json({ message: error.message }, { status: 500 });
@@ -25,12 +25,13 @@ export async function PUT(req) {
       return NextResponse.json({ message: 'Not authorized' }, { status: 403 });
     }
 
-    const { userId, role, isApproved, isBlocked } = await req.json();
+    const { userId, role, isApproved, isBlocked, isVerified } = await req.json();
     await dbConnect();
     const update = {};
     if (typeof role === 'string') update.role = role;
     if (typeof isApproved === 'boolean') update.isApproved = isApproved;
     if (typeof isBlocked === 'boolean') update.isBlocked = isBlocked;
+    if (typeof isVerified === 'boolean') update.isVerified = isVerified;
 
     const updatedUser = await User.findByIdAndUpdate(
       userId,

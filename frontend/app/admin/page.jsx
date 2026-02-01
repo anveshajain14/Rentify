@@ -77,8 +77,27 @@ export default function AdminDashboard() {
         role: u.role,
         isApproved: u.isApproved,
         isBlocked: nextBlocked,
+        isVerified: u.isVerified,
       });
       toast.success(nextBlocked ? 'User blocked' : 'User unblocked');
+      const [usersRes] = await Promise.all([axios.get('/api/admin/users')]);
+      setUsers(usersRes.data.users);
+    } catch (err) {
+      toast.error('Unable to update user');
+    }
+  };
+
+  const handleVerifyToggle = async (u) => {
+    try {
+      const nextVerified = !u.isVerified;
+      await axios.put('/api/admin/users', {
+        userId: u._id,
+        role: u.role,
+        isApproved: u.isApproved,
+        isBlocked: u.isBlocked,
+        isVerified: nextVerified,
+      });
+      toast.success(nextVerified ? 'User verified' : 'Verification removed');
       const [usersRes] = await Promise.all([axios.get('/api/admin/users')]);
       setUsers(usersRes.data.users);
     } catch (err) {
@@ -253,6 +272,7 @@ export default function AdminDashboard() {
                   <tr className="bg-gray-50/50 text-[10px] font-black text-gray-400 uppercase tracking-widest">
                     <th className="px-8 py-4">User</th>
                     <th className="px-8 py-4">Role</th>
+                    <th className="px-8 py-4">Verified</th>
                     <th className="px-8 py-4">Status</th>
                     <th className="px-8 py-4">Blocked</th>
                     <th className="px-8 py-4">Joined</th>
@@ -268,6 +288,11 @@ export default function AdminDashboard() {
                       </td>
                       <td className="px-8 py-6 capitalize font-medium">{u.role}</td>
                       <td className="px-8 py-6">
+                        <span className={`px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider ${u.isVerified ? 'bg-emerald-50 text-emerald-600' : 'bg-amber-50 text-amber-600'}`}>
+                          {u.isVerified ? 'Yes' : 'No'}
+                        </span>
+                      </td>
+                      <td className="px-8 py-6">
                         <span className={`px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider ${u.isApproved ? 'bg-emerald-50 text-emerald-600' : 'bg-gray-100 text-gray-500'}`}>
                           {u.isApproved ? 'Approved' : 'Standard'}
                         </span>
@@ -279,6 +304,14 @@ export default function AdminDashboard() {
                       </td>
                       <td className="px-8 py-6 text-sm text-gray-400 font-medium">{new Date(u.joinedAt).toLocaleDateString()}</td>
                       <td className="px-8 py-6 text-right space-x-3">
+                        {!u.isVerified && (
+                          <button
+                            onClick={() => handleVerifyToggle(u)}
+                            className="text-sm font-bold text-emerald-600 hover:underline"
+                          >
+                            Verify
+                          </button>
+                        )}
                         <button
                           onClick={() => handleBlockToggle(u)}
                           className="text-sm font-bold text-red-600 hover:underline"

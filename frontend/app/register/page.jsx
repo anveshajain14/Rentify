@@ -1,8 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { setUser } from '@/store/slices/authSlice';
 import axios from 'axios';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
@@ -18,7 +16,6 @@ export default function RegisterPage() {
   const [password, setPassword] = useState('');
   const [role, setRole] = useState('renter');
   const [loading, setLoading] = useState(false);
-  const dispatch = useDispatch();
   const router = useRouter();
 
   const handleRegister = async (e) => {
@@ -26,9 +23,8 @@ export default function RegisterPage() {
     setLoading(true);
     try {
       const res = await axios.post('/api/auth/register', { name, email, password, role });
-      dispatch(setUser(res.data.user));
-      toast.success('Account created successfully!');
-      router.push('/dashboard');
+      toast.success(res.data.message || 'Check your email to verify your account');
+      router.push(`/verify-email?email=${encodeURIComponent(res.data.email || email)}`);
     } catch (err) {
       toast.error(err.response?.data?.message || 'Registration failed');
     } finally {

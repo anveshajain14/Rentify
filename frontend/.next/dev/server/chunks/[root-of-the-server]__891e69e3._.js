@@ -167,10 +167,62 @@ const UserSchema = new __TURBOPACK__imported__module__$5b$externals$5d2f$mongoos
         type: Date,
         default: Date.now
     },
-    // Admin hardening: allow blocking a user without deleting their history.
     isBlocked: {
         type: Boolean,
         default: false
+    },
+    // Email verification
+    isVerified: {
+        type: Boolean,
+        default: false
+    },
+    emailVerificationOTP: {
+        type: String,
+        default: null
+    },
+    otpExpiry: {
+        type: Date,
+        default: null
+    },
+    otpResendCount: {
+        type: Number,
+        default: 0
+    },
+    otpResendWindow: {
+        type: Date,
+        default: null
+    },
+    // Password reset
+    passwordResetToken: {
+        type: String,
+        default: null
+    },
+    passwordResetExpiry: {
+        type: Date,
+        default: null
+    },
+    // Login 2FA (optional)
+    loginOTP: {
+        type: String,
+        default: null
+    },
+    loginOTPExpiry: {
+        type: Date,
+        default: null
+    },
+    // Account lock after failed attempts
+    failedLoginAttempts: {
+        type: Number,
+        default: 0
+    },
+    lockedUntil: {
+        type: Date,
+        default: null
+    },
+    // Invalidate all sessions on password reset
+    sessionVersion: {
+        type: Number,
+        default: 0
     }
 }, {
     timestamps: true
@@ -202,7 +254,10 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$backend$2f$models$2f$User$2e
 ;
 const JWT_SECRET = process.env.JWT_SECRET || 'fallback-secret';
 async function signToken(payload) {
-    return __TURBOPACK__imported__module__$5b$project$5d2f$backend$2f$node_modules$2f$jsonwebtoken$2f$index$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["default"].sign(payload, JWT_SECRET, {
+    return __TURBOPACK__imported__module__$5b$project$5d2f$backend$2f$node_modules$2f$jsonwebtoken$2f$index$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["default"].sign({
+        ...payload,
+        sessionVersion: payload.sessionVersion ?? 0
+    }, JWT_SECRET, {
         expiresIn: '7d'
     });
 }
@@ -221,6 +276,8 @@ async function getAuthUser() {
     if (!decoded || !decoded.id) return null;
     await (0, __TURBOPACK__imported__module__$5b$project$5d2f$backend$2f$lib$2f$mongodb$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["default"])();
     const user = await __TURBOPACK__imported__module__$5b$project$5d2f$backend$2f$models$2f$User$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["default"].findById(decoded.id).select('-password');
+    if (!user) return null;
+    if (user.sessionVersion !== (decoded.sessionVersion ?? 0)) return null;
     return user;
 }
 async function setAuthCookie(token) {

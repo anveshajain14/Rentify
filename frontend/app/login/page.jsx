@@ -16,14 +16,22 @@ export default function LoginPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
+  const [unverifiedEmail, setUnverifiedEmail] = useState(null);
+  const [resendLoading, setResendLoading] = useState(false);
   const dispatch = useDispatch();
   const router = useRouter();
 
   const handleLogin = async (e) => {
     e.preventDefault();
+    setUnverifiedEmail(null);
     setLoading(true);
     try {
       const res = await axios.post('/api/auth/login', { email, password });
+      if (res.data.requiresOtp) {
+        toast.success(res.data.message || 'Check your email for the login code');
+        router.push(`/verify-login-otp?email=${encodeURIComponent(res.data.email || email)}`);
+        return;
+      }
       dispatch(setUser(res.data.user));
       toast.success('Welcome back!');
       if (res.data.user?.role === 'renter') {
@@ -32,9 +40,29 @@ export default function LoginPage() {
         router.push('/dashboard');
       }
     } catch (err) {
-      toast.error(err.response?.data?.message || 'Login failed');
+      const data = err.response?.data;
+      if (data?.requiresVerification) {
+        setUnverifiedEmail(data?.email || email);
+        toast.error(data?.message || 'Please verify your email');
+        return;
+      }
+      toast.error(data?.message || 'Login failed');
     } finally {
       setLoading(false);
+    }
+  };
+
+  const handleResendVerification = async () => {
+    if (!unverifiedEmail) return;
+    setResendLoading(true);
+    try {
+      await axios.post('/api/auth/resend-verification-otp', { email: unverifiedEmail });
+      toast.success('Verification code sent! Check your email.');
+      router.push(`/verify-email?email=${encodeURIComponent(unverifiedEmail)}`);
+    } catch (err) {
+      toast.error(err.response?.data?.message || 'Resend failed');
+    } finally {
+      setResendLoading(false);
     }
   };
 
@@ -69,7 +97,12 @@ export default function LoginPage() {
             </div>
 
             <div className="space-y-2">
-              <label className="text-sm font-bold text-gray-700 ml-1">Password</label>
+              <div className="flex justify-between items-center">
+                <label className="text-sm font-bold text-gray-700 ml-1">Password</label>
+                <Link href="/forgot-password" className="text-sm text-emerald-600 font-medium hover:underline">
+                  Forgot password?
+                </Link>
+              </div>
               <div className="relative">
                 <Lock className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" size={18} />
                 <input
@@ -94,6 +127,20 @@ export default function LoginPage() {
                 </>
               )}
             </button>
+
+            {unverifiedEmail && (
+              <div className="p-4 bg-amber-50 dark:bg-amber-900/20 rounded-2xl border border-amber-200 dark:border-amber-800">
+                <p className="text-sm text-amber-800 dark:text-amber-200 mb-3">Please verify your email to sign in.</p>
+                <button
+                  type="button"
+                  onClick={handleResendVerification}
+                  disabled={resendLoading}
+                  className="w-full py-3 bg-amber-600 text-white rounded-xl font-bold text-sm hover:bg-amber-700 disabled:opacity-50"
+                >
+                  {resendLoading ? <Loader2 className="animate-spin mx-auto" size={20} /> : 'Resend Verification Code'}
+                </button>
+              </div>
+            )}
           </form>
 
           <div className="mt-10 text-center text-sm">

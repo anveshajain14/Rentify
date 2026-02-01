@@ -6,7 +6,7 @@ import User from '../models/User.js';
 const JWT_SECRET = process.env.JWT_SECRET || 'fallback-secret';
 
 export async function signToken(payload) {
-  return jwt.sign(payload, JWT_SECRET, { expiresIn: '7d' });
+  return jwt.sign({ ...payload, sessionVersion: payload.sessionVersion ?? 0 }, JWT_SECRET, { expiresIn: '7d' });
 }
 
 export async function verifyToken(token) {
@@ -28,6 +28,8 @@ export async function getAuthUser() {
 
   await dbConnect();
   const user = await User.findById(decoded.id).select('-password');
+  if (!user) return null;
+  if (user.sessionVersion !== (decoded.sessionVersion ?? 0)) return null;
   return user;
 }
 

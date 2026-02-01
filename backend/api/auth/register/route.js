@@ -2,7 +2,8 @@ import { NextResponse } from 'next/server';
 import bcrypt from 'bcryptjs';
 import dbConnect from '../../../lib/mongodb.js';
 import User from '../../../models/User.js';
-import { signToken, setAuthCookie } from '../../../lib/auth.js';
+import { generateOTP, hashOTP, getOTPExpiry } from '../../../lib/otp.js';
+import { sendVerificationEmail } from '../../../lib/email.js';
 
 export async function POST(req) {
   try {
@@ -19,23 +20,34 @@ export async function POST(req) {
     }
 
     const hashedPassword = await bcrypt.hash(password, 10);
+    const otp = generateOTP();
+    const hashedOtp = await hashOTP(otp);
+    const otpExpiry = getOTPExpiry();
+
     const user = await User.create({
       name,
       email,
       password: hashedPassword,
       role: role || 'renter',
+      isVerified: false,
+      emailVerificationOTP: hashedOtp,
+      otpExpiry,
+      otpResendCount: 0,
+      otpResendWindow: new Date(),
     });
 
-    const token = await signToken({ id: user._id, role: user.role });
-    await setAuthCookie(token);
+    await sendVerificationEmail(user.email, otp, 7);
 
     return NextResponse.json({
-      message: 'User registered successfully',
+      message: 'Account created. Please verify your email.',
+      redirect: '/verify-email',
+      email: user.email,
       user: {
         id: user._id,
         name: user.name,
         email: user.email,
         role: user.role,
+        isVerified: false,
       },
     }, { status: 201 });
   } catch (error) {

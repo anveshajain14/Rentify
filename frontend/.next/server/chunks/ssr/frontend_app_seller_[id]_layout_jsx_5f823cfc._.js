@@ -1,0 +1,3 @@
+module.exports=[31976,a=>{"use strict";async function b({params:a}){try{let{id:b}="function"==typeof a.then?await a:a,c=await fetch(`http://localhost:3000/api/seller/${b}`,{next:{revalidate:60}});if(!c.ok)return{title:"Seller | LuxeRent"};let d=(await c.json()).seller||{},e=`${d?.name||"Seller"} | LuxeRent Shop`,f=d?.bio?.slice(0,160)||`Rent from ${d?.name} on LuxeRent. ${d?.location||""}`.trim(),g=d?.shopBanner||d?.avatar;return{title:e,description:f,openGraph:{title:e,description:f,...g&&{images:[{url:g,width:1200,height:630,alt:d?.name}]},type:"profile"}}}catch{return{title:"Seller | LuxeRent"}}}function c({children:a}){return a}a.s(["default",()=>c,"generateMetadata",()=>b])}];
+
+//# sourceMappingURL=frontend_app_seller_%5Bid%5D_layout_jsx_5f823cfc._.js.map

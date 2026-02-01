@@ -12,8 +12,24 @@ const UserSchema = new Schema({
   policies: { type: String, default: '' },
   isApproved: { type: Boolean, default: false },
   joinedAt: { type: Date, default: Date.now },
-  // Admin hardening: allow blocking a user without deleting their history.
   isBlocked: { type: Boolean, default: false },
+  // Email verification
+  isVerified: { type: Boolean, default: false },
+  emailVerificationOTP: { type: String, default: null },
+  otpExpiry: { type: Date, default: null },
+  otpResendCount: { type: Number, default: 0 },
+  otpResendWindow: { type: Date, default: null },
+  // Password reset
+  passwordResetToken: { type: String, default: null },
+  passwordResetExpiry: { type: Date, default: null },
+  // Login 2FA (optional)
+  loginOTP: { type: String, default: null },
+  loginOTPExpiry: { type: Date, default: null },
+  // Account lock after failed attempts
+  failedLoginAttempts: { type: Number, default: 0 },
+  lockedUntil: { type: Date, default: null },
+  // Invalidate all sessions on password reset
+  sessionVersion: { type: Number, default: 0 },
 }, { timestamps: true });
 
 export default mongoose.models.User || mongoose.model('User', UserSchema);

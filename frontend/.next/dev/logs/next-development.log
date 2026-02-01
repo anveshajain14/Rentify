@@ -1,7 +1,31 @@
-[00:00:08.380] Server  LOG     ✓ Ready in 6s
-[00:00:14.127] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:00:19.685] Server  LOG     ○ Compiling /api/auth/me ...
-[00:00:42.863] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+[00:00:12.945] Server  LOG     ✓ Ready in 10.7s
+[00:00:29.813] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:54.493] Server  LOG     ○ Compiling /api/auth/me ...
+[00:00:56.719] Browser WARN    Image with src "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=800" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:00:56.720] Browser WARN    Image with src "https://images.unsplash.com/photo-1505843490538-5133c6c7d0e1?w=800" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:00:57.550] Server  ERROR   ⨯ "upstream image response failed for" "https://images.unsplash.com/photo-1517336712461-481ad8880c1f?w=800" 404
+[00:00:59.758] Server  ERROR   ⨯ "upstream image response failed for" "https://images.unsplash.com/photo-1517336712461-481ad8880c1f?w=800" 404
+[00:00:59.837] Browser WARN    Image with src "https://images.unsplash.com/photo-1505843490538-5133c6c7d0e1?w=800" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:00:59.837] Browser WARN    Image with src "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=800" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:01:20.310] Server  ERROR   ⨯ "upstream image response failed for" "https://images.unsplash.com/photo-1517336712461-481ad8880c1f?w=800" 404
+[00:01:21.568] Server  ERROR   ⨯ "upstream image response failed for" "https://images.unsplash.com/photo-1517336712461-481ad8880c1f?w=800" 404
+[00:02:25.663] Server  LOG     ✓ Compiled in 3.4s
+[00:02:41.902] Server  ERROR   ⨯ "upstream image response failed for" "https://images.unsplash.com/photo-1517336712461-481ad8880c1f?w=800" 404
+[00:03:15.772] Server  LOG     ✓ Finished filesystem cache database compaction in 19.8s
+[00:05:06.401] Server  LOG     ✓ Compiled in 1470ms
+[00:05:08.136] Server  ERROR   ⨯ "upstream image response failed for" "https://images.unsplash.com/photo-1517336712461-481ad8880c1f?w=800" 404
+[00:06:18.572] Server  LOG     ✓ Compiled in 1520ms
+[00:06:34.284] Server  WARN    ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
+[00:06:36.381] Server  LOG     ✓ Compiled in 2.1s
+[00:10:11.844] Server  LOG       Reload env: .env
+[00:10:51.209] Server  LOG     ✓ Finished filesystem cache database compaction in 26.5s
+[00:10:51.225] Server  LOG     ✓ Finished writing to filesystem cache in 22.1s
+[00:12:22.374] Browser ERROR   uncaughtError: Error: Cannot find the middleware module
+[00:12:23.227] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:12:26.952] Browser WARN    Image with src "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=800" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:12:26.953] Browser WARN    Image with src "https://images.unsplash.com/photo-1505843490538-5133c6c7d0e1?w=800" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:12:28.633] Server  ERROR   ⨯ "upstream image response failed for" "https://images.unsplash.com/photo-1517336712461-481ad8880c1f?w=800" 404
+[00:12:43.064] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
 
 - A server/client branch `if (typeof window !== 'undefined')`.
 - Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
@@ -23,23 +47,6 @@ It can also happen if the client has a browser extension installed which messes 
               <Home params={Promise} searchParams={Promise}>
                 <main className="min-h-scre...">
                   <Navbar>
-                    <nav className="fixed w-fu...">
-                      <div className="max-w-7xl ...">
-                        <div className="flex justi...">
-                          <LinkComponent>
-                          <div>
-                          <div className="hidden md:...">
-                            <ThemeToggle>
-                              <button
-                                type="button"
-                                onClick={function toggleTheme}
-                                aria-label="Toggle dark mode"
-                                className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-neutral-800 transition-colors"
--                               fdprocessedid="k0il1"
-                              >
-                            ...
-                          ...
-                      ...
                   ...
                     <div className="max-w-7xl ...">
                       <div className="grid lg:gr...">
@@ -55,7 +62,7 @@ It can also happen if the client has a browser extension installed which messes 
                                   type="text"
                                   placeholder="What are you looking for?"
                                   className="w-full sm:w-80 pl-12 pr-6 py-4 bg-white border border-gray-100 rounded-2x..."
--                                 fdprocessedid="9hx8js"
+-                                 fdprocessedid="zzs3fb"
                                 >
                               ...
                             ...
@@ -78,27 +85,19 @@ It can also happen if the client has a browser extension installed which messes 
                                 type="email"
                                 placeholder="Email address"
                                 className="bg-gray-50 border border-gray-200 rounded-lg px-3 py-2 text-sm flex-1 focus..."
--                               fdprocessedid="um3jqi"
+-                               fdprocessedid="hzgdgi"
                               >
                               <button
                                 className="bg-black text-white px-4 py-2 rounded-lg text-sm font-medium"
--                               fdprocessedid="vcrje7"
+-                               fdprocessedid="n0x7xp"
                               >
 +                               Join
                         ...
           ...
         ...
 
-[00:00:44.252] Browser WARN    Image with src "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=800" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
-[00:00:44.252] Browser WARN    Image with src "https://images.unsplash.com/photo-1505843490538-5133c6c7d0e1?w=800" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
-[00:00:44.685] Server  ERROR   ⨯ "upstream image response failed for" "https://images.unsplash.com/photo-1517336712461-481ad8880c1f?w=800" 404
-[00:01:32.957] Browser ERROR   {"code":"ERR_BAD_REQUEST","config":{"adapter":["xhr","http","fetch"],"allowAbsoluteUrls":true,"env":{},"headers":{"Accept":"application/json, text/plain, */*"},"maxBodyLength":-1,"maxContentLength":-1,"method":"get","timeout":0,"transformRequest":[null],"transformResponse":[null],"transitional":{"clarifyTimeoutError":false,"forcedJSONParsing":true,"silentJSONParsing":true},"url":"/api/admin/reports","xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN"},"message":"Request failed with status code 404","name":"AxiosError","stack":"AxiosError: Request failed with status code 404\n    at settle (http://localhost:3000/_next/static/chunks/9e883_11fbdf46._.js:9808:16)\n    at XMLHttpRequest.onloadend (http://localhost:3000/_next/static/chunks/9e883_11fbdf46._.js:10322:186)\n    at Axios.request (http://localhost:3000/_next/static/chunks/9e883_11fbdf46._.js:11126:49)\n    at async Promise.all (index 3)\n    at async AdminDashboard.useEffect.fetchData (http://localhost:3000/_next/static/chunks/frontend_9707a5d2._.js:1192:75)","status":404}
-[00:01:32.957] Browser ERROR   uncaughtError: TypeError: Cannot read properties of null (reading 'totalUsers')
-[00:01:32.957] Browser ERROR   {"code":"ERR_BAD_REQUEST","config":{"adapter":["xhr","http","fetch"],"allowAbsoluteUrls":true,"env":{},"headers":{"Accept":"application/json, text/plain, */*"},"maxBodyLength":-1,"maxContentLength":-1,"method":"get","timeout":0,"transformRequest":[null],"transformResponse":[null],"transitional":{"clarifyTimeoutError":false,"forcedJSONParsing":true,"silentJSONParsing":true},"url":"/api/admin/reports","xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN"},"message":"Request failed with status code 404","name":"AxiosError","stack":"AxiosError: Request failed with status code 404\n    at settle (http://localhost:3000/_next/static/chunks/9e883_11fbdf46._.js:9808:16)\n    at XMLHttpRequest.onloadend (http://localhost:3000/_next/static/chunks/9e883_11fbdf46._.js:10322:186)\n    at Axios.request (http://localhost:3000/_next/static/chunks/9e883_11fbdf46._.js:11126:49)\n    at async Promise.all (index 3)\n    at async AdminDashboard.useEffect.fetchData (http://localhost:3000/_next/static/chunks/frontend_9707a5d2._.js:1192:75)","status":404}
-[00:02:37.477] Server  LOG     ✓ Compiled in 4.8s
-[00:02:37.845] Server  LOG     ✓ Compiled in 20ms
-[00:02:47.877] Server  LOG     ✓ Compiled in 89ms
-[00:07:46.698] Server  LOG       Reload env: .env
-[00:08:20.281] Browser WARN    Image with src "https://images.unsplash.com/photo-1505843490538-5133c6c7d0e1?w=800" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
-[00:08:20.281] Browser WARN    Image with src "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=800" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
-[00:08:21.277] Server  ERROR   ⨯ "upstream image response failed for" "https://images.unsplash.com/photo-1517336712461-481ad8880c1f?w=800" 404
+[00:12:43.550] Server  ERROR   ⨯ "upstream image response failed for" "https://images.unsplash.com/photo-1517336712461-481ad8880c1f?w=800" 404
+[00:12:43.575] Browser WARN    Image with src "https://images.unsplash.com/photo-1505843490538-5133c6c7d0e1?w=800" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:12:43.576] Browser WARN    Image with src "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=800" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:14:41.302] Server  LOG     ✓ Finished filesystem cache database compaction in 12.6s
+[00:16:15.225] Server  ERROR   ⨯ "upstream image response failed for" "https://images.unsplash.com/photo-1517336712461-481ad8880c1f?w=800" 404
