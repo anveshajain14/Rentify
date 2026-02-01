@@ -1,25 +1,24 @@
-const path = require('node:path');
-const loaderPath = require.resolve('orchids-visual-edits/loader.js');
+const path = require("node:path");
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  reactStrictMode: true,
+
   images: {
     remotePatterns: [
-      { protocol: 'https', hostname: '**' },
-      { protocol: 'http', hostname: '**' },
+      {
+        protocol: "https",
+        hostname: "**",
+      },
+      {
+        protocol: "http",
+        hostname: "**",
+      },
     ],
   },
-  outputFileTracingRoot: path.resolve(__dirname, '..'),
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
-  turbopack: {
-    rules: {
-      "*.{jsx,tsx}": {
-        loaders: [loaderPath]
-      }
-    }
-  }
+
+  // Required for monorepo / shared packages
+  outputFileTracingRoot: path.resolve(__dirname, ".."),
 };
 
 module.exports = nextConfig;

@@ -8,8 +8,10 @@ import Footer from '@/components/Footer';
 import ProductCard from '@/components/ProductCard';
 import AnimatedCounter from '@/components/AnimatedCounter';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { Star, MapPin, Calendar, CheckCircle, Loader2, Package, FileText } from 'lucide-react';
+import { Star, MapPin, Calendar, CheckCircle, Loader2, Package, FileText, Share2, Copy, Flag } from 'lucide-react';
 import Image from 'next/image';
+import { useSelector } from 'react-redux';
+import { toast } from 'react-hot-toast';
 
 const DEFAULT_BANNER = 'https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?w=1600';
 const DEFAULT_AVATAR = 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop';
@@ -34,7 +36,10 @@ export default function SellerShopPage() {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [reviewsLoading, setReviewsLoading] = useState(false);
+  const [replySavingId, setReplySavingId] = useState(null);
+  const [replyDrafts, setReplyDrafts] = useState({});
 
+  const authUser = useSelector((state) => state.auth.user);
   const { scrollY } = useScroll();
   const y1 = useTransform(scrollY, [0, 500], [0, 200]);
 
@@ -117,9 +122,68 @@ export default function SellerShopPage() {
     );
   }
 
-  const { seller, products, reviews, stats, ratingDistribution } = data;
+  const { seller, products, reviews, stats, ratingDistribution, topPicks } = data;
   const bannerSrc = seller.shopBanner || DEFAULT_BANNER;
   const avatarSrc = seller.avatar || DEFAULT_AVATAR;
+
+  const credibilityBadges = [];
+  if (stats.totalRentalsCompleted >= 25) {
+    credibilityBadges.push({ label: 'Top Seller', icon: '🏆' });
+  }
+  if (stats.responseRate >= 95) {
+    credibilityBadges.push({ label: 'Fast Responder', icon: '⚡' });
+  }
+  if (stats.averageRating >= 4.7 && stats.totalReviews >= 10) {
+    credibilityBadges.push({ label: 'Highly Rated', icon: '🌟' });
+  }
+
+  const handleShareShop = async () => {
+    if (typeof window === 'undefined') return;
+    const url = window.location.href;
+    try {
+      if (navigator.share) {
+        await navigator.share({ title: `${seller.name} on LuxeRent`, url });
+      } else if (navigator.clipboard?.writeText) {
+        await navigator.clipboard.writeText(url);
+        // eslint-disable-next-line no-alert
+        alert('Seller profile link copied to clipboard.');
+      }
+    } catch {
+      // eslint-disable-next-line no-alert
+      alert('Unable to share right now.');
+    }
+  };
+
+  const handleCopyLink = async () => {
+    if (typeof window === 'undefined' || !navigator.clipboard?.writeText) return;
+    try {
+      await navigator.clipboard.writeText(window.location.href);
+      // eslint-disable-next-line no-alert
+      alert('Seller profile link copied to clipboard.');
+    } catch {
+      // eslint-disable-next-line no-alert
+      alert('Unable to copy link.');
+    }
+  };
+
+  const handleReportSeller = async () => {
+    if (!authUser) {
+      toast.error('Please login to report a seller.');
+      return;
+    }
+    if (!window.confirm('Report this seller to the admin team?')) return;
+    const reason = window.prompt('Please describe the issue:');
+    if (!reason) return;
+    try {
+      await axios.post('/api/report', {
+        reportedUserId: seller._id,
+        reason,
+      });
+      toast.success('Report submitted to admins.');
+    } catch (err) {
+      toast.error(err.response?.data?.message || 'Failed to submit report');
+    }
+  };
 
   return (
     <main className="min-h-screen bg-white">
@@ -162,6 +226,43 @@ export default function SellerShopPage() {
                 <span className="flex items-center gap-1"><Calendar size={16} /> Joined {new Date(seller.joinedAt).toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}</span>
                 <span className="flex items-center gap-1"><Star size={16} className="text-amber-500" fill="currentColor" /> <AnimatedCounter value={stats.averageRating} decimalPlaces={1} /> ({stats.totalRentalsCompleted} rentals)</span>
               </div>
+              {credibilityBadges.length > 0 && (
+                <div className="mt-3 flex flex-wrap justify-center md:justify-start gap-2">
+                  {credibilityBadges.map((b) => (
+                    <span
+                      key={b.label}
+                      className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gray-900 text-white text-xs font-semibold"
+                    >
+                      <span>{b.icon}</span>
+                      <span>{b.label}</span>
+                    </span>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-3 w-full md:w-auto md:justify-end md:ml-auto">
+              <button
+                type="button"
+                onClick={handleShareShop}
+                className="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-2xl bg-black text-white text-sm font-bold hover:bg-gray-800 transition-colors"
+              >
+                <Share2 size={16} /> Share Seller Shop
+              </button>
+              <button
+                type="button"
+                onClick={handleCopyLink}
+                className="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-2xl bg-gray-100 text-gray-800 text-sm font-bold hover:bg-gray-200 transition-colors"
+              >
+                <Copy size={16} /> Copy Profile Link
+              </button>
+              <button
+                type="button"
+                onClick={handleReportSeller}
+                className="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-2xl bg-red-50 text-red-600 text-sm font-bold hover:bg-red-100 transition-colors"
+              >
+                <Flag size={16} /> Report Seller
+              </button>
             </div>
           </motion.div>
         </div>
@@ -239,6 +340,50 @@ export default function SellerShopPage() {
 
           {/* Main: Listings + Reviews */}
           <div className="lg:col-span-2 space-y-14">
+            {/* Top Picks from this Seller */}
+            {Array.isArray(topPicks) && topPicks.length > 0 && (
+              <motion.section
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.1 }}
+                className="rounded-3xl bg-emerald-50/60 border border-emerald-100 p-6 sm:p-8 shadow-sm"
+              >
+                <div className="flex items-center justify-between gap-4 mb-4">
+                  <h3 className="text-xl font-black flex items-center gap-2">
+                    <span className="inline-block w-1.5 h-6 bg-emerald-500 rounded-full" />
+                    Top Picks from this Seller
+                  </h3>
+                  <p className="text-xs text-emerald-800 font-medium uppercase tracking-widest">
+                    Based on rentals & reviews
+                  </p>
+                </div>
+                <div className="grid sm:grid-cols-2 gap-5">
+                  {topPicks
+                    .map((tp) => products.find((p) => p._id === tp.productId))
+                    .filter(Boolean)
+                    .slice(0, 3)
+                    .map((product) => (
+                      <div
+                        key={product._id}
+                        className="bg-white rounded-3xl border border-emerald-100/70 shadow-sm"
+                      >
+                        <ProductCard
+                          product={{
+                            ...product,
+                            seller: {
+                              _id: seller._id,
+                              name: seller.name,
+                              avatar: seller.avatar,
+                              location: seller.location,
+                            },
+                          }}
+                        />
+                      </div>
+                    ))}
+                </div>
+              </motion.section>
+            )}
+
             <motion.section initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.15 }}>
               <h3 className="text-xl font-black mb-6 flex items-center gap-2">
                 <Package size={20} className="text-emerald-600" /> Listings ({products.length})
@@ -263,32 +408,67 @@ export default function SellerShopPage() {
                 <>
                   <div className="space-y-5">
                     {reviews.map((review) => (
-                      <div key={review._id} className="p-6 bg-gray-50/80 rounded-2xl border border-gray-100">
-                        <div className="flex justify-between items-start gap-4 mb-3">
-                          <div className="flex items-center gap-3">
-                            <div className="relative w-11 h-11 rounded-full overflow-hidden bg-gray-200 flex-shrink-0">
-                              <Image
-                                src={review.renter?.avatar || DEFAULT_RENTER_AVATAR}
-                                alt=""
-                                fill
-                                className="object-cover"
-                                unoptimized
-                              />
-                            </div>
-                            <div>
-                              <p className="font-bold text-black">{review.renter?.name ?? 'Renter'}</p>
-                              <div className="flex items-center gap-1 text-amber-500">
-                                {[1, 2, 3, 4, 5].map((r) => (
-                                  <Star key={r} size={14} fill={r <= review.rating ? 'currentColor' : 'none'} />
-                                ))}
+                      <div
+                        key={review._id}
+                        className="p-6 bg-gray-50/80 rounded-2xl border border-gray-100 space-y-4"
+                      >
+                        <div>
+                          <div className="flex justify-between items-start gap-4 mb-3">
+                            <div className="flex items-center gap-3">
+                              <div className="relative w-11 h-11 rounded-full overflow-hidden bg-gray-200 flex-shrink-0">
+                                <Image
+                                  src={review.renter?.avatar || DEFAULT_RENTER_AVATAR}
+                                  alt=""
+                                  fill
+                                  className="object-cover"
+                                  unoptimized
+                                />
+                              </div>
+                              <div>
+                                <p className="font-bold text-black">{review.renter?.name ?? 'Renter'}</p>
+                                <div className="flex items-center gap-1 text-amber-500">
+                                  {[1, 2, 3, 4, 5].map((r) => (
+                                    <Star key={r} size={14} fill={r <= review.rating ? 'currentColor' : 'none'} />
+                                  ))}
+                                </div>
                               </div>
                             </div>
+                            <span className="text-xs text-gray-400 flex-shrink-0">
+                              {new Date(review.createdAt).toLocaleDateString()}
+                            </span>
                           </div>
-                          <span className="text-xs text-gray-400 flex-shrink-0">
-                            {new Date(review.createdAt).toLocaleDateString()}
-                          </span>
+                          <p className="text-gray-600 text-sm">{review.comment}</p>
                         </div>
-                        <p className="text-gray-600 text-sm">{review.comment}</p>
+
+                        {review.sellerReply ? (
+                          <div className="mt-3 pl-4 border-l-2 border-emerald-200">
+                            <div className="flex items-center gap-2 mb-1">
+                              <div className="relative w-8 h-8 rounded-full overflow-hidden bg-gray-200 flex-shrink-0">
+                                <Image
+                                  src={seller.avatar || DEFAULT_AVATAR}
+                                  alt={seller.name}
+                                  fill
+                                  className="object-cover"
+                                  unoptimized
+                                />
+                              </div>
+                              <div className="flex flex-wrap items-center gap-2">
+                                <span className="text-sm font-semibold text-gray-900">{seller.name}</span>
+                                <span className="text-[10px] font-bold uppercase tracking-widest px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-700">
+                                  Seller response
+                                </span>
+                                {review.sellerReply.createdAt && (
+                                  <span className="text-[10px] text-gray-400">
+                                    {new Date(review.sellerReply.createdAt).toLocaleDateString()}
+                                  </span>
+                                )}
+                              </div>
+                            </div>
+                            <p className="text-sm text-gray-700 whitespace-pre-wrap">
+                              {review.sellerReply.comment}
+                            </p>
+                          </div>
+                        ) : null}
                       </div>
                     ))}
                   </div>

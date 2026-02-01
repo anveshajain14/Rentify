@@ -48,6 +48,11 @@ export async function POST(req) {
       return NextResponse.json({ message: 'Product not found' }, { status: 404 });
     }
 
+    // Prevent sellers from renting their own listings through the single-rental flow.
+    if (String(product.seller) === String(user._id) && user.role === 'seller') {
+      return NextResponse.json({ message: 'Sellers cannot rent their own listings' }, { status: 403 });
+    }
+
     const rental = await Rental.create({
       product: productId,
       renter: user._id,

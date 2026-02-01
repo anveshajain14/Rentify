@@ -31,6 +31,11 @@ export async function POST(req) {
       const totalAmount = typeof it.totalAmount === 'number' ? it.totalAmount : parseFloat(it.totalAmount);
       if (Number.isNaN(totalAmount) || totalAmount < 0.5) continue;
 
+      // Prevent sellers from renting their own listings via the cart endpoint.
+      if (String(product.seller) === String(user._id) && user.role === 'seller') {
+        continue;
+      }
+
       const rental = await Rental.create({
         product: it.productId,
         renter: user._id,

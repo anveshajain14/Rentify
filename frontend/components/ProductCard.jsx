@@ -9,13 +9,60 @@ import { toast } from 'react-hot-toast';
 import { addToCart } from '@/store/slices/cartSlice';
 import { toggleWishlist } from '@/store/slices/wishlistSlice';
 
+function getAvailabilityBadge(product) {
+  const blocks = product?.availability || [];
+  if (!Array.isArray(blocks) || blocks.length === 0) {
+    return { label: 'Available today', tone: 'available' };
+  }
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  const todayTime = today.getTime();
+
+  let isBlockedToday = false;
+  let earliestFutureEnd = null;
+
+  for (const b of blocks) {
+    if (!b?.startDate || !b?.endDate) continue;
+    const start = new Date(b.startDate);
+    const end = new Date(b.endDate);
+    start.setHours(0, 0, 0, 0);
+    end.setHours(0, 0, 0, 0);
+    const s = start.getTime();
+    const e = end.getTime();
+    if (todayTime >= s && todayTime <= e) {
+      isBlockedToday = true;
+      if (!earliestFutureEnd || e < earliestFutureEnd) earliestFutureEnd = e;
+    } else if (e >= todayTime) {
+      if (!earliestFutureEnd || e < earliestFutureEnd) earliestFutureEnd = e;
+    }
+  }
+
+  if (!isBlockedToday) {
+    return { label: 'Available today', tone: 'available' };
+  }
+
+  if (earliestFutureEnd) {
+    const nextAvailable = new Date(earliestFutureEnd);
+    nextAvailable.setDate(nextAvailable.getDate() + 1);
+    const formatted = nextAvailable.toLocaleDateString(undefined, {
+      month: 'short',
+      day: 'numeric',
+    });
+    return { label: `Will be available ${formatted}`, tone: 'soon' };
+  }
+
+  return null;
+}
+
 export default function ProductCard({ product }) {
   const dispatch = useDispatch();
   const inWishlist = useSelector((s) => s.wishlist.productIds.includes(product._id));
+  const currentUser = useSelector((s) => s.auth.user);
   const sellerId = product.seller?._id ?? product.seller;
   const sellerName = typeof product.seller === 'object' && product.seller?.name;
   const sellerAvatar = typeof product.seller === 'object' && product.seller?.avatar;
   const sellerLocation = typeof product.seller === 'object' && product.seller?.location;
+  const availabilityBadge = getAvailabilityBadge(product);
 
   const cartProduct = {
     _id: product._id,
@@ -31,6 +78,13 @@ export default function ProductCard({ product }) {
   const handleAddToCart = (e) => {
     e.preventDefault();
     e.stopPropagation();
+    const sellerIdForProduct = typeof product.seller === 'object' ? product.seller?._id : product.seller;
+
+    // Role-based cart restriction: sellers cannot rent their own listings.
+    if (currentUser?.role === 'seller' && currentUser.id && sellerIdForProduct && String(currentUser.id) === String(sellerIdForProduct)) {
+      toast.error("Sellers can't add their own listings to the cart.");
+      return;
+    }
     const start = new Date();
     const end = new Date();
     end.setDate(end.getDate() + 1);
@@ -64,10 +118,21 @@ export default function ProductCard({ product }) {
             fill
             className="object-cover transition-transform duration-700 group-hover:scale-110"
           />
-          <div className="absolute top-4 left-4">
+          <div className="absolute top-4 left-4 flex flex-col gap-2">
             <span className="px-3 py-1 bg-white/90 backdrop-blur-md rounded-full text-xs font-bold text-black shadow-sm">
               {product.category}
             </span>
+            {availabilityBadge && (
+              <span
+                className={`px-3 py-1 rounded-full text-[10px] font-semibold shadow-sm ${
+                  availabilityBadge.tone === 'available'
+                    ? 'bg-emerald-600 text-white'
+                    : 'bg-amber-100 text-amber-800'
+                }`}
+              >
+                {availabilityBadge.label}
+              </span>
+            )}
           </div>
           <button
             onClick={handleWishlist}

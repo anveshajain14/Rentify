@@ -3,6 +3,8 @@ import "./globals.css";
 import { ReduxProvider } from "@/store/provider";
 import { Toaster } from "react-hot-toast";
 import { VisualEditsMessenger } from "orchids-visual-edits";
+import AuthBootstrapper from "@/components/AuthBootstrapper";
+import CartPersistence from "@/components/CartPersistence";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -24,6 +26,10 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <ReduxProvider>
+          {/* Rehydrate auth from secure cookie on app load so login survives refresh */}
+          <AuthBootstrapper />
+          {/* Keep carts scoped per-identity and persisted across reloads */}
+          <CartPersistence />
           {children}
           <Toaster position="top-center" />
         </ReduxProvider>

@@ -1,27 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const CART_KEY = 'luxerent_cart';
-
-function loadCart() {
-  if (typeof window === 'undefined') return [];
-  try {
-    const s = localStorage.getItem(CART_KEY);
-    if (!s) return [];
-    const parsed = JSON.parse(s);
-    return Array.isArray(parsed) ? parsed : [];
-  } catch {
-    return [];
-  }
-}
-
-function saveCart(items) {
-  if (typeof window === 'undefined') return;
-  try {
-    localStorage.setItem(CART_KEY, JSON.stringify(items));
-  } catch {}
-}
-
-const initialState = { items: loadCart() };
+// Cart state is kept in-memory per session and user.
+// It is cleared explicitly on logout to avoid sharing between accounts.
+const initialState = { items: [] };
 
 const cartSlice = createSlice({
   name: 'cart',
@@ -35,11 +16,9 @@ const cartSlice = createSlice({
       } else {
         state.items.push({ productId, product, startDate, endDate, duration });
       }
-      saveCart(state.items);
     },
     removeFromCart: (state, action) => {
       state.items = state.items.filter((i) => i.productId !== action.payload);
-      saveCart(state.items);
     },
     updateCartItemDates: (state, action) => {
       const idx = state.items.findIndex((i) => i.productId === action.payload.productId);
@@ -47,15 +26,18 @@ const cartSlice = createSlice({
         state.items[idx].startDate = action.payload.startDate;
         state.items[idx].endDate = action.payload.endDate;
         state.items[idx].duration = action.payload.duration;
-        saveCart(state.items);
       }
     },
     clearCart: (state) => {
       state.items = [];
-      saveCart(state.items);
+    },
+    // Hydrate cart from a persisted source (e.g. per-user localStorage bucket)
+    hydrateCart: (state, action) => {
+      const nextItems = Array.isArray(action.payload) ? action.payload : [];
+      state.items = nextItems;
     },
   },
 });
 
-export const { addToCart, removeFromCart, updateCartItemDates, clearCart } = cartSlice.actions;
+export const { addToCart, removeFromCart, updateCartItemDates, clearCart, hydrateCart } = cartSlice.actions;
 export default cartSlice.reducer;

@@ -36,6 +36,12 @@ export async function PUT(req, { params }) {
     }
 
     const data = await req.json();
+
+    // Preserve approval workflow: seller edits should always re-enter approval.
+    if (user.role === 'seller') {
+      data.isApproved = false;
+    }
+
     const updatedProduct = await Product.findByIdAndUpdate(resolvedParams.id, data, { new: true });
     return NextResponse.json({ message: 'Product updated', product: updatedProduct });
   } catch (error) {

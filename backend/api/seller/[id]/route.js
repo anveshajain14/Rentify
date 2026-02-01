@@ -24,7 +24,15 @@ export async function GET(req, { params }) {
       return NextResponse.json({ message: 'Seller not found' }, { status: 404 });
     }
 
-    const [products, reviewsResult, totalRentalsCompleted, ratingAgg, totalReviews] = await Promise.all([
+    const [
+      products,
+      reviewsResult,
+      totalRentalsCompleted,
+      ratingAgg,
+      totalReviews,
+      rentalsPerProduct,
+      reviewsPerProduct,
+    ] = await Promise.all([
       Product.find({ seller: id, isApproved: true }).sort({ createdAt: -1 }),
       Review.find({ seller: id })
         .populate('renter', 'name avatar')
@@ -39,6 +47,22 @@ export async function GET(req, { params }) {
         { $sort: { _id: 1 } },
       ]),
       Review.countDocuments({ seller: id }),
+      // Per-product rental counts for this seller (completed rentals only)
+      Rental.aggregate([
+        { $match: { seller: id, rentalStatus: 'completed' } },
+        { $group: { _id: '$product', rentalCount: { $sum: 1 } } },
+      ]),
+      // Per-product review stats for this seller
+      Review.aggregate([
+        { $match: { seller: id } },
+        {
+          $group: {
+            _id: '$product',
+            avgRating: { $avg: '$rating' },
+            reviewCount: { $sum: 1 },
+          },
+        },
+      ]),
     ]);
 
     const avgRatingResult = await Review.aggregate([
@@ -57,6 +81,39 @@ export async function GET(req, { params }) {
       ratingDistribution[r._id] = r.count;
     });
 
+    // Compute lightweight, additive "top picks" metadata per product.
+    const rentalsMap = new Map(
+      (rentalsPerProduct || []).map((r) => [r._id.toString(), r.rentalCount || 0]),
+    );
+    const reviewsMap = new Map(
+      (reviewsPerProduct || []).map((r) => [
+        r._id.toString(),
+        {
+          avgRating: r.avgRating ?? 0,
+          reviewCount: r.reviewCount ?? 0,
+        },
+      ]),
+    );
+
+    const topPicks = products
+      .map((p) => {
+        const idStr = p._id.toString();
+        const rentalCount = rentalsMap.get(idStr) ?? 0;
+        const reviewMeta = reviewsMap.get(idStr) || { avgRating: 0, reviewCount: 0 };
+        return {
+          productId: idStr,
+          rentalCount,
+          avgRating: reviewMeta.avgRating,
+          reviewCount: reviewMeta.reviewCount,
+        };
+      })
+      .sort((a, b) => {
+        if (b.rentalCount !== a.rentalCount) return b.rentalCount - a.rentalCount;
+        if (b.avgRating !== a.avgRating) return b.avgRating - a.avgRating;
+        return (b.reviewCount || 0) - (a.reviewCount || 0);
+      })
+      .slice(0, 3);
+
     return NextResponse.json({
       seller,
       products,
@@ -72,6 +129,7 @@ export async function GET(req, { params }) {
         totalReviews,
       },
       ratingDistribution,
+      topPicks,
     });
   } catch (error) {
     const message = error instanceof Error ? error.message : 'Server error';

@@ -3,10 +3,12 @@
 import Link from 'next/link';
 import { useDispatch, useSelector } from 'react-redux';
 import { logout } from '@/store/slices/authSlice';
+import { clearCart } from '@/store/slices/cartSlice';
 import { ShoppingCart, LogOut, Menu, X, Calendar, Heart, CreditCard } from 'lucide-react';
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
+import ThemeToggle from '@/components/ThemeToggle';
 
 export default function Navbar() {
   const dispatch = useDispatch();
@@ -33,6 +35,7 @@ export default function Navbar() {
 
   const handleLogout = () => {
     dispatch(logout());
+    dispatch(clearCart());
     setProfileOpen(false);
   };
 
@@ -49,15 +52,18 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
           <Link href="/" className="flex items-center gap-2">
-            <span className="text-2xl font-bold tracking-tighter text-black">LUXE<span className="text-emerald-600">RENT</span></span>
+            <span className="text-2xl font-bold tracking-tighter text-black dark:text-white">
+              LUXE<span className="text-emerald-600">RENT</span>
+            </span>
           </Link>
           <div className="hidden md:flex items-center gap-8">
-            <Link href="/products" className="text-gray-600 hover:text-black font-medium transition-colors">Browse</Link>
-            {user?.role === 'renter' && <Link href="/discover" className="text-gray-600 hover:text-black font-medium transition-colors">Discover</Link>}
-            {user?.role === 'seller' && <Link href="/seller/dashboard" className="text-gray-600 hover:text-black font-medium transition-colors">Seller Panel</Link>}
-            {user?.role === 'admin' && <Link href="/admin" className="text-gray-600 hover:text-black font-medium transition-colors">Admin</Link>}
+            <Link href="/products" className="text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white font-medium transition-colors">Browse</Link>
+            {user?.role === 'renter' && <Link href="/discover" className="text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white font-medium transition-colors">Discover</Link>}
+            {user?.role === 'seller' && <Link href="/seller/dashboard" className="text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white font-medium transition-colors">Seller Panel</Link>}
+            {user?.role === 'admin' && <Link href="/admin" className="text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white font-medium transition-colors">Admin</Link>}
           </div>
           <div className="hidden md:flex items-center gap-3">
+            <ThemeToggle />
             {user ? (
               <>
                 <Link href="/cart" className="relative p-2 rounded-full hover:bg-gray-100 transition-colors">
@@ -100,12 +106,13 @@ export default function Navbar() {
               </>
             ) : (
               <div className="flex items-center gap-3">
-                <Link href="/login" className="px-5 py-2 text-gray-600 font-medium hover:text-black transition-colors">Login</Link>
+                <Link href="/login" className="px-5 py-2 text-gray-600 dark:text-gray-300 font-medium hover:text-black dark:hover:text-white transition-colors">Login</Link>
                 <Link href="/register" className="px-6 py-2 bg-black text-white rounded-full font-medium hover:bg-gray-800 transition-all shadow-lg hover:shadow-black/20">Sign Up</Link>
               </div>
             )}
           </div>
           <div className="md:hidden flex items-center gap-2">
+            <ThemeToggle />
             <Link href="/cart" className="relative p-2">
               <ShoppingCart size={22} className="text-gray-600" />
               {cartCount > 0 && (

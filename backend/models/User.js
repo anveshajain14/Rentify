@@ -12,6 +12,8 @@ const UserSchema = new Schema({
   policies: { type: String, default: '' },
   isApproved: { type: Boolean, default: false },
   joinedAt: { type: Date, default: Date.now },
+  // Admin hardening: allow blocking a user without deleting their history.
+  isBlocked: { type: Boolean, default: false },
 }, { timestamps: true });
 
 export default mongoose.models.User || mongoose.model('User', UserSchema);

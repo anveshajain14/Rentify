@@ -5,7 +5,7 @@ import axios from 'axios';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { motion } from 'framer-motion';
-import { Users, Package, ShoppingBag, DollarSign, Check, X, Loader2, BarChart3 } from 'lucide-react';
+import { Users, Package, ShoppingBag, DollarSign, Check, X, Loader2, BarChart3, AlertTriangle } from 'lucide-react';
 import { toast } from 'react-hot-toast';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, BarChart, Bar } from 'recharts';
 
@@ -13,20 +13,28 @@ export default function AdminDashboard() {
   const [stats, setStats] = useState(null);
   const [users, setUsers] = useState([]);
   const [products, setProducts] = useState([]);
+  const [reports, setReports] = useState({ summary: [], reports: [] });
   const [loading, setLoading] = useState(true);
   const [tab, setTab] = useState('analytics');
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const [statsRes, usersRes, prodRes] = await Promise.all([
+        const [statsRes, usersRes, prodRes, reportsRes] = await Promise.allSettled([
           axios.get('/api/admin/stats'),
           axios.get('/api/admin/users'),
-          axios.get('/api/products?approved=false')
+          axios.get('/api/products?approved=false'),
+          axios.get('/api/admin/reports'),
         ]);
-        setStats(statsRes.data.stats);
-        setUsers(usersRes.data.users);
-        setProducts(prodRes.data.products);
+        if (statsRes.status === 'fulfilled') setStats(statsRes.value.data.stats);
+        if (usersRes.status === 'fulfilled') setUsers(usersRes.value.data.users);
+        if (prodRes.status === 'fulfilled') setProducts(prodRes.value.data.products);
+        if (reportsRes.status === 'fulfilled') {
+          setReports({
+            summary: reportsRes.value.data.summary || [],
+            reports: reportsRes.value.data.reports || [],
+          });
+        }
       } catch (err) {
         console.error(err);
       } finally {
@@ -41,16 +49,52 @@ export default function AdminDashboard() {
       await axios.put('/api/admin/approvals', { type, id, isApproved });
       toast.success(`${type} status updated`);
       // Refresh data
-      const [statsRes, usersRes, prodRes] = await Promise.all([
+      const [statsRes, usersRes, prodRes, reportsRes] = await Promise.allSettled([
         axios.get('/api/admin/stats'),
         axios.get('/api/admin/users'),
-        axios.get('/api/products?approved=false')
+        axios.get('/api/products?approved=false'),
+        axios.get('/api/admin/reports'),
       ]);
-      setStats(statsRes.data.stats);
-      setUsers(usersRes.data.users);
-      setProducts(prodRes.data.products);
+      if (statsRes.status === 'fulfilled') setStats(statsRes.value.data.stats);
+      if (usersRes.status === 'fulfilled') setUsers(usersRes.value.data.users);
+      if (prodRes.status === 'fulfilled') setProducts(prodRes.value.data.products);
+      if (reportsRes.status === 'fulfilled') {
+        setReports({
+          summary: reportsRes.value.data.summary || [],
+          reports: reportsRes.value.data.reports || [],
+        });
+      }
     } catch (err) {
       toast.error('Operation failed');
+    }
+  };
+
+  const handleBlockToggle = async (u) => {
+    try {
+      const nextBlocked = !u.isBlocked;
+      await axios.put('/api/admin/users', {
+        userId: u._id,
+        role: u.role,
+        isApproved: u.isApproved,
+        isBlocked: nextBlocked,
+      });
+      toast.success(nextBlocked ? 'User blocked' : 'User unblocked');
+      const [usersRes] = await Promise.all([axios.get('/api/admin/users')]);
+      setUsers(usersRes.data.users);
+    } catch (err) {
+      toast.error('Unable to update user');
+    }
+  };
+
+  const handleDeleteUser = async (u) => {
+    if (!window.confirm(`Delete user ${u.name}? This cannot be undone.`)) return;
+    try {
+      await axios.delete(`/api/admin/users?userId=${u._id}`);
+      toast.success('User deleted');
+      const [usersRes] = await Promise.all([axios.get('/api/admin/users')]);
+      setUsers(usersRes.data.users);
+    } catch (err) {
+      toast.error('Unable to delete user');
     }
   };
 
@@ -59,6 +103,7 @@ export default function AdminDashboard() {
   const categoryData = [];
 
   if (loading) return <div className="min-h-screen flex items-center justify-center"><Loader2 className="animate-spin text-emerald-600" size={48} /></div>;
+  if (!stats) return <div className="min-h-screen flex items-center justify-center"><p className="text-gray-500">Failed to load dashboard data</p></div>;
 
   return (
     <main className="min-h-screen bg-gray-50/50">
@@ -90,7 +135,7 @@ export default function AdminDashboard() {
 
         {/* Tabs */}
         <div className="flex gap-4 mb-8">
-          {['analytics', 'approvals', 'users'].map((t) => (
+          {['analytics', 'approvals', 'users', 'reports'].map((t) => (
             <button
               key={t}
               onClick={() => setTab(t)}
@@ -209,6 +254,7 @@ export default function AdminDashboard() {
                     <th className="px-8 py-4">User</th>
                     <th className="px-8 py-4">Role</th>
                     <th className="px-8 py-4">Status</th>
+                    <th className="px-8 py-4">Blocked</th>
                     <th className="px-8 py-4">Joined</th>
                     <th className="px-8 py-4 text-right">Actions</th>
                   </tr>
@@ -226,14 +272,104 @@ export default function AdminDashboard() {
                           {u.isApproved ? 'Approved' : 'Standard'}
                         </span>
                       </td>
+                      <td className="px-8 py-6">
+                        <span className={`px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider ${u.isBlocked ? 'bg-red-50 text-red-600' : 'bg-gray-100 text-gray-500'}`}>
+                          {u.isBlocked ? 'Blocked' : 'Active'}
+                        </span>
+                      </td>
                       <td className="px-8 py-6 text-sm text-gray-400 font-medium">{new Date(u.joinedAt).toLocaleDateString()}</td>
-                      <td className="px-8 py-6 text-right">
-                        <button className="text-sm font-bold text-red-600 hover:underline">Block User</button>
+                      <td className="px-8 py-6 text-right space-x-3">
+                        <button
+                          onClick={() => handleBlockToggle(u)}
+                          className="text-sm font-bold text-red-600 hover:underline"
+                        >
+                          {u.isBlocked ? 'Unblock' : 'Block'}
+                        </button>
+                        <button
+                          onClick={() => handleDeleteUser(u)}
+                          className="text-sm font-bold text-gray-500 hover:underline"
+                        >
+                          Delete
+                        </button>
                       </td>
                     </tr>
                   ))}
                 </tbody>
               </table>
+            </div>
+          </div>
+        )}
+
+        {/* Reports Content */}
+        {tab === 'reports' && (
+          <div className="grid lg:grid-cols-2 gap-8">
+            <div className="bg-white rounded-[40px] border border-gray-100 shadow-sm overflow-hidden">
+              <div className="p-8 border-b border-gray-50 flex items-center gap-3">
+                <div className="p-3 rounded-2xl bg-amber-50 text-amber-600">
+                  <AlertTriangle size={20} />
+                </div>
+                <div>
+                  <h2 className="text-xl font-black">Reported Accounts</h2>
+                  <p className="text-xs text-gray-500">Only visible to admins. Use reports to investigate and, if needed, block users.</p>
+                </div>
+              </div>
+              <div className="divide-y divide-gray-50">
+                {reports.summary.length === 0 && (
+                  <div className="p-8 text-sm text-gray-500">
+                    No reports yet. When users report accounts, they will appear here.
+                  </div>
+                )}
+                {reports.summary.map((row) => (
+                  <div key={row.reportedUserId} className="p-8 flex items-center justify-between">
+                    <div>
+                      <p className="font-bold text-black">
+                        {row.user?.name || 'User'}{' '}
+                        <span className="text-xs text-gray-400 font-medium">({row.user?.email})</span>
+                      </p>
+                      <p className="text-xs text-gray-400 mt-1">
+                        {row.count} report{row.count !== 1 ? 's' : ''} • Last on{' '}
+                        {row.lastReportAt ? new Date(row.lastReportAt).toLocaleDateString() : '—'}
+                      </p>
+                    </div>
+                    <span className="px-3 py-1 rounded-full bg-amber-50 text-amber-700 text-[10px] font-black uppercase tracking-wider">
+                      {row.user?.isBlocked ? 'Blocked' : 'Under review'}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="bg-white rounded-[40px] border border-gray-100 shadow-sm overflow-hidden">
+              <div className="p-8 border-b border-gray-50">
+                <h2 className="text-xl font-black">Latest Reports</h2>
+              </div>
+              <div className="max-h-[480px] overflow-y-auto divide-y divide-gray-50">
+                {reports.reports.length === 0 && (
+                  <div className="p-8 text-sm text-gray-500">No individual reports to show.</div>
+                )}
+                {reports.reports.map((r) => (
+                  <div key={r._id} className="p-6 space-y-1">
+                    <p className="text-xs text-gray-400">
+                      {new Date(r.createdAt).toLocaleString()}
+                    </p>
+                    <p className="text-sm font-medium text-gray-800">
+                      Reporter:{' '}
+                      <span className="font-semibold">
+                        {r.reporter?.name} ({r.reporter?.email})
+                      </span>
+                    </p>
+                    <p className="text-sm font-medium text-gray-800">
+                      Reported:{' '}
+                      <span className="font-semibold">
+                        {r.reportedUser?.name} ({r.reportedUser?.email})
+                      </span>
+                    </p>
+                    <p className="text-sm text-gray-700 mt-1">
+                      Reason: {r.reason}
+                    </p>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         )}
