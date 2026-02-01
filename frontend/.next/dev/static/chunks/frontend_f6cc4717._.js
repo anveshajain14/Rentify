@@ -18,7 +18,7 @@ var _s = __turbopack_context__.k.signature();
 const STORAGE_KEY = 'luxerent-theme';
 function ThemeToggle() {
     _s();
-    const [theme, setTheme] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])('light');
+    const [theme, setTheme] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(null);
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
         "ThemeToggle.useEffect": ()=>{
             if ("TURBOPACK compile-time falsy", 0) //TURBOPACK unreachable
@@ -40,33 +40,41 @@ function ThemeToggle() {
             return next;
         });
     };
+    if (theme === null) return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+        className: "w-10 h-10",
+        "aria-hidden": "true"
+    }, void 0, false, {
+        fileName: "[project]/frontend/components/ThemeToggle.jsx",
+        lineNumber: 31,
+        columnNumber: 30
+    }, this);
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
         type: "button",
         onClick: toggleTheme,
-        "aria-label": "Toggle dark mode",
-        className: "p-2 rounded-full hover:bg-gray-100 dark:hover:bg-neutral-800 transition-colors",
+        "aria-label": theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode',
+        className: "p-2.5 rounded-xl hover:bg-secondary transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background",
         children: theme === 'dark' ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$sun$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Sun$3e$__["Sun"], {
             size: 18,
             className: "text-amber-400"
         }, void 0, false, {
             fileName: "[project]/frontend/components/ThemeToggle.jsx",
-            lineNumber: 39,
+            lineNumber: 41,
             columnNumber: 9
         }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$moon$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Moon$3e$__["Moon"], {
             size: 18,
-            className: "text-gray-600"
+            className: "text-muted-foreground"
         }, void 0, false, {
             fileName: "[project]/frontend/components/ThemeToggle.jsx",
-            lineNumber: 41,
+            lineNumber: 43,
             columnNumber: 9
         }, this)
     }, void 0, false, {
         fileName: "[project]/frontend/components/ThemeToggle.jsx",
-        lineNumber: 32,
+        lineNumber: 34,
         columnNumber: 5
     }, this);
 }
-_s(ThemeToggle, "Z8UCD9KudyQA62DCQ9e5cf9+m5k=");
+_s(ThemeToggle, "8cORP+VmZIUfFKJJBlFCtPazdq0=");
 _c = ThemeToggle;
 var _c;
 __turbopack_context__.k.register(_c, "ThemeToggle");
@@ -210,7 +218,7 @@ function Navbar() {
         }
     ];
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("nav", {
-        className: `fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white/80 backdrop-blur-lg shadow-sm py-3' : 'bg-transparent py-5'}`,
+        className: `fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-background/80 dark:bg-background/90 backdrop-blur-xl shadow-sm dark:shadow-black/20 border-b border-border py-3' : 'bg-transparent py-5'}`,
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8",
@@ -221,11 +229,11 @@ function Navbar() {
                             href: "/",
                             className: "flex items-center gap-2",
                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                className: "text-2xl font-bold tracking-tighter text-black dark:text-white",
+                                className: "text-2xl font-bold tracking-tighter text-foreground",
                                 children: [
                                     "LUXE",
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                        className: "text-emerald-600",
+                                        className: "text-emerald-500 dark:text-cyan-400",
                                         children: "RENT"
                                     }, void 0, false, {
                                         fileName: "[project]/frontend/components/Navbar.jsx",
@@ -248,7 +256,7 @@ function Navbar() {
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
                                     href: "/products",
-                                    className: "text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white font-medium transition-colors",
+                                    className: "text-muted-foreground hover:text-foreground font-medium transition-colors",
                                     children: "Browse"
                                 }, void 0, false, {
                                     fileName: "[project]/frontend/components/Navbar.jsx",
@@ -257,7 +265,7 @@ function Navbar() {
                                 }, this),
                                 user?.role === 'renter' && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
                                     href: "/discover",
-                                    className: "text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white font-medium transition-colors",
+                                    className: "text-muted-foreground hover:text-foreground font-medium transition-colors",
                                     children: "Discover"
                                 }, void 0, false, {
                                     fileName: "[project]/frontend/components/Navbar.jsx",
@@ -266,7 +274,7 @@ function Navbar() {
                                 }, this),
                                 user?.role === 'seller' && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
                                     href: "/seller/dashboard",
-                                    className: "text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white font-medium transition-colors",
+                                    className: "text-muted-foreground hover:text-foreground font-medium transition-colors",
                                     children: "Seller Panel"
                                 }, void 0, false, {
                                     fileName: "[project]/frontend/components/Navbar.jsx",
@@ -275,7 +283,7 @@ function Navbar() {
                                 }, this),
                                 user?.role === 'admin' && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
                                     href: "/admin",
-                                    className: "text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white font-medium transition-colors",
+                                    className: "text-muted-foreground hover:text-foreground font-medium transition-colors",
                                     children: "Admin"
                                 }, void 0, false, {
                                     fileName: "[project]/frontend/components/Navbar.jsx",
@@ -300,11 +308,11 @@ function Navbar() {
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
                                             href: "/cart",
-                                            className: "relative p-2 rounded-full hover:bg-gray-100 transition-colors",
+                                            className: "relative p-2 rounded-xl hover:bg-secondary transition-colors",
                                             children: [
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$shopping$2d$cart$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__ShoppingCart$3e$__["ShoppingCart"], {
                                                     size: 22,
-                                                    className: "text-gray-600"
+                                                    className: "text-muted-foreground"
                                                 }, void 0, false, {
                                                     fileName: "[project]/frontend/components/Navbar.jsx",
                                                     lineNumber: 70,
@@ -330,7 +338,7 @@ function Navbar() {
                                             children: [
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                                     onClick: ()=>setProfileOpen(!profileOpen),
-                                                    className: "flex items-center gap-2 px-2 py-1.5 rounded-full hover:bg-gray-100 transition-all",
+                                                    className: "flex items-center gap-2 px-2 py-1.5 rounded-xl hover:bg-secondary transition-all",
                                                     children: [
                                                         user?.avatar || user?.image ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                             className: "relative w-9 h-9 rounded-full overflow-hidden",
@@ -349,7 +357,7 @@ function Navbar() {
                                                             lineNumber: 80,
                                                             columnNumber: 23
                                                         }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                            className: "w-9 h-9 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold",
+                                                            className: "w-9 h-9 rounded-full bg-emerald-100 dark:bg-emerald-900/40 text-emerald-700 dark:text-emerald-400 flex items-center justify-center font-bold",
                                                             children: user?.name?.charAt(0)?.toUpperCase() || 'U'
                                                         }, void 0, false, {
                                                             fileName: "[project]/frontend/components/Navbar.jsx",
@@ -357,7 +365,7 @@ function Navbar() {
                                                             columnNumber: 23
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                            className: "font-medium text-sm text-gray-700 max-w-[100px] truncate",
+                                                            className: "font-medium text-sm text-foreground max-w-[100px] truncate",
                                                             children: user.name
                                                         }, void 0, false, {
                                                             fileName: "[project]/frontend/components/Navbar.jsx",
@@ -387,12 +395,12 @@ function Navbar() {
                                                         transition: {
                                                             duration: 0.15
                                                         },
-                                                        className: "absolute right-0 mt-2 w-56 bg-white rounded-2xl border border-gray-100 shadow-xl py-2 overflow-hidden",
+                                                        className: "absolute right-0 mt-2 w-56 bg-popover dark:bg-card rounded-2xl border border-border shadow-xl dark:shadow-black/40 py-2 overflow-hidden backdrop-blur-xl",
                                                         children: [
                                                             profileLinks.map((link)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
                                                                     href: link.href,
                                                                     onClick: ()=>setProfileOpen(false),
-                                                                    className: "flex items-center gap-3 px-4 py-3 text-gray-700 hover:bg-gray-50 font-medium text-sm",
+                                                                    className: "flex items-center gap-3 px-4 py-3 text-foreground hover:bg-accent font-medium text-sm",
                                                                     children: [
                                                                         link.icon,
                                                                         link.label
@@ -404,7 +412,7 @@ function Navbar() {
                                                                 }, this)),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                                                 onClick: handleLogout,
-                                                                className: "w-full flex items-center gap-3 px-4 py-3 text-red-600 hover:bg-red-50 font-medium text-sm",
+                                                                className: "w-full flex items-center gap-3 px-4 py-3 text-destructive hover:bg-destructive/10 font-medium text-sm",
                                                                 children: [
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$log$2d$out$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__LogOut$3e$__["LogOut"], {
                                                                         size: 18
@@ -443,7 +451,7 @@ function Navbar() {
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
                                             href: "/login",
-                                            className: "px-5 py-2 text-gray-600 dark:text-gray-300 font-medium hover:text-black dark:hover:text-white transition-colors",
+                                            className: "px-5 py-2 text-muted-foreground font-medium hover:text-foreground transition-colors",
                                             children: "Login"
                                         }, void 0, false, {
                                             fileName: "[project]/frontend/components/Navbar.jsx",
@@ -452,7 +460,7 @@ function Navbar() {
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
                                             href: "/register",
-                                            className: "px-6 py-2 bg-black text-white rounded-full font-medium hover:bg-gray-800 transition-all shadow-lg hover:shadow-black/20",
+                                            className: "px-6 py-2 bg-primary text-primary-foreground rounded-xl font-medium hover:opacity-90 transition-all shadow-lg",
                                             children: "Sign Up"
                                         }, void 0, false, {
                                             fileName: "[project]/frontend/components/Navbar.jsx",
@@ -485,7 +493,7 @@ function Navbar() {
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$shopping$2d$cart$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__ShoppingCart$3e$__["ShoppingCart"], {
                                             size: 22,
-                                            className: "text-gray-600"
+                                            className: "text-muted-foreground"
                                         }, void 0, false, {
                                             fileName: "[project]/frontend/components/Navbar.jsx",
                                             lineNumber: 117,
@@ -556,11 +564,11 @@ function Navbar() {
                         opacity: 0,
                         y: -20
                     },
-                    className: "md:hidden bg-white border-t p-4 space-y-2 shadow-xl",
+                    className: "md:hidden bg-background dark:bg-card border-t border-border p-4 space-y-2 shadow-xl",
                     children: [
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
                             href: "/products",
-                            className: "block py-3 font-medium text-gray-600",
+                            className: "block py-3 font-medium text-foreground",
                             onClick: ()=>setIsOpen(false),
                             children: "Browse Rentals"
                         }, void 0, false, {
@@ -570,7 +578,7 @@ function Navbar() {
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
                             href: "/discover",
-                            className: "block py-3 font-medium text-gray-600",
+                            className: "block py-3 font-medium text-foreground",
                             onClick: ()=>setIsOpen(false),
                             children: "Discover"
                         }, void 0, false, {
@@ -580,7 +588,7 @@ function Navbar() {
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
                             href: "/cart",
-                            className: "block py-3 font-medium text-gray-600",
+                            className: "block py-3 font-medium text-foreground",
                             onClick: ()=>setIsOpen(false),
                             children: [
                                 "Cart ",
@@ -595,7 +603,7 @@ function Navbar() {
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
                                     href: "/dashboard",
-                                    className: "block py-3 font-medium text-gray-600",
+                                    className: "block py-3 font-medium text-foreground",
                                     onClick: ()=>setIsOpen(false),
                                     children: "My Rentals"
                                 }, void 0, false, {
@@ -605,7 +613,7 @@ function Navbar() {
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
                                     href: "/wishlist",
-                                    className: "block py-3 font-medium text-gray-600",
+                                    className: "block py-3 font-medium text-foreground",
                                     onClick: ()=>setIsOpen(false),
                                     children: "Wishlist"
                                 }, void 0, false, {
@@ -615,7 +623,7 @@ function Navbar() {
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
                                     href: "/profile",
-                                    className: "block py-3 font-medium text-gray-600",
+                                    className: "block py-3 font-medium text-foreground",
                                     onClick: ()=>setIsOpen(false),
                                     children: "Profile"
                                 }, void 0, false, {
@@ -636,13 +644,13 @@ function Navbar() {
                             ]
                         }, void 0, true),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "pt-4 border-t",
+                            className: "pt-4 border-t border-border",
                             children: user ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                 onClick: ()=>{
                                     handleLogout();
                                     setIsOpen(false);
                                 },
-                                className: "w-full flex items-center justify-center gap-2 py-3 bg-red-50 text-red-600 rounded-xl font-bold",
+                                className: "w-full flex items-center justify-center gap-2 py-3 bg-destructive/10 text-destructive rounded-xl font-bold",
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$log$2d$out$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__LogOut$3e$__["LogOut"], {
                                         size: 20
@@ -662,7 +670,7 @@ function Navbar() {
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
                                         href: "/login",
-                                        className: "py-3 text-center bg-gray-100 rounded-xl font-bold",
+                                        className: "py-3 text-center bg-secondary text-foreground rounded-xl font-bold",
                                         onClick: ()=>setIsOpen(false),
                                         children: "Login"
                                     }, void 0, false, {
@@ -672,7 +680,7 @@ function Navbar() {
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
                                         href: "/register",
-                                        className: "py-3 text-center bg-black text-white rounded-xl font-bold",
+                                        className: "py-3 text-center bg-primary text-primary-foreground rounded-xl font-bold",
                                         onClick: ()=>setIsOpen(false),
                                         children: "Sign Up"
                                     }, void 0, false, {
@@ -735,12 +743,13 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$
 var __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$facebook$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Facebook$3e$__ = __turbopack_context__.i("[project]/frontend/node_modules/lucide-react/dist/esm/icons/facebook.js [app-client] (ecmascript) <export default as Facebook>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$twitter$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Twitter$3e$__ = __turbopack_context__.i("[project]/frontend/node_modules/lucide-react/dist/esm/icons/twitter.js [app-client] (ecmascript) <export default as Twitter>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$instagram$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Instagram$3e$__ = __turbopack_context__.i("[project]/frontend/node_modules/lucide-react/dist/esm/icons/instagram.js [app-client] (ecmascript) <export default as Instagram>");
+'use client';
 ;
 ;
 ;
 function Footer() {
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("footer", {
-        className: "bg-white border-t border-gray-100",
+        className: "bg-card border-t border-border",
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
             className: "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12",
             children: [
@@ -754,34 +763,34 @@ function Footer() {
                                     href: "/",
                                     className: "flex items-center gap-2",
                                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                        className: "text-xl font-bold tracking-tighter text-black",
+                                        className: "text-xl font-bold tracking-tighter text-foreground",
                                         children: [
                                             "LUXE",
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                className: "text-emerald-600",
+                                                className: "text-emerald-500 dark:text-cyan-400",
                                                 children: "RENT"
                                             }, void 0, false, {
                                                 fileName: "[project]/frontend/components/Footer.jsx",
-                                                lineNumber: 11,
-                                                columnNumber: 83
+                                                lineNumber: 13,
+                                                columnNumber: 88
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/frontend/components/Footer.jsx",
-                                        lineNumber: 11,
+                                        lineNumber: 13,
                                         columnNumber: 15
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/frontend/components/Footer.jsx",
-                                    lineNumber: 10,
+                                    lineNumber: 12,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                    className: "text-gray-500 text-sm leading-relaxed",
+                                    className: "text-muted-foreground text-sm leading-relaxed",
                                     children: "Premium rental marketplace for the modern world. Rent verified high-end products with ease."
                                 }, void 0, false, {
                                     fileName: "[project]/frontend/components/Footer.jsx",
-                                    lineNumber: 13,
+                                    lineNumber: 15,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -789,109 +798,82 @@ function Footer() {
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
                                             href: "#",
-                                            className: "text-gray-400 hover:text-black transition-colors",
+                                            className: "text-muted-foreground hover:text-foreground transition-colors",
+                                            "aria-label": "Instagram",
                                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$instagram$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Instagram$3e$__["Instagram"], {
                                                 size: 20
                                             }, void 0, false, {
                                                 fileName: "[project]/frontend/components/Footer.jsx",
-                                                lineNumber: 17,
-                                                columnNumber: 88
-                                            }, this)
-                                        }, void 0, false, {
-                                            fileName: "[project]/frontend/components/Footer.jsx",
-                                            lineNumber: 17,
-                                            columnNumber: 15
-                                        }, this),
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
-                                            href: "#",
-                                            className: "text-gray-400 hover:text-black transition-colors",
-                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$twitter$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Twitter$3e$__["Twitter"], {
-                                                size: 20
-                                            }, void 0, false, {
-                                                fileName: "[project]/frontend/components/Footer.jsx",
-                                                lineNumber: 18,
-                                                columnNumber: 88
-                                            }, this)
-                                        }, void 0, false, {
-                                            fileName: "[project]/frontend/components/Footer.jsx",
-                                            lineNumber: 18,
-                                            columnNumber: 15
-                                        }, this),
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
-                                            href: "#",
-                                            className: "text-gray-400 hover:text-black transition-colors",
-                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$facebook$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Facebook$3e$__["Facebook"], {
-                                                size: 20
-                                            }, void 0, false, {
-                                                fileName: "[project]/frontend/components/Footer.jsx",
                                                 lineNumber: 19,
-                                                columnNumber: 88
+                                                columnNumber: 124
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/frontend/components/Footer.jsx",
                                             lineNumber: 19,
                                             columnNumber: 15
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
+                                            href: "#",
+                                            className: "text-muted-foreground hover:text-foreground transition-colors",
+                                            "aria-label": "Twitter",
+                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$twitter$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Twitter$3e$__["Twitter"], {
+                                                size: 20
+                                            }, void 0, false, {
+                                                fileName: "[project]/frontend/components/Footer.jsx",
+                                                lineNumber: 20,
+                                                columnNumber: 122
+                                            }, this)
+                                        }, void 0, false, {
+                                            fileName: "[project]/frontend/components/Footer.jsx",
+                                            lineNumber: 20,
+                                            columnNumber: 15
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
+                                            href: "#",
+                                            className: "text-muted-foreground hover:text-foreground transition-colors",
+                                            "aria-label": "Facebook",
+                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$facebook$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Facebook$3e$__["Facebook"], {
+                                                size: 20
+                                            }, void 0, false, {
+                                                fileName: "[project]/frontend/components/Footer.jsx",
+                                                lineNumber: 21,
+                                                columnNumber: 123
+                                            }, this)
+                                        }, void 0, false, {
+                                            fileName: "[project]/frontend/components/Footer.jsx",
+                                            lineNumber: 21,
+                                            columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/frontend/components/Footer.jsx",
-                                    lineNumber: 16,
+                                    lineNumber: 18,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/frontend/components/Footer.jsx",
-                            lineNumber: 9,
+                            lineNumber: 11,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h4", {
-                                    className: "font-bold mb-4",
+                                    className: "font-bold mb-4 text-foreground",
                                     children: "Marketplace"
                                 }, void 0, false, {
                                     fileName: "[project]/frontend/components/Footer.jsx",
-                                    lineNumber: 23,
+                                    lineNumber: 25,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
-                                    className: "space-y-2 text-sm text-gray-500",
+                                    className: "space-y-2 text-sm text-muted-foreground",
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
                                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
                                                 href: "/products",
-                                                className: "hover:text-black",
+                                                className: "hover:text-foreground transition-colors",
                                                 children: "Browse All"
-                                            }, void 0, false, {
-                                                fileName: "[project]/frontend/components/Footer.jsx",
-                                                lineNumber: 25,
-                                                columnNumber: 19
-                                            }, this)
-                                        }, void 0, false, {
-                                            fileName: "[project]/frontend/components/Footer.jsx",
-                                            lineNumber: 25,
-                                            columnNumber: 15
-                                        }, this),
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
-                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
-                                                href: "/products?category=Electronics",
-                                                className: "hover:text-black",
-                                                children: "Electronics"
-                                            }, void 0, false, {
-                                                fileName: "[project]/frontend/components/Footer.jsx",
-                                                lineNumber: 26,
-                                                columnNumber: 19
-                                            }, this)
-                                        }, void 0, false, {
-                                            fileName: "[project]/frontend/components/Footer.jsx",
-                                            lineNumber: 26,
-                                            columnNumber: 15
-                                        }, this),
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
-                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
-                                                href: "/products?category=Furniture",
-                                                className: "hover:text-black",
-                                                children: "Furniture"
                                             }, void 0, false, {
                                                 fileName: "[project]/frontend/components/Footer.jsx",
                                                 lineNumber: 27,
@@ -904,9 +886,9 @@ function Footer() {
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
                                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
-                                                href: "/products?category=Photography",
-                                                className: "hover:text-black",
-                                                children: "Photography"
+                                                href: "/products?category=Electronics",
+                                                className: "hover:text-foreground transition-colors",
+                                                children: "Electronics"
                                             }, void 0, false, {
                                                 fileName: "[project]/frontend/components/Footer.jsx",
                                                 lineNumber: 28,
@@ -916,67 +898,67 @@ function Footer() {
                                             fileName: "[project]/frontend/components/Footer.jsx",
                                             lineNumber: 28,
                                             columnNumber: 15
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
+                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
+                                                href: "/products?category=Furniture",
+                                                className: "hover:text-foreground transition-colors",
+                                                children: "Furniture"
+                                            }, void 0, false, {
+                                                fileName: "[project]/frontend/components/Footer.jsx",
+                                                lineNumber: 29,
+                                                columnNumber: 19
+                                            }, this)
+                                        }, void 0, false, {
+                                            fileName: "[project]/frontend/components/Footer.jsx",
+                                            lineNumber: 29,
+                                            columnNumber: 15
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
+                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
+                                                href: "/products?category=Photography",
+                                                className: "hover:text-foreground transition-colors",
+                                                children: "Photography"
+                                            }, void 0, false, {
+                                                fileName: "[project]/frontend/components/Footer.jsx",
+                                                lineNumber: 30,
+                                                columnNumber: 19
+                                            }, this)
+                                        }, void 0, false, {
+                                            fileName: "[project]/frontend/components/Footer.jsx",
+                                            lineNumber: 30,
+                                            columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/frontend/components/Footer.jsx",
-                                    lineNumber: 24,
+                                    lineNumber: 26,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/frontend/components/Footer.jsx",
-                            lineNumber: 22,
+                            lineNumber: 24,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h4", {
-                                    className: "font-bold mb-4",
+                                    className: "font-bold mb-4 text-foreground",
                                     children: "Support"
                                 }, void 0, false, {
                                     fileName: "[project]/frontend/components/Footer.jsx",
-                                    lineNumber: 32,
+                                    lineNumber: 34,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
-                                    className: "space-y-2 text-sm text-gray-500",
+                                    className: "space-y-2 text-sm text-muted-foreground",
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
                                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
                                                 href: "#",
-                                                className: "hover:text-black",
+                                                className: "hover:text-foreground transition-colors",
                                                 children: "Help Center"
-                                            }, void 0, false, {
-                                                fileName: "[project]/frontend/components/Footer.jsx",
-                                                lineNumber: 34,
-                                                columnNumber: 19
-                                            }, this)
-                                        }, void 0, false, {
-                                            fileName: "[project]/frontend/components/Footer.jsx",
-                                            lineNumber: 34,
-                                            columnNumber: 15
-                                        }, this),
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
-                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
-                                                href: "#",
-                                                className: "hover:text-black",
-                                                children: "Rental Policies"
-                                            }, void 0, false, {
-                                                fileName: "[project]/frontend/components/Footer.jsx",
-                                                lineNumber: 35,
-                                                columnNumber: 19
-                                            }, this)
-                                        }, void 0, false, {
-                                            fileName: "[project]/frontend/components/Footer.jsx",
-                                            lineNumber: 35,
-                                            columnNumber: 15
-                                        }, this),
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
-                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
-                                                href: "#",
-                                                className: "hover:text-black",
-                                                children: "Safety Guidelines"
                                             }, void 0, false, {
                                                 fileName: "[project]/frontend/components/Footer.jsx",
                                                 lineNumber: 36,
@@ -990,8 +972,8 @@ function Footer() {
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
                                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
                                                 href: "#",
-                                                className: "hover:text-black",
-                                                children: "Contact Us"
+                                                className: "hover:text-foreground transition-colors",
+                                                children: "Rental Policies"
                                             }, void 0, false, {
                                                 fileName: "[project]/frontend/components/Footer.jsx",
                                                 lineNumber: 37,
@@ -1001,35 +983,65 @@ function Footer() {
                                             fileName: "[project]/frontend/components/Footer.jsx",
                                             lineNumber: 37,
                                             columnNumber: 15
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
+                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
+                                                href: "#",
+                                                className: "hover:text-foreground transition-colors",
+                                                children: "Safety Guidelines"
+                                            }, void 0, false, {
+                                                fileName: "[project]/frontend/components/Footer.jsx",
+                                                lineNumber: 38,
+                                                columnNumber: 19
+                                            }, this)
+                                        }, void 0, false, {
+                                            fileName: "[project]/frontend/components/Footer.jsx",
+                                            lineNumber: 38,
+                                            columnNumber: 15
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
+                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
+                                                href: "#",
+                                                className: "hover:text-foreground transition-colors",
+                                                children: "Contact Us"
+                                            }, void 0, false, {
+                                                fileName: "[project]/frontend/components/Footer.jsx",
+                                                lineNumber: 39,
+                                                columnNumber: 19
+                                            }, this)
+                                        }, void 0, false, {
+                                            fileName: "[project]/frontend/components/Footer.jsx",
+                                            lineNumber: 39,
+                                            columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/frontend/components/Footer.jsx",
-                                    lineNumber: 33,
+                                    lineNumber: 35,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/frontend/components/Footer.jsx",
-                            lineNumber: 31,
+                            lineNumber: 33,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h4", {
-                                    className: "font-bold mb-4",
+                                    className: "font-bold mb-4 text-foreground",
                                     children: "Newsletter"
                                 }, void 0, false, {
                                     fileName: "[project]/frontend/components/Footer.jsx",
-                                    lineNumber: 41,
+                                    lineNumber: 43,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                    className: "text-sm text-gray-500 mb-4",
+                                    className: "text-sm text-muted-foreground mb-4",
                                     children: "Subscribe to get updates on new premium listings."
                                 }, void 0, false, {
                                     fileName: "[project]/frontend/components/Footer.jsx",
-                                    lineNumber: 42,
+                                    lineNumber: 44,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1038,46 +1050,48 @@ function Footer() {
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
                                             type: "email",
                                             placeholder: "Email address",
-                                            className: "bg-gray-50 border border-gray-200 rounded-lg px-3 py-2 text-sm flex-1 focus:outline-none focus:ring-1 focus:ring-emerald-500"
+                                            "aria-label": "Newsletter email",
+                                            className: "bg-input border border-border rounded-lg px-3 py-2 text-sm flex-1 focus:outline-none focus:ring-2 focus:ring-ring text-foreground placeholder:text-muted-foreground"
                                         }, void 0, false, {
                                             fileName: "[project]/frontend/components/Footer.jsx",
-                                            lineNumber: 44,
+                                            lineNumber: 46,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                            className: "bg-black text-white px-4 py-2 rounded-lg text-sm font-medium",
+                                            type: "button",
+                                            className: "bg-primary text-primary-foreground px-4 py-2 rounded-lg text-sm font-medium hover:opacity-90 transition-opacity",
                                             children: "Join"
                                         }, void 0, false, {
                                             fileName: "[project]/frontend/components/Footer.jsx",
-                                            lineNumber: 45,
+                                            lineNumber: 47,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/frontend/components/Footer.jsx",
-                                    lineNumber: 43,
+                                    lineNumber: 45,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/frontend/components/Footer.jsx",
-                            lineNumber: 40,
+                            lineNumber: 42,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/frontend/components/Footer.jsx",
-                    lineNumber: 8,
+                    lineNumber: 10,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                    className: "mt-12 pt-8 border-t border-gray-100 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-400",
+                    className: "mt-12 pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted-foreground",
                     children: [
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                             children: "© 2026 LuxeRent Marketplace. All rights reserved."
                         }, void 0, false, {
                             fileName: "[project]/frontend/components/Footer.jsx",
-                            lineNumber: 50,
+                            lineNumber: 52,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1085,43 +1099,43 @@ function Footer() {
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
                                     href: "#",
-                                    className: "hover:text-black transition-colors",
+                                    className: "hover:text-foreground transition-colors",
                                     children: "Privacy Policy"
                                 }, void 0, false, {
                                     fileName: "[project]/frontend/components/Footer.jsx",
-                                    lineNumber: 52,
+                                    lineNumber: 54,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
                                     href: "#",
-                                    className: "hover:text-black transition-colors",
+                                    className: "hover:text-foreground transition-colors",
                                     children: "Terms of Service"
                                 }, void 0, false, {
                                     fileName: "[project]/frontend/components/Footer.jsx",
-                                    lineNumber: 53,
+                                    lineNumber: 55,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/frontend/components/Footer.jsx",
-                            lineNumber: 51,
+                            lineNumber: 53,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/frontend/components/Footer.jsx",
-                    lineNumber: 49,
+                    lineNumber: 51,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/frontend/components/Footer.jsx",
-            lineNumber: 7,
+            lineNumber: 9,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/frontend/components/Footer.jsx",
-        lineNumber: 6,
+        lineNumber: 8,
         columnNumber: 5
     }, this);
 }
@@ -1268,17 +1282,17 @@ function ProductCard({ product }) {
     };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
         whileHover: {
-            y: -5
+            y: -4
         },
-        className: "group bg-white rounded-3xl overflow-hidden border border-gray-100 hover:shadow-2xl hover:shadow-emerald-500/10 transition-all duration-500",
+        className: "group bg-card rounded-3xl overflow-hidden border border-border hover:shadow-xl dark:hover:shadow-black/30 transition-all duration-300",
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
                 href: `/products/${product._id}`,
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                    className: "relative aspect-[4/5] overflow-hidden",
+                    className: "relative aspect-[4/5] overflow-hidden bg-muted",
                     children: [
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
-                            src: product.images[0],
+                            src: product.images?.[0] || '/placeholder-avatar.svg',
                             alt: product.title,
                             fill: true,
                             className: "object-cover transition-transform duration-700 group-hover:scale-110"
@@ -1291,7 +1305,7 @@ function ProductCard({ product }) {
                             className: "absolute top-4 left-4 flex flex-col gap-2",
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                    className: "px-3 py-1 bg-white/90 backdrop-blur-md rounded-full text-xs font-bold text-black shadow-sm",
+                                    className: "px-3 py-1 bg-card/90 backdrop-blur-md rounded-full text-xs font-bold text-foreground shadow-sm",
                                     children: product.category
                                 }, void 0, false, {
                                     fileName: "[project]/frontend/components/ProductCard.jsx",
@@ -1299,7 +1313,7 @@ function ProductCard({ product }) {
                                     columnNumber: 13
                                 }, this),
                                 availabilityBadge && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                    className: `px-3 py-1 rounded-full text-[10px] font-semibold shadow-sm ${availabilityBadge.tone === 'available' ? 'bg-emerald-600 text-white' : 'bg-amber-100 text-amber-800'}`,
+                                    className: `px-3 py-1 rounded-full text-[10px] font-semibold shadow-sm ${availabilityBadge.tone === 'available' ? 'bg-emerald-600 dark:bg-cyan-600 text-white' : 'bg-amber-100 dark:bg-amber-900/50 text-amber-800 dark:text-amber-200'}`,
                                     children: availabilityBadge.label
                                 }, void 0, false, {
                                     fileName: "[project]/frontend/components/ProductCard.jsx",
@@ -1314,10 +1328,10 @@ function ProductCard({ product }) {
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                             onClick: handleWishlist,
-                            className: "absolute top-4 right-4 p-2 rounded-full bg-white/90 backdrop-blur-md shadow-sm hover:bg-white",
+                            className: "absolute top-4 right-4 p-2 rounded-full bg-card/90 backdrop-blur-md shadow-sm hover:bg-card",
                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$heart$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Heart$3e$__["Heart"], {
                                 size: 18,
-                                className: inWishlist ? 'fill-red-500 text-red-500' : 'text-gray-600'
+                                className: inWishlist ? 'fill-red-500 text-red-500' : 'text-muted-foreground'
                             }, void 0, false, {
                                 fileName: "[project]/frontend/components/ProductCard.jsx",
                                 lineNumber: 141,
@@ -1348,7 +1362,7 @@ function ProductCard({ product }) {
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
                                 href: `/products/${product._id}`,
                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
-                                    className: "font-bold text-lg text-gray-900 line-clamp-1 group-hover:text-emerald-600 transition-colors",
+                                    className: "font-bold text-lg text-foreground line-clamp-1 group-hover:text-emerald-600 dark:group-hover:text-cyan-400 transition-colors",
                                     children: product.title
                                 }, void 0, false, {
                                     fileName: "[project]/frontend/components/ProductCard.jsx",
@@ -1360,7 +1374,7 @@ function ProductCard({ product }) {
                                 lineNumber: 148,
                                 columnNumber: 11
                             }, this),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            (product.rating ?? product.averageRating) != null && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                 className: "flex items-center gap-1 text-amber-500",
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$star$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Star$3e$__["Star"], {
@@ -1368,22 +1382,22 @@ function ProductCard({ product }) {
                                         fill: "currentColor"
                                     }, void 0, false, {
                                         fileName: "[project]/frontend/components/ProductCard.jsx",
-                                        lineNumber: 154,
-                                        columnNumber: 13
+                                        lineNumber: 155,
+                                        columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                        className: "text-sm font-bold text-gray-700",
-                                        children: "4.9"
+                                        className: "text-sm font-bold text-muted-foreground",
+                                        children: (product.rating ?? product.averageRating).toFixed(1)
                                     }, void 0, false, {
                                         fileName: "[project]/frontend/components/ProductCard.jsx",
-                                        lineNumber: 155,
-                                        columnNumber: 13
+                                        lineNumber: 156,
+                                        columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/frontend/components/ProductCard.jsx",
-                                lineNumber: 153,
-                                columnNumber: 11
+                                lineNumber: 154,
+                                columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
@@ -1393,25 +1407,25 @@ function ProductCard({ product }) {
                     }, this),
                     sellerId && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
                         href: `/seller/${sellerId}`,
-                        className: "flex items-center gap-2 text-gray-500 text-sm mb-4 hover:text-emerald-600 transition-colors group/seller",
+                        className: "flex items-center gap-2 text-muted-foreground text-sm mb-4 hover:text-emerald-600 dark:hover:text-cyan-400 transition-colors group/seller",
                         onClick: (e)=>e.stopPropagation(),
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                className: "relative w-6 h-6 rounded-full overflow-hidden border border-gray-200 flex-shrink-0",
+                                className: "relative w-6 h-6 rounded-full overflow-hidden border border-border flex-shrink-0",
                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
-                                    src: sellerAvatar || 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100',
+                                    src: sellerAvatar || '/placeholder-avatar.svg',
                                     alt: sellerName || 'Seller',
                                     width: 24,
                                     height: 24,
-                                    className: "object-cover group-hover/seller:ring-2 group-hover/seller:ring-emerald-500 rounded-full"
+                                    className: "object-cover group-hover/seller:ring-2 group-hover/seller:ring-emerald-500 dark:group-hover/seller:ring-cyan-500 rounded-full"
                                 }, void 0, false, {
                                     fileName: "[project]/frontend/components/ProductCard.jsx",
-                                    lineNumber: 166,
+                                    lineNumber: 168,
                                     columnNumber: 15
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/frontend/components/ProductCard.jsx",
-                                lineNumber: 165,
+                                lineNumber: 167,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1419,7 +1433,7 @@ function ProductCard({ product }) {
                                 children: sellerName || 'Seller'
                             }, void 0, false, {
                                 fileName: "[project]/frontend/components/ProductCard.jsx",
-                                lineNumber: 174,
+                                lineNumber: 176,
                                 columnNumber: 13
                             }, this),
                             sellerLocation && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
@@ -1429,7 +1443,7 @@ function ProductCard({ product }) {
                                         children: "·"
                                     }, void 0, false, {
                                         fileName: "[project]/frontend/components/ProductCard.jsx",
-                                        lineNumber: 177,
+                                        lineNumber: 179,
                                         columnNumber: 17
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1439,7 +1453,7 @@ function ProductCard({ product }) {
                                                 size: 12
                                             }, void 0, false, {
                                                 fileName: "[project]/frontend/components/ProductCard.jsx",
-                                                lineNumber: 178,
+                                                lineNumber: 180,
                                                 columnNumber: 61
                                             }, this),
                                             " ",
@@ -1447,7 +1461,7 @@ function ProductCard({ product }) {
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/frontend/components/ProductCard.jsx",
-                                        lineNumber: 178,
+                                        lineNumber: 180,
                                         columnNumber: 17
                                     }, this)
                                 ]
@@ -1455,11 +1469,11 @@ function ProductCard({ product }) {
                         ]
                     }, void 0, true, {
                         fileName: "[project]/frontend/components/ProductCard.jsx",
-                        lineNumber: 160,
+                        lineNumber: 162,
                         columnNumber: 11
                     }, this),
                     !sellerId && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "flex items-center gap-4 text-gray-500 text-sm mb-4",
+                        className: "flex items-center gap-4 text-muted-foreground text-sm mb-4",
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                 className: "flex items-center gap-1",
@@ -1468,20 +1482,20 @@ function ProductCard({ product }) {
                                         size: 14
                                     }, void 0, false, {
                                         fileName: "[project]/frontend/components/ProductCard.jsx",
-                                        lineNumber: 186,
+                                        lineNumber: 188,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                         children: product.seller?.location || '—'
                                     }, void 0, false, {
                                         fileName: "[project]/frontend/components/ProductCard.jsx",
-                                        lineNumber: 187,
+                                        lineNumber: 189,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/frontend/components/ProductCard.jsx",
-                                lineNumber: 185,
+                                lineNumber: 187,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1491,56 +1505,56 @@ function ProductCard({ product }) {
                                         size: 14
                                     }, void 0, false, {
                                         fileName: "[project]/frontend/components/ProductCard.jsx",
-                                        lineNumber: 190,
+                                        lineNumber: 192,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                         children: "Verified"
                                     }, void 0, false, {
                                         fileName: "[project]/frontend/components/ProductCard.jsx",
-                                        lineNumber: 191,
+                                        lineNumber: 193,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/frontend/components/ProductCard.jsx",
-                                lineNumber: 189,
+                                lineNumber: 191,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/frontend/components/ProductCard.jsx",
-                        lineNumber: 184,
+                        lineNumber: 186,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "flex items-center justify-between pt-4 border-t border-gray-50 gap-2",
+                        className: "flex items-center justify-between pt-4 border-t border-border gap-2",
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                        className: "text-2xl font-black text-black",
+                                        className: "text-2xl font-black text-foreground",
                                         children: [
                                             "$",
                                             product.pricePerDay
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/frontend/components/ProductCard.jsx",
-                                        lineNumber: 198,
+                                        lineNumber: 200,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                        className: "text-gray-400 text-sm",
+                                        className: "text-muted-foreground text-sm",
                                         children: " / day"
                                     }, void 0, false, {
                                         fileName: "[project]/frontend/components/ProductCard.jsx",
-                                        lineNumber: 199,
+                                        lineNumber: 201,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/frontend/components/ProductCard.jsx",
-                                lineNumber: 197,
+                                lineNumber: 199,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1548,40 +1562,40 @@ function ProductCard({ product }) {
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                         onClick: handleAddToCart,
-                                        className: "p-2 rounded-xl border border-gray-200 hover:bg-gray-50",
+                                        className: "p-2 rounded-xl border border-border hover:bg-accent",
                                         title: "Add to cart",
                                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$shopping$2d$cart$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__ShoppingCart$3e$__["ShoppingCart"], {
                                             size: 18,
-                                            className: "text-gray-600"
+                                            className: "text-muted-foreground"
                                         }, void 0, false, {
                                             fileName: "[project]/frontend/components/ProductCard.jsx",
-                                            lineNumber: 207,
+                                            lineNumber: 209,
                                             columnNumber: 15
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/frontend/components/ProductCard.jsx",
-                                        lineNumber: 202,
+                                        lineNumber: 204,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
                                         href: `/products/${product._id}`,
-                                        className: "px-4 py-2 bg-emerald-50 text-emerald-600 rounded-xl text-sm font-bold hover:bg-emerald-600 hover:text-white transition-all",
+                                        className: "px-4 py-2 bg-emerald-50 dark:bg-emerald-900/30 text-emerald-600 dark:text-cyan-400 rounded-xl text-sm font-bold hover:bg-emerald-600 dark:hover:bg-cyan-600 hover:text-white transition-all",
                                         children: "Rent Now"
                                     }, void 0, false, {
                                         fileName: "[project]/frontend/components/ProductCard.jsx",
-                                        lineNumber: 209,
+                                        lineNumber: 211,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/frontend/components/ProductCard.jsx",
-                                lineNumber: 201,
+                                lineNumber: 203,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/frontend/components/ProductCard.jsx",
-                        lineNumber: 196,
+                        lineNumber: 198,
                         columnNumber: 9
                     }, this)
                 ]
@@ -1674,7 +1688,7 @@ function ProductFilters({ onClose, isMobile }) {
                 className: "flex justify-between items-center",
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
-                        className: "font-black text-lg",
+                        className: "font-black text-lg text-foreground",
                         children: "Filters"
                     }, void 0, false, {
                         fileName: "[project]/frontend/components/ProductFilters.jsx",
@@ -1683,7 +1697,8 @@ function ProductFilters({ onClose, isMobile }) {
                     }, this),
                     isMobile && onClose && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                         onClick: onClose,
-                        className: "p-2 rounded-xl hover:bg-gray-100",
+                        className: "p-2 rounded-xl hover:bg-secondary",
+                        "aria-label": "Close filters",
                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$x$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__X$3e$__["X"], {
                             size: 20
                         }, void 0, false, {
@@ -1705,7 +1720,7 @@ function ProductFilters({ onClose, isMobile }) {
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
-                        className: "text-xs font-bold text-gray-400 uppercase tracking-wider mb-2 block",
+                        className: "text-xs font-bold text-muted-foreground uppercase tracking-wider mb-2 block",
                         children: "Category"
                     }, void 0, false, {
                         fileName: "[project]/frontend/components/ProductFilters.jsx",
@@ -1716,7 +1731,7 @@ function ProductFilters({ onClose, isMobile }) {
                         className: "flex flex-wrap gap-2",
                         children: CATEGORIES.map((cat)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                 onClick: ()=>dispatch((0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$store$2f$slices$2f$filtersSlice$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["setCategory"])(cat)),
-                                className: `px-4 py-2 rounded-xl text-sm font-bold transition-all ${filters.category === cat ? 'bg-black text-white' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'}`,
+                                className: `px-4 py-2 rounded-xl text-sm font-bold transition-all ${filters.category === cat ? 'bg-primary text-primary-foreground' : 'bg-secondary text-muted-foreground hover:bg-accent hover:text-foreground'}`,
                                 children: cat
                             }, cat, false, {
                                 fileName: "[project]/frontend/components/ProductFilters.jsx",
@@ -1737,7 +1752,7 @@ function ProductFilters({ onClose, isMobile }) {
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
-                        className: "text-xs font-bold text-gray-400 uppercase tracking-wider mb-2 block",
+                        className: "text-xs font-bold text-muted-foreground uppercase tracking-wider mb-2 block",
                         children: "Price per day ($)"
                     }, void 0, false, {
                         fileName: "[project]/frontend/components/ProductFilters.jsx",
@@ -1754,14 +1769,14 @@ function ProductFilters({ onClose, isMobile }) {
                                 onChange: (e)=>dispatch((0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$store$2f$slices$2f$filtersSlice$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["setPriceRange"])({
                                         min: e.target.value === '' ? '' : Number(e.target.value)
                                     })),
-                                className: "w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-2 text-sm focus:ring-2 focus:ring-emerald-500 outline-none"
+                                className: "w-full bg-input border border-border rounded-xl px-4 py-2 text-sm text-foreground placeholder:text-muted-foreground focus:ring-2 focus:ring-ring outline-none"
                             }, void 0, false, {
                                 fileName: "[project]/frontend/components/ProductFilters.jsx",
                                 lineNumber: 59,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                className: "text-gray-400",
+                                className: "text-muted-foreground",
                                 children: "–"
                             }, void 0, false, {
                                 fileName: "[project]/frontend/components/ProductFilters.jsx",
@@ -1775,7 +1790,7 @@ function ProductFilters({ onClose, isMobile }) {
                                 onChange: (e)=>dispatch((0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$store$2f$slices$2f$filtersSlice$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["setPriceRange"])({
                                         max: e.target.value === '' ? '' : Number(e.target.value)
                                     })),
-                                className: "w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-2 text-sm focus:ring-2 focus:ring-emerald-500 outline-none"
+                                className: "w-full bg-input border border-border rounded-xl px-4 py-2 text-sm text-foreground placeholder:text-muted-foreground focus:ring-2 focus:ring-ring outline-none"
                             }, void 0, false, {
                                 fileName: "[project]/frontend/components/ProductFilters.jsx",
                                 lineNumber: 67,
@@ -1796,7 +1811,7 @@ function ProductFilters({ onClose, isMobile }) {
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
-                        className: "text-xs font-bold text-gray-400 uppercase tracking-wider mb-2 block",
+                        className: "text-xs font-bold text-muted-foreground uppercase tracking-wider mb-2 block",
                         children: "Rental duration"
                     }, void 0, false, {
                         fileName: "[project]/frontend/components/ProductFilters.jsx",
@@ -1807,7 +1822,7 @@ function ProductFilters({ onClose, isMobile }) {
                         className: "flex flex-wrap gap-2",
                         children: DURATIONS.map((d)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                 onClick: ()=>dispatch((0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$store$2f$slices$2f$filtersSlice$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["setDuration"])(d.value)),
-                                className: `px-4 py-2 rounded-xl text-sm font-bold transition-all ${filters.duration === d.value ? 'bg-black text-white' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'}`,
+                                className: `px-4 py-2 rounded-xl text-sm font-bold transition-all ${filters.duration === d.value ? 'bg-primary text-primary-foreground' : 'bg-secondary text-muted-foreground hover:bg-accent hover:text-foreground'}`,
                                 children: d.label
                             }, d.value || 'any', false, {
                                 fileName: "[project]/frontend/components/ProductFilters.jsx",
@@ -1828,7 +1843,7 @@ function ProductFilters({ onClose, isMobile }) {
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
-                        className: "text-xs font-bold text-gray-400 uppercase tracking-wider mb-2 block",
+                        className: "text-xs font-bold text-muted-foreground uppercase tracking-wider mb-2 block",
                         children: "Availability"
                     }, void 0, false, {
                         fileName: "[project]/frontend/components/ProductFilters.jsx",
@@ -1844,7 +1859,7 @@ function ProductFilters({ onClose, isMobile }) {
                                 onChange: (e)=>dispatch((0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$store$2f$slices$2f$filtersSlice$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["setAvailability"])({
                                         start: e.target.value
                                     })),
-                                className: "w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-2 text-sm focus:ring-2 focus:ring-emerald-500 outline-none"
+                                className: "w-full bg-input border border-border rounded-xl px-4 py-2 text-sm text-foreground focus:ring-2 focus:ring-ring outline-none"
                             }, void 0, false, {
                                 fileName: "[project]/frontend/components/ProductFilters.jsx",
                                 lineNumber: 97,
@@ -1856,7 +1871,7 @@ function ProductFilters({ onClose, isMobile }) {
                                 onChange: (e)=>dispatch((0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$store$2f$slices$2f$filtersSlice$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["setAvailability"])({
                                         end: e.target.value
                                     })),
-                                className: "w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-2 text-sm focus:ring-2 focus:ring-emerald-500 outline-none"
+                                className: "w-full bg-input border border-border rounded-xl px-4 py-2 text-sm text-foreground focus:ring-2 focus:ring-ring outline-none"
                             }, void 0, false, {
                                 fileName: "[project]/frontend/components/ProductFilters.jsx",
                                 lineNumber: 103,
@@ -1877,7 +1892,7 @@ function ProductFilters({ onClose, isMobile }) {
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
-                        className: "text-xs font-bold text-gray-400 uppercase tracking-wider mb-2 block",
+                        className: "text-xs font-bold text-muted-foreground uppercase tracking-wider mb-2 block",
                         children: "Min. rating"
                     }, void 0, false, {
                         fileName: "[project]/frontend/components/ProductFilters.jsx",
@@ -1888,7 +1903,7 @@ function ProductFilters({ onClose, isMobile }) {
                         className: "flex flex-wrap gap-2",
                         children: RATINGS.map((r)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                 onClick: ()=>dispatch((0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$store$2f$slices$2f$filtersSlice$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["setRatingMin"])(r === '' ? '' : r)),
-                                className: `px-4 py-2 rounded-xl text-sm font-bold transition-all ${filters.ratingMin === r ? 'bg-black text-white' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'}`,
+                                className: `px-4 py-2 rounded-xl text-sm font-bold transition-all ${filters.ratingMin === r ? 'bg-primary text-primary-foreground' : 'bg-secondary text-muted-foreground hover:bg-accent hover:text-foreground'}`,
                                 children: r === '' ? 'Any' : `${r}+ stars`
                             }, r === '' ? 'any' : r, false, {
                                 fileName: "[project]/frontend/components/ProductFilters.jsx",
@@ -1908,7 +1923,7 @@ function ProductFilters({ onClose, isMobile }) {
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                 onClick: ()=>dispatch((0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$store$2f$slices$2f$filtersSlice$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["resetFilters"])()),
-                className: "w-full flex items-center justify-center gap-2 py-3 rounded-xl border border-gray-200 font-bold text-gray-600 hover:bg-gray-50",
+                className: "w-full flex items-center justify-center gap-2 py-3 rounded-xl border border-border font-bold text-muted-foreground hover:bg-secondary",
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$rotate$2d$ccw$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__RotateCcw$3e$__["RotateCcw"], {
                         size: 16
@@ -1941,7 +1956,7 @@ function ProductFilters({ onClose, isMobile }) {
         }, this);
     }
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("aside", {
-        className: "bg-white rounded-3xl border border-gray-100 p-6 shadow-sm h-fit sticky top-28",
+        className: "bg-card rounded-3xl border border-border p-6 shadow-sm dark:shadow-black/20 h-fit sticky top-28",
         children: content
     }, void 0, false, {
         fileName: "[project]/frontend/components/ProductFilters.jsx",
@@ -1981,11 +1996,13 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$components$2f$Pr
 var __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$components$2f$ProductFilters$2e$jsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/frontend/components/ProductFilters.jsx [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$search$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Search$3e$__ = __turbopack_context__.i("[project]/frontend/node_modules/lucide-react/dist/esm/icons/search.js [app-client] (ecmascript) <export default as Search>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$funnel$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Filter$3e$__ = __turbopack_context__.i("[project]/frontend/node_modules/lucide-react/dist/esm/icons/funnel.js [app-client] (ecmascript) <export default as Filter>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/frontend/node_modules/next/dist/client/app-dir/link.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/frontend/node_modules/framer-motion/dist/es/render/components/motion/proxy.mjs [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$components$2f$AnimatePresence$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/frontend/node_modules/framer-motion/dist/es/components/AnimatePresence/index.mjs [app-client] (ecmascript)");
 ;
 var _s = __turbopack_context__.k.signature();
 'use client';
+;
 ;
 ;
 ;
@@ -2087,11 +2104,11 @@ function ProductsPage() {
         search
     ]);
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("main", {
-        className: "min-h-screen bg-gray-50",
+        className: "min-h-screen bg-background",
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$components$2f$Navbar$2e$jsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
                 fileName: "[project]/frontend/app/products/page.jsx",
-                lineNumber: 86,
+                lineNumber: 87,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2101,19 +2118,19 @@ function ProductsPage() {
                         className: "mb-8",
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
-                                className: "text-4xl font-black tracking-tighter text-black mb-2",
+                                className: "text-4xl font-black tracking-tighter text-foreground mb-2",
                                 children: "Explore Rentals"
                             }, void 0, false, {
                                 fileName: "[project]/frontend/app/products/page.jsx",
-                                lineNumber: 90,
+                                lineNumber: 91,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                className: "text-gray-500 mb-6",
+                                className: "text-muted-foreground mb-6",
                                 children: "Find premium gear and furniture from our verified community."
                             }, void 0, false, {
                                 fileName: "[project]/frontend/app/products/page.jsx",
-                                lineNumber: 91,
+                                lineNumber: 92,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2123,11 +2140,11 @@ function ProductsPage() {
                                         className: "relative flex-1 max-w-md",
                                         children: [
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$search$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Search$3e$__["Search"], {
-                                                className: "absolute left-4 top-1/2 -translate-y-1/2 text-gray-400",
+                                                className: "absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground",
                                                 size: 20
                                             }, void 0, false, {
                                                 fileName: "[project]/frontend/app/products/page.jsx",
-                                                lineNumber: 95,
+                                                lineNumber: 96,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -2135,46 +2152,46 @@ function ProductsPage() {
                                                 placeholder: "Search products...",
                                                 value: search,
                                                 onChange: (e)=>setSearch(e.target.value),
-                                                className: "w-full pl-12 pr-4 py-3.5 bg-white border border-gray-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-emerald-500 shadow-sm"
+                                                className: "w-full pl-12 pr-4 py-3.5 bg-card border border-border rounded-2xl focus:outline-none focus:ring-2 focus:ring-ring text-foreground placeholder:text-muted-foreground shadow-sm"
                                             }, void 0, false, {
                                                 fileName: "[project]/frontend/app/products/page.jsx",
-                                                lineNumber: 96,
+                                                lineNumber: 97,
                                                 columnNumber: 15
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/frontend/app/products/page.jsx",
-                                        lineNumber: 94,
+                                        lineNumber: 95,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                         onClick: ()=>setFilterDrawerOpen(true),
-                                        className: "lg:hidden flex items-center justify-center gap-2 px-6 py-3.5 bg-white border border-gray-200 rounded-2xl font-bold text-gray-700 hover:bg-gray-50",
+                                        className: "lg:hidden flex items-center justify-center gap-2 px-6 py-3.5 bg-card border border-border rounded-2xl font-bold text-foreground hover:bg-secondary",
                                         children: [
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$funnel$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Filter$3e$__["Filter"], {
                                                 size: 20
                                             }, void 0, false, {
                                                 fileName: "[project]/frontend/app/products/page.jsx",
-                                                lineNumber: 108,
+                                                lineNumber: 109,
                                                 columnNumber: 15
                                             }, this),
                                             " Filters"
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/frontend/app/products/page.jsx",
-                                        lineNumber: 104,
+                                        lineNumber: 105,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/frontend/app/products/page.jsx",
-                                lineNumber: 93,
+                                lineNumber: 94,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/frontend/app/products/page.jsx",
-                        lineNumber: 89,
+                        lineNumber: 90,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2184,12 +2201,12 @@ function ProductsPage() {
                                 className: "hidden lg:block w-72 flex-shrink-0",
                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$components$2f$ProductFilters$2e$jsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
                                     fileName: "[project]/frontend/app/products/page.jsx",
-                                    lineNumber: 116,
+                                    lineNumber: 117,
                                     columnNumber: 13
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/frontend/app/products/page.jsx",
-                                lineNumber: 115,
+                                lineNumber: 116,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2204,15 +2221,15 @@ function ProductsPage() {
                                         5,
                                         6
                                     ].map((i)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                            className: "h-[420px] bg-gray-200 animate-pulse rounded-3xl"
+                                            className: "h-[420px] bg-muted animate-pulse rounded-3xl"
                                         }, i, false, {
                                             fileName: "[project]/frontend/app/products/page.jsx",
-                                            lineNumber: 124,
+                                            lineNumber: 125,
                                             columnNumber: 19
                                         }, this))
                                 }, void 0, false, {
                                     fileName: "[project]/frontend/app/products/page.jsx",
-                                    lineNumber: 122,
+                                    lineNumber: 123,
                                     columnNumber: 15
                                 }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                     className: "grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6",
@@ -2220,61 +2237,70 @@ function ProductsPage() {
                                             product: product
                                         }, product._id, false, {
                                             fileName: "[project]/frontend/app/products/page.jsx",
-                                            lineNumber: 131,
+                                            lineNumber: 132,
                                             columnNumber: 21
                                         }, this)) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                        className: "col-span-full py-24 text-center bg-white rounded-3xl border border-dashed border-gray-200",
+                                        className: "col-span-full py-24 text-center bg-card rounded-3xl border border-dashed border-border",
                                         children: [
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$funnel$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Filter$3e$__["Filter"], {
-                                                className: "mx-auto text-gray-300 mb-4",
+                                                className: "mx-auto text-muted-foreground mb-4",
                                                 size: 48
-                                            }, void 0, false, {
-                                                fileName: "[project]/frontend/app/products/page.jsx",
-                                                lineNumber: 135,
-                                                columnNumber: 21
-                                            }, this),
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
-                                                className: "text-xl font-bold text-gray-900 mb-2",
-                                                children: "No products found"
                                             }, void 0, false, {
                                                 fileName: "[project]/frontend/app/products/page.jsx",
                                                 lineNumber: 136,
                                                 columnNumber: 21
                                             }, this),
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                className: "text-gray-500",
-                                                children: "Try adjusting your filters or search terms."
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
+                                                className: "text-xl font-bold text-foreground mb-2",
+                                                children: "No products yet"
                                             }, void 0, false, {
                                                 fileName: "[project]/frontend/app/products/page.jsx",
                                                 lineNumber: 137,
+                                                columnNumber: 21
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                className: "text-muted-foreground mb-6",
+                                                children: "Be the first to list your premium items for rent."
+                                            }, void 0, false, {
+                                                fileName: "[project]/frontend/app/products/page.jsx",
+                                                lineNumber: 138,
+                                                columnNumber: 21
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
+                                                href: "/register?role=seller",
+                                                className: "inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-xl font-bold hover:opacity-90",
+                                                children: "Become a Seller"
+                                            }, void 0, false, {
+                                                fileName: "[project]/frontend/app/products/page.jsx",
+                                                lineNumber: 139,
                                                 columnNumber: 21
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/frontend/app/products/page.jsx",
-                                        lineNumber: 134,
+                                        lineNumber: 135,
                                         columnNumber: 19
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/frontend/app/products/page.jsx",
-                                    lineNumber: 128,
+                                    lineNumber: 129,
                                     columnNumber: 15
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/frontend/app/products/page.jsx",
-                                lineNumber: 120,
+                                lineNumber: 121,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/frontend/app/products/page.jsx",
-                        lineNumber: 113,
+                        lineNumber: 114,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/frontend/app/products/page.jsx",
-                lineNumber: 88,
+                lineNumber: 89,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$components$2f$AnimatePresence$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["AnimatePresence"], {
@@ -2294,7 +2320,7 @@ function ProductsPage() {
                             className: "fixed inset-0 bg-black/50 z-40 lg:hidden"
                         }, void 0, false, {
                             fileName: "[project]/frontend/app/products/page.jsx",
-                            lineNumber: 150,
+                            lineNumber: 154,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
@@ -2311,36 +2337,36 @@ function ProductsPage() {
                                 type: 'tween',
                                 duration: 0.25
                             },
-                            className: "fixed top-0 right-0 bottom-0 w-full max-w-sm bg-white z-50 shadow-2xl overflow-y-auto lg:hidden",
+                            className: "fixed top-0 right-0 bottom-0 w-full max-w-sm bg-background dark:bg-card z-50 shadow-2xl overflow-y-auto lg:hidden border-l border-border",
                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$components$2f$ProductFilters$2e$jsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
                                 isMobile: true,
                                 onClose: ()=>setFilterDrawerOpen(false)
                             }, void 0, false, {
                                 fileName: "[project]/frontend/app/products/page.jsx",
-                                lineNumber: 164,
+                                lineNumber: 168,
                                 columnNumber: 15
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/frontend/app/products/page.jsx",
-                            lineNumber: 157,
+                            lineNumber: 161,
                             columnNumber: 13
                         }, this)
                     ]
                 }, void 0, true)
             }, void 0, false, {
                 fileName: "[project]/frontend/app/products/page.jsx",
-                lineNumber: 147,
+                lineNumber: 151,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$components$2f$Footer$2e$jsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
                 fileName: "[project]/frontend/app/products/page.jsx",
-                lineNumber: 170,
+                lineNumber: 174,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/frontend/app/products/page.jsx",
-        lineNumber: 85,
+        lineNumber: 86,
         columnNumber: 5
     }, this);
 }

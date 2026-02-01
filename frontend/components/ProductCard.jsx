@@ -107,27 +107,27 @@ export default function ProductCard({ product }) {
 
   return (
     <motion.div
-      whileHover={{ y: -5 }}
-      className="group bg-white rounded-3xl overflow-hidden border border-gray-100 hover:shadow-2xl hover:shadow-emerald-500/10 transition-all duration-500"
+      whileHover={{ y: -4 }}
+      className="group bg-card rounded-3xl overflow-hidden border border-border hover:shadow-xl dark:hover:shadow-black/30 transition-all duration-300"
     >
       <Link href={`/products/${product._id}`}>
-        <div className="relative aspect-[4/5] overflow-hidden">
+        <div className="relative aspect-[4/5] overflow-hidden bg-muted">
           <Image
-            src={product.images[0]}
+            src={product.images?.[0] || '/placeholder-avatar.svg'}
             alt={product.title}
             fill
             className="object-cover transition-transform duration-700 group-hover:scale-110"
           />
           <div className="absolute top-4 left-4 flex flex-col gap-2">
-            <span className="px-3 py-1 bg-white/90 backdrop-blur-md rounded-full text-xs font-bold text-black shadow-sm">
+            <span className="px-3 py-1 bg-card/90 backdrop-blur-md rounded-full text-xs font-bold text-foreground shadow-sm">
               {product.category}
             </span>
             {availabilityBadge && (
               <span
                 className={`px-3 py-1 rounded-full text-[10px] font-semibold shadow-sm ${
                   availabilityBadge.tone === 'available'
-                    ? 'bg-emerald-600 text-white'
-                    : 'bg-amber-100 text-amber-800'
+                    ? 'bg-emerald-600 dark:bg-cyan-600 text-white'
+                    : 'bg-amber-100 dark:bg-amber-900/50 text-amber-800 dark:text-amber-200'
                 }`}
               >
                 {availabilityBadge.label}
@@ -136,9 +136,9 @@ export default function ProductCard({ product }) {
           </div>
           <button
             onClick={handleWishlist}
-            className="absolute top-4 right-4 p-2 rounded-full bg-white/90 backdrop-blur-md shadow-sm hover:bg-white"
+            className="absolute top-4 right-4 p-2 rounded-full bg-card/90 backdrop-blur-md shadow-sm hover:bg-card"
           >
-            <Heart size={18} className={inWishlist ? 'fill-red-500 text-red-500' : 'text-gray-600'} />
+            <Heart size={18} className={inWishlist ? 'fill-red-500 text-red-500' : 'text-muted-foreground'} />
           </button>
         </div>
       </Link>
@@ -146,29 +146,31 @@ export default function ProductCard({ product }) {
       <div className="p-6">
         <div className="flex justify-between items-start mb-2">
           <Link href={`/products/${product._id}`}>
-            <h3 className="font-bold text-lg text-gray-900 line-clamp-1 group-hover:text-emerald-600 transition-colors">
+            <h3 className="font-bold text-lg text-foreground line-clamp-1 group-hover:text-emerald-600 dark:group-hover:text-cyan-400 transition-colors">
               {product.title}
             </h3>
           </Link>
-          <div className="flex items-center gap-1 text-amber-500">
-            <Star size={14} fill="currentColor" />
-            <span className="text-sm font-bold text-gray-700">4.9</span>
-          </div>
+          {(product.rating ?? product.averageRating) != null && (
+            <div className="flex items-center gap-1 text-amber-500">
+              <Star size={14} fill="currentColor" />
+              <span className="text-sm font-bold text-muted-foreground">{(product.rating ?? product.averageRating).toFixed(1)}</span>
+            </div>
+          )}
         </div>
 
         {sellerId && (
           <Link
             href={`/seller/${sellerId}`}
-            className="flex items-center gap-2 text-gray-500 text-sm mb-4 hover:text-emerald-600 transition-colors group/seller"
+            className="flex items-center gap-2 text-muted-foreground text-sm mb-4 hover:text-emerald-600 dark:hover:text-cyan-400 transition-colors group/seller"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="relative w-6 h-6 rounded-full overflow-hidden border border-gray-200 flex-shrink-0">
+            <div className="relative w-6 h-6 rounded-full overflow-hidden border border-border flex-shrink-0">
               <Image
-                src={sellerAvatar || 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100'}
+                src={sellerAvatar || '/placeholder-avatar.svg'}
                 alt={sellerName || 'Seller'}
                 width={24}
                 height={24}
-                className="object-cover group-hover/seller:ring-2 group-hover/seller:ring-emerald-500 rounded-full"
+                className="object-cover group-hover/seller:ring-2 group-hover/seller:ring-emerald-500 dark:group-hover/seller:ring-cyan-500 rounded-full"
               />
             </div>
             <span className="font-medium text-gray-700 group-hover/seller:text-emerald-600 truncate">{sellerName || 'Seller'}</span>
@@ -181,7 +183,7 @@ export default function ProductCard({ product }) {
           </Link>
         )}
         {!sellerId && (
-          <div className="flex items-center gap-4 text-gray-500 text-sm mb-4">
+          <div className="flex items-center gap-4 text-muted-foreground text-sm mb-4">
             <div className="flex items-center gap-1">
               <MapPin size={14} />
               <span>{product.seller?.location || '—'}</span>
@@ -193,22 +195,22 @@ export default function ProductCard({ product }) {
           </div>
         )}
 
-        <div className="flex items-center justify-between pt-4 border-t border-gray-50 gap-2">
+        <div className="flex items-center justify-between pt-4 border-t border-border gap-2">
           <div>
-            <span className="text-2xl font-black text-black">${product.pricePerDay}</span>
-            <span className="text-gray-400 text-sm"> / day</span>
+            <span className="text-2xl font-black text-foreground">${product.pricePerDay}</span>
+            <span className="text-muted-foreground text-sm"> / day</span>
           </div>
           <div className="flex gap-2">
             <button
               onClick={handleAddToCart}
-              className="p-2 rounded-xl border border-gray-200 hover:bg-gray-50"
+              className="p-2 rounded-xl border border-border hover:bg-accent"
               title="Add to cart"
             >
-              <ShoppingCart size={18} className="text-gray-600" />
+              <ShoppingCart size={18} className="text-muted-foreground" />
             </button>
             <Link
               href={`/products/${product._id}`}
-              className="px-4 py-2 bg-emerald-50 text-emerald-600 rounded-xl text-sm font-bold hover:bg-emerald-600 hover:text-white transition-all"
+              className="px-4 py-2 bg-emerald-50 dark:bg-emerald-900/30 text-emerald-600 dark:text-cyan-400 rounded-xl text-sm font-bold hover:bg-emerald-600 dark:hover:bg-cyan-600 hover:text-white transition-all"
             >
               Rent Now
             </Link>

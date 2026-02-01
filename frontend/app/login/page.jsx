@@ -67,29 +67,29 @@ export default function LoginPage() {
   };
 
   return (
-    <main className="min-h-screen bg-gray-50">
+    <main className="min-h-screen bg-background">
       <Navbar />
       <div className="flex items-center justify-center min-h-screen pt-20 px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="max-w-md w-full bg-white rounded-[40px] shadow-2xl shadow-black/5 p-10 border border-gray-100"
+          className="max-w-md w-full bg-card rounded-[40px] shadow-xl dark:shadow-black/40 p-10 border border-border"
         >
           <div className="text-center mb-10">
-            <h1 className="text-3xl font-black tracking-tighter text-black mb-2">Welcome Back</h1>
-            <p className="text-gray-500">Enter your credentials to access your account</p>
+            <h1 className="text-3xl font-black tracking-tighter text-foreground mb-2">Welcome Back</h1>
+            <p className="text-muted-foreground">Enter your credentials to access your account</p>
           </div>
 
           <form onSubmit={handleLogin} className="space-y-6">
             <div className="space-y-2">
-              <label className="text-sm font-bold text-gray-700 ml-1">Email Address</label>
+              <label className="text-sm font-bold text-foreground ml-1">Email Address</label>
               <div className="relative">
-                <Mail className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" size={18} />
+                <Mail className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground" size={18} />
                 <input
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="w-full pl-12 pr-4 py-4 bg-gray-50 border border-transparent rounded-2xl focus:bg-white focus:border-emerald-500 transition-all outline-none"
+                  className="w-full pl-12 pr-4 py-4 bg-input border border-border rounded-2xl focus:ring-2 focus:ring-ring focus:border-transparent transition-all outline-none text-foreground placeholder:text-muted-foreground"
                   placeholder="name@example.com"
                   required
                 />
@@ -98,18 +98,18 @@ export default function LoginPage() {
 
             <div className="space-y-2">
               <div className="flex justify-between items-center">
-                <label className="text-sm font-bold text-gray-700 ml-1">Password</label>
-                <Link href="/forgot-password" className="text-sm text-emerald-600 font-medium hover:underline">
+                <label className="text-sm font-bold text-foreground ml-1">Password</label>
+                <Link href="/forgot-password" className="text-sm text-emerald-600 dark:text-cyan-400 font-medium hover:underline">
                   Forgot password?
                 </Link>
               </div>
               <div className="relative">
-                <Lock className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" size={18} />
+                <Lock className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground" size={18} />
                 <input
                   type="password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  className="w-full pl-12 pr-4 py-4 bg-gray-50 border border-transparent rounded-2xl focus:bg-white focus:border-emerald-500 transition-all outline-none"
+                  className="w-full pl-12 pr-4 py-4 bg-input border border-border rounded-2xl focus:ring-2 focus:ring-ring focus:border-transparent transition-all outline-none text-foreground placeholder:text-muted-foreground"
                   placeholder="••••••••"
                   required
                 />
@@ -119,7 +119,7 @@ export default function LoginPage() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full py-4 bg-black text-white rounded-2xl font-bold flex items-center justify-center gap-2 hover:bg-gray-800 transition-all shadow-xl shadow-black/10 disabled:opacity-50"
+              className="w-full py-4 bg-primary text-primary-foreground rounded-2xl font-bold flex items-center justify-center gap-2 hover:opacity-90 transition-all shadow-xl disabled:opacity-50 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
             >
               {loading ? <Loader2 className="animate-spin" size={20} /> : (
                 <>
@@ -135,7 +135,7 @@ export default function LoginPage() {
                   type="button"
                   onClick={handleResendVerification}
                   disabled={resendLoading}
-                  className="w-full py-3 bg-amber-600 text-white rounded-xl font-bold text-sm hover:bg-amber-700 disabled:opacity-50"
+                  className="w-full py-3 bg-amber-600 text-white rounded-xl font-bold text-sm hover:bg-amber-700 disabled:opacity-50 focus:outline-none focus:ring-2 focus:ring-amber-500"
                 >
                   {resendLoading ? <Loader2 className="animate-spin mx-auto" size={20} /> : 'Resend Verification Code'}
                 </button>
@@ -144,9 +144,9 @@ export default function LoginPage() {
           </form>
 
           <div className="mt-10 text-center text-sm">
-            <p className="text-gray-500">
+            <p className="text-muted-foreground">
               Don&apos;t have an account?{' '}
-              <Link href="/register" className="text-emerald-600 font-bold hover:underline">
+              <Link href="/register" className="text-emerald-600 dark:text-cyan-400 font-bold hover:underline">
                 Create Account
               </Link>
             </p>

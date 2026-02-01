@@ -6,7 +6,7 @@ import { Moon, Sun } from 'lucide-react';
 const STORAGE_KEY = 'luxerent-theme';
 
 export default function ThemeToggle() {
-  const [theme, setTheme] = useState('light');
+  const [theme, setTheme] = useState(null);
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
@@ -28,17 +28,19 @@ export default function ThemeToggle() {
     });
   };
 
+  if (theme === null) return <div className="w-10 h-10" aria-hidden="true" />;
+
   return (
     <button
       type="button"
       onClick={toggleTheme}
-      aria-label="Toggle dark mode"
-      className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-neutral-800 transition-colors"
+      aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
+      className="p-2.5 rounded-xl hover:bg-secondary transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background"
     >
       {theme === 'dark' ? (
         <Sun size={18} className="text-amber-400" />
       ) : (
-        <Moon size={18} className="text-gray-600" />
+        <Moon size={18} className="text-muted-foreground" />
       )}
     </button>
   );

@@ -10,6 +10,7 @@ import Footer from '@/components/Footer';
 import ProductCard from '@/components/ProductCard';
 import ProductFilters from '@/components/ProductFilters';
 import { Search, Filter } from 'lucide-react';
+import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 
 function applyFilters(products, filters, search) {
@@ -82,28 +83,28 @@ export default function ProductsPage() {
   const filteredProducts = useMemo(() => applyFilters(products, filters, search), [products, filters, search]);
 
   return (
-    <main className="min-h-screen bg-gray-50">
+    <main className="min-h-screen bg-background">
       <Navbar />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20">
         <header className="mb-8">
-          <h1 className="text-4xl font-black tracking-tighter text-black mb-2">Explore Rentals</h1>
-          <p className="text-gray-500 mb-6">Find premium gear and furniture from our verified community.</p>
+          <h1 className="text-4xl font-black tracking-tighter text-foreground mb-2">Explore Rentals</h1>
+          <p className="text-muted-foreground mb-6">Find premium gear and furniture from our verified community.</p>
 
           <div className="flex flex-col sm:flex-row gap-4 items-stretch sm:items-center justify-between">
             <div className="relative flex-1 max-w-md">
-              <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" size={20} />
+              <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground" size={20} />
               <input
                 type="text"
                 placeholder="Search products..."
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
-                className="w-full pl-12 pr-4 py-3.5 bg-white border border-gray-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-emerald-500 shadow-sm"
+                className="w-full pl-12 pr-4 py-3.5 bg-card border border-border rounded-2xl focus:outline-none focus:ring-2 focus:ring-ring text-foreground placeholder:text-muted-foreground shadow-sm"
               />
             </div>
             <button
               onClick={() => setFilterDrawerOpen(true)}
-              className="lg:hidden flex items-center justify-center gap-2 px-6 py-3.5 bg-white border border-gray-200 rounded-2xl font-bold text-gray-700 hover:bg-gray-50"
+              className="lg:hidden flex items-center justify-center gap-2 px-6 py-3.5 bg-card border border-border rounded-2xl font-bold text-foreground hover:bg-secondary"
             >
               <Filter size={20} /> Filters
             </button>
@@ -121,7 +122,7 @@ export default function ProductsPage() {
             {loading ? (
               <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
                 {[1, 2, 3, 4, 5, 6].map((i) => (
-                  <div key={i} className="h-[420px] bg-gray-200 animate-pulse rounded-3xl" />
+                  <div key={i} className="h-[420px] bg-muted animate-pulse rounded-3xl" />
                 ))}
               </div>
             ) : (
@@ -131,10 +132,13 @@ export default function ProductsPage() {
                     <ProductCard key={product._id} product={product} />
                   ))
                 ) : (
-                  <div className="col-span-full py-24 text-center bg-white rounded-3xl border border-dashed border-gray-200">
-                    <Filter className="mx-auto text-gray-300 mb-4" size={48} />
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">No products found</h3>
-                    <p className="text-gray-500">Try adjusting your filters or search terms.</p>
+                  <div className="col-span-full py-24 text-center bg-card rounded-3xl border border-dashed border-border">
+                    <Filter className="mx-auto text-muted-foreground mb-4" size={48} />
+                    <h3 className="text-xl font-bold text-foreground mb-2">No products yet</h3>
+                    <p className="text-muted-foreground mb-6">Be the first to list your premium items for rent.</p>
+                    <Link href="/register?role=seller" className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-xl font-bold hover:opacity-90">
+                      Become a Seller
+                    </Link>
                   </div>
                 )}
               </div>
@@ -159,7 +163,7 @@ export default function ProductsPage() {
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'tween', duration: 0.25 }}
-              className="fixed top-0 right-0 bottom-0 w-full max-w-sm bg-white z-50 shadow-2xl overflow-y-auto lg:hidden"
+              className="fixed top-0 right-0 bottom-0 w-full max-w-sm bg-background dark:bg-card z-50 shadow-2xl overflow-y-auto lg:hidden border-l border-border"
             >
               <ProductFilters isMobile onClose={() => setFilterDrawerOpen(false)} />
             </motion.div>

@@ -121,31 +121,31 @@ export default function AdminDashboard() {
   const chartData = [];
   const categoryData = [];
 
-  if (loading) return <div className="min-h-screen flex items-center justify-center"><Loader2 className="animate-spin text-emerald-600" size={48} /></div>;
-  if (!stats) return <div className="min-h-screen flex items-center justify-center"><p className="text-gray-500">Failed to load dashboard data</p></div>;
+  if (loading) return <div className="min-h-screen flex items-center justify-center bg-background"><Loader2 className="animate-spin text-emerald-600 dark:text-cyan-400" size={48} /></div>;
+  if (!stats) return <div className="min-h-screen flex items-center justify-center bg-background"><p className="text-muted-foreground">Failed to load dashboard data</p></div>;
 
   return (
-    <main className="min-h-screen bg-gray-50/50">
+    <main className="min-h-screen bg-background">
       <Navbar />
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20">
         <header className="mb-12">
-          <h1 className="text-4xl font-black tracking-tighter text-black mb-2">Platform Control</h1>
-          <p className="text-gray-500">Monitor activity, approve sellers, and manage marketplace listings.</p>
+          <h1 className="text-4xl font-black tracking-tighter text-foreground mb-2">Platform Control</h1>
+          <p className="text-muted-foreground">Monitor activity, approve sellers, and manage marketplace listings.</p>
         </header>
 
         {/* Stats Grid */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12">
           {[
-            { label: 'Total Users', value: stats.totalUsers, icon: <Users className="text-blue-500" />, color: 'bg-blue-50' },
-            { label: 'Total Sellers', value: stats.totalSellers, icon: <ShoppingBag className="text-emerald-500" />, color: 'bg-emerald-50' },
-            { label: 'Rentals', value: stats.totalRentals, icon: <Package className="text-purple-500" />, color: 'bg-purple-50' },
-            { label: 'Revenue', value: `$${stats.totalEarnings}`, icon: <DollarSign className="text-amber-500" />, color: 'bg-amber-50' },
+            { label: 'Total Users', value: stats.totalUsers, icon: <Users className="text-blue-500" />, color: 'bg-blue-50 dark:bg-blue-900/30' },
+            { label: 'Total Sellers', value: stats.totalSellers, icon: <ShoppingBag className="text-emerald-500 dark:text-cyan-400" />, color: 'bg-emerald-50 dark:bg-emerald-900/30' },
+            { label: 'Rentals', value: stats.totalRentals, icon: <Package className="text-purple-500" />, color: 'bg-purple-50 dark:bg-purple-900/30' },
+            { label: 'Revenue', value: `$${stats.totalEarnings}`, icon: <DollarSign className="text-amber-500" />, color: 'bg-amber-50 dark:bg-amber-900/30' },
           ].map((stat, i) => (
-            <div key={i} className="bg-white p-8 rounded-[32px] border border-gray-100 shadow-sm flex items-center justify-between">
+            <div key={i} className="bg-card p-8 rounded-[32px] border border-border shadow-sm dark:shadow-black/20 flex items-center justify-between">
               <div>
-                <p className="text-[10px] font-black text-gray-400 uppercase tracking-widest mb-1">{stat.label}</p>
-                <p className="text-2xl font-black text-black">{stat.value}</p>
+                <p className="text-[10px] font-black text-muted-foreground uppercase tracking-widest mb-1">{stat.label}</p>
+                <p className="text-2xl font-black text-foreground">{stat.value}</p>
               </div>
               <div className={`p-4 ${stat.color} rounded-2xl`}>{stat.icon}</div>
             </div>
@@ -158,7 +158,7 @@ export default function AdminDashboard() {
             <button
               key={t}
               onClick={() => setTab(t)}
-              className={`px-8 py-3 rounded-2xl text-sm font-bold capitalize transition-all ${tab === t ? 'bg-black text-white shadow-xl' : 'bg-white text-gray-500 hover:bg-gray-100'}`}
+              className={`px-8 py-3 rounded-2xl text-sm font-bold capitalize transition-all ${tab === t ? 'bg-primary text-primary-foreground shadow-xl' : 'bg-card text-muted-foreground hover:bg-secondary border border-border'}`}
             >
               {t}
             </button>
@@ -168,11 +168,11 @@ export default function AdminDashboard() {
         {/* Analytics Content */}
         {tab === 'analytics' && (
           <div className="grid md:grid-cols-2 gap-8">
-            <div className="bg-white p-8 rounded-[40px] border border-gray-100 shadow-sm">
-              <h3 className="text-lg font-bold mb-8">Weekly Rental Activity</h3>
+            <div className="bg-card p-8 rounded-[40px] border border-border shadow-sm dark:shadow-black/20">
+              <h3 className="text-lg font-bold mb-8 text-foreground">Weekly Rental Activity</h3>
               <div className="h-80 flex items-center justify-center">
                 {chartData.length === 0 ? (
-                  <p className="text-gray-400 text-sm">No activity data yet. Charts will show real data when available.</p>
+                  <p className="text-muted-foreground text-sm">No activity data yet.</p>
                 ) : (
                   <ResponsiveContainer width="100%" height="100%">
                     <LineChart data={chartData}>
@@ -186,11 +186,11 @@ export default function AdminDashboard() {
                 )}
               </div>
             </div>
-            <div className="bg-white p-8 rounded-[40px] border border-gray-100 shadow-sm">
-              <h3 className="text-lg font-bold mb-8">Category Performance</h3>
+            <div className="bg-card p-8 rounded-[40px] border border-border shadow-sm dark:shadow-black/20">
+              <h3 className="text-lg font-bold mb-8 text-foreground">Category Performance</h3>
               <div className="h-80 flex items-center justify-center">
                 {categoryData.length === 0 ? (
-                  <p className="text-gray-400 text-sm">No category data yet. Charts will show real data when available.</p>
+                  <p className="text-muted-foreground text-sm">No category data yet.</p>
                 ) : (
                   <ResponsiveContainer width="100%" height="100%">
                     <BarChart data={categoryData}>
@@ -214,14 +214,14 @@ export default function AdminDashboard() {
               <div className="p-8 border-b border-gray-50 flex justify-between items-center">
                 <h2 className="text-xl font-black">Pending Products ({products.filter((p) => !p.isApproved).length})</h2>
               </div>
-              <div className="divide-y divide-gray-50">
+              <div className="divide-y divide-border">
                 {products.filter((p) => !p.isApproved).map((product) => (
                   <div key={product._id} className="p-8 flex items-center justify-between">
                     <div className="flex items-center gap-4">
                       <img src={product.images[0]} className="w-16 h-16 rounded-2xl object-cover" alt="" />
                       <div>
-                        <h3 className="font-bold">{product.title}</h3>
-                        <p className="text-xs text-gray-400">Seller: {product.seller?.name} • ${product.pricePerDay}/day</p>
+                        <h3 className="font-bold text-foreground">{product.title}</h3>
+                        <p className="text-xs text-muted-foreground">Seller: {product.seller?.name} • ${product.pricePerDay}/day</p>
                       </div>
                     </div>
                     <div className="flex gap-3">
@@ -237,7 +237,7 @@ export default function AdminDashboard() {
               <div className="p-8 border-b border-gray-50 flex justify-between items-center">
                 <h2 className="text-xl font-black">Pending Sellers ({users.filter((u) => u.role === 'seller' && !u.isApproved).length})</h2>
               </div>
-              <div className="divide-y divide-gray-50">
+              <div className="divide-y divide-border">
                 {users.filter((u) => u.role === 'seller' && !u.isApproved).map((seller) => (
                   <div key={seller._id} className="p-8 flex items-center justify-between">
                     <div className="flex items-center gap-4">
@@ -245,8 +245,8 @@ export default function AdminDashboard() {
                         {seller.name.charAt(0)}
                       </div>
                       <div>
-                        <h3 className="font-bold">{seller.name}</h3>
-                        <p className="text-xs text-gray-400">{seller.email} • {seller.location || 'Location Not Set'}</p>
+                        <h3 className="font-bold text-foreground">{seller.name}</h3>
+                        <p className="text-xs text-muted-foreground">{seller.email} • {seller.location || 'Location Not Set'}</p>
                       </div>
                     </div>
                     <div className="flex gap-3">
@@ -262,14 +262,14 @@ export default function AdminDashboard() {
 
         {/* Users Content */}
         {tab === 'users' && (
-          <div className="bg-white rounded-[40px] border border-gray-100 shadow-sm overflow-hidden">
-            <div className="p-8 border-b border-gray-50">
-              <h2 className="text-xl font-black">Platform Users</h2>
+          <div className="bg-card rounded-[40px] border border-border shadow-sm dark:shadow-black/20 overflow-hidden">
+            <div className="p-8 border-b border-border">
+              <h2 className="text-xl font-black text-foreground">Platform Users</h2>
             </div>
             <div className="overflow-x-auto">
               <table className="w-full text-left">
                 <thead>
-                  <tr className="bg-gray-50/50 text-[10px] font-black text-gray-400 uppercase tracking-widest">
+                  <tr className="bg-muted/50 text-[10px] font-black text-muted-foreground uppercase tracking-widest">
                     <th className="px-8 py-4">User</th>
                     <th className="px-8 py-4">Role</th>
                     <th className="px-8 py-4">Verified</th>
@@ -279,12 +279,12 @@ export default function AdminDashboard() {
                     <th className="px-8 py-4 text-right">Actions</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-gray-50">
+                <tbody className="divide-y divide-border">
                   {users.map((u) => (
-                    <tr key={u._id} className="hover:bg-gray-50/50 transition-colors">
+                    <tr key={u._id} className="hover:bg-muted/30 transition-colors">
                       <td className="px-8 py-6">
-                        <p className="font-bold text-black">{u.name}</p>
-                        <p className="text-xs text-gray-400">{u.email}</p>
+                        <p className="font-bold text-foreground">{u.name}</p>
+                        <p className="text-xs text-muted-foreground">{u.email}</p>
                       </td>
                       <td className="px-8 py-6 capitalize font-medium">{u.role}</td>
                       <td className="px-8 py-6">
@@ -302,7 +302,7 @@ export default function AdminDashboard() {
                           {u.isBlocked ? 'Blocked' : 'Active'}
                         </span>
                       </td>
-                      <td className="px-8 py-6 text-sm text-gray-400 font-medium">{new Date(u.joinedAt).toLocaleDateString()}</td>
+                      <td className="px-8 py-6 text-sm text-muted-foreground font-medium">{new Date(u.joinedAt).toLocaleDateString()}</td>
                       <td className="px-8 py-6 text-right space-x-3">
                         {!u.isVerified && (
                           <button
@@ -336,30 +336,30 @@ export default function AdminDashboard() {
         {/* Reports Content */}
         {tab === 'reports' && (
           <div className="grid lg:grid-cols-2 gap-8">
-            <div className="bg-white rounded-[40px] border border-gray-100 shadow-sm overflow-hidden">
-              <div className="p-8 border-b border-gray-50 flex items-center gap-3">
+            <div className="bg-card rounded-[40px] border border-border shadow-sm dark:shadow-black/20 overflow-hidden">
+              <div className="p-8 border-b border-border flex items-center gap-3">
                 <div className="p-3 rounded-2xl bg-amber-50 text-amber-600">
                   <AlertTriangle size={20} />
                 </div>
                 <div>
-                  <h2 className="text-xl font-black">Reported Accounts</h2>
-                  <p className="text-xs text-gray-500">Only visible to admins. Use reports to investigate and, if needed, block users.</p>
+                  <h2 className="text-xl font-black text-foreground">Reported Accounts</h2>
+                  <p className="text-xs text-muted-foreground">Only visible to admins. Use reports to investigate and, if needed, block users.</p>
                 </div>
               </div>
-              <div className="divide-y divide-gray-50">
+              <div className="divide-y divide-border">
                 {reports.summary.length === 0 && (
-                  <div className="p-8 text-sm text-gray-500">
+                  <div className="p-8 text-sm text-muted-foreground">
                     No reports yet. When users report accounts, they will appear here.
                   </div>
                 )}
                 {reports.summary.map((row) => (
                   <div key={row.reportedUserId} className="p-8 flex items-center justify-between">
                     <div>
-                      <p className="font-bold text-black">
+                      <p className="font-bold text-foreground">
                         {row.user?.name || 'User'}{' '}
                         <span className="text-xs text-gray-400 font-medium">({row.user?.email})</span>
                       </p>
-                      <p className="text-xs text-gray-400 mt-1">
+                      <p className="text-xs text-muted-foreground mt-1">
                         {row.count} report{row.count !== 1 ? 's' : ''} • Last on{' '}
                         {row.lastReportAt ? new Date(row.lastReportAt).toLocaleDateString() : '—'}
                       </p>
@@ -376,9 +376,9 @@ export default function AdminDashboard() {
               <div className="p-8 border-b border-gray-50">
                 <h2 className="text-xl font-black">Latest Reports</h2>
               </div>
-              <div className="max-h-[480px] overflow-y-auto divide-y divide-gray-50">
+              <div className="max-h-[480px] overflow-y-auto divide-y divide-border">
                 {reports.reports.length === 0 && (
-                  <div className="p-8 text-sm text-gray-500">No individual reports to show.</div>
+                  <div className="p-8 text-sm text-muted-foreground">No individual reports to show.</div>
                 )}
                 {reports.reports.map((r) => (
                   <div key={r._id} className="p-6 space-y-1">
@@ -397,7 +397,7 @@ export default function AdminDashboard() {
                         {r.reportedUser?.name} ({r.reportedUser?.email})
                       </span>
                     </p>
-                    <p className="text-sm text-gray-700 mt-1">
+                    <p className="text-sm text-muted-foreground mt-1">
                       Reason: {r.reason}
                     </p>
                   </div>

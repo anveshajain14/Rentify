@@ -5,6 +5,7 @@ import { Toaster } from "react-hot-toast";
 import { VisualEditsMessenger } from "orchids-visual-edits";
 import AuthBootstrapper from "@/components/AuthBootstrapper";
 import CartPersistence from "@/components/CartPersistence";
+import ThemeScript from "@/components/ThemeScript";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -23,15 +24,24 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        <ThemeScript />
         <ReduxProvider>
           {/* Rehydrate auth from secure cookie on app load so login survives refresh */}
           <AuthBootstrapper />
           {/* Keep carts scoped per-identity and persisted across reloads */}
           <CartPersistence />
           {children}
-          <Toaster position="top-center" />
+          <Toaster
+            position="top-center"
+            toastOptions={{
+              className: '',
+              style: {},
+              success: { iconTheme: { primary: '#22c55e' } },
+              error: { iconTheme: { primary: '#ef4444' } },
+            }}
+          />
         </ReduxProvider>
         <VisualEditsMessenger />
       </body>

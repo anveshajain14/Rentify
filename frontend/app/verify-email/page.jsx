@@ -95,29 +95,29 @@ export default function VerifyEmailPage() {
   };
 
   return (
-    <main className="min-h-screen bg-gray-50 dark:bg-gray-900">
+    <main className="min-h-screen bg-background">
       <Navbar />
       <div className="flex items-center justify-center min-h-screen pt-24 px-4 pb-12">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="max-w-md w-full bg-white dark:bg-gray-800 rounded-[40px] shadow-2xl shadow-black/5 p-10 border border-gray-100 dark:border-gray-700"
+          className="max-w-md w-full bg-card rounded-[40px] shadow-xl dark:shadow-black/40 p-10 border border-border"
         >
           <div className="text-center mb-8">
-            <h1 className="text-3xl font-black tracking-tighter text-black dark:text-white mb-2">Verify your email</h1>
-            <p className="text-gray-500 dark:text-gray-400">Enter the 6-digit code sent to your email</p>
+            <h1 className="text-3xl font-black tracking-tighter text-foreground mb-2">Verify your email</h1>
+            <p className="text-muted-foreground">Enter the 6-digit code sent to your email</p>
           </div>
 
           <form onSubmit={handleVerify} className="space-y-6">
             <div className="space-y-2">
-              <label className="text-sm font-bold text-gray-700 dark:text-gray-300 ml-1">Email Address</label>
+              <label className="text-sm font-bold text-foreground ml-1">Email Address</label>
               <div className="relative">
                 <Mail className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" size={18} />
                 <input
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="w-full pl-12 pr-4 py-4 bg-gray-50 dark:bg-gray-700 border border-transparent rounded-2xl focus:bg-white dark:focus:bg-gray-600 focus:border-emerald-500 transition-all outline-none dark:text-white"
+                  className="w-full pl-12 pr-4 py-4 bg-input border border-border rounded-2xl focus:ring-2 focus:ring-ring transition-all outline-none text-foreground placeholder:text-muted-foreground"
                   placeholder="name@example.com"
                   required
                 />
@@ -125,7 +125,7 @@ export default function VerifyEmailPage() {
             </div>
 
             <div className="space-y-2">
-              <label className="text-sm font-bold text-gray-700 dark:text-gray-300 ml-1">Verification Code</label>
+              <label className="text-sm font-bold text-foreground ml-1">Verification Code</label>
               <div
                 className="flex gap-2 justify-center"
                 onPaste={handlePaste}
@@ -140,7 +140,7 @@ export default function VerifyEmailPage() {
                     value={digit}
                     onChange={(e) => handleOtpChange(i, e.target.value)}
                     onKeyDown={(e) => handleOtpKeyDown(i, e)}
-                    className="w-12 h-14 text-center text-xl font-bold bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-xl focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 outline-none dark:text-white"
+                    className="w-12 h-14 text-center text-xl font-bold bg-input border border-border rounded-xl focus:border-ring focus:ring-2 focus:ring-ring/20 outline-none text-foreground"
                   />
                 ))}
               </div>
@@ -149,7 +149,7 @@ export default function VerifyEmailPage() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full py-4 bg-black dark:bg-white text-white dark:text-black rounded-2xl font-bold flex items-center justify-center gap-2 hover:bg-gray-800 dark:hover:bg-gray-200 transition-all shadow-xl shadow-black/10 disabled:opacity-50"
+              className="w-full py-4 bg-primary text-primary-foreground rounded-2xl font-bold flex items-center justify-center gap-2 hover:opacity-90 transition-all shadow-xl disabled:opacity-50"
             >
               {loading ? <Loader2 className="animate-spin" size={20} /> : (
                 <>
@@ -171,9 +171,9 @@ export default function VerifyEmailPage() {
           </div>
 
           <div className="mt-8 text-center text-sm">
-            <p className="text-gray-500 dark:text-gray-400">
+            <p className="text-muted-foreground">
               Already verified?{' '}
-              <Link href="/login" className="text-emerald-600 font-bold hover:underline">
+              <Link href="/login" className="text-emerald-600 dark:text-cyan-400 font-bold hover:underline">
                 Sign In
               </Link>
             </p>
