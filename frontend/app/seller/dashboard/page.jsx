@@ -30,6 +30,8 @@ export default function SellerDashboard() {
     description: '',
     category: 'Electronics',
     pricePerDay: '',
+    securityDeposit: '',
+    allowPickup: false,
     images: [],
     specImage: null,
   });
@@ -100,6 +102,10 @@ export default function SellerDashboard() {
       data.append('description', formData.description);
       data.append('category', formData.category);
       data.append('pricePerDay', formData.pricePerDay);
+      if (formData.securityDeposit !== '' && formData.securityDeposit != null) {
+        data.append('securityDeposit', formData.securityDeposit);
+      }
+      data.append('allowPickup', formData.allowPickup ? 'true' : 'false');
       formData.images.forEach(img => data.append('images', img));
 
       await axios.post('/api/products', data);
@@ -437,6 +443,33 @@ export default function SellerDashboard() {
                       className="w-full bg-input border border-border rounded-2xl px-6 py-4 text-foreground placeholder:text-muted-foreground focus:ring-2 focus:ring-ring outline-none transition-all"
                       placeholder="25"
                     />
+                  </div>
+
+                  <div className="space-y-2">
+                    <label className="text-sm font-bold text-foreground ml-1">Security deposit ($, optional)</label>
+                    <input 
+                      type="number" 
+                      min="0"
+                      step="0.01"
+                      value={formData.securityDeposit}
+                      onChange={e => setFormData({...formData, securityDeposit: e.target.value})}
+                      className="w-full bg-input border border-border rounded-2xl px-6 py-4 text-foreground placeholder:text-muted-foreground focus:ring-2 focus:ring-ring outline-none transition-all"
+                      placeholder="0"
+                    />
+                    <p className="text-[11px] text-muted-foreground">Refundable after return verification.</p>
+                  </div>
+
+                  <div className="space-y-2 flex flex-col justify-end">
+                    <label className="text-sm font-bold text-foreground ml-1 flex items-center gap-2 cursor-pointer">
+                      <input
+                        type="checkbox"
+                        checked={formData.allowPickup}
+                        onChange={e => setFormData({...formData, allowPickup: e.target.checked})}
+                        className="rounded"
+                      />
+                      Allow self pickup
+                    </label>
+                    <p className="text-[11px] text-muted-foreground">Renters can choose to pick up at your location.</p>
                   </div>
 
                   <div className="col-span-2 space-y-2">

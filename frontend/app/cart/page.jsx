@@ -6,7 +6,7 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
-import { ShoppingCart, Trash2, Loader2 } from 'lucide-react';
+import { ShoppingCart, Trash2 } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
@@ -33,11 +33,10 @@ export default function CartPage() {
   const router = useRouter();
   const { user } = useSelector((state) => state.auth);
   const { items } = useSelector((state) => state.cart);
-  const [checkingOut, setCheckingOut] = useState(false);
 
   const subtotal = items.reduce((sum, it) => sum + getTotalForItem(it), 0);
 
-  const handleCheckout = async () => {
+  const handleCheckout = () => {
     if (!user) {
       toast.error('Please login to checkout');
       return router.push('/login');
@@ -46,24 +45,7 @@ export default function CartPage() {
       toast.error('Cart is empty');
       return;
     }
-    setCheckingOut(true);
-    try {
-      const payload = items.map((it) => ({
-        productId: it.productId,
-        startDate: it.startDate,
-        endDate: it.endDate,
-        totalAmount: getTotalForItem(it),
-      }));
-      const res = await axios.post('/api/rentals/checkout-cart', { items: payload });
-      if (res.data.url) {
-        dispatch(clearCart());
-        window.location.href = res.data.url;
-      }
-    } catch (err) {
-      toast.error(err.response?.data?.message || 'Checkout failed');
-    } finally {
-      setCheckingOut(false);
-    }
+    router.push('/checkout');
   };
 
   return (
@@ -184,10 +166,9 @@ export default function CartPage() {
               </div>
               <button
                 onClick={handleCheckout}
-                disabled={checkingOut}
-                className="px-10 py-4 bg-emerald-600 dark:bg-cyan-600 text-white rounded-2xl font-bold hover:bg-emerald-500 dark:hover:bg-cyan-500 flex items-center justify-center gap-2 disabled:opacity-50"
+                className="px-10 py-4 bg-emerald-600 dark:bg-cyan-600 text-white rounded-2xl font-bold hover:bg-emerald-500 dark:hover:bg-cyan-500 flex items-center justify-center gap-2"
               >
-                {checkingOut ? <Loader2 className="animate-spin" size={22} /> : 'Proceed to checkout'}
+                Proceed to checkout
               </button>
             </div>
           </div>

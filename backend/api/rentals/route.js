@@ -53,6 +53,7 @@ export async function POST(req) {
       return NextResponse.json({ message: 'Sellers cannot rent their own listings' }, { status: 403 });
     }
 
+    const securityDeposit = Number(product.securityDeposit) || 0;
     const rental = await Rental.create({
       product: productId,
       renter: user._id,
@@ -62,6 +63,8 @@ export async function POST(req) {
       totalAmount,
       paymentStatus: 'pending',
       rentalStatus: 'upcoming',
+      securityDeposit,
+      depositStatus: 'held',
     });
 
     return NextResponse.json({ message: 'Rental request created', rental }, { status: 201 });

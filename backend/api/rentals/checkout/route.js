@@ -20,18 +20,19 @@ export async function POST(req) {
       return NextResponse.json({ message: 'Missing or invalid rentalId or totalAmount' }, { status: 400 });
     }
 
-    const amountCents = Math.round(totalAmount * 100);
+    await dbConnect();
+    const rental = await Rental.findById(rentalId).populate('product', 'title securityDeposit');
+    if (!rental) {
+      return NextResponse.json({ message: 'Rental not found' }, { status: 404 });
+    }
+    const deposit = Number(rental.securityDeposit) || Number(rental.product?.securityDeposit) || 0;
+    const amountToCharge = totalAmount + deposit;
+    const amountCents = Math.round(amountToCharge * 100);
     if (amountCents < 50) {
       return NextResponse.json(
         { message: 'Minimum charge is $0.50 (50 cents)' },
         { status: 400 }
       );
-    }
-
-    await dbConnect();
-    const rental = await Rental.findById(rentalId).populate('product', 'title');
-    if (!rental) {
-      return NextResponse.json({ message: 'Rental not found' }, { status: 404 });
     }
 
     const baseUrl =
@@ -47,7 +48,7 @@ export async function POST(req) {
           price_data: {
             currency: 'usd',
             product_data: {
-              name: `Rental: ${rental.product?.title || 'Product Rental'}`,
+              name: `Rental: ${rental.product?.title || 'Product Rental'}${deposit > 0 ? ` (incl. deposit $${deposit.toFixed(2)})` : ''}`,
             },
             unit_amount: amountCents,
           },

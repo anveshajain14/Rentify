@@ -226,6 +226,15 @@ export default function ProductDetailsPage() {
               ))}
             </div>
 
+            {/* Security deposit */}
+            {(product.securityDeposit != null && Number(product.securityDeposit) > 0) && (
+              <div className="mb-6 p-4 rounded-2xl bg-muted/50 border border-border">
+                <p className="text-xs font-bold text-muted-foreground uppercase">Security deposit (refundable)</p>
+                <p className="text-xl font-black text-foreground">${Number(product.securityDeposit).toFixed(2)}</p>
+                <p className="text-xs text-muted-foreground mt-1">Refunded after return verification.</p>
+              </div>
+            )}
+
             {/* Availability */}
             {availability.length > 0 && (
               <div className="mb-8 p-4 rounded-2xl bg-amber-50/80 dark:bg-amber-900/20 border border-amber-100 dark:border-amber-800">

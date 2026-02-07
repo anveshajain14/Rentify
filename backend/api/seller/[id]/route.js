@@ -28,6 +28,7 @@ export async function GET(req, { params }) {
       products,
       reviewsResult,
       totalRentalsCompleted,
+      onTimeReturnsCount,
       ratingAgg,
       totalReviews,
       rentalsPerProduct,
@@ -41,6 +42,11 @@ export async function GET(req, { params }) {
         .limit(reviewLimit)
         .lean(),
       Rental.countDocuments({ seller: id, rentalStatus: 'completed' }),
+      Rental.countDocuments({
+        seller: id,
+        rentalStatus: 'completed',
+        $expr: { $lte: ['$returnedAt', '$endDate'] },
+      }),
       Review.aggregate([
         { $match: { seller: id } },
         { $group: { _id: '$rating', count: { $sum: 1 } } },
@@ -75,6 +81,17 @@ export async function GET(req, { params }) {
     const responseRate = totalRentalsCompleted > 0 && totalReviews > 0
       ? Math.min(100, Math.round((totalReviews / totalRentalsCompleted) * 100))
       : 98;
+
+    const onTimeRate = totalRentalsCompleted > 0 ? (onTimeReturnsCount / totalRentalsCompleted) * 100 : 100;
+    const reliabilityScore = Math.min(
+      100,
+      Math.round(
+        (averageRating / 5) * 40 +
+        Math.min(35, totalRentalsCompleted * 3) +
+        (onTimeRate / 100) * 15 +
+        (responseRate / 100) * 10
+      )
+    );
 
     const ratingDistribution = { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0 };
     ratingAgg.forEach((r) => {
@@ -127,6 +144,7 @@ export async function GET(req, { params }) {
         activeListings,
         responseRate,
         totalReviews,
+        reliabilityScore,
       },
       ratingDistribution,
       topPicks,

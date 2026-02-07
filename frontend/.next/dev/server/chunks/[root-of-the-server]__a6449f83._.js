@@ -92,6 +92,16 @@ __turbopack_context__.s([
 ]);
 var __TURBOPACK__imported__module__$5b$externals$5d2f$mongoose__$5b$external$5d$__$28$mongoose$2c$__cjs$2c$__$5b$project$5d2f$backend$2f$node_modules$2f$mongoose$29$__ = __turbopack_context__.i("[externals]/mongoose [external] (mongoose, cjs, [project]/backend/node_modules/mongoose)");
 ;
+const addressSnapshotSchema = new __TURBOPACK__imported__module__$5b$externals$5d2f$mongoose__$5b$external$5d$__$28$mongoose$2c$__cjs$2c$__$5b$project$5d2f$backend$2f$node_modules$2f$mongoose$29$__["Schema"]({
+    name: String,
+    phone: String,
+    street: String,
+    city: String,
+    state: String,
+    pincode: String
+}, {
+    _id: false
+});
 const RentalSchema = new __TURBOPACK__imported__module__$5b$externals$5d2f$mongoose__$5b$external$5d$__$28$mongoose$2c$__cjs$2c$__$5b$project$5d2f$backend$2f$node_modules$2f$mongoose$29$__["Schema"]({
     product: {
         type: __TURBOPACK__imported__module__$5b$externals$5d2f$mongoose__$5b$external$5d$__$28$mongoose$2c$__cjs$2c$__$5b$project$5d2f$backend$2f$node_modules$2f$mongoose$29$__["Schema"].Types.ObjectId,
@@ -141,6 +151,59 @@ const RentalSchema = new __TURBOPACK__imported__module__$5b$externals$5d2f$mongo
     },
     stripeSessionId: {
         type: String
+    },
+    // Address & fulfillment
+    shippingAddress: {
+        type: addressSnapshotSchema
+    },
+    fulfillmentType: {
+        type: String,
+        enum: [
+            'delivery',
+            'pickup'
+        ],
+        default: 'delivery'
+    },
+    // Payment method used
+    paymentMethod: {
+        type: String,
+        enum: [
+            'card',
+            'upi',
+            'cod'
+        ],
+        default: 'card'
+    },
+    // Security deposit (refundable)
+    securityDeposit: {
+        type: Number,
+        default: 0
+    },
+    depositStatus: {
+        type: String,
+        enum: [
+            'held',
+            'released',
+            'deducted'
+        ],
+        default: 'held'
+    },
+    // Optional damage protection add-on
+    damageProtection: {
+        type: Boolean,
+        default: false
+    },
+    damageProtectionFee: {
+        type: Number,
+        default: 0
+    },
+    // Late return penalty (calculated after return)
+    latePenalty: {
+        type: Number,
+        default: 0
+    },
+    returnedAt: {
+        type: Date
     }
 }, {
     timestamps: true
@@ -203,7 +266,17 @@ const ProductSchema = new __TURBOPACK__imported__module__$5b$externals$5d2f$mong
                 type: Date
             }
         }
-    ]
+    ],
+    // Refundable security deposit (optional, per product)
+    securityDeposit: {
+        type: Number,
+        default: 0
+    },
+    // Seller can allow self-pickup
+    allowPickup: {
+        type: Boolean,
+        default: false
+    }
 }, {
     timestamps: true
 });
@@ -254,7 +327,21 @@ const UserSchema = new __TURBOPACK__imported__module__$5b$externals$5d2f$mongoos
     },
     password: {
         type: String,
-        required: true
+        required: false
+    },
+    // Google OAuth
+    googleId: {
+        type: String,
+        sparse: true,
+        unique: true
+    },
+    authProvider: {
+        type: String,
+        enum: [
+            'local',
+            'google'
+        ],
+        default: 'local'
     },
     role: {
         type: String,
@@ -349,9 +436,42 @@ const UserSchema = new __TURBOPACK__imported__module__$5b$externals$5d2f$mongoos
     sessionVersion: {
         type: Number,
         default: 0
-    }
+    },
+    // Saved addresses for checkout (per user)
+    addresses: [
+        {
+            name: {
+                type: String
+            },
+            phone: {
+                type: String
+            },
+            street: {
+                type: String
+            },
+            city: {
+                type: String
+            },
+            state: {
+                type: String
+            },
+            pincode: {
+                type: String
+            },
+            isDefault: {
+                type: Boolean,
+                default: false
+            }
+        }
+    ]
 }, {
     timestamps: true
+});
+// Must have at least one auth method
+UserSchema.pre('save', async function() {
+    if (!this.password && !this.googleId) {
+        throw new Error('User must have either password or googleId');
+    }
 });
 const __TURBOPACK__default__export__ = __TURBOPACK__imported__module__$5b$externals$5d2f$mongoose__$5b$external$5d$__$28$mongoose$2c$__cjs$2c$__$5b$project$5d2f$backend$2f$node_modules$2f$mongoose$29$__["default"].models.User || __TURBOPACK__imported__module__$5b$externals$5d2f$mongoose__$5b$external$5d$__$28$mongoose$2c$__cjs$2c$__$5b$project$5d2f$backend$2f$node_modules$2f$mongoose$29$__["default"].model('User', UserSchema);
 }),
@@ -504,6 +624,7 @@ async function POST(req) {
                 status: 403
             });
         }
+        const securityDeposit = Number(product.securityDeposit) || 0;
         const rental = await __TURBOPACK__imported__module__$5b$project$5d2f$backend$2f$models$2f$Rental$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["default"].create({
             product: productId,
             renter: user._id,
@@ -512,7 +633,9 @@ async function POST(req) {
             endDate: new Date(endDate),
             totalAmount,
             paymentStatus: 'pending',
-            rentalStatus: 'upcoming'
+            rentalStatus: 'upcoming',
+            securityDeposit,
+            depositStatus: 'held'
         });
         return __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json({
             message: 'Rental request created',

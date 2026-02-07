@@ -42,6 +42,8 @@ export async function POST(req) {
     const pricePerDay = parseFloat(formData.get('pricePerDay'));
     const pricePerWeek = formData.get('pricePerWeek') ? parseFloat(formData.get('pricePerWeek')) : undefined;
     const pricePerMonth = formData.get('pricePerMonth') ? parseFloat(formData.get('pricePerMonth')) : undefined;
+    const securityDeposit = formData.get('securityDeposit') ? parseFloat(formData.get('securityDeposit')) : 0;
+    const allowPickup = formData.get('allowPickup') === 'true' || formData.get('allowPickup') === '1';
     const imageFiles = formData.getAll('images');
 
     if (!title || !description || !category || !pricePerDay || imageFiles.length === 0) {
@@ -73,6 +75,8 @@ export async function POST(req) {
       pricePerDay,
       pricePerWeek,
       pricePerMonth,
+      securityDeposit: securityDeposit >= 0 ? securityDeposit : 0,
+      allowPickup: !!allowPickup,
       images: imageUrls,
       seller: user._id,
       isApproved: false,

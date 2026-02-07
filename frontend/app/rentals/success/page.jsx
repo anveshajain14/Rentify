@@ -9,6 +9,7 @@ import { motion } from 'framer-motion';
 function SuccessContent() {
   const searchParams = useSearchParams();
   const sessionId = searchParams.get('session_id');
+  const isCod = searchParams.get('cod') === '1';
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-background">
@@ -26,17 +27,21 @@ function SuccessContent() {
         >
           <CheckCircle className="w-10 h-10 text-emerald-600 dark:text-cyan-400" />
         </motion.div>
-        <h1 className="text-3xl font-bold text-foreground mb-3">Payment Successful!</h1>
+        <h1 className="text-3xl font-bold text-foreground mb-3">
+          {isCod ? 'Order confirmed!' : 'Payment successful!'}
+        </h1>
         <p className="text-muted-foreground mb-6">
-          Your rental has been confirmed. You will receive a confirmation email shortly.
+          {isCod
+            ? 'Your order has been placed. Pay when you receive the item.'
+            : 'Your rental has been confirmed. You will receive a confirmation email shortly.'}
         </p>
-        {sessionId && (
+        {sessionId && !isCod && (
           <p className="text-sm text-muted-foreground mb-6 break-all">
             Session: {sessionId}
           </p>
         )}
         <Link
-          href="/rentals"
+          href="/dashboard"
           className="inline-block w-full py-3 px-6 bg-emerald-600 dark:bg-cyan-600 text-white font-semibold rounded-xl hover:bg-emerald-700 dark:hover:bg-cyan-700 transition-colors"
         >
           View My Rentals

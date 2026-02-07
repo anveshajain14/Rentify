@@ -139,7 +139,17 @@ const ProductSchema = new __TURBOPACK__imported__module__$5b$externals$5d2f$mong
                 type: Date
             }
         }
-    ]
+    ],
+    // Refundable security deposit (optional, per product)
+    securityDeposit: {
+        type: Number,
+        default: 0
+    },
+    // Seller can allow self-pickup
+    allowPickup: {
+        type: Boolean,
+        default: false
+    }
 }, {
     timestamps: true
 });
@@ -299,17 +309,42 @@ const UserSchema = new __TURBOPACK__imported__module__$5b$externals$5d2f$mongoos
     sessionVersion: {
         type: Number,
         default: 0
-    }
+    },
+    // Saved addresses for checkout (per user)
+    addresses: [
+        {
+            name: {
+                type: String
+            },
+            phone: {
+                type: String
+            },
+            street: {
+                type: String
+            },
+            city: {
+                type: String
+            },
+            state: {
+                type: String
+            },
+            pincode: {
+                type: String
+            },
+            isDefault: {
+                type: Boolean,
+                default: false
+            }
+        }
+    ]
 }, {
     timestamps: true
 });
 // Must have at least one auth method
-UserSchema.pre('save', function(next) {
+UserSchema.pre('save', async function() {
     if (!this.password && !this.googleId) {
-        next(new Error('User must have either password or googleId'));
-        return;
+        throw new Error('User must have either password or googleId');
     }
-    next();
 });
 const __TURBOPACK__default__export__ = __TURBOPACK__imported__module__$5b$externals$5d2f$mongoose__$5b$external$5d$__$28$mongoose$2c$__cjs$2c$__$5b$project$5d2f$backend$2f$node_modules$2f$mongoose$29$__["default"].models.User || __TURBOPACK__imported__module__$5b$externals$5d2f$mongoose__$5b$external$5d$__$28$mongoose$2c$__cjs$2c$__$5b$project$5d2f$backend$2f$node_modules$2f$mongoose$29$__["default"].model('User', UserSchema);
 }),
@@ -497,6 +532,8 @@ async function POST(req) {
         const pricePerDay = parseFloat(formData.get('pricePerDay'));
         const pricePerWeek = formData.get('pricePerWeek') ? parseFloat(formData.get('pricePerWeek')) : undefined;
         const pricePerMonth = formData.get('pricePerMonth') ? parseFloat(formData.get('pricePerMonth')) : undefined;
+        const securityDeposit = formData.get('securityDeposit') ? parseFloat(formData.get('securityDeposit')) : 0;
+        const allowPickup = formData.get('allowPickup') === 'true' || formData.get('allowPickup') === '1';
         const imageFiles = formData.getAll('images');
         if (!title || !description || !category || !pricePerDay || imageFiles.length === 0) {
             return __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json({
@@ -525,6 +562,8 @@ async function POST(req) {
             pricePerDay,
             pricePerWeek,
             pricePerMonth,
+            securityDeposit: securityDeposit >= 0 ? securityDeposit : 0,
+            allowPickup: !!allowPickup,
             images: imageUrls,
             seller: user._id,
             isApproved: false

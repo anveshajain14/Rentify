@@ -14,6 +14,10 @@ const ProductSchema = new Schema({
     startDate: { type: Date },
     endDate: { type: Date }
   }],
+  // Refundable security deposit (optional, per product)
+  securityDeposit: { type: Number, default: 0 },
+  // Seller can allow self-pickup
+  allowPickup: { type: Boolean, default: false },
 }, { timestamps: true });
 
 export default mongoose.models.Product || mongoose.model('Product', ProductSchema);

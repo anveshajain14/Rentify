@@ -33,15 +33,23 @@ const UserSchema = new Schema({
   lockedUntil: { type: Date, default: null },
   // Invalidate all sessions on password reset
   sessionVersion: { type: Number, default: 0 },
+  // Saved addresses for checkout (per user)
+  addresses: [{
+    name: { type: String },
+    phone: { type: String },
+    street: { type: String },
+    city: { type: String },
+    state: { type: String },
+    pincode: { type: String },
+    isDefault: { type: Boolean, default: false },
+  }],
 }, { timestamps: true });
 
 // Must have at least one auth method
-UserSchema.pre('save', function (next) {
+UserSchema.pre('save', async function () {
   if (!this.password && !this.googleId) {
-    next(new Error('User must have either password or googleId'));
-    return;
+    throw new Error('User must have either password or googleId');
   }
-  next();
 });
 
 export default mongoose.models.User || mongoose.model('User', UserSchema);

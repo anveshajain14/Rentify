@@ -104,7 +104,21 @@ const UserSchema = new __TURBOPACK__imported__module__$5b$externals$5d2f$mongoos
     },
     password: {
         type: String,
-        required: true
+        required: false
+    },
+    // Google OAuth
+    googleId: {
+        type: String,
+        sparse: true,
+        unique: true
+    },
+    authProvider: {
+        type: String,
+        enum: [
+            'local',
+            'google'
+        ],
+        default: 'local'
     },
     role: {
         type: String,
@@ -199,9 +213,42 @@ const UserSchema = new __TURBOPACK__imported__module__$5b$externals$5d2f$mongoos
     sessionVersion: {
         type: Number,
         default: 0
-    }
+    },
+    // Saved addresses for checkout (per user)
+    addresses: [
+        {
+            name: {
+                type: String
+            },
+            phone: {
+                type: String
+            },
+            street: {
+                type: String
+            },
+            city: {
+                type: String
+            },
+            state: {
+                type: String
+            },
+            pincode: {
+                type: String
+            },
+            isDefault: {
+                type: Boolean,
+                default: false
+            }
+        }
+    ]
 }, {
     timestamps: true
+});
+// Must have at least one auth method
+UserSchema.pre('save', async function() {
+    if (!this.password && !this.googleId) {
+        throw new Error('User must have either password or googleId');
+    }
 });
 const __TURBOPACK__default__export__ = __TURBOPACK__imported__module__$5b$externals$5d2f$mongoose__$5b$external$5d$__$28$mongoose$2c$__cjs$2c$__$5b$project$5d2f$backend$2f$node_modules$2f$mongoose$29$__["default"].models.User || __TURBOPACK__imported__module__$5b$externals$5d2f$mongoose__$5b$external$5d$__$28$mongoose$2c$__cjs$2c$__$5b$project$5d2f$backend$2f$node_modules$2f$mongoose$29$__["default"].model('User', UserSchema);
 }),

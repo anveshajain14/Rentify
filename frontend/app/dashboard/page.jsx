@@ -140,11 +140,14 @@ export default function RenterDashboard() {
                         </span>
                       </td>
                       <td className="px-8 py-6 text-right">
-                        {rental.rentalStatus === 'completed' ? (
-                          <button onClick={() => setReviewModal({ rental })} className="text-emerald-600 dark:text-cyan-400 font-bold text-sm hover:underline">Rate Product</button>
-                        ) : (
-                          <Link href={`/products/${rental.product?._id}`} className="text-foreground font-bold text-sm hover:underline">View Details</Link>
-                        )}
+                        <span className="flex items-center justify-end gap-3">
+                          <a href={`/api/rentals/${rental._id}/invoice`} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground font-medium text-sm">Invoice</a>
+                          {rental.rentalStatus === 'completed' ? (
+                            <button onClick={() => setReviewModal({ rental })} className="text-emerald-600 dark:text-cyan-400 font-bold text-sm hover:underline">Rate Product</button>
+                          ) : (
+                            <Link href={`/products/${rental.product?._id}`} className="text-foreground font-bold text-sm hover:underline">View Details</Link>
+                          )}
+                        </span>
                       </td>
                     </tr>
                   ))

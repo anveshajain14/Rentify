@@ -296,10 +296,11 @@ export default function SellerShopPage() {
               </h3>
               <div className="grid grid-cols-2 gap-3">
                 {[
-                  { label: 'Avg. rating', value: stats.averageRating, suffix: '/5', color: 'bg-amber-50' },
-                  { label: 'Rentals done', value: stats.totalRentalsCompleted, suffix: '', color: 'bg-blue-50' },
-                  { label: 'Active listings', value: stats.activeListings, suffix: '', color: 'bg-emerald-50' },
-                  { label: 'Response rate', value: stats.responseRate, suffix: '%', color: 'bg-purple-50' },
+                  { label: 'Reliability score', value: stats.reliabilityScore ?? 0, suffix: '%', color: 'bg-emerald-50 dark:bg-emerald-900/20' },
+                  { label: 'Avg. rating', value: stats.averageRating, suffix: '/5', color: 'bg-amber-50 dark:bg-amber-900/20' },
+                  { label: 'Rentals done', value: stats.totalRentalsCompleted, suffix: '', color: 'bg-blue-50 dark:bg-blue-900/20' },
+                  { label: 'Active listings', value: stats.activeListings, suffix: '', color: 'bg-slate-50 dark:bg-slate-900/20' },
+                  { label: 'Response rate', value: stats.responseRate, suffix: '%', color: 'bg-purple-50 dark:bg-purple-900/20' },
                 ].map((item, i) => (
                   <div key={i} className={`${item.color} p-5 rounded-2xl`}>
                     <p className="text-[10px] font-black uppercase text-muted-foreground mb-0.5">{item.label}</p>
