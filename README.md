@@ -56,17 +56,7 @@ All env and config live under `frontend/` (e.g. `frontend/.env`, `frontend/packa
 
    Ensure MongoDB is running (e.g. local on port 27017 or a hosted cluster).
 
-4. **Seed the database** (optional)
-
-   With the dev server running, open:
-
-   ```
-   http://localhost:3000/api/seed
-   ```
-
-   This creates an admin, sellers, renters, sample products, a rental, and a review. Default login: **admin** `aryansingh61777@gmail.com` / `password123`, **seller** `seller1@luxerent.com` / `password123`.
-
-5. **Start the app**
+4. **Start the app**
 
    From the **frontend** folder:
 

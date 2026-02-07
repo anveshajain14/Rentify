@@ -32,7 +32,23 @@ export default function RootLayout({ children }) {
           <AuthBootstrapper />
           {/* Keep carts scoped per-identity and persisted across reloads */}
           <CartPersistence />
-          {children}
+          <div className="relative min-h-screen">
+            {children}
+
+            {/* Floating chatbot button (bottom-right) */}
+            <a
+              href="/chat"
+              className="fixed bottom-6 right-6 z-40 flex items-center gap-2 rounded-full bg-black text-white px-4 py-3 shadow-xl shadow-emerald-500/30 hover:bg-emerald-600 transition-colors text-sm font-bold"
+            >
+              <span className="flex h-8 w-8 items-center justify-center rounded-full bg-white/10 border border-white/20">
+                {/* Simple chat bubble icon */}
+                <span className="relative block h-3 w-4 rounded-md bg-white">
+                  <span className="absolute -bottom-1 left-1 h-2 w-2 rotate-45 bg-white" />
+                </span>
+              </span>
+              <span className="hidden sm:inline">Chat with assistant</span>
+            </a>
+          </div>
           <Toaster
             position="top-center"
             toastOptions={{

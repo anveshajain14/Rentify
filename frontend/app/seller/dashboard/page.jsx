@@ -31,7 +31,10 @@ export default function SellerDashboard() {
     category: 'Electronics',
     pricePerDay: '',
     images: [],
+    specImage: null,
   });
+
+  const [isSmartAnalyzing, setIsSmartAnalyzing] = useState(false);
 
   // Shop settings form (avatar/banner as files or preview URLs)
   const [shopForm, setShopForm] = useState({
@@ -444,6 +447,66 @@ export default function SellerDashboard() {
                       onChange={e => setFormData({...formData, images: Array.from(e.target.files || [])})}
                       className="w-full bg-gray-50 border border-dashed border-gray-200 rounded-2xl px-6 py-8 text-sm file:hidden cursor-pointer hover:border-emerald-500 transition-all"
                     />
+                  </div>
+
+                  <div className="col-span-2 grid grid-cols-2 gap-4 items-end">
+                    <div className="space-y-2">
+                      <label className="text-sm font-bold text-gray-700 ml-1">
+                        Spec sheet image (optional)
+                      </label>
+                      <input
+                        type="file"
+                        accept="image/*"
+                        onChange={(e) =>
+                          setFormData({
+                            ...formData,
+                            specImage: e.target.files?.[0] || null,
+                          })
+                        }
+                        className="w-full bg-gray-50 border border-dashed border-gray-200 rounded-2xl px-6 py-4 text-sm file:hidden cursor-pointer hover:border-emerald-500 transition-all"
+                      />
+                      <p className="text-[11px] text-gray-400">
+                        Upload a product photo and spec sheet to let AI suggest title, category, and description.
+                      </p>
+                    </div>
+                    <button
+                      type="button"
+                      disabled={isSmartAnalyzing || !formData.images.length || !formData.specImage}
+                      onClick={async () => {
+                        if (!formData.images.length || !formData.specImage) return;
+                        setIsSmartAnalyzing(true);
+                        try {
+                          const fd = new FormData();
+                          fd.append('main_image', formData.images[0]);
+                          fd.append('spec_image', formData.specImage);
+                          const res = await axios.post('/api/ai/smart-analyze', fd);
+                          const data = res.data || {};
+                          setFormData((prev) => ({
+                            ...prev,
+                            title: data.brand && data.object
+                              ? `${data.brand} ${data.object}`
+                              : prev.title || data.object || prev.title,
+                            description: data.description || prev.description,
+                            category: data.category || prev.category,
+                          }));
+                          toast.success('Form fields updated from AI suggestions');
+                        } catch {
+                          toast.error('Smart analyze failed. Please fill the form manually.');
+                        } finally {
+                          setIsSmartAnalyzing(false);
+                        }
+                      }}
+                      className="h-12 mt-6 px-4 rounded-2xl bg-black text-white text-sm font-bold flex items-center justify-center gap-2 disabled:opacity-50"
+                    >
+                      {isSmartAnalyzing ? (
+                        <>
+                          <Loader2 className="animate-spin" size={16} />
+                          Analyzing…
+                        </>
+                      ) : (
+                        'Smart fill from images'
+                      )}
+                    </button>
                   </div>
 
                   <div className="col-span-2 flex gap-4 pt-4">

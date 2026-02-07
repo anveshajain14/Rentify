@@ -1206,8 +1206,10 @@ function SellerDashboard() {
         description: '',
         category: 'Electronics',
         pricePerDay: '',
-        images: []
+        images: [],
+        specImage: null
     });
+    const [isSmartAnalyzing, setIsSmartAnalyzing] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
     // Shop settings form (avatar/banner as files or preview URLs)
     const [shopForm, setShopForm] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])({
         bio: '',
@@ -1319,7 +1321,7 @@ function SellerDashboard() {
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$components$2f$Navbar$2e$jsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
                 fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
-                lineNumber: 136,
+                lineNumber: 139,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1335,7 +1337,7 @@ function SellerDashboard() {
                                         children: "Seller Hub"
                                     }, void 0, false, {
                                         fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
-                                        lineNumber: 141,
+                                        lineNumber: 144,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1343,13 +1345,13 @@ function SellerDashboard() {
                                         children: "Manage your rental inventory and track your earnings."
                                     }, void 0, false, {
                                         fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
-                                        lineNumber: 142,
+                                        lineNumber: 145,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
-                                lineNumber: 140,
+                                lineNumber: 143,
                                 columnNumber: 11
                             }, this),
                             tab === 'overview' && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -1360,20 +1362,20 @@ function SellerDashboard() {
                                         size: 20
                                     }, void 0, false, {
                                         fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
-                                        lineNumber: 149,
+                                        lineNumber: 152,
                                         columnNumber: 15
                                     }, this),
                                     " Add New Listing"
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
-                                lineNumber: 145,
+                                lineNumber: 148,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
-                        lineNumber: 139,
+                        lineNumber: 142,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1385,7 +1387,7 @@ function SellerDashboard() {
                                 children: "Overview"
                             }, void 0, false, {
                                 fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
-                                lineNumber: 156,
+                                lineNumber: 159,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -1396,20 +1398,20 @@ function SellerDashboard() {
                                         size: 18
                                     }, void 0, false, {
                                         fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
-                                        lineNumber: 166,
+                                        lineNumber: 169,
                                         columnNumber: 13
                                     }, this),
                                     " Shop Settings"
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
-                                lineNumber: 162,
+                                lineNumber: 165,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
-                        lineNumber: 155,
+                        lineNumber: 158,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$components$2f$AnimatePresence$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["AnimatePresence"], {
@@ -1440,7 +1442,7 @@ function SellerDashboard() {
                                                     className: "text-emerald-500"
                                                 }, void 0, false, {
                                                     fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
-                                                    lineNumber: 176,
+                                                    lineNumber: 179,
                                                     columnNumber: 146
                                                 }, this),
                                                 color: 'bg-emerald-50'
@@ -1452,7 +1454,7 @@ function SellerDashboard() {
                                                     className: "text-blue-500"
                                                 }, void 0, false, {
                                                     fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
-                                                    lineNumber: 177,
+                                                    lineNumber: 180,
                                                     columnNumber: 99
                                                 }, this),
                                                 color: 'bg-blue-50'
@@ -1464,7 +1466,7 @@ function SellerDashboard() {
                                                     className: "text-amber-500"
                                                 }, void 0, false, {
                                                     fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
-                                                    lineNumber: 178,
+                                                    lineNumber: 181,
                                                     columnNumber: 101
                                                 }, this),
                                                 color: 'bg-amber-50'
@@ -1476,7 +1478,7 @@ function SellerDashboard() {
                                                     className: "text-purple-500"
                                                 }, void 0, false, {
                                                     fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
-                                                    lineNumber: 179,
+                                                    lineNumber: 182,
                                                     columnNumber: 70
                                                 }, this),
                                                 color: 'bg-purple-50'
@@ -1491,7 +1493,7 @@ function SellerDashboard() {
                                                                 children: stat.label
                                                             }, void 0, false, {
                                                                 fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
-                                                                lineNumber: 183,
+                                                                lineNumber: 186,
                                                                 columnNumber: 17
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1499,13 +1501,13 @@ function SellerDashboard() {
                                                                 children: stat.value
                                                             }, void 0, false, {
                                                                 fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
-                                                                lineNumber: 184,
+                                                                lineNumber: 187,
                                                                 columnNumber: 17
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
-                                                        lineNumber: 182,
+                                                        lineNumber: 185,
                                                         columnNumber: 15
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1513,18 +1515,18 @@ function SellerDashboard() {
                                                         children: stat.icon
                                                     }, void 0, false, {
                                                         fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
-                                                        lineNumber: 186,
+                                                        lineNumber: 189,
                                                         columnNumber: 15
                                                     }, this)
                                                 ]
                                             }, i, true, {
                                                 fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
-                                                lineNumber: 181,
+                                                lineNumber: 184,
                                                 columnNumber: 13
                                             }, this))
                                     }, void 0, false, {
                                         fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
-                                        lineNumber: 174,
+                                        lineNumber: 177,
                                         columnNumber: 9
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1540,12 +1542,12 @@ function SellerDashboard() {
                                                             children: "My Inventory"
                                                         }, void 0, false, {
                                                             fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
-                                                            lineNumber: 195,
+                                                            lineNumber: 198,
                                                             columnNumber: 15
                                                         }, this)
                                                     }, void 0, false, {
                                                         fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
-                                                        lineNumber: 194,
+                                                        lineNumber: 197,
                                                         columnNumber: 13
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1562,7 +1564,7 @@ function SellerDashboard() {
                                                                                 alt: ""
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
-                                                                                lineNumber: 201,
+                                                                                lineNumber: 204,
                                                                                 columnNumber: 21
                                                                             }, this),
                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1572,7 +1574,7 @@ function SellerDashboard() {
                                                                                         children: product.title
                                                                                     }, void 0, false, {
                                                                                         fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
-                                                                                        lineNumber: 203,
+                                                                                        lineNumber: 206,
                                                                                         columnNumber: 23
                                                                                     }, this),
                                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1585,19 +1587,19 @@ function SellerDashboard() {
                                                                                         ]
                                                                                     }, void 0, true, {
                                                                                         fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
-                                                                                        lineNumber: 204,
+                                                                                        lineNumber: 207,
                                                                                         columnNumber: 23
                                                                                     }, this)
                                                                                 ]
                                                                             }, void 0, true, {
                                                                                 fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
-                                                                                lineNumber: 202,
+                                                                                lineNumber: 205,
                                                                                 columnNumber: 21
                                                                             }, this)
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
-                                                                        lineNumber: 200,
+                                                                        lineNumber: 203,
                                                                         columnNumber: 19
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1607,36 +1609,36 @@ function SellerDashboard() {
                                                                             children: product.isApproved ? 'Approved' : 'Pending'
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
-                                                                            lineNumber: 208,
+                                                                            lineNumber: 211,
                                                                             columnNumber: 21
                                                                         }, this)
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
-                                                                        lineNumber: 207,
+                                                                        lineNumber: 210,
                                                                         columnNumber: 19
                                                                     }, this)
                                                                 ]
                                                             }, product._id, true, {
                                                                 fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
-                                                                lineNumber: 199,
+                                                                lineNumber: 202,
                                                                 columnNumber: 17
                                                             }, this)) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                             className: "p-20 text-center text-gray-400 italic",
                                                             children: "No products listed yet."
                                                         }, void 0, false, {
                                                             fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
-                                                            lineNumber: 214,
+                                                            lineNumber: 217,
                                                             columnNumber: 17
                                                         }, this)
                                                     }, void 0, false, {
                                                         fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
-                                                        lineNumber: 197,
+                                                        lineNumber: 200,
                                                         columnNumber: 13
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
-                                                lineNumber: 193,
+                                                lineNumber: 196,
                                                 columnNumber: 11
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
@@ -1649,12 +1651,12 @@ function SellerDashboard() {
                                                             children: "Recent Bookings"
                                                         }, void 0, false, {
                                                             fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
-                                                            lineNumber: 222,
+                                                            lineNumber: 225,
                                                             columnNumber: 15
                                                         }, this)
                                                     }, void 0, false, {
                                                         fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
-                                                        lineNumber: 221,
+                                                        lineNumber: 224,
                                                         columnNumber: 13
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1667,7 +1669,7 @@ function SellerDashboard() {
                                                                         children: rental.renter?.name?.charAt(0)
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
-                                                                        lineNumber: 227,
+                                                                        lineNumber: 230,
                                                                         columnNumber: 19
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1678,7 +1680,7 @@ function SellerDashboard() {
                                                                                 children: rental.renter?.name
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
-                                                                                lineNumber: 231,
+                                                                                lineNumber: 234,
                                                                                 columnNumber: 21
                                                                             }, this),
                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1686,13 +1688,13 @@ function SellerDashboard() {
                                                                                 children: rental.product?.title
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
-                                                                                lineNumber: 232,
+                                                                                lineNumber: 235,
                                                                                 columnNumber: 21
                                                                             }, this)
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
-                                                                        lineNumber: 230,
+                                                                        lineNumber: 233,
                                                                         columnNumber: 19
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1706,7 +1708,7 @@ function SellerDashboard() {
                                                                                 ]
                                                                             }, void 0, true, {
                                                                                 fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
-                                                                                lineNumber: 235,
+                                                                                lineNumber: 238,
                                                                                 columnNumber: 21
                                                                             }, this),
                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1714,42 +1716,42 @@ function SellerDashboard() {
                                                                                 children: rental.paymentStatus
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
-                                                                                lineNumber: 236,
+                                                                                lineNumber: 239,
                                                                                 columnNumber: 21
                                                                             }, this)
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
-                                                                        lineNumber: 234,
+                                                                        lineNumber: 237,
                                                                         columnNumber: 19
                                                                     }, this)
                                                                 ]
                                                             }, rental._id, true, {
                                                                 fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
-                                                                lineNumber: 226,
+                                                                lineNumber: 229,
                                                                 columnNumber: 17
                                                             }, this))
                                                     }, void 0, false, {
                                                         fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
-                                                        lineNumber: 224,
+                                                        lineNumber: 227,
                                                         columnNumber: 13
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
-                                                lineNumber: 220,
+                                                lineNumber: 223,
                                                 columnNumber: 11
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
-                                        lineNumber: 191,
+                                        lineNumber: 194,
                                         columnNumber: 9
                                     }, this)
                                 ]
                             }, "overview", true, {
                                 fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
-                                lineNumber: 172,
+                                lineNumber: 175,
                                 columnNumber: 13
                             }, this),
                             tab === 'shop' && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
@@ -1774,7 +1776,7 @@ function SellerDashboard() {
                                             children: "Shop Settings"
                                         }, void 0, false, {
                                             fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
-                                            lineNumber: 249,
+                                            lineNumber: 252,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1782,7 +1784,7 @@ function SellerDashboard() {
                                             children: "Edit your public shop profile. Renters see this on your storefront."
                                         }, void 0, false, {
                                             fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
-                                            lineNumber: 250,
+                                            lineNumber: 253,
                                             columnNumber: 17
                                         }, this),
                                         shopLoading ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1792,12 +1794,12 @@ function SellerDashboard() {
                                                 size: 40
                                             }, void 0, false, {
                                                 fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
-                                                lineNumber: 253,
+                                                lineNumber: 256,
                                                 columnNumber: 75
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
-                                            lineNumber: 253,
+                                            lineNumber: 256,
                                             columnNumber: 19
                                         }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("form", {
                                             onSubmit: handleShopSubmit,
@@ -1810,7 +1812,7 @@ function SellerDashboard() {
                                                             children: "Shop Banner"
                                                         }, void 0, false, {
                                                             fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
-                                                            lineNumber: 258,
+                                                            lineNumber: 261,
                                                             columnNumber: 23
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1823,7 +1825,7 @@ function SellerDashboard() {
                                                                     className: "w-full h-full object-cover"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
-                                                                    lineNumber: 264,
+                                                                    lineNumber: 267,
                                                                     columnNumber: 27
                                                                 }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                                     className: "text-center text-gray-400",
@@ -1833,7 +1835,7 @@ function SellerDashboard() {
                                                                             className: "mx-auto mb-2 opacity-60"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
-                                                                            lineNumber: 271,
+                                                                            lineNumber: 274,
                                                                             columnNumber: 29
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1841,13 +1843,13 @@ function SellerDashboard() {
                                                                             children: "Drop image or click"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
-                                                                            lineNumber: 272,
+                                                                            lineNumber: 275,
                                                                             columnNumber: 29
                                                                         }, this)
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
-                                                                    lineNumber: 270,
+                                                                    lineNumber: 273,
                                                                     columnNumber: 27
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -1865,19 +1867,19 @@ function SellerDashboard() {
                                                                     }
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
-                                                                    lineNumber: 275,
+                                                                    lineNumber: 278,
                                                                     columnNumber: 25
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
-                                                            lineNumber: 259,
+                                                            lineNumber: 262,
                                                             columnNumber: 23
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
-                                                    lineNumber: 257,
+                                                    lineNumber: 260,
                                                     columnNumber: 21
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1887,7 +1889,7 @@ function SellerDashboard() {
                                                             children: "Profile Picture"
                                                         }, void 0, false, {
                                                             fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
-                                                            lineNumber: 290,
+                                                            lineNumber: 293,
                                                             columnNumber: 23
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1900,14 +1902,14 @@ function SellerDashboard() {
                                                                     className: "w-full h-full object-cover"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
-                                                                    lineNumber: 296,
+                                                                    lineNumber: 299,
                                                                     columnNumber: 27
                                                                 }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$image$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Image$3e$__["Image"], {
                                                                     size: 28,
                                                                     className: "text-gray-400"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
-                                                                    lineNumber: 302,
+                                                                    lineNumber: 305,
                                                                     columnNumber: 27
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -1925,19 +1927,19 @@ function SellerDashboard() {
                                                                     }
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
-                                                                    lineNumber: 304,
+                                                                    lineNumber: 307,
                                                                     columnNumber: 25
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
-                                                            lineNumber: 291,
+                                                            lineNumber: 294,
                                                             columnNumber: 23
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
-                                                    lineNumber: 289,
+                                                    lineNumber: 292,
                                                     columnNumber: 21
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1947,7 +1949,7 @@ function SellerDashboard() {
                                                             children: "Location"
                                                         }, void 0, false, {
                                                             fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
-                                                            lineNumber: 318,
+                                                            lineNumber: 321,
                                                             columnNumber: 23
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -1961,13 +1963,13 @@ function SellerDashboard() {
                                                             placeholder: "e.g. San Francisco, CA"
                                                         }, void 0, false, {
                                                             fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
-                                                            lineNumber: 319,
+                                                            lineNumber: 322,
                                                             columnNumber: 23
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
-                                                    lineNumber: 317,
+                                                    lineNumber: 320,
                                                     columnNumber: 21
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1977,7 +1979,7 @@ function SellerDashboard() {
                                                             children: "About / Bio"
                                                         }, void 0, false, {
                                                             fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
-                                                            lineNumber: 329,
+                                                            lineNumber: 332,
                                                             columnNumber: 23
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("textarea", {
@@ -1990,13 +1992,13 @@ function SellerDashboard() {
                                                             placeholder: "Tell renters about your shop and what you offer."
                                                         }, void 0, false, {
                                                             fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
-                                                            lineNumber: 330,
+                                                            lineNumber: 333,
                                                             columnNumber: 23
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
-                                                    lineNumber: 328,
+                                                    lineNumber: 331,
                                                     columnNumber: 21
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2006,7 +2008,7 @@ function SellerDashboard() {
                                                             children: "Policies"
                                                         }, void 0, false, {
                                                             fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
-                                                            lineNumber: 339,
+                                                            lineNumber: 342,
                                                             columnNumber: 23
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("textarea", {
@@ -2019,13 +2021,13 @@ function SellerDashboard() {
                                                             placeholder: "Rental rules, cancellation, security deposit, etc. (one per line or short paragraphs)"
                                                         }, void 0, false, {
                                                             fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
-                                                            lineNumber: 340,
+                                                            lineNumber: 343,
                                                             columnNumber: 23
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
-                                                    lineNumber: 338,
+                                                    lineNumber: 341,
                                                     columnNumber: 21
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2037,7 +2039,7 @@ function SellerDashboard() {
                                                             children: "View public shop"
                                                         }, void 0, false, {
                                                             fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
-                                                            lineNumber: 349,
+                                                            lineNumber: 352,
                                                             columnNumber: 23
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -2049,47 +2051,47 @@ function SellerDashboard() {
                                                                 size: 20
                                                             }, void 0, false, {
                                                                 fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
-                                                                lineNumber: 357,
+                                                                lineNumber: 360,
                                                                 columnNumber: 39
                                                             }, this) : 'Save changes'
                                                         }, void 0, false, {
                                                             fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
-                                                            lineNumber: 352,
+                                                            lineNumber: 355,
                                                             columnNumber: 23
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
-                                                    lineNumber: 348,
+                                                    lineNumber: 351,
                                                     columnNumber: 21
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
-                                            lineNumber: 255,
+                                            lineNumber: 258,
                                             columnNumber: 19
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
-                                    lineNumber: 248,
+                                    lineNumber: 251,
                                     columnNumber: 15
                                 }, this)
                             }, "shop", false, {
                                 fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
-                                lineNumber: 247,
+                                lineNumber: 250,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
-                        lineNumber: 170,
+                        lineNumber: 173,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
-                lineNumber: 138,
+                lineNumber: 141,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$components$2f$AnimatePresence$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["AnimatePresence"], {
@@ -2110,7 +2112,7 @@ function SellerDashboard() {
                             className: "absolute inset-0 bg-black/60 backdrop-blur-sm"
                         }, void 0, false, {
                             fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
-                            lineNumber: 372,
+                            lineNumber: 375,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
@@ -2138,7 +2140,7 @@ function SellerDashboard() {
                                         children: "List New Item"
                                     }, void 0, false, {
                                         fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
-                                        lineNumber: 386,
+                                        lineNumber: 389,
                                         columnNumber: 17
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2146,7 +2148,7 @@ function SellerDashboard() {
                                         children: "Fill in the details to submit your product for admin approval."
                                     }, void 0, false, {
                                         fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
-                                        lineNumber: 387,
+                                        lineNumber: 390,
                                         columnNumber: 17
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("form", {
@@ -2161,7 +2163,7 @@ function SellerDashboard() {
                                                         children: "Product Title"
                                                     }, void 0, false, {
                                                         fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
-                                                        lineNumber: 391,
+                                                        lineNumber: 394,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -2176,13 +2178,13 @@ function SellerDashboard() {
                                                         placeholder: "e.g. Professional DJI Drone"
                                                     }, void 0, false, {
                                                         fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
-                                                        lineNumber: 392,
+                                                        lineNumber: 395,
                                                         columnNumber: 21
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
-                                                lineNumber: 390,
+                                                lineNumber: 393,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2193,7 +2195,7 @@ function SellerDashboard() {
                                                         children: "Description"
                                                     }, void 0, false, {
                                                         fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
-                                                        lineNumber: 403,
+                                                        lineNumber: 406,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("textarea", {
@@ -2207,13 +2209,13 @@ function SellerDashboard() {
                                                         placeholder: "Describe the condition, features, and terms..."
                                                     }, void 0, false, {
                                                         fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
-                                                        lineNumber: 404,
+                                                        lineNumber: 407,
                                                         columnNumber: 21
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
-                                                lineNumber: 402,
+                                                lineNumber: 405,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2224,7 +2226,7 @@ function SellerDashboard() {
                                                         children: "Category"
                                                     }, void 0, false, {
                                                         fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
-                                                        lineNumber: 414,
+                                                        lineNumber: 417,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("select", {
@@ -2239,40 +2241,40 @@ function SellerDashboard() {
                                                                 children: "Electronics"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
-                                                                lineNumber: 420,
+                                                                lineNumber: 423,
                                                                 columnNumber: 23
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
                                                                 children: "Furniture"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
-                                                                lineNumber: 421,
+                                                                lineNumber: 424,
                                                                 columnNumber: 23
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
                                                                 children: "Photography"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
-                                                                lineNumber: 422,
+                                                                lineNumber: 425,
                                                                 columnNumber: 23
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
                                                                 children: "Outdoor"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
-                                                                lineNumber: 423,
+                                                                lineNumber: 426,
                                                                 columnNumber: 23
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
-                                                        lineNumber: 415,
+                                                        lineNumber: 418,
                                                         columnNumber: 21
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
-                                                lineNumber: 413,
+                                                lineNumber: 416,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2283,7 +2285,7 @@ function SellerDashboard() {
                                                         children: "Price / Day ($)"
                                                     }, void 0, false, {
                                                         fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
-                                                        lineNumber: 428,
+                                                        lineNumber: 431,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -2298,13 +2300,13 @@ function SellerDashboard() {
                                                         placeholder: "25"
                                                     }, void 0, false, {
                                                         fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
-                                                        lineNumber: 429,
+                                                        lineNumber: 432,
                                                         columnNumber: 21
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
-                                                lineNumber: 427,
+                                                lineNumber: 430,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2315,7 +2317,7 @@ function SellerDashboard() {
                                                         children: "Product Images"
                                                     }, void 0, false, {
                                                         fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
-                                                        lineNumber: 440,
+                                                        lineNumber: 443,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -2328,13 +2330,104 @@ function SellerDashboard() {
                                                         className: "w-full bg-gray-50 border border-dashed border-gray-200 rounded-2xl px-6 py-8 text-sm file:hidden cursor-pointer hover:border-emerald-500 transition-all"
                                                     }, void 0, false, {
                                                         fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
-                                                        lineNumber: 441,
+                                                        lineNumber: 444,
                                                         columnNumber: 21
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
-                                                lineNumber: 439,
+                                                lineNumber: 442,
+                                                columnNumber: 19
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                className: "col-span-2 grid grid-cols-2 gap-4 items-end",
+                                                children: [
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                        className: "space-y-2",
+                                                        children: [
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                                                className: "text-sm font-bold text-gray-700 ml-1",
+                                                                children: "Spec sheet image (optional)"
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
+                                                                lineNumber: 454,
+                                                                columnNumber: 23
+                                                            }, this),
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                                                type: "file",
+                                                                accept: "image/*",
+                                                                onChange: (e)=>setFormData({
+                                                                        ...formData,
+                                                                        specImage: e.target.files?.[0] || null
+                                                                    }),
+                                                                className: "w-full bg-gray-50 border border-dashed border-gray-200 rounded-2xl px-6 py-4 text-sm file:hidden cursor-pointer hover:border-emerald-500 transition-all"
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
+                                                                lineNumber: 457,
+                                                                columnNumber: 23
+                                                            }, this),
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                                className: "text-[11px] text-gray-400",
+                                                                children: "Upload a product photo and spec sheet to let AI suggest title, category, and description."
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
+                                                                lineNumber: 468,
+                                                                columnNumber: 23
+                                                            }, this)
+                                                        ]
+                                                    }, void 0, true, {
+                                                        fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
+                                                        lineNumber: 453,
+                                                        columnNumber: 21
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                                        type: "button",
+                                                        disabled: isSmartAnalyzing || !formData.images.length || !formData.specImage,
+                                                        onClick: async ()=>{
+                                                            if (!formData.images.length || !formData.specImage) return;
+                                                            setIsSmartAnalyzing(true);
+                                                            try {
+                                                                const fd = new FormData();
+                                                                fd.append('main_image', formData.images[0]);
+                                                                fd.append('spec_image', formData.specImage);
+                                                                const res = await __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$axios$2f$lib$2f$axios$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].post('/api/ai/smart-analyze', fd);
+                                                                const data = res.data || {};
+                                                                setFormData((prev)=>({
+                                                                        ...prev,
+                                                                        title: data.brand && data.object ? `${data.brand} ${data.object}` : prev.title || data.object || prev.title,
+                                                                        description: data.description || prev.description,
+                                                                        category: data.category || prev.category
+                                                                    }));
+                                                                __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$react$2d$hot$2d$toast$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["toast"].success('Form fields updated from AI suggestions');
+                                                            } catch  {
+                                                                __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$react$2d$hot$2d$toast$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["toast"].error('Smart analyze failed. Please fill the form manually.');
+                                                            } finally{
+                                                                setIsSmartAnalyzing(false);
+                                                            }
+                                                        },
+                                                        className: "h-12 mt-6 px-4 rounded-2xl bg-black text-white text-sm font-bold flex items-center justify-center gap-2 disabled:opacity-50",
+                                                        children: isSmartAnalyzing ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
+                                                            children: [
+                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$loader$2d$circle$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Loader2$3e$__["Loader2"], {
+                                                                    className: "animate-spin",
+                                                                    size: 16
+                                                                }, void 0, false, {
+                                                                    fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
+                                                                    lineNumber: 503,
+                                                                    columnNumber: 27
+                                                                }, this),
+                                                                "Analyzing…"
+                                                            ]
+                                                        }, void 0, true) : 'Smart fill from images'
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
+                                                        lineNumber: 472,
+                                                        columnNumber: 21
+                                                    }, this)
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
+                                                lineNumber: 452,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2347,7 +2440,7 @@ function SellerDashboard() {
                                                         children: "Cancel"
                                                     }, void 0, false, {
                                                         fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
-                                                        lineNumber: 450,
+                                                        lineNumber: 513,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -2358,61 +2451,61 @@ function SellerDashboard() {
                                                             className: "animate-spin"
                                                         }, void 0, false, {
                                                             fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
-                                                            lineNumber: 462,
+                                                            lineNumber: 525,
                                                             columnNumber: 39
                                                         }, this) : 'Submit Listing'
                                                     }, void 0, false, {
                                                         fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
-                                                        lineNumber: 457,
+                                                        lineNumber: 520,
                                                         columnNumber: 21
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
-                                                lineNumber: 449,
+                                                lineNumber: 512,
                                                 columnNumber: 19
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
-                                        lineNumber: 389,
+                                        lineNumber: 392,
                                         columnNumber: 17
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
-                                lineNumber: 385,
+                                lineNumber: 388,
                                 columnNumber: 15
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
-                            lineNumber: 379,
+                            lineNumber: 382,
                             columnNumber: 13
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
-                    lineNumber: 371,
+                    lineNumber: 374,
                     columnNumber: 11
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
-                lineNumber: 369,
+                lineNumber: 372,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$components$2f$Footer$2e$jsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
                 fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
-                lineNumber: 472,
+                lineNumber: 535,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/frontend/app/seller/dashboard/page.jsx",
-        lineNumber: 135,
+        lineNumber: 138,
         columnNumber: 5
     }, this);
 }
-_s(SellerDashboard, "oxvzHytYisA5hKKFw85b7z9BUQM=", false, function() {
+_s(SellerDashboard, "c2fd1Qb3fxkVhAIifpZ1X+f69lw=", false, function() {
     return [
         __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$react$2d$redux$2f$dist$2f$react$2d$redux$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useDispatch"],
         __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$react$2d$redux$2f$dist$2f$react$2d$redux$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useSelector"]

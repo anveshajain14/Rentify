@@ -355,7 +355,7 @@ const transporter = __TURBOPACK__imported__module__$5b$project$5d2f$backend$2f$n
     }
 });
 const APP_NAME = process.env.APP_NAME || 'Rentify';
-const BASE_URL = ("TURBOPACK compile-time value", "http://localhost:3000") || process.env.BASE_URL || 'http://localhost:3000';
+const BASE_URL = process.env.NEXT_PUBLIC_APP_URL || process.env.BASE_URL || 'http://localhost:3000';
 function getEmailTemplate(type, data) {
     const styles = `
     body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; margin: 0; padding: 0; background: #f5f5f5; }

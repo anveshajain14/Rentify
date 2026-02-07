@@ -33,6 +33,7 @@ export default function ProductDetailsPage() {
   const [startDate, setStartDate] = useState('');
   const [endDate, setEndDate] = useState('');
   const [addToCartDuration, setAddToCartDuration] = useState('day');
+  const [similarItems, setSimilarItems] = useState([]);
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -56,6 +57,20 @@ export default function ProductDetailsPage() {
       setRecentProducts(all.filter((p) => recentIds.includes(p._id)).slice(0, 4));
     });
   }, [recentIds.join(',')]);
+
+  // AI-powered similar items (Python recommendation service via /api/ai/similar)
+  useEffect(() => {
+    if (!id) return;
+    axios
+      .get(`/api/ai/similar?itemId=${id}`)
+      .then((res) => {
+        const items = res.data?.similarItems || [];
+        setSimilarItems(items);
+      })
+      .catch(() => {
+        // Silent fail – we don't want to break the product page if AI is down.
+      });
+  }, [id]);
 
   const handleBooking = async () => {
     if (!user) {
@@ -270,6 +285,26 @@ export default function ProductDetailsPage() {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {recentProducts.map((p) => (
                 <ProductCard key={p._id} product={p} />
+              ))}
+            </div>
+          </section>
+        )}
+
+        {similarItems.length > 0 && (
+          <section className="mt-16 pt-12 border-t border-gray-100">
+            <h2 className="text-xl font-black mb-6">Similar items powered by AI</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              {similarItems.map((item) => (
+                <ProductCard
+                  key={item._id}
+                  product={{
+                    _id: item._id,
+                    title: item.title,
+                    images: item.image ? [item.image] : [],
+                    pricePerDay: item.price,
+                    category: item.category || product.category,
+                  }}
+                />
               ))}
             </div>
           </section>
