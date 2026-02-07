@@ -633,7 +633,7 @@ function Navbar() {
                                 }, this),
                                 user.role === 'seller' && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
                                     href: "/seller/dashboard",
-                                    className: "block py-3 font-medium text-gray-600",
+                                    className: "block py-3 font-medium text-foreground",
                                     onClick: ()=>setIsOpen(false),
                                     children: "Seller Panel"
                                 }, void 0, false, {
@@ -1222,7 +1222,7 @@ function ChatbotPage() {
         }
     };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("main", {
-        className: "min-h-screen bg-gray-50/50",
+        className: "min-h-screen bg-background",
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$components$2f$Navbar$2e$jsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
                 fileName: "[project]/frontend/app/chat/page.jsx",
@@ -1236,7 +1236,7 @@ function ChatbotPage() {
                         className: "mb-8",
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
-                                className: "text-4xl font-black tracking-tighter text-black mb-2",
+                                className: "text-4xl font-black tracking-tighter text-foreground mb-2",
                                 children: "Assistant"
                             }, void 0, false, {
                                 fileName: "[project]/frontend/app/chat/page.jsx",
@@ -1244,7 +1244,7 @@ function ChatbotPage() {
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                className: "text-gray-500",
+                                className: "text-muted-foreground",
                                 children: "Ask about rental policies or get item suggestions. The assistant is grounded in your policy document and live inventory."
                             }, void 0, false, {
                                 fileName: "[project]/frontend/app/chat/page.jsx",
@@ -1258,7 +1258,7 @@ function ChatbotPage() {
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "bg-white rounded-[40px] border border-gray-100 shadow-sm flex flex-col h-[70vh] overflow-hidden",
+                        className: "bg-card rounded-[40px] border border-border shadow-sm dark:shadow-black/20 flex flex-col h-[70vh] overflow-hidden",
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                 className: "flex-1 overflow-y-auto p-6 space-y-4",
@@ -1281,7 +1281,7 @@ function ChatbotPage() {
                                                 className: `flex gap-3 ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`,
                                                 children: [
                                                     msg.role === 'assistant' && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                        className: "w-8 h-8 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-600 mt-1",
+                                                        className: "w-8 h-8 rounded-full bg-emerald-100 dark:bg-emerald-900/40 flex items-center justify-center text-emerald-600 dark:text-cyan-400 mt-1",
                                                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$bot$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Bot$3e$__["Bot"], {
                                                             size: 16
                                                         }, void 0, false, {
@@ -1295,7 +1295,7 @@ function ChatbotPage() {
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                        className: `max-w-[75%] rounded-2xl px-4 py-3 text-sm ${msg.role === 'user' ? 'bg-black text-white rounded-br-sm' : 'bg-gray-100 text-gray-900 rounded-bl-sm'}`,
+                                                        className: `max-w-[75%] rounded-2xl px-4 py-3 text-sm ${msg.role === 'user' ? 'bg-primary text-primary-foreground rounded-br-sm' : 'bg-muted text-foreground rounded-bl-sm'}`,
                                                         children: [
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                                                 className: "whitespace-pre-wrap",
@@ -1306,7 +1306,7 @@ function ChatbotPage() {
                                                                 columnNumber: 21
                                                             }, this),
                                                             msg.source === 'policy' && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                                className: "mt-2 text-[10px] font-bold uppercase tracking-widest text-gray-400",
+                                                                className: "mt-2 text-[10px] font-bold uppercase tracking-widest text-muted-foreground",
                                                                 children: "From policy"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/frontend/app/chat/page.jsx",
@@ -1316,7 +1316,7 @@ function ChatbotPage() {
                                                             Array.isArray(msg.items) && msg.items.length > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                                 className: "mt-3 grid grid-cols-1 sm:grid-cols-2 gap-3",
                                                                 children: msg.items.map((item)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                        className: "bg-white border border-gray-200 rounded-xl p-3 text-xs text-gray-800",
+                                                                        className: "bg-muted/50 border border-border rounded-xl p-3 text-xs text-foreground",
                                                                         children: [
                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                                                 className: "font-bold truncate",
@@ -1327,7 +1327,7 @@ function ChatbotPage() {
                                                                                 columnNumber: 29
                                                                             }, this),
                                                                             item.category && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                                className: "text-[11px] text-gray-500 mt-1",
+                                                                                className: "text-[11px] text-muted-foreground mt-1",
                                                                                 children: item.category
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/frontend/app/chat/page.jsx",
@@ -1352,7 +1352,7 @@ function ChatbotPage() {
                                                         columnNumber: 19
                                                     }, this),
                                                     msg.role === 'user' && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                        className: "w-8 h-8 rounded-full bg-gray-900 text-white flex items-center justify-center mt-1",
+                                                        className: "w-8 h-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center mt-1",
                                                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$user$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__User$3e$__["User"], {
                                                             size: 16
                                                         }, void 0, false, {
@@ -1377,7 +1377,7 @@ function ChatbotPage() {
                                         columnNumber: 13
                                     }, this),
                                     messages.length === 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                        className: "h-full flex items-center justify-center text-sm text-gray-400",
+                                        className: "h-full flex items-center justify-center text-sm text-muted-foreground",
                                         children: 'Try asking "What is the late return policy?" or "Show me cameras under ₹1000/day".'
                                     }, void 0, false, {
                                         fileName: "[project]/frontend/app/chat/page.jsx",
@@ -1392,13 +1392,13 @@ function ChatbotPage() {
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("form", {
                                 onSubmit: handleSend,
-                                className: "border-t border-gray-100 p-4 flex gap-3 bg-white",
+                                className: "border-t border-border p-4 flex gap-3 bg-card",
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
                                         value: input,
                                         onChange: (e)=>setInput(e.target.value),
                                         placeholder: "Ask about policies or items...",
-                                        className: "flex-1 bg-gray-50 border border-transparent rounded-2xl px-4 py-3 text-sm focus:bg-white focus:border-emerald-500 outline-none transition-all"
+                                        className: "flex-1 bg-input border border-border rounded-2xl px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:ring-2 focus:ring-ring outline-none transition-all"
                                     }, void 0, false, {
                                         fileName: "[project]/frontend/app/chat/page.jsx",
                                         lineNumber: 139,
@@ -1407,7 +1407,7 @@ function ChatbotPage() {
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                         type: "submit",
                                         disabled: loading,
-                                        className: "px-4 py-3 rounded-2xl bg-emerald-600 text-white flex items-center gap-2 text-sm font-bold hover:bg-emerald-500 disabled:opacity-60",
+                                        className: "px-4 py-3 rounded-2xl bg-emerald-600 dark:bg-cyan-600 text-white flex items-center gap-2 text-sm font-bold hover:bg-emerald-500 dark:hover:bg-cyan-500 disabled:opacity-60",
                                         children: [
                                             loading ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$loader$2d$circle$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Loader2$3e$__["Loader2"], {
                                                 className: "animate-spin",

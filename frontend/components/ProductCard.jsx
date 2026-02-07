@@ -173,10 +173,10 @@ export default function ProductCard({ product }) {
                 className="object-cover group-hover/seller:ring-2 group-hover/seller:ring-emerald-500 dark:group-hover/seller:ring-cyan-500 rounded-full"
               />
             </div>
-            <span className="font-medium text-gray-700 group-hover/seller:text-emerald-600 truncate">{sellerName || 'Seller'}</span>
+            <span className="font-medium text-muted-foreground group-hover/seller:text-emerald-600 dark:group-hover/seller:text-cyan-400 truncate">{sellerName || 'Seller'}</span>
             {sellerLocation && (
               <>
-                <span className="text-gray-300">·</span>
+                <span className="text-muted-foreground/60">·</span>
                 <span className="flex items-center gap-0.5"><MapPin size={12} /> {sellerLocation}</span>
               </>
             )}

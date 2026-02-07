@@ -92,7 +92,7 @@ export default function VerifyLoginOTPPage() {
             <div className="space-y-2">
               <label className="text-sm font-bold text-foreground ml-1">Email Address</label>
               <div className="relative">
-                <Mail className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" size={18} />
+                <Mail className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground" size={18} />
                 <input
                   type="email"
                   value={email}
@@ -120,7 +120,7 @@ export default function VerifyLoginOTPPage() {
                     value={digit}
                     onChange={(e) => handleOtpChange(i, e.target.value)}
                     onKeyDown={(e) => handleOtpKeyDown(i, e)}
-                    className="w-12 h-14 text-center text-xl font-bold bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-xl focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 outline-none dark:text-white"
+                    className="w-12 h-14 text-center text-xl font-bold bg-input border border-border rounded-xl focus:border-ring focus:ring-2 focus:ring-ring/20 outline-none text-foreground"
                   />
                 ))}
               </div>
@@ -140,7 +140,7 @@ export default function VerifyLoginOTPPage() {
           </form>
 
           <div className="mt-8 text-center text-sm">
-            <p className="text-gray-500 dark:text-gray-400">
+            <p className="text-muted-foreground">
               <Link href="/login" className="text-emerald-600 dark:text-cyan-400 font-bold hover:underline">
                 Back to Sign In
               </Link>

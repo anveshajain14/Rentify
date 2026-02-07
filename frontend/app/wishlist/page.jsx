@@ -36,16 +36,16 @@ export default function WishlistPage() {
   }, [productIds.join(',')]);
 
   return (
-    <main className="min-h-screen bg-gray-50">
+    <main className="min-h-screen bg-background">
       <Navbar />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-20">
-        <h1 className="text-3xl font-black tracking-tighter text-black mb-8 flex items-center gap-2">
+        <h1 className="text-3xl font-black tracking-tighter text-foreground mb-8 flex items-center gap-2">
           <Heart size={28} className="text-red-500 fill-red-500" /> Wishlist ({productIds.length})
         </h1>
         {loading ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[1, 2, 3, 4].map((i) => (
-              <div key={i} className="h-[420px] bg-gray-200 rounded-3xl animate-pulse" />
+              <div key={i} className="h-[420px] bg-muted rounded-3xl animate-pulse" />
             ))}
           </div>
         ) : products.length > 0 ? (
@@ -55,10 +55,10 @@ export default function WishlistPage() {
             ))}
           </motion.div>
         ) : (
-          <div className="py-24 text-center bg-white rounded-3xl border border-dashed border-gray-200">
-            <Heart className="mx-auto text-gray-300 mb-4" size={56} />
-            <p className="text-gray-600 font-medium mb-4">Your wishlist is empty</p>
-            <Link href="/products" className="inline-block px-8 py-3 bg-emerald-600 text-white rounded-2xl font-bold hover:bg-emerald-500">
+          <div className="py-24 text-center bg-card rounded-3xl border border-dashed border-border">
+            <Heart className="mx-auto text-muted-foreground mb-4" size={56} />
+            <p className="text-muted-foreground font-medium mb-4">Your wishlist is empty</p>
+            <Link href="/products" className="inline-block px-8 py-3 bg-emerald-600 dark:bg-cyan-600 text-white rounded-2xl font-bold hover:bg-emerald-500 dark:hover:bg-cyan-500">
               Browse rentals
             </Link>
           </div>

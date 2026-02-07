@@ -3,7 +3,10 @@ import mongoose, { Schema } from 'mongoose';
 const UserSchema = new Schema({
   name: { type: String, required: true },
   email: { type: String, required: true, unique: true },
-  password: { type: String, required: true },
+  password: { type: String, required: false }, // Optional for Google OAuth users
+  // Google OAuth
+  googleId: { type: String, sparse: true, unique: true },
+  authProvider: { type: String, enum: ['local', 'google'], default: 'local' },
   role: { type: String, enum: ['renter', 'seller', 'admin'], default: 'renter' },
   avatar: { type: String, default: '' },
   shopBanner: { type: String, default: '' },
@@ -31,5 +34,14 @@ const UserSchema = new Schema({
   // Invalidate all sessions on password reset
   sessionVersion: { type: Number, default: 0 },
 }, { timestamps: true });
+
+// Must have at least one auth method
+UserSchema.pre('save', function (next) {
+  if (!this.password && !this.googleId) {
+    next(new Error('User must have either password or googleId'));
+    return;
+  }
+  next();
+});
 
 export default mongoose.models.User || mongoose.model('User', UserSchema);

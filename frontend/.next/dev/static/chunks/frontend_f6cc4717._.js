@@ -633,7 +633,7 @@ function Navbar() {
                                 }, this),
                                 user.role === 'seller' && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
                                     href: "/seller/dashboard",
-                                    className: "block py-3 font-medium text-gray-600",
+                                    className: "block py-3 font-medium text-foreground",
                                     onClick: ()=>setIsOpen(false),
                                     children: "Seller Panel"
                                 }, void 0, false, {
@@ -1429,7 +1429,7 @@ function ProductCard({ product }) {
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                className: "font-medium text-gray-700 group-hover/seller:text-emerald-600 truncate",
+                                className: "font-medium text-muted-foreground group-hover/seller:text-emerald-600 dark:group-hover/seller:text-cyan-400 truncate",
                                 children: sellerName || 'Seller'
                             }, void 0, false, {
                                 fileName: "[project]/frontend/components/ProductCard.jsx",
@@ -1439,7 +1439,7 @@ function ProductCard({ product }) {
                             sellerLocation && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                        className: "text-gray-300",
+                                        className: "text-muted-foreground/60",
                                         children: "·"
                                     }, void 0, false, {
                                         fileName: "[project]/frontend/components/ProductCard.jsx",

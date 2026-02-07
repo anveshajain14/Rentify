@@ -51,12 +51,24 @@ All env and config live under `frontend/` (e.g. `frontend/.env`, `frontend/packa
    - `CLOUDINARY_*` – Cloudinary credentials for image uploads.
    - `JWT_SECRET` – Random string for JWT signing.
    - `NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY` and `STRIPE_SECRET_KEY` – Stripe test keys.
+   - `GOOGLE_CLIENT_ID` and `GOOGLE_CLIENT_SECRET` – for "Continue with Google" (optional; see below).
 
 3. **Run MongoDB**
 
    Ensure MongoDB is running (e.g. local on port 27017 or a hosted cluster).
 
-4. **Start the app**
+4. **Google OAuth (optional – "Continue with Google")**
+
+   1. Go to [Google Cloud Console](https://console.cloud.google.com/).
+   2. Create or select a project.
+   3. **APIs & Services → OAuth consent screen**: Configure (External, add your email as test user if in testing).
+   4. **Credentials → Create credentials → OAuth client ID**; type **Web application**.
+   5. Authorized redirect URIs: `http://localhost:3000/api/auth/google/callback` (add production URL when deploying).
+   6. Copy **Client ID** and **Client Secret** into `frontend/.env` as `GOOGLE_CLIENT_ID` and `GOOGLE_CLIENT_SECRET`.
+
+   Without these vars, the Google login button redirects to login with an error.
+
+5. **Start the app**
 
    From the **frontend** folder:
 
@@ -84,7 +96,7 @@ If you still have `app/`, `src/`, `public/`, `node_modules/`, or `.next/` at the
 ## API Summary
 
 - **Public:** `GET /api/seller/:id` – Seller shop (approved only; includes products, reviews, stats, rating distribution). Supports `reviewPage` and `reviewLimit` for reviews.
-- **Auth:** `POST /api/auth/login`, `register`, `GET /api/auth/me`, `POST /api/auth/logout`.
+- **Auth:** `POST /api/auth/login`, `register`, `GET /api/auth/me`, `POST /api/auth/logout`, `GET /api/auth/google` (OAuth), `GET /api/auth/google/callback`.
 - **Seller:** `PATCH /api/seller/profile` – Update shop (avatar, banner, bio, location, policies); accepts `multipart/form-data`.
 - **Products / Rentals / Reviews** – As used by the app (list, create, update, checkout, etc.).
 

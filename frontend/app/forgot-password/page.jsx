@@ -42,7 +42,7 @@ export default function ForgotPasswordPage() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="max-w-md w-full bg-white dark:bg-gray-800 rounded-[40px] shadow-2xl shadow-black/5 p-10 border border-gray-100 dark:border-gray-700 text-center"
+            className="max-w-md w-full bg-card rounded-[40px] shadow-2xl dark:shadow-black/40 p-10 border border-border text-center"
           >
             <div className="w-16 h-16 rounded-full bg-emerald-100 dark:bg-emerald-900/30 flex items-center justify-center mx-auto mb-6">
               <Mail className="text-emerald-600" size={32} />
@@ -92,7 +92,7 @@ export default function ForgotPasswordPage() {
             <div className="space-y-2">
               <label className="text-sm font-bold text-foreground ml-1">Email Address</label>
               <div className="relative">
-                <Mail className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" size={18} />
+                <Mail className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground" size={18} />
                 <input
                   type="email"
                   value={email}

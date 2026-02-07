@@ -257,14 +257,14 @@ function RootLayout({ children }) {
                                 children,
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
                                     href: "/chat",
-                                    className: "fixed bottom-6 right-6 z-40 flex items-center gap-2 rounded-full bg-black text-white px-4 py-3 shadow-xl shadow-emerald-500/30 hover:bg-emerald-600 transition-colors text-sm font-bold",
+                                    className: "fixed bottom-6 right-6 z-40 flex items-center gap-2 rounded-full bg-primary text-primary-foreground px-4 py-3 shadow-xl shadow-emerald-500/30 dark:shadow-cyan-500/30 hover:bg-emerald-600 dark:hover:bg-cyan-600 transition-colors text-sm font-bold",
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                            className: "flex h-8 w-8 items-center justify-center rounded-full bg-white/10 border border-white/20",
+                                            className: "flex h-8 w-8 items-center justify-center rounded-full bg-primary-foreground/10 border border-primary-foreground/20",
                                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                className: "relative block h-3 w-4 rounded-md bg-white",
+                                                className: "relative block h-3 w-4 rounded-md bg-primary-foreground",
                                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                    className: "absolute -bottom-1 left-1 h-2 w-2 rotate-45 bg-white"
+                                                    className: "absolute -bottom-1 left-1 h-2 w-2 rotate-45 bg-primary-foreground"
                                                 }, void 0, false, {
                                                     fileName: "[project]/frontend/app/layout.jsx",
                                                     lineNumber: 46,

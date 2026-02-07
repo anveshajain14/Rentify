@@ -41,33 +41,33 @@ export default function DiscoverPage() {
     cat === 'All' ? products : products.filter((p) => p.category === cat);
 
   return (
-    <main className="min-h-screen bg-gray-50">
+    <main className="min-h-screen bg-background">
       <Navbar />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-20">
         <header className="mb-12">
-          <h1 className="text-4xl font-black tracking-tighter text-black mb-2">Discover Rentals</h1>
-          <p className="text-gray-500 mb-8">Find what you need. Search and browse by category.</p>
+          <h1 className="text-4xl font-black tracking-tighter text-foreground mb-2">Discover Rentals</h1>
+          <p className="text-muted-foreground mb-8">Find what you need. Search and browse by category.</p>
 
           <div className="relative max-w-xl">
-            <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" size={20} />
+            <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground" size={20} />
             <input
               type="text"
               placeholder="Search products..."
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              className="w-full pl-12 pr-4 py-4 bg-white border border-gray-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-emerald-500 shadow-sm"
+              className="w-full pl-12 pr-4 py-4 bg-card border border-border rounded-2xl focus:outline-none focus:ring-2 focus:ring-ring text-foreground placeholder:text-muted-foreground shadow-sm"
             />
           </div>
         </header>
 
         {search.trim() ? (
           <section className="mb-16">
-            <h2 className="text-xl font-black mb-6">Search results</h2>
+            <h2 className="text-xl font-black mb-6 text-foreground">Search results</h2>
             {loading ? (
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 {[1, 2, 3, 4].map((i) => (
-                  <div key={i} className="h-[420px] bg-gray-200 rounded-3xl animate-pulse" />
+                  <div key={i} className="h-[420px] bg-muted rounded-3xl animate-pulse" />
                 ))}
               </div>
             ) : filteredBySearch.length > 0 ? (
@@ -77,9 +77,9 @@ export default function DiscoverPage() {
                 ))}
               </div>
             ) : (
-              <div className="py-16 text-center rounded-3xl bg-white border border-dashed border-gray-200">
-                <p className="text-gray-500 font-medium">No products match your search.</p>
-                <button onClick={() => setSearch('')} className="mt-4 text-emerald-600 font-bold">Clear search</button>
+              <div className="py-16 text-center rounded-3xl bg-card border border-dashed border-border">
+                <p className="text-muted-foreground font-medium">No products match your search.</p>
+                <button onClick={() => setSearch('')} className="mt-4 text-emerald-600 dark:text-cyan-400 font-bold">Clear search</button>
               </div>
             )}
           </section>
@@ -87,8 +87,8 @@ export default function DiscoverPage() {
           <>
             <section className="mb-16">
               <div className="flex justify-between items-end mb-6">
-                <h2 className="text-xl font-black flex items-center gap-2"><Sparkles size={22} className="text-amber-500" /> Featured</h2>
-                <Link href="/products" className="text-sm font-bold text-emerald-600 hover:underline flex items-center gap-1">View all <ArrowRight size={14} /></Link>
+                <h2 className="text-xl font-black flex items-center gap-2 text-foreground"><Sparkles size={22} className="text-amber-500" /> Featured</h2>
+                <Link href="/products" className="text-sm font-bold text-emerald-600 dark:text-cyan-400 hover:underline flex items-center gap-1">View all <ArrowRight size={14} /></Link>
               </div>
               {loading ? (
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -107,8 +107,8 @@ export default function DiscoverPage() {
 
             <section className="mb-16">
               <div className="flex justify-between items-end mb-6">
-                <h2 className="text-xl font-black flex items-center gap-2"><Clock size={22} className="text-blue-500" /> Recently Added</h2>
-                <Link href="/products" className="text-sm font-bold text-emerald-600 hover:underline flex items-center gap-1">View all <ArrowRight size={14} /></Link>
+                <h2 className="text-xl font-black flex items-center gap-2 text-foreground"><Clock size={22} className="text-blue-500" /> Recently Added</h2>
+                <Link href="/products" className="text-sm font-bold text-emerald-600 dark:text-cyan-400 hover:underline flex items-center gap-1">View all <ArrowRight size={14} /></Link>
               </div>
               {!loading && (
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -125,8 +125,8 @@ export default function DiscoverPage() {
               return (
                 <section key={cat} className="mb-16">
                   <div className="flex justify-between items-end mb-6">
-                    <h2 className="text-xl font-black">{cat}</h2>
-                    <Link href={`/products?category=${cat}`} className="text-sm font-bold text-emerald-600 hover:underline flex items-center gap-1">View all <ArrowRight size={14} /></Link>
+                    <h2 className="text-xl font-black text-foreground">{cat}</h2>
+                    <Link href={`/products?category=${cat}`} className="text-sm font-bold text-emerald-600 dark:text-cyan-400 hover:underline flex items-center gap-1">View all <ArrowRight size={14} /></Link>
                   </div>
                   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                     {list.slice(0, 4).map((p) => (

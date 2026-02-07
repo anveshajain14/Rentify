@@ -112,7 +112,7 @@ export default function VerifyEmailPage() {
             <div className="space-y-2">
               <label className="text-sm font-bold text-foreground ml-1">Email Address</label>
               <div className="relative">
-                <Mail className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" size={18} />
+                <Mail className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground" size={18} />
                 <input
                   type="email"
                   value={email}

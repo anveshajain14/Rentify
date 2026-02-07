@@ -136,7 +136,7 @@ export default function Navbar() {
                 <Link href="/dashboard" className="block py-3 font-medium text-foreground" onClick={() => setIsOpen(false)}>My Rentals</Link>
                 <Link href="/wishlist" className="block py-3 font-medium text-foreground" onClick={() => setIsOpen(false)}>Wishlist</Link>
                 <Link href="/profile" className="block py-3 font-medium text-foreground" onClick={() => setIsOpen(false)}>Profile</Link>
-                {user.role === 'seller' && <Link href="/seller/dashboard" className="block py-3 font-medium text-gray-600" onClick={() => setIsOpen(false)}>Seller Panel</Link>}
+                {user.role === 'seller' && <Link href="/seller/dashboard" className="block py-3 font-medium text-foreground" onClick={() => setIsOpen(false)}>Seller Panel</Link>}
               </>
             )}
             <div className="pt-4 border-t border-border">

@@ -210,9 +210,9 @@ export default function AdminDashboard() {
         {/* Approvals Content */}
         {tab === 'approvals' && (
           <div className="space-y-8">
-            <div className="bg-white rounded-[40px] border border-gray-100 shadow-sm overflow-hidden">
-              <div className="p-8 border-b border-gray-50 flex justify-between items-center">
-                <h2 className="text-xl font-black">Pending Products ({products.filter((p) => !p.isApproved).length})</h2>
+            <div className="bg-card rounded-[40px] border border-border shadow-sm dark:shadow-black/20 overflow-hidden">
+              <div className="p-8 border-b border-border flex justify-between items-center">
+                <h2 className="text-xl font-black text-foreground">Pending Products ({products.filter((p) => !p.isApproved).length})</h2>
               </div>
               <div className="divide-y divide-border">
                 {products.filter((p) => !p.isApproved).map((product) => (
@@ -225,23 +225,23 @@ export default function AdminDashboard() {
                       </div>
                     </div>
                     <div className="flex gap-3">
-                      <button onClick={() => handleApproval('product', product._id, true)} className="p-3 bg-emerald-50 text-emerald-600 rounded-xl hover:bg-emerald-600 hover:text-white transition-all"><Check size={20} /></button>
-                      <button onClick={() => handleApproval('product', product._id, false)} className="p-3 bg-red-50 text-red-600 rounded-xl hover:bg-red-600 hover:text-white transition-all"><X size={20} /></button>
+                      <button onClick={() => handleApproval('product', product._id, true)} className="p-3 bg-emerald-50 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-400 rounded-xl hover:bg-emerald-600 hover:text-white transition-all"><Check size={20} /></button>
+                      <button onClick={() => handleApproval('product', product._id, false)} className="p-3 bg-red-50 dark:bg-red-900/30 text-red-600 dark:text-red-400 rounded-xl hover:bg-red-600 hover:text-white transition-all"><X size={20} /></button>
                     </div>
                   </div>
                 ))}
               </div>
             </div>
 
-            <div className="bg-white rounded-[40px] border border-gray-100 shadow-sm overflow-hidden">
-              <div className="p-8 border-b border-gray-50 flex justify-between items-center">
-                <h2 className="text-xl font-black">Pending Sellers ({users.filter((u) => u.role === 'seller' && !u.isApproved).length})</h2>
+            <div className="bg-card rounded-[40px] border border-border shadow-sm dark:shadow-black/20 overflow-hidden">
+              <div className="p-8 border-b border-border flex justify-between items-center">
+                <h2 className="text-xl font-black text-foreground">Pending Sellers ({users.filter((u) => u.role === 'seller' && !u.isApproved).length})</h2>
               </div>
               <div className="divide-y divide-border">
                 {users.filter((u) => u.role === 'seller' && !u.isApproved).map((seller) => (
                   <div key={seller._id} className="p-8 flex items-center justify-between">
                     <div className="flex items-center gap-4">
-                      <div className="w-16 h-16 rounded-2xl bg-gray-100 flex items-center justify-center font-black text-gray-400 text-2xl">
+                      <div className="w-16 h-16 rounded-2xl bg-muted flex items-center justify-center font-black text-muted-foreground text-2xl">
                         {seller.name.charAt(0)}
                       </div>
                       <div>
@@ -250,8 +250,8 @@ export default function AdminDashboard() {
                       </div>
                     </div>
                     <div className="flex gap-3">
-                      <button onClick={() => handleApproval('seller', seller._id, true)} className="p-3 bg-emerald-50 text-emerald-600 rounded-xl hover:bg-emerald-600 hover:text-white transition-all"><Check size={20} /></button>
-                      <button onClick={() => handleApproval('seller', seller._id, false)} className="p-3 bg-red-50 text-red-600 rounded-xl hover:bg-red-600 hover:text-white transition-all"><X size={20} /></button>
+                      <button onClick={() => handleApproval('seller', seller._id, true)} className="p-3 bg-emerald-50 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-400 rounded-xl hover:bg-emerald-600 hover:text-white transition-all"><Check size={20} /></button>
+                      <button onClick={() => handleApproval('seller', seller._id, false)} className="p-3 bg-red-50 dark:bg-red-900/30 text-red-600 dark:text-red-400 rounded-xl hover:bg-red-600 hover:text-white transition-all"><X size={20} /></button>
                     </div>
                   </div>
                 ))}
@@ -288,17 +288,17 @@ export default function AdminDashboard() {
                       </td>
                       <td className="px-8 py-6 capitalize font-medium">{u.role}</td>
                       <td className="px-8 py-6">
-                        <span className={`px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider ${u.isVerified ? 'bg-emerald-50 text-emerald-600' : 'bg-amber-50 text-amber-600'}`}>
+                        <span className={`px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider ${u.isVerified ? 'bg-emerald-50 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-400' : 'bg-amber-50 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400'}`}>
                           {u.isVerified ? 'Yes' : 'No'}
                         </span>
                       </td>
                       <td className="px-8 py-6">
-                        <span className={`px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider ${u.isApproved ? 'bg-emerald-50 text-emerald-600' : 'bg-gray-100 text-gray-500'}`}>
+                        <span className={`px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider ${u.isApproved ? 'bg-emerald-50 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-400' : 'bg-muted text-muted-foreground'}`}>
                           {u.isApproved ? 'Approved' : 'Standard'}
                         </span>
                       </td>
                       <td className="px-8 py-6">
-                        <span className={`px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider ${u.isBlocked ? 'bg-red-50 text-red-600' : 'bg-gray-100 text-gray-500'}`}>
+                        <span className={`px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider ${u.isBlocked ? 'bg-red-50 dark:bg-red-900/30 text-red-600 dark:text-red-400' : 'bg-muted text-muted-foreground'}`}>
                           {u.isBlocked ? 'Blocked' : 'Active'}
                         </span>
                       </td>

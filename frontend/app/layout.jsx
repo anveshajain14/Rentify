@@ -38,12 +38,12 @@ export default function RootLayout({ children }) {
             {/* Floating chatbot button (bottom-right) */}
             <a
               href="/chat"
-              className="fixed bottom-6 right-6 z-40 flex items-center gap-2 rounded-full bg-black text-white px-4 py-3 shadow-xl shadow-emerald-500/30 hover:bg-emerald-600 transition-colors text-sm font-bold"
+              className="fixed bottom-6 right-6 z-40 flex items-center gap-2 rounded-full bg-primary text-primary-foreground px-4 py-3 shadow-xl shadow-emerald-500/30 dark:shadow-cyan-500/30 hover:bg-emerald-600 dark:hover:bg-cyan-600 transition-colors text-sm font-bold"
             >
-              <span className="flex h-8 w-8 items-center justify-center rounded-full bg-white/10 border border-white/20">
+              <span className="flex h-8 w-8 items-center justify-center rounded-full bg-primary-foreground/10 border border-primary-foreground/20">
                 {/* Simple chat bubble icon */}
-                <span className="relative block h-3 w-4 rounded-md bg-white">
-                  <span className="absolute -bottom-1 left-1 h-2 w-2 rotate-45 bg-white" />
+                <span className="relative block h-3 w-4 rounded-md bg-primary-foreground">
+                  <span className="absolute -bottom-1 left-1 h-2 w-2 rotate-45 bg-primary-foreground" />
                 </span>
               </span>
               <span className="hidden sm:inline">Chat with assistant</span>

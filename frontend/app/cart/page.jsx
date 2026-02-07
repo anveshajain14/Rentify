@@ -67,11 +67,11 @@ export default function CartPage() {
   };
 
   return (
-    <main className="min-h-screen bg-gray-50">
+    <main className="min-h-screen bg-background">
       <Navbar />
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-20">
-        <h1 className="text-3xl font-black tracking-tighter text-black mb-8 flex items-center gap-2">
+        <h1 className="text-3xl font-black tracking-tighter text-foreground mb-8 flex items-center gap-2">
           <ShoppingCart size={32} /> Cart ({items.length})
         </h1>
 
@@ -79,11 +79,11 @@ export default function CartPage() {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className="py-24 text-center bg-white rounded-3xl border border-dashed border-gray-200"
+            className="py-24 text-center bg-card rounded-3xl border border-dashed border-border"
           >
-            <ShoppingCart className="mx-auto text-gray-300 mb-4" size={56} />
-            <p className="text-gray-600 font-medium mb-4">Your cart is empty</p>
-            <Link href="/products" className="inline-block px-8 py-3 bg-emerald-600 text-white rounded-2xl font-bold hover:bg-emerald-500">
+            <ShoppingCart className="mx-auto text-muted-foreground mb-4" size={56} />
+            <p className="text-muted-foreground font-medium mb-4">Your cart is empty</p>
+            <Link href="/products" className="inline-block px-8 py-3 bg-emerald-600 dark:bg-cyan-600 text-white rounded-2xl font-bold hover:bg-emerald-500 dark:hover:bg-cyan-500">
               Browse rentals
             </Link>
           </motion.div>
@@ -95,19 +95,19 @@ export default function CartPage() {
                 layout
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="bg-white rounded-3xl border border-gray-100 p-6 shadow-sm flex flex-col sm:flex-row gap-6"
+                className="bg-card rounded-3xl border border-border p-6 shadow-sm dark:shadow-black/20 flex flex-col sm:flex-row gap-6"
               >
-                <div className="relative w-full sm:w-32 aspect-square rounded-2xl overflow-hidden bg-gray-100 flex-shrink-0">
+                <div className="relative w-full sm:w-32 aspect-square rounded-2xl overflow-hidden bg-muted flex-shrink-0">
                   <Image src={item.product.images[0]} alt={item.product.title} fill className="object-cover" />
                 </div>
                 <div className="flex-1 min-w-0">
-                  <Link href={`/products/${item.productId}`} className="font-bold text-lg text-black hover:text-emerald-600 line-clamp-1">
+                  <Link href={`/products/${item.productId}`} className="font-bold text-lg text-foreground hover:text-emerald-600 dark:hover:text-cyan-400 line-clamp-1">
                     {item.product.title}
                   </Link>
-                  <p className="text-sm text-gray-500 mb-4">${item.product.pricePerDay}/day</p>
+                  <p className="text-sm text-muted-foreground mb-4">${item.product.pricePerDay}/day</p>
                   <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
                     <div>
-                      <label className="text-xs font-bold text-gray-400 uppercase">Start</label>
+                      <label className="text-xs font-bold text-muted-foreground uppercase">Start</label>
                       <input
                         type="date"
                         value={item.startDate}
@@ -121,11 +121,11 @@ export default function CartPage() {
                             })
                           )
                         }
-                        className="w-full mt-1 px-3 py-2 rounded-xl border border-gray-200 text-sm"
+                        className="w-full mt-1 px-3 py-2 rounded-xl border border-border bg-input text-foreground text-sm"
                       />
                     </div>
                     <div>
-                      <label className="text-xs font-bold text-gray-400 uppercase">End</label>
+                      <label className="text-xs font-bold text-muted-foreground uppercase">End</label>
                       <input
                         type="date"
                         value={item.endDate}
@@ -139,11 +139,11 @@ export default function CartPage() {
                             })
                           )
                         }
-                        className="w-full mt-1 px-3 py-2 rounded-xl border border-gray-200 text-sm"
+                        className="w-full mt-1 px-3 py-2 rounded-xl border border-border bg-input text-foreground text-sm"
                       />
                     </div>
                     <div>
-                      <label className="text-xs font-bold text-gray-400 uppercase">Duration</label>
+                      <label className="text-xs font-bold text-muted-foreground uppercase">Duration</label>
                       <select
                         value={item.duration}
                         onChange={(e) =>
@@ -156,7 +156,7 @@ export default function CartPage() {
                             })
                           )
                         }
-                        className="w-full mt-1 px-3 py-2 rounded-xl border border-gray-200 text-sm"
+                        className="w-full mt-1 px-3 py-2 rounded-xl border border-border bg-input text-foreground text-sm"
                       >
                         <option value="day">Daily</option>
                         <option value="week">Weekly</option>
@@ -166,10 +166,10 @@ export default function CartPage() {
                   </div>
                 </div>
                 <div className="flex sm:flex-col justify-between sm:items-end gap-2">
-                  <p className="text-xl font-black text-black">${getTotalForItem(item).toFixed(2)}</p>
+                  <p className="text-xl font-black text-foreground">${getTotalForItem(item).toFixed(2)}</p>
                   <button
                     onClick={() => dispatch(removeFromCart(item.productId))}
-                    className="p-2 rounded-xl text-red-600 hover:bg-red-50"
+                    className="p-2 rounded-xl text-destructive hover:bg-destructive/10"
                   >
                     <Trash2 size={18} />
                   </button>
@@ -177,15 +177,15 @@ export default function CartPage() {
               </motion.div>
             ))}
 
-            <div className="bg-white rounded-3xl border border-gray-100 p-8 flex flex-col sm:flex-row justify-between items-stretch sm:items-center gap-6">
+            <div className="bg-card rounded-3xl border border-border p-8 flex flex-col sm:flex-row justify-between items-stretch sm:items-center gap-6">
               <div>
-                <p className="text-gray-500 font-medium">Subtotal</p>
-                <p className="text-3xl font-black text-black">${subtotal.toFixed(2)}</p>
+                <p className="text-muted-foreground font-medium">Subtotal</p>
+                <p className="text-3xl font-black text-foreground">${subtotal.toFixed(2)}</p>
               </div>
               <button
                 onClick={handleCheckout}
                 disabled={checkingOut}
-                className="px-10 py-4 bg-emerald-600 text-white rounded-2xl font-bold hover:bg-emerald-500 flex items-center justify-center gap-2 disabled:opacity-50"
+                className="px-10 py-4 bg-emerald-600 dark:bg-cyan-600 text-white rounded-2xl font-bold hover:bg-emerald-500 dark:hover:bg-cyan-500 flex items-center justify-center gap-2 disabled:opacity-50"
               >
                 {checkingOut ? <Loader2 className="animate-spin" size={22} /> : 'Proceed to checkout'}
               </button>

@@ -19,12 +19,12 @@ const DEFAULT_RENTER_AVATAR = 'https://images.unsplash.com/photo-1535713875002-d
 
 function SkeletonCard() {
   return (
-    <div className="bg-white rounded-3xl overflow-hidden border border-gray-100">
-      <div className="aspect-[4/5] bg-gray-200 animate-pulse" />
+    <div className="bg-card rounded-3xl overflow-hidden border border-border">
+      <div className="aspect-[4/5] bg-muted animate-pulse" />
       <div className="p-6 space-y-2">
-        <div className="h-5 bg-gray-200 rounded w-3/4 animate-pulse" />
-        <div className="h-4 bg-gray-100 rounded w-1/2 animate-pulse" />
-        <div className="h-8 bg-gray-200 rounded w-1/3 animate-pulse mt-4" />
+        <div className="h-5 bg-muted rounded w-3/4 animate-pulse" />
+        <div className="h-4 bg-muted/70 rounded w-1/2 animate-pulse" />
+        <div className="h-8 bg-muted rounded w-1/3 animate-pulse mt-4" />
       </div>
     </div>
   );
@@ -81,17 +81,17 @@ export default function SellerShopPage() {
 
   if (loading) {
     return (
-      <main className="min-h-screen bg-white">
+      <main className="min-h-screen bg-background">
         <Navbar />
-        <div className="relative h-[400px] bg-gray-200 animate-pulse" />
+        <div className="relative h-[400px] bg-muted animate-pulse" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-24 relative z-10 pb-20">
-          <div className="bg-white rounded-[40px] p-8 shadow-2xl border border-gray-100 animate-pulse h-64 mb-12" />
+          <div className="bg-card rounded-[40px] p-8 shadow-2xl border border-border animate-pulse h-64 mb-12" />
           <div className="grid lg:grid-cols-3 gap-12">
             <div className="space-y-8">
-              <div className="h-24 bg-gray-100 rounded-2xl animate-pulse" />
+              <div className="h-24 bg-muted rounded-2xl animate-pulse" />
               <div className="grid grid-cols-2 gap-4">
                 {[1, 2, 3, 4].map((i) => (
-                  <div key={i} className="h-24 bg-gray-100 rounded-2xl animate-pulse" />
+                  <div key={i} className="h-24 bg-muted rounded-2xl animate-pulse" />
                 ))}
               </div>
             </div>
@@ -111,11 +111,11 @@ export default function SellerShopPage() {
 
   if (!data) {
     return (
-      <main className="min-h-screen bg-gray-50 flex flex-col items-center justify-center">
+      <main className="min-h-screen bg-background flex flex-col items-center justify-center">
         <Navbar />
         <div className="text-center px-4">
-          <h1 className="text-2xl font-black text-black mb-2">Seller not found</h1>
-          <p className="text-gray-500">This shop may be private or the link may be incorrect.</p>
+          <h1 className="text-2xl font-black text-foreground mb-2">Seller not found</h1>
+          <p className="text-muted-foreground">This shop may be private or the link may be incorrect.</p>
         </div>
         <Footer />
       </main>
@@ -186,7 +186,7 @@ export default function SellerShopPage() {
   };
 
   return (
-    <main className="min-h-screen bg-white">
+    <main className="min-h-screen bg-background">
       <Navbar />
 
       {/* Hero / Parallax Banner */}
@@ -204,7 +204,7 @@ export default function SellerShopPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4 }}
-            className="bg-white/95 backdrop-blur rounded-[40px] p-8 md:p-12 shadow-2xl border border-gray-100 flex flex-col md:flex-row items-center gap-8"
+            className="bg-card/95 backdrop-blur rounded-[40px] p-8 md:p-12 shadow-2xl dark:shadow-black/40 border border-border flex flex-col md:flex-row items-center gap-8"
           >
             <div className="relative w-32 h-32 md:w-40 md:h-40 rounded-[32px] overflow-hidden border-4 border-white shadow-xl flex-shrink-0">
               <Image src={avatarSrc} alt={seller.name} fill className="object-cover" sizes="160px" unoptimized={avatarSrc.startsWith('http')} />
@@ -212,14 +212,14 @@ export default function SellerShopPage() {
 
             <div className="flex-1 text-center md:text-left">
               <div className="flex flex-col md:flex-row items-center gap-3 mb-2">
-                <h1 className="text-3xl md:text-4xl font-black tracking-tighter text-black">{seller.name}</h1>
+                <h1 className="text-3xl md:text-4xl font-black tracking-tighter text-foreground">{seller.name}</h1>
                 {seller.isApproved && (
                   <span className="inline-flex items-center gap-1 px-3 py-1 bg-emerald-100 text-emerald-700 rounded-full text-xs font-bold uppercase tracking-wider">
                     <CheckCircle size={14} /> Verified Seller
                   </span>
                 )}
               </div>
-              <div className="flex flex-wrap justify-center md:justify-start gap-4 md:gap-6 text-gray-500 font-medium text-sm">
+              <div className="flex flex-wrap justify-center md:justify-start gap-4 md:gap-6 text-muted-foreground font-medium text-sm">
                 {seller.location && (
                   <span className="flex items-center gap-1"><MapPin size={16} /> {seller.location}</span>
                 )}
@@ -231,7 +231,7 @@ export default function SellerShopPage() {
                   {credibilityBadges.map((b) => (
                     <span
                       key={b.label}
-                      className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gray-900 text-white text-xs font-semibold"
+                      className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary text-primary-foreground text-xs font-semibold"
                     >
                       <span>{b.icon}</span>
                       <span>{b.label}</span>
@@ -245,14 +245,14 @@ export default function SellerShopPage() {
               <button
                 type="button"
                 onClick={handleShareShop}
-                className="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-2xl bg-black text-white text-sm font-bold hover:bg-gray-800 transition-colors"
+                className="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-2xl bg-primary text-primary-foreground text-sm font-bold hover:opacity-90 transition-colors"
               >
                 <Share2 size={16} /> Share Seller Shop
               </button>
               <button
                 type="button"
                 onClick={handleCopyLink}
-                className="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-2xl bg-gray-100 text-gray-800 text-sm font-bold hover:bg-gray-200 transition-colors"
+                className="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-2xl bg-secondary text-secondary-foreground text-sm font-bold hover:bg-accent transition-colors"
               >
                 <Copy size={16} /> Copy Profile Link
               </button>
@@ -274,7 +274,7 @@ export default function SellerShopPage() {
               <h3 className="text-lg font-black mb-4 flex items-center gap-2">
                 <div className="w-1.5 h-6 bg-emerald-500 rounded-full" /> About
               </h3>
-              <p className="text-gray-600 leading-relaxed">
+              <p className="text-muted-foreground leading-relaxed">
                 {seller.bio || "This seller hasn't added a bio yet. They're a verified partner on LuxeRent."}
               </p>
             </motion.section>
@@ -284,8 +284,8 @@ export default function SellerShopPage() {
                 <h3 className="text-lg font-black mb-4 flex items-center gap-2">
                   <FileText size={18} className="text-emerald-600" /> Policies
                 </h3>
-                <div className="p-6 bg-gray-50/80 rounded-2xl border border-gray-100">
-                  <pre className="text-sm text-gray-700 whitespace-pre-wrap font-sans">{seller.policies}</pre>
+                <div className="p-6 bg-muted/50 rounded-2xl border border-border">
+                  <pre className="text-sm text-foreground whitespace-pre-wrap font-sans">{seller.policies}</pre>
                 </div>
               </motion.section>
             )}
@@ -302,8 +302,8 @@ export default function SellerShopPage() {
                   { label: 'Response rate', value: stats.responseRate, suffix: '%', color: 'bg-purple-50' },
                 ].map((item, i) => (
                   <div key={i} className={`${item.color} p-5 rounded-2xl`}>
-                    <p className="text-[10px] font-black uppercase text-gray-400 mb-0.5">{item.label}</p>
-                    <p className="text-xl font-black text-black">
+                    <p className="text-[10px] font-black uppercase text-muted-foreground mb-0.5">{item.label}</p>
+                    <p className="text-xl font-black text-foreground">
                       <AnimatedCounter value={item.value} decimalPlaces={item.value % 1 !== 0 ? 1 : 0} suffix={item.suffix} />
                     </p>
                   </div>
@@ -321,7 +321,7 @@ export default function SellerShopPage() {
                     return (
                       <div key={r} className="flex items-center gap-3">
                         <span className="text-sm font-bold w-8">{r} <Star size={12} className="inline text-amber-500" fill="currentColor" /></span>
-                        <div className="flex-1 h-2 bg-gray-100 rounded-full overflow-hidden">
+                        <div className="flex-1 h-2 bg-muted rounded-full overflow-hidden">
                           <motion.div
                             initial={{ width: 0 }}
                             animate={{ width: `${pct}%` }}
@@ -329,7 +329,7 @@ export default function SellerShopPage() {
                             className="h-full bg-amber-400 rounded-full"
                           />
                         </div>
-                        <span className="text-xs text-gray-500 w-8">{count}</span>
+                        <span className="text-xs text-muted-foreground w-8">{count}</span>
                       </div>
                     );
                   })}
@@ -365,7 +365,7 @@ export default function SellerShopPage() {
                     .map((product) => (
                       <div
                         key={product._id}
-                        className="bg-white rounded-3xl border border-emerald-100/70 shadow-sm"
+                        className="bg-card rounded-3xl border border-border shadow-sm dark:shadow-black/20"
                       >
                         <ProductCard
                           product={{
@@ -395,9 +395,9 @@ export default function SellerShopPage() {
                   ))}
                 </div>
               ) : (
-                <div className="py-16 text-center rounded-3xl border-2 border-dashed border-gray-200 bg-gray-50/50">
-                  <Package className="mx-auto text-gray-300 mb-4" size={48} />
-                  <p className="text-gray-500 font-medium">No active listings yet.</p>
+                <div className="py-16 text-center rounded-3xl border-2 border-dashed border-border bg-muted/30">
+                  <Package className="mx-auto text-muted-foreground mb-4" size={48} />
+                  <p className="text-muted-foreground font-medium">No active listings yet.</p>
                 </div>
               )}
             </motion.section>
@@ -410,12 +410,12 @@ export default function SellerShopPage() {
                     {reviews.map((review) => (
                       <div
                         key={review._id}
-                        className="p-6 bg-gray-50/80 rounded-2xl border border-gray-100 space-y-4"
+                        className="p-6 bg-muted/50 rounded-2xl border border-border space-y-4"
                       >
                         <div>
                           <div className="flex justify-between items-start gap-4 mb-3">
                             <div className="flex items-center gap-3">
-                              <div className="relative w-11 h-11 rounded-full overflow-hidden bg-gray-200 flex-shrink-0">
+                              <div className="relative w-11 h-11 rounded-full overflow-hidden bg-muted flex-shrink-0">
                                 <Image
                                   src={review.renter?.avatar || DEFAULT_RENTER_AVATAR}
                                   alt=""
@@ -425,7 +425,7 @@ export default function SellerShopPage() {
                                 />
                               </div>
                               <div>
-                                <p className="font-bold text-black">{review.renter?.name ?? 'Renter'}</p>
+                                <p className="font-bold text-foreground">{review.renter?.name ?? 'Renter'}</p>
                                 <div className="flex items-center gap-1 text-amber-500">
                                   {[1, 2, 3, 4, 5].map((r) => (
                                     <Star key={r} size={14} fill={r <= review.rating ? 'currentColor' : 'none'} />
@@ -433,17 +433,17 @@ export default function SellerShopPage() {
                                 </div>
                               </div>
                             </div>
-                            <span className="text-xs text-gray-400 flex-shrink-0">
+                            <span className="text-xs text-muted-foreground flex-shrink-0">
                               {new Date(review.createdAt).toLocaleDateString()}
                             </span>
                           </div>
-                          <p className="text-gray-600 text-sm">{review.comment}</p>
+                          <p className="text-muted-foreground text-sm">{review.comment}</p>
                         </div>
 
                         {review.sellerReply ? (
                           <div className="mt-3 pl-4 border-l-2 border-emerald-200">
                             <div className="flex items-center gap-2 mb-1">
-                              <div className="relative w-8 h-8 rounded-full overflow-hidden bg-gray-200 flex-shrink-0">
+                              <div className="relative w-8 h-8 rounded-full overflow-hidden bg-muted flex-shrink-0">
                                 <Image
                                   src={seller.avatar || DEFAULT_AVATAR}
                                   alt={seller.name}
@@ -453,18 +453,18 @@ export default function SellerShopPage() {
                                 />
                               </div>
                               <div className="flex flex-wrap items-center gap-2">
-                                <span className="text-sm font-semibold text-gray-900">{seller.name}</span>
+                                <span className="text-sm font-semibold text-foreground">{seller.name}</span>
                                 <span className="text-[10px] font-bold uppercase tracking-widest px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-700">
                                   Seller response
                                 </span>
                                 {review.sellerReply.createdAt && (
-                                  <span className="text-[10px] text-gray-400">
+                                  <span className="text-[10px] text-muted-foreground">
                                     {new Date(review.sellerReply.createdAt).toLocaleDateString()}
                                   </span>
                                 )}
                               </div>
                             </div>
-                            <p className="text-sm text-gray-700 whitespace-pre-wrap">
+                            <p className="text-sm text-muted-foreground whitespace-pre-wrap">
                               {review.sellerReply.comment}
                             </p>
                           </div>
@@ -477,7 +477,7 @@ export default function SellerShopPage() {
                       <button
                         onClick={loadMoreReviews}
                         disabled={reviewsLoading}
-                        className="px-6 py-3 bg-gray-100 text-gray-700 rounded-2xl font-bold hover:bg-gray-200 transition-all disabled:opacity-50 flex items-center gap-2 mx-auto"
+                        className="px-6 py-3 bg-secondary text-secondary-foreground rounded-2xl font-bold hover:bg-accent transition-all disabled:opacity-50 flex items-center gap-2 mx-auto"
                       >
                         {reviewsLoading ? <Loader2 className="animate-spin" size={18} /> : 'Load more reviews'}
                       </button>
@@ -485,9 +485,9 @@ export default function SellerShopPage() {
                   )}
                 </>
               ) : (
-                <div className="py-16 text-center rounded-3xl border-2 border-dashed border-gray-200 bg-gray-50/50">
-                  <Star className="mx-auto text-gray-300 mb-4" size={48} />
-                  <p className="text-gray-500 font-medium">No reviews yet.</p>
+                <div className="py-16 text-center rounded-3xl border-2 border-dashed border-border bg-muted/30">
+                  <Star className="mx-auto text-muted-foreground mb-4" size={48} />
+                  <p className="text-muted-foreground font-medium">No reviews yet.</p>
                 </div>
               )}
             </motion.section>
