@@ -2849,11 +2849,24 @@ function enableArrayMethods() {
         }
         return Math.min(index, length);
     }
+    function handleInsertedValues(state, startIndex, values) {
+        for(let i = 0; i < values.length; i++){
+            const index = startIndex + i;
+            state.assigned_.set(index, true);
+            handleCrossReference(state, index, values[i]);
+        }
+    }
     function handleSimpleOperation(state, method, args) {
         return executeArrayMethod(state, ()=>{
+            const lengthBefore = state.copy_.length;
             const result = state.copy_[method](...args);
             if (SHIFTING_METHODS.has(method)) {
                 markAllIndicesReassigned(state);
+            }
+            if (method === "push" && args.length > 0) {
+                handleInsertedValues(state, lengthBefore, args);
+            } else if (method === "unshift" && args.length > 0) {
+                handleInsertedValues(state, 0, args);
             }
             return RESULT_RETURNING_METHODS.has(method) ? result : state.draft_;
         });
@@ -2881,6 +2894,10 @@ function enableArrayMethods() {
                     if (method === "splice") {
                         const res = executeArrayMethod(state, ()=>state.copy_.splice(...args));
                         markAllIndicesReassigned(state);
+                        if (args.length > 2) {
+                            const startIndex = normalizeSliceIndex(args[0] ?? 0, state.copy_.length);
+                            handleInsertedValues(state, startIndex, args.slice(2));
+                        }
                         return res;
                     }
                 } else {
@@ -6370,7 +6387,7 @@ __turbopack_context__.s([
 ]);
 var __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = /*#__PURE__*/ __turbopack_context__.i("[project]/frontend/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$axios$2f$lib$2f$helpers$2f$bind$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/frontend/node_modules/axios/lib/helpers/bind.js [app-client] (ecmascript)");
-'use strict';
+"use strict";
 ;
 // utils is a library of generic helper functions non-specific to axios
 const { toString } = Object.prototype;
@@ -6386,7 +6403,7 @@ const kindOfTest = (type)=>{
 };
 const typeOfTest = (type)=>(thing)=>typeof thing === type;
 /**
- * Determine if a value is an Array
+ * Determine if a value is a non-null object
  *
  * @param {Object} val The value to test
  *
@@ -6398,7 +6415,7 @@ const typeOfTest = (type)=>(thing)=>typeof thing === type;
  * @param {*} val The value to test
  *
  * @returns {boolean} True if the value is undefined, otherwise false
- */ const isUndefined = typeOfTest('undefined');
+ */ const isUndefined = typeOfTest("undefined");
 /**
  * Determine if a value is a Buffer
  *
@@ -6414,7 +6431,7 @@ const typeOfTest = (type)=>(thing)=>typeof thing === type;
  * @param {*} val The value to test
  *
  * @returns {boolean} True if value is an ArrayBuffer, otherwise false
- */ const isArrayBuffer = kindOfTest('ArrayBuffer');
+ */ const isArrayBuffer = kindOfTest("ArrayBuffer");
 /**
  * Determine if a value is a view on an ArrayBuffer
  *
@@ -6423,7 +6440,7 @@ const typeOfTest = (type)=>(thing)=>typeof thing === type;
  * @returns {boolean} True if value is a view on an ArrayBuffer, otherwise false
  */ function isArrayBufferView(val) {
     let result;
-    if (typeof ArrayBuffer !== 'undefined' && ArrayBuffer.isView) {
+    if (typeof ArrayBuffer !== "undefined" && ArrayBuffer.isView) {
         result = ArrayBuffer.isView(val);
     } else {
         result = val && val.buffer && isArrayBuffer(val.buffer);
@@ -6436,27 +6453,27 @@ const typeOfTest = (type)=>(thing)=>typeof thing === type;
  * @param {*} val The value to test
  *
  * @returns {boolean} True if value is a String, otherwise false
- */ const isString = typeOfTest('string');
+ */ const isString = typeOfTest("string");
 /**
  * Determine if a value is a Function
  *
  * @param {*} val The value to test
  * @returns {boolean} True if value is a Function, otherwise false
- */ const isFunction = typeOfTest('function');
+ */ const isFunction = typeOfTest("function");
 /**
  * Determine if a value is a Number
  *
  * @param {*} val The value to test
  *
  * @returns {boolean} True if value is a Number, otherwise false
- */ const isNumber = typeOfTest('number');
+ */ const isNumber = typeOfTest("number");
 /**
  * Determine if a value is an Object
  *
  * @param {*} thing The value to test
  *
  * @returns {boolean} True if value is an Object, otherwise false
- */ const isObject = (thing)=>thing !== null && typeof thing === 'object';
+ */ const isObject = (thing)=>thing !== null && typeof thing === "object";
 /**
  * Determine if a value is a Boolean
  *
@@ -6470,7 +6487,7 @@ const typeOfTest = (type)=>(thing)=>typeof thing === type;
  *
  * @returns {boolean} True if value is a plain Object, otherwise false
  */ const isPlainObject = (val)=>{
-    if (kindOf(val) !== 'object') {
+    if (kindOf(val) !== "object") {
         return false;
     }
     const prototype = getPrototypeOf(val);
@@ -6500,28 +6517,28 @@ const typeOfTest = (type)=>(thing)=>typeof thing === type;
  * @param {*} val The value to test
  *
  * @returns {boolean} True if value is a Date, otherwise false
- */ const isDate = kindOfTest('Date');
+ */ const isDate = kindOfTest("Date");
 /**
  * Determine if a value is a File
  *
  * @param {*} val The value to test
  *
  * @returns {boolean} True if value is a File, otherwise false
- */ const isFile = kindOfTest('File');
+ */ const isFile = kindOfTest("File");
 /**
  * Determine if a value is a Blob
  *
  * @param {*} val The value to test
  *
  * @returns {boolean} True if value is a Blob, otherwise false
- */ const isBlob = kindOfTest('Blob');
+ */ const isBlob = kindOfTest("Blob");
 /**
  * Determine if a value is a FileList
  *
  * @param {*} val The value to test
  *
  * @returns {boolean} True if value is a File, otherwise false
- */ const isFileList = kindOfTest('FileList');
+ */ const isFileList = kindOfTest("FileList");
 /**
  * Determine if a value is a Stream
  *
@@ -6537,7 +6554,7 @@ const typeOfTest = (type)=>(thing)=>typeof thing === type;
  * @returns {boolean} True if value is an FormData, otherwise false
  */ const isFormData = (thing)=>{
     let kind;
-    return thing && (typeof FormData === 'function' && thing instanceof FormData || isFunction(thing.append) && ((kind = kindOf(thing)) === 'formdata' || kind === 'object' && isFunction(thing.toString) && thing.toString() === '[object FormData]'));
+    return thing && (typeof FormData === "function" && thing instanceof FormData || isFunction(thing.append) && ((kind = kindOf(thing)) === "formdata" || kind === "object" && isFunction(thing.toString) && thing.toString() === "[object FormData]"));
 };
 /**
  * Determine if a value is a URLSearchParams object
@@ -6545,12 +6562,12 @@ const typeOfTest = (type)=>(thing)=>typeof thing === type;
  * @param {*} val The value to test
  *
  * @returns {boolean} True if value is a URLSearchParams object, otherwise false
- */ const isURLSearchParams = kindOfTest('URLSearchParams');
+ */ const isURLSearchParams = kindOfTest("URLSearchParams");
 const [isReadableStream, isRequest, isResponse, isHeaders] = [
-    'ReadableStream',
-    'Request',
-    'Response',
-    'Headers'
+    "ReadableStream",
+    "Request",
+    "Response",
+    "Headers"
 ].map(kindOfTest);
 /**
  * Trim excess whitespace off the beginning and end of a string
@@ -6558,7 +6575,7 @@ const [isReadableStream, isRequest, isResponse, isHeaders] = [
  * @param {String} str The String to trim
  *
  * @returns {String} The String freed of excess whitespace
- */ const trim = (str)=>str.trim ? str.trim() : str.replace(/^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g, '');
+ */ const trim = (str)=>str.trim ? str.trim() : str.replace(/^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g, "");
 /**
  * Iterate over an Array or an Object invoking a function for each item.
  *
@@ -6576,13 +6593,13 @@ const [isReadableStream, isRequest, isResponse, isHeaders] = [
  * @returns {any}
  */ function forEach(obj, fn, { allOwnKeys = false } = {}) {
     // Don't bother if no value provided
-    if (obj === null || typeof obj === 'undefined') {
+    if (obj === null || typeof obj === "undefined") {
         return;
     }
     let i;
     let l;
     // Force an array if not already something iterable
-    if (typeof obj !== 'object') {
+    if (typeof obj !== "object") {
         /*eslint no-param-reassign:0*/ obj = [
             obj
         ];
@@ -6625,7 +6642,7 @@ function findKey(obj, key) {
 }
 const _global = (()=>{
     /*eslint no-undef:0*/ if (typeof globalThis !== "undefined") return globalThis;
-    return typeof self !== "undefined" ? self : typeof window !== 'undefined' ? window : /*TURBOPACK member replacement*/ __turbopack_context__.g;
+    return typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : /*TURBOPACK member replacement*/ __turbopack_context__.g;
 })();
 const isContextDefined = (context)=>!isUndefined(context) && context !== _global;
 /**
@@ -6649,6 +6666,10 @@ const isContextDefined = (context)=>!isUndefined(context) && context !== _global
     const { caseless, skipUndefined } = isContextDefined(this) && this || {};
     const result = {};
     const assignValue = (val, key)=>{
+        // Skip dangerous property names to prevent prototype pollution
+        if (key === "__proto__" || key === "constructor" || key === "prototype") {
+            return;
+        }
         const targetKey = caseless && findKey(result, key) || key;
         if (isPlainObject(result[targetKey]) && isPlainObject(val)) {
             result[targetKey] = merge(result[targetKey], val);
@@ -6704,7 +6725,7 @@ const isContextDefined = (context)=>!isUndefined(context) && context !== _global
  *
  * @returns {string} content value without BOM
  */ const stripBOM = (content)=>{
-    if (content.charCodeAt(0) === 0xFEFF) {
+    if (content.charCodeAt(0) === 0xfeff) {
         content = content.slice(1);
     }
     return content;
@@ -6719,13 +6740,13 @@ const isContextDefined = (context)=>!isUndefined(context) && context !== _global
  * @returns {void}
  */ const inherits = (constructor, superConstructor, props, descriptors)=>{
     constructor.prototype = Object.create(superConstructor.prototype, descriptors);
-    Object.defineProperty(constructor.prototype, 'constructor', {
+    Object.defineProperty(constructor.prototype, "constructor", {
         value: constructor,
         writable: true,
         enumerable: false,
         configurable: true
     });
-    Object.defineProperty(constructor, 'super', {
+    Object.defineProperty(constructor, "super", {
         value: superConstructor.prototype
     });
     props && Object.assign(constructor.prototype, props);
@@ -6807,7 +6828,7 @@ const isTypedArray = ((TypedArray)=>{
     return (thing)=>{
         return TypedArray && thing instanceof TypedArray;
     };
-})(typeof Uint8Array !== 'undefined' && getPrototypeOf(Uint8Array));
+})(typeof Uint8Array !== "undefined" && getPrototypeOf(Uint8Array));
 /**
  * For each entry in the object, call the function with the key and value.
  *
@@ -6839,7 +6860,7 @@ const isTypedArray = ((TypedArray)=>{
     }
     return arr;
 };
-/* Checking if the kindOfTest function returns true when passed an HTMLFormElement. */ const isHTMLForm = kindOfTest('HTMLFormElement');
+/* Checking if the kindOfTest function returns true when passed an HTMLFormElement. */ const isHTMLForm = kindOfTest("HTMLFormElement");
 const toCamelCase = (str)=>{
     return str.toLowerCase().replace(/[-_\s]([a-z\d])(\w*)/g, function replacer(m, p1, p2) {
         return p1.toUpperCase() + p2;
@@ -6852,7 +6873,7 @@ const toCamelCase = (str)=>{
  * @param {*} val The value to test
  *
  * @returns {boolean} True if value is a RegExp object, otherwise false
- */ const isRegExp = kindOfTest('RegExp');
+ */ const isRegExp = kindOfTest("RegExp");
 const reduceDescriptors = (obj, reducer)=>{
     const descriptors = Object.getOwnPropertyDescriptors(obj);
     const reducedDescriptors = {};
@@ -6871,22 +6892,22 @@ const reduceDescriptors = (obj, reducer)=>{
     reduceDescriptors(obj, (descriptor, name)=>{
         // skip restricted props in strict mode
         if (isFunction(obj) && [
-            'arguments',
-            'caller',
-            'callee'
+            "arguments",
+            "caller",
+            "callee"
         ].indexOf(name) !== -1) {
             return false;
         }
         const value = obj[name];
         if (!isFunction(value)) return;
         descriptor.enumerable = false;
-        if ('writable' in descriptor) {
+        if ("writable" in descriptor) {
             descriptor.writable = false;
             return;
         }
         if (!descriptor.set) {
             descriptor.set = ()=>{
-                throw Error('Can not rewrite read-only method \'' + name + '\'');
+                throw Error("Can not rewrite read-only method '" + name + "'");
             };
         }
     });
@@ -6912,7 +6933,7 @@ const toFiniteNumber = (value, defaultValue)=>{
  *
  * @returns {boolean}
  */ function isSpecCompliantForm(thing) {
-    return !!(thing && isFunction(thing.append) && thing[toStringTag] === 'FormData' && thing[iterator]);
+    return !!(thing && isFunction(thing.append) && thing[toStringTag] === "FormData" && thing[iterator]);
 }
 const toJSONObject = (obj)=>{
     const stack = new Array(10);
@@ -6925,7 +6946,7 @@ const toJSONObject = (obj)=>{
             if (isBuffer(source)) {
                 return source;
             }
-            if (!('toJSON' in source)) {
+            if (!("toJSON" in source)) {
                 stack[i] = source;
                 const target = isArray(source) ? [] : {};
                 forEach(source, (value, key)=>{
@@ -6940,7 +6961,7 @@ const toJSONObject = (obj)=>{
     };
     return visit(obj, 0);
 };
-const isAsyncFn = kindOfTest('AsyncFunction');
+const isAsyncFn = kindOfTest("AsyncFunction");
 const isThenable = (thing)=>thing && (isObject(thing) || isFunction(thing)) && isFunction(thing.then) && isFunction(thing.catch);
 // original code
 // https://github.com/DigitalBrainJS/AxiosPromise/blob/16deab13710ec09779922131f3fa5954320f83ab/lib/utils.js#L11-L34
@@ -6959,8 +6980,8 @@ const _setImmediate = ((setImmediateSupported, postMessageSupported)=>{
             _global.postMessage(token, "*");
         };
     })(`axios@${Math.random()}`, []) : (cb)=>setTimeout(cb);
-})(typeof setImmediate === 'function', isFunction(_global.postMessage));
-const asap = typeof queueMicrotask !== 'undefined' ? queueMicrotask.bind(_global) : typeof __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"] !== 'undefined' && __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].nextTick || _setImmediate;
+})(typeof setImmediate === "function", isFunction(_global.postMessage));
+const asap = typeof queueMicrotask !== "undefined" ? queueMicrotask.bind(_global) : typeof __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"] !== "undefined" && __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].nextTick || _setImmediate;
 // *********************
 const isIterable = (thing)=>thing != null && isFunction(thing[iterator]);
 const __TURBOPACK__default__export__ = {
@@ -9010,7 +9031,8 @@ __turbopack_context__.s([
 const __TURBOPACK__default__export__ = {
     silentJSONParsing: true,
     forcedJSONParsing: true,
-    clarifyTimeoutError: false
+    clarifyTimeoutError: false,
+    legacyInterceptorReqResOrdering: true
 };
 }),
 "[project]/frontend/node_modules/axios/lib/platform/browser/classes/URLSearchParams.js [app-client] (ecmascript)", ((__turbopack_context__) => {
@@ -10054,6 +10076,9 @@ function isAbsoluteURL(url) {
     // A URL is considered absolute if it begins with "<scheme>://" or "//" (protocol-relative URL).
     // RFC 3986 defines scheme name as a sequence of characters beginning with a letter and followed
     // by any combination of letters, digits, plus, period, or hyphen.
+    if (typeof url !== 'string') {
+        return false;
+    }
     return /^([a-z][a-z\d+\-.]*:)?\/\//i.test(url);
 }
 }),
@@ -10098,7 +10123,7 @@ __turbopack_context__.s([
 ]);
 var __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$axios$2f$lib$2f$utils$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/frontend/node_modules/axios/lib/utils.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$axios$2f$lib$2f$core$2f$AxiosHeaders$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/frontend/node_modules/axios/lib/core/AxiosHeaders.js [app-client] (ecmascript)");
-'use strict';
+"use strict";
 ;
 ;
 const headersToObject = (thing)=>thing instanceof __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$axios$2f$lib$2f$core$2f$AxiosHeaders$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"] ? {
@@ -10184,7 +10209,8 @@ function mergeConfig(config1, config2) {
         ...config1,
         ...config2
     }), function computeConfigValue(prop) {
-        const merge = mergeMap[prop] || mergeDeepProperties;
+        if (prop === "__proto__" || prop === "constructor" || prop === "prototype") return;
+        const merge = __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$axios$2f$lib$2f$utils$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].hasOwnProp(mergeMap, prop) ? mergeMap[prop] : mergeDeepProperties;
         const configValue = merge(config1[prop], config2[prop], prop);
         __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$axios$2f$lib$2f$utils$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].isUndefined(configValue) && merge !== mergeDirectKeys || (config[prop] = configValue);
     });
@@ -10764,11 +10790,11 @@ const factory = (env)=>{
         } catch (err) {
             unsubscribe && unsubscribe();
             if (err && err.name === 'TypeError' && /Load failed|fetch/i.test(err.message)) {
-                throw Object.assign(new __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$axios$2f$lib$2f$core$2f$AxiosError$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"]('Network Error', __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$axios$2f$lib$2f$core$2f$AxiosError$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].ERR_NETWORK, config, request), {
+                throw Object.assign(new __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$axios$2f$lib$2f$core$2f$AxiosError$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"]('Network Error', __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$axios$2f$lib$2f$core$2f$AxiosError$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].ERR_NETWORK, config, request, err && err.response), {
                     cause: err.cause || err
                 });
             }
-            throw __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$axios$2f$lib$2f$core$2f$AxiosError$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].from(err, err && err.code, config, request);
+            throw __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$axios$2f$lib$2f$core$2f$AxiosError$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].from(err, err && err.code, config, request, err && err.response);
         }
     };
 };
@@ -10975,7 +11001,7 @@ __turbopack_context__.s([
     "VERSION",
     ()=>VERSION
 ]);
-const VERSION = "1.13.3";
+const VERSION = "1.13.5";
 }),
 "[project]/frontend/node_modules/axios/lib/helpers/validator.js [app-client] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -11086,7 +11112,9 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$
 var __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$axios$2f$lib$2f$core$2f$buildFullPath$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/frontend/node_modules/axios/lib/core/buildFullPath.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$axios$2f$lib$2f$helpers$2f$validator$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/frontend/node_modules/axios/lib/helpers/validator.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$axios$2f$lib$2f$core$2f$AxiosHeaders$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/frontend/node_modules/axios/lib/core/AxiosHeaders.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$axios$2f$lib$2f$defaults$2f$transitional$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/frontend/node_modules/axios/lib/defaults/transitional.js [app-client] (ecmascript)");
 'use strict';
+;
 ;
 ;
 ;
@@ -11154,7 +11182,8 @@ const validators = __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$n
             __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$axios$2f$lib$2f$helpers$2f$validator$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].assertOptions(transitional, {
                 silentJSONParsing: validators.transitional(validators.boolean),
                 forcedJSONParsing: validators.transitional(validators.boolean),
-                clarifyTimeoutError: validators.transitional(validators.boolean)
+                clarifyTimeoutError: validators.transitional(validators.boolean),
+                legacyInterceptorReqResOrdering: validators.transitional(validators.boolean)
             }, false);
         }
         if (paramsSerializer != null) {
@@ -11205,7 +11234,13 @@ const validators = __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$n
                 return;
             }
             synchronousRequestInterceptors = synchronousRequestInterceptors && interceptor.synchronous;
-            requestInterceptorChain.unshift(interceptor.fulfilled, interceptor.rejected);
+            const transitional = config.transitional || __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$axios$2f$lib$2f$defaults$2f$transitional$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"];
+            const legacyInterceptorReqResOrdering = transitional && transitional.legacyInterceptorReqResOrdering;
+            if (legacyInterceptorReqResOrdering) {
+                requestInterceptorChain.unshift(interceptor.fulfilled, interceptor.rejected);
+            } else {
+                requestInterceptorChain.push(interceptor.fulfilled, interceptor.rejected);
+            }
         });
         const responseInterceptorChain = [];
         this.interceptors.response.forEach(function pushResponseInterceptors(interceptor) {
@@ -11223,11 +11258,8 @@ const validators = __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$n
             chain.push(...responseInterceptorChain);
             len = chain.length;
             promise = Promise.resolve(config);
-            let prevResult = config;
             while(i < len){
-                promise = promise.then(chain[i++]).then((result)=>{
-                    prevResult = result !== undefined ? result : prevResult;
-                }).catch(chain[i++]).then(()=>prevResult);
+                promise = promise.then(chain[i++], chain[i++]);
             }
             return promise;
         }
@@ -11251,7 +11283,7 @@ const validators = __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$n
         i = 0;
         len = responseInterceptorChain.length;
         while(i < len){
-            promise = promise.then(responseInterceptorChain[i++]).catch(responseInterceptorChain[i++]);
+            promise = promise.then(responseInterceptorChain[i++], responseInterceptorChain[i++]);
         }
         return promise;
     }

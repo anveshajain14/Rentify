@@ -390,6 +390,7 @@ __turbopack_context__.s([
     "onViewportEnter",
     "onViewportLeave",
     "globalTapTarget",
+    "propagate",
     "ignoreStrict",
     "viewport"
 ]);
@@ -938,7 +939,9 @@ function useVisualElement(Component, visualState, props, createVisualElement, Pr
     const { visualElement: parent } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useContext"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$context$2f$MotionContext$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["MotionContext"]);
     const lazyContext = (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useContext"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$context$2f$LazyContext$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["LazyContext"]);
     const presenceContext = (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useContext"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$context$2f$PresenceContext$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["PresenceContext"]);
-    const reducedMotionConfig = (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useContext"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$context$2f$MotionConfigContext$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["MotionConfigContext"]).reducedMotion;
+    const motionConfig = (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useContext"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$context$2f$MotionConfigContext$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["MotionConfigContext"]);
+    const reducedMotionConfig = motionConfig.reducedMotion;
+    const skipAnimations = motionConfig.skipAnimations;
     const visualElementRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRef"])(null);
     /**
      * Track whether the component has been through React's commit phase.
@@ -955,6 +958,7 @@ function useVisualElement(Component, visualState, props, createVisualElement, Pr
             presenceContext,
             blockInitialAnimation: presenceContext ? presenceContext.initial === false : false,
             reducedMotionConfig,
+            skipAnimations,
             isSVG
         });
         /**
@@ -1684,6 +1688,15 @@ function getVelocity(history, timeDelta) {
             y: 0
         };
     }
+    /**
+     * If the selected point is the pointer-down origin (history[0]),
+     * there are better movement points available, and the time gap
+     * is suspiciously large (>2x timeDelta), use the next point instead.
+     * This prevents stale pointer-down points from diluting velocity
+     * in hold-then-flick gestures.
+     */ if (timestampedPoint === history[0] && history.length > 2 && lastPoint.timestamp - timestampedPoint.timestamp > (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$motion$2d$utils$2f$dist$2f$es$2f$time$2d$conversion$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["secondsToMilliseconds"])(timeDelta) * 2) {
+        timestampedPoint = history[1];
+    }
     const time = (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$motion$2d$utils$2f$dist$2f$es$2f$time$2d$conversion$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["millisecondsToSeconds"])(lastPoint.timestamp - timestampedPoint.timestamp);
     if (time === 0) {
         return {
@@ -1872,6 +1885,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$
 var __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$motion$2d$dom$2f$dist$2f$es$2f$gestures$2f$drag$2f$state$2f$set$2d$active$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/frontend/node_modules/motion-dom/dist/es/gestures/drag/state/set-active.mjs [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$motion$2d$dom$2f$dist$2f$es$2f$value$2f$types$2f$numbers$2f$units$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/frontend/node_modules/motion-dom/dist/es/value/types/numbers/units.mjs [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$motion$2d$dom$2f$dist$2f$es$2f$projection$2f$geometry$2f$delta$2d$calc$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/frontend/node_modules/motion-dom/dist/es/projection/geometry/delta-calc.mjs [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$motion$2d$dom$2f$dist$2f$es$2f$resize$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/frontend/node_modules/motion-dom/dist/es/resize/index.mjs [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$motion$2d$utils$2f$dist$2f$es$2f$errors$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/frontend/node_modules/motion-utils/dist/es/errors.mjs [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$events$2f$add$2d$pointer$2d$event$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/frontend/node_modules/framer-motion/dist/es/events/add-pointer-event.mjs [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$events$2f$event$2d$info$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/frontend/node_modules/framer-motion/dist/es/events/event-info.mjs [app-ssr] (ecmascript)");
@@ -1918,20 +1932,12 @@ class VisualElementDragControls {
          */ const { presenceContext } = this.visualElement;
         if (presenceContext && presenceContext.isPresent === false) return;
         const onSessionStart = (event)=>{
-            // Stop or pause animations based on context:
-            // - snapToCursor: stop because we'll set new position values
-            // - otherwise: pause to allow resume if no drag starts (for constraint animations)
             if (snapToCursor) {
-                this.stopAnimation();
                 this.snapToCursor((0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$events$2f$event$2d$info$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["extractEventInfo"])(event).point);
-            } else {
-                this.pauseAnimation();
             }
+            this.stopAnimation();
         };
         const onStart = (event, info)=>{
-            // Stop any paused animation so motion values reflect true current position
-            // (pauseAnimation was called in onSessionStart to allow resume if no drag started)
-            this.stopAnimation();
             // Attempt to grab the global drag gesture lock - maybe make this part of PanSession
             const { drag, dragPropagation, onDragStart } = this.getProps();
             if (drag && !dragPropagation) {
@@ -1969,7 +1975,7 @@ class VisualElementDragControls {
             });
             // Fire onDragStart event
             if (onDragStart) {
-                __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$motion$2d$dom$2f$dist$2f$es$2f$frameloop$2f$frame$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["frame"].postRender(()=>onDragStart(event, info));
+                __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$motion$2d$dom$2f$dist$2f$es$2f$frameloop$2f$frame$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["frame"].update(()=>onDragStart(event, info), false, true);
             }
             (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$motion$2d$dom$2f$dist$2f$es$2f$value$2f$will$2d$change$2f$add$2d$will$2d$change$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["addValueToWillChange"])(this.visualElement, "transform");
             const { animationState } = this.visualElement;
@@ -2003,7 +2009,9 @@ class VisualElementDragControls {
             /**
              * This must fire after the render call as it might trigger a state
              * change which itself might trigger a layout update.
-             */ onDrag && onDrag(event, info);
+             */ if (onDrag) {
+                __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$motion$2d$dom$2f$dist$2f$es$2f$frameloop$2f$frame$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["frame"].update(()=>onDrag(event, info), false, true);
+            }
         };
         const onSessionEnd = (event, info)=>{
             this.latestPointerEvent = event;
@@ -2012,7 +2020,15 @@ class VisualElementDragControls {
             this.latestPointerEvent = null;
             this.latestPanInfo = null;
         };
-        const resumeAnimation = ()=>(0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$motion$2d$dom$2f$dist$2f$es$2f$projection$2f$utils$2f$each$2d$axis$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["eachAxis"])((axis)=>this.getAnimationState(axis) === "paused" && this.getAxisMotionValue(axis).animation?.play());
+        const resumeAnimation = ()=>{
+            const { dragSnapToOrigin: snap } = this.getProps();
+            if (snap || this.constraints) {
+                this.startAnimation({
+                    x: 0,
+                    y: 0
+                });
+            }
+        };
         const { dragSnapToOrigin } = this.getProps();
         this.panSession = new __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$gestures$2f$pan$2f$PanSession$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["PanSession"](originEvent, {
             onSessionStart,
@@ -2098,8 +2114,10 @@ class VisualElementDragControls {
         this.elastic = (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$gestures$2f$drag$2f$utils$2f$constraints$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["resolveDragElastic"])(dragElastic);
         /**
          * If we're outputting to external MotionValues, we want to rebase the measured constraints
-         * from viewport-relative to component-relative.
-         */ if (prevConstraints !== this.constraints && layout && this.constraints && !this.hasMutatedConstraints) {
+         * from viewport-relative to component-relative. This only applies to relative (non-ref)
+         * constraints, as ref-based constraints from calcViewportConstraints are already in the
+         * correct coordinate space for the motion value transform offset.
+         */ if (prevConstraints !== this.constraints && !(0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$utils$2f$is$2d$ref$2d$object$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["isRefObject"])(dragConstraints) && layout && this.constraints && !this.hasMutatedConstraints) {
             (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$motion$2d$dom$2f$dist$2f$es$2f$projection$2f$utils$2f$each$2d$axis$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["eachAxis"])((axis)=>{
                 if (this.constraints !== false && this.getAxisMotionValue(axis)) {
                     this.constraints[axis] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$gestures$2f$drag$2f$utils$2f$constraints$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["rebaseAxisConstraints"])(layout.layoutBox[axis], this.constraints[axis]);
@@ -2175,12 +2193,6 @@ class VisualElementDragControls {
     stopAnimation() {
         (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$motion$2d$dom$2f$dist$2f$es$2f$projection$2f$utils$2f$each$2d$axis$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["eachAxis"])((axis)=>this.getAxisMotionValue(axis).stop());
     }
-    pauseAnimation() {
-        (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$motion$2d$dom$2f$dist$2f$es$2f$projection$2f$utils$2f$each$2d$axis$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["eachAxis"])((axis)=>this.getAxisMotionValue(axis).animation?.pause());
-    }
-    getAnimationState(axis) {
-        return this.getAxisMotionValue(axis).animation?.state;
-    }
     /**
      * Drag works differently depending on which props are provided.
      *
@@ -2247,6 +2259,10 @@ class VisualElementDragControls {
         this.visualElement.current.style.transform = transformTemplate ? transformTemplate({}, "") : "none";
         projection.root && projection.root.updateScroll();
         projection.updateLayout();
+        /**
+         * Reset constraints so resolveConstraints() will recalculate them
+         * with the freshly measured layout rather than returning the cached value.
+         */ this.constraints = false;
         this.resolveConstraints();
         /**
          * For each axis, calculate the current progress of the layout axis
@@ -2259,6 +2275,11 @@ class VisualElementDragControls {
             const { min, max } = this.constraints[axis];
             axisValue.set((0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$motion$2d$dom$2f$dist$2f$es$2f$utils$2f$mix$2f$number$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["mixNumber"])(min, max, boxProgress[axis]));
         });
+        /**
+         * Flush the updated transform to the DOM synchronously to prevent
+         * a visual flash at the element's CSS layout position (0,0) when
+         * the transform was stripped for measurement.
+         */ this.visualElement.render();
     }
     addListeners() {
         if (!this.visualElement.current) return;
@@ -2270,18 +2291,30 @@ class VisualElementDragControls {
             const { drag, dragListener = true } = this.getProps();
             const target = event.target;
             /**
-             * Only block drag if clicking on a keyboard-accessible child element.
-             * If the draggable element itself is keyboard-accessible (e.g., motion.button),
-             * dragging should still work when clicking directly on it.
-             */ const isClickingKeyboardAccessibleChild = target !== element && (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$motion$2d$dom$2f$dist$2f$es$2f$gestures$2f$press$2f$utils$2f$is$2d$keyboard$2d$accessible$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["isElementKeyboardAccessible"])(target);
-            if (drag && dragListener && !isClickingKeyboardAccessibleChild) {
+             * Only block drag if clicking on a text input child element
+             * (input, textarea, select, contenteditable) where users might
+             * want to select text or interact with the control.
+             *
+             * Buttons and links don't block drag since they don't have
+             * click-and-move actions of their own.
+             */ const isClickingTextInputChild = target !== element && (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$motion$2d$dom$2f$dist$2f$es$2f$gestures$2f$press$2f$utils$2f$is$2d$keyboard$2d$accessible$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["isElementTextInput"])(target);
+            if (drag && dragListener && !isClickingTextInputChild) {
                 this.start(event);
             }
         });
+        /**
+         * If using ref-based constraints, observe both the draggable element
+         * and the constraint container for size changes via ResizeObserver.
+         * Setup is deferred because dragConstraints.current is null when
+         * addListeners first runs (React hasn't committed the ref yet).
+         */ let stopResizeObservers;
         const measureDragConstraints = ()=>{
             const { dragConstraints } = this.getProps();
             if ((0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$utils$2f$is$2d$ref$2d$object$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["isRefObject"])(dragConstraints) && dragConstraints.current) {
                 this.constraints = this.resolveRefConstraints();
+                if (!stopResizeObservers) {
+                    stopResizeObservers = startResizeObservers(element, dragConstraints.current, ()=>this.scalePositionWithinConstraints());
+                }
             }
         };
         const { projection } = this.visualElement;
@@ -2314,6 +2347,7 @@ class VisualElementDragControls {
             stopPointerListener();
             stopMeasureLayoutListener();
             stopLayoutUpdateListener && stopLayoutUpdateListener();
+            stopResizeObservers && stopResizeObservers();
         };
     }
     getProps() {
@@ -2329,6 +2363,24 @@ class VisualElementDragControls {
             dragMomentum
         };
     }
+}
+function skipFirstCall(callback) {
+    let isFirst = true;
+    return ()=>{
+        if (isFirst) {
+            isFirst = false;
+            return;
+        }
+        callback();
+    };
+}
+function startResizeObservers(element, constraintsElement, onResize) {
+    const stopElement = (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$motion$2d$dom$2f$dist$2f$es$2f$resize$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["resize"])(element, skipFirstCall(onResize));
+    const stopContainer = (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$motion$2d$dom$2f$dist$2f$es$2f$resize$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["resize"])(constraintsElement, skipFirstCall(onResize));
+    return ()=>{
+        stopElement();
+        stopContainer();
+    };
 }
 function shouldDrag(direction, drag, currentDirection) {
     return (drag === true || drag === direction) && (currentDirection === null || currentDirection === direction);
@@ -2430,7 +2482,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$
 ;
 const asyncHandler = (handler)=>(event, info)=>{
         if (handler) {
-            __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$motion$2d$dom$2f$dist$2f$es$2f$frameloop$2f$frame$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["frame"].postRender(()=>handler(event, info));
+            __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$motion$2d$dom$2f$dist$2f$es$2f$frameloop$2f$frame$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["frame"].update(()=>handler(event, info), false, true);
         }
     };
 class PanGesture extends __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$motion$2d$dom$2f$dist$2f$es$2f$render$2f$Feature$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Feature"] {
@@ -2449,7 +2501,7 @@ class PanGesture extends __TURBOPACK__imported__module__$5b$project$5d2f$fronten
         return {
             onSessionStart: asyncHandler(onPanSessionStart),
             onStart: asyncHandler(onPanStart),
-            onMove: onPan,
+            onMove: asyncHandler(onPan),
             onEnd: (event, info)=>{
                 delete this.session;
                 if (onPanEnd) {
@@ -2851,11 +2903,13 @@ class PressGesture extends __TURBOPACK__imported__module__$5b$project$5d2f$front
     mount() {
         const { current } = this.node;
         if (!current) return;
+        const { globalTapTarget, propagate } = this.node.props;
         this.unmount = (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$motion$2d$dom$2f$dist$2f$es$2f$gestures$2f$press$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["press"])(current, (_element, startEvent)=>{
             handlePressEvent(this.node, startEvent, "Start");
             return (endEvent, { success })=>handlePressEvent(this.node, endEvent, success ? "End" : "Cancel");
         }, {
-            useGlobalTarget: this.node.props.globalTapTarget
+            useGlobalTarget: globalTapTarget,
+            stopPropagation: propagate?.tap === false
         });
     }
     unmount() {}
@@ -3178,7 +3232,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$
  */ class PopChildMeasure extends __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Component"] {
     getSnapshotBeforeUpdate(prevProps) {
         const element = this.props.childRef.current;
-        if (element && prevProps.isPresent && !this.props.isPresent) {
+        if (element && prevProps.isPresent && !this.props.isPresent && this.props.pop !== false) {
             const parent = element.offsetParent;
             const parentWidth = (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$motion$2d$dom$2f$dist$2f$es$2f$utils$2f$is$2d$html$2d$element$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["isHTMLElement"])(parent) ? parent.offsetWidth || 0 : 0;
             const parentHeight = (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$motion$2d$dom$2f$dist$2f$es$2f$utils$2f$is$2d$html$2d$element$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["isHTMLElement"])(parent) ? parent.offsetHeight || 0 : 0;
@@ -3199,7 +3253,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$
         return this.props.children;
     }
 }
-function PopChild({ children, isPresent, anchorX, anchorY, root }) {
+function PopChild({ children, isPresent, anchorX, anchorY, root, pop }) {
     const id = (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useId"])();
     const ref = (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRef"])(null);
     const size = (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRef"])({
@@ -3226,7 +3280,7 @@ function PopChild({ children, isPresent, anchorX, anchorY, root }) {
      * styles set via the style prop.
      */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useInsertionEffect"])(()=>{
         const { width, height, top, left, right, bottom } = size.current;
-        if (isPresent || !ref.current || !width || !height) return;
+        if (isPresent || pop === false || !ref.current || !width || !height) return;
         const x = anchorX === "left" ? `left: ${left}` : `right: ${right}`;
         const y = anchorY === "bottom" ? `bottom: ${bottom}` : `top: ${top}`;
         ref.current.dataset.motionPopId = id;
@@ -3257,7 +3311,8 @@ function PopChild({ children, isPresent, anchorX, anchorY, root }) {
         isPresent: isPresent,
         childRef: ref,
         sizeRef: size,
-        children: __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["cloneElement"](children, {
+        pop: pop,
+        children: pop === false ? children : __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["cloneElement"](children, {
             ref: composedRef
         })
     });
@@ -3334,15 +3389,14 @@ const PresenceChild = ({ children, initial, isPresent, onExitComplete, custom, p
     }, [
         isPresent
     ]);
-    if (mode === "popLayout") {
-        children = (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$components$2f$AnimatePresence$2f$PopChild$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["PopChild"], {
-            isPresent: isPresent,
-            anchorX: anchorX,
-            anchorY: anchorY,
-            root: root,
-            children: children
-        });
-    }
+    children = (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$components$2f$AnimatePresence$2f$PopChild$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["PopChild"], {
+        pop: mode === "popLayout",
+        isPresent: isPresent,
+        anchorX: anchorX,
+        anchorY: anchorY,
+        root: root,
+        children: children
+    });
     return (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$context$2f$PresenceContext$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["PresenceContext"].Provider, {
         value: context,
         children: children

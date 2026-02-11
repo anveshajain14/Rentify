@@ -52,7 +52,7 @@ export async function GET(req) {
       return redirectToLogin('oauth_not_configured');
     }
 
-    const redirectUri = `${BASE_URL}/api/auth/google/callback`;
+    const redirectUri = `${BASE_URL}/api/user/google/callback`;
     const tokenRes = await fetch('https://oauth2.googleapis.com/token', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },

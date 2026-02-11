@@ -633,7 +633,7 @@ function Navbar() {
                                 }, this),
                                 user.role === 'seller' && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
                                     href: "/seller/dashboard",
-                                    className: "block py-3 font-medium text-gray-600",
+                                    className: "block py-3 font-medium text-foreground",
                                     onClick: ()=>setIsOpen(false),
                                     children: "Seller Panel"
                                 }, void 0, false, {
@@ -1563,24 +1563,44 @@ function RenterDashboard() {
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
                                                             className: "px-8 py-6 text-right",
-                                                            children: rental.rentalStatus === 'completed' ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                                                onClick: ()=>setReviewModal({
-                                                                        rental
-                                                                    }),
-                                                                className: "text-emerald-600 dark:text-cyan-400 font-bold text-sm hover:underline",
-                                                                children: "Rate Product"
-                                                            }, void 0, false, {
+                                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                className: "flex items-center justify-end gap-3",
+                                                                children: [
+                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
+                                                                        href: `/api/rentals/${rental._id}/invoice`,
+                                                                        target: "_blank",
+                                                                        rel: "noopener noreferrer",
+                                                                        className: "text-muted-foreground hover:text-foreground font-medium text-sm",
+                                                                        children: "Invoice"
+                                                                    }, void 0, false, {
+                                                                        fileName: "[project]/frontend/app/dashboard/page.jsx",
+                                                                        lineNumber: 144,
+                                                                        columnNumber: 27
+                                                                    }, this),
+                                                                    rental.rentalStatus === 'completed' ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                                                        onClick: ()=>setReviewModal({
+                                                                                rental
+                                                                            }),
+                                                                        className: "text-emerald-600 dark:text-cyan-400 font-bold text-sm hover:underline",
+                                                                        children: "Rate Product"
+                                                                    }, void 0, false, {
+                                                                        fileName: "[project]/frontend/app/dashboard/page.jsx",
+                                                                        lineNumber: 146,
+                                                                        columnNumber: 29
+                                                                    }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
+                                                                        href: `/products/${rental.product?._id}`,
+                                                                        className: "text-foreground font-bold text-sm hover:underline",
+                                                                        children: "View Details"
+                                                                    }, void 0, false, {
+                                                                        fileName: "[project]/frontend/app/dashboard/page.jsx",
+                                                                        lineNumber: 148,
+                                                                        columnNumber: 29
+                                                                    }, this)
+                                                                ]
+                                                            }, void 0, true, {
                                                                 fileName: "[project]/frontend/app/dashboard/page.jsx",
-                                                                lineNumber: 144,
-                                                                columnNumber: 27
-                                                            }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
-                                                                href: `/products/${rental.product?._id}`,
-                                                                className: "text-foreground font-bold text-sm hover:underline",
-                                                                children: "View Details"
-                                                            }, void 0, false, {
-                                                                fileName: "[project]/frontend/app/dashboard/page.jsx",
-                                                                lineNumber: 146,
-                                                                columnNumber: 27
+                                                                lineNumber: 143,
+                                                                columnNumber: 25
                                                             }, this)
                                                         }, void 0, false, {
                                                             fileName: "[project]/frontend/app/dashboard/page.jsx",
@@ -1599,12 +1619,12 @@ function RenterDashboard() {
                                                     children: loading ? 'Loading your rentals...' : 'No rentals yet. Start browsing products!'
                                                 }, void 0, false, {
                                                     fileName: "[project]/frontend/app/dashboard/page.jsx",
-                                                    lineNumber: 153,
+                                                    lineNumber: 156,
                                                     columnNumber: 21
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/frontend/app/dashboard/page.jsx",
-                                                lineNumber: 152,
+                                                lineNumber: 155,
                                                 columnNumber: 19
                                             }, this)
                                         }, void 0, false, {
@@ -1652,7 +1672,7 @@ function RenterDashboard() {
                             className: "fixed inset-0 bg-black/60 backdrop-blur-sm z-50"
                         }, void 0, false, {
                             fileName: "[project]/frontend/app/dashboard/page.jsx",
-                            lineNumber: 167,
+                            lineNumber: 170,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
@@ -1675,7 +1695,7 @@ function RenterDashboard() {
                                     children: "Rate this rental"
                                 }, void 0, false, {
                                     fileName: "[project]/frontend/app/dashboard/page.jsx",
-                                    lineNumber: 174,
+                                    lineNumber: 177,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1683,7 +1703,7 @@ function RenterDashboard() {
                                     children: reviewModal.rental.product?.title
                                 }, void 0, false, {
                                     fileName: "[project]/frontend/app/dashboard/page.jsx",
-                                    lineNumber: 175,
+                                    lineNumber: 178,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1703,17 +1723,17 @@ function RenterDashboard() {
                                                 className: r <= reviewRating ? 'text-amber-500 fill-amber-500' : 'text-muted'
                                             }, void 0, false, {
                                                 fileName: "[project]/frontend/app/dashboard/page.jsx",
-                                                lineNumber: 179,
+                                                lineNumber: 182,
                                                 columnNumber: 21
                                             }, this)
                                         }, r, false, {
                                             fileName: "[project]/frontend/app/dashboard/page.jsx",
-                                            lineNumber: 178,
+                                            lineNumber: 181,
                                             columnNumber: 19
                                         }, this))
                                 }, void 0, false, {
                                     fileName: "[project]/frontend/app/dashboard/page.jsx",
-                                    lineNumber: 176,
+                                    lineNumber: 179,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("textarea", {
@@ -1723,7 +1743,7 @@ function RenterDashboard() {
                                     className: "w-full h-24 px-4 py-3 rounded-2xl border border-border bg-input text-foreground placeholder:text-muted-foreground resize-none focus:ring-2 focus:ring-ring outline-none"
                                 }, void 0, false, {
                                     fileName: "[project]/frontend/app/dashboard/page.jsx",
-                                    lineNumber: 183,
+                                    lineNumber: 186,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1735,7 +1755,7 @@ function RenterDashboard() {
                                             children: "Cancel"
                                         }, void 0, false, {
                                             fileName: "[project]/frontend/app/dashboard/page.jsx",
-                                            lineNumber: 190,
+                                            lineNumber: 193,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -1747,36 +1767,36 @@ function RenterDashboard() {
                                                 size: 20
                                             }, void 0, false, {
                                                 fileName: "[project]/frontend/app/dashboard/page.jsx",
-                                                lineNumber: 192,
+                                                lineNumber: 195,
                                                 columnNumber: 39
                                             }, this) : 'Submit'
                                         }, void 0, false, {
                                             fileName: "[project]/frontend/app/dashboard/page.jsx",
-                                            lineNumber: 191,
+                                            lineNumber: 194,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/frontend/app/dashboard/page.jsx",
-                                    lineNumber: 189,
+                                    lineNumber: 192,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/frontend/app/dashboard/page.jsx",
-                            lineNumber: 168,
+                            lineNumber: 171,
                             columnNumber: 13
                         }, this)
                     ]
                 }, void 0, true)
             }, void 0, false, {
                 fileName: "[project]/frontend/app/dashboard/page.jsx",
-                lineNumber: 164,
+                lineNumber: 167,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$components$2f$Footer$2e$jsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
                 fileName: "[project]/frontend/app/dashboard/page.jsx",
-                lineNumber: 200,
+                lineNumber: 203,
                 columnNumber: 7
             }, this)
         ]
