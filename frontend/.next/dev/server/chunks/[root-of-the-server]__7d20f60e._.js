@@ -524,18 +524,30 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$backend$2f$lib$2f$email$2e$j
 ;
 ;
 ;
+/* ---------------- PASSWORD VALIDATION (MINIMAL ADDITION) ---------------- */ function isStrongPassword(password) {
+    // At least 8 chars, 1 uppercase, 1 lowercase, 1 number, 1 special char
+    const strongPasswordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    return strongPasswordRegex.test(password);
+}
 async function POST(req) {
     try {
         await (0, __TURBOPACK__imported__module__$5b$project$5d2f$backend$2f$lib$2f$mongodb$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["default"])();
         const { name, email, password, role } = await req.json();
-        if (!name || !email || !password) {
+        /* ---------------- BASIC VALIDATION ---------------- */ if (!name || !email || !password) {
             return __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json({
                 message: 'Missing required fields'
             }, {
                 status: 400
             });
         }
-        const existingUser = await __TURBOPACK__imported__module__$5b$project$5d2f$backend$2f$models$2f$User$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["default"].findOne({
+        /* ---------------- STRONG PASSWORD CHECK ---------------- */ if (!isStrongPassword(password)) {
+            return __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json({
+                message: 'Password must be at least 8 characters long and include uppercase, lowercase, number, and special character.'
+            }, {
+                status: 400
+            });
+        }
+        /* ---------------------------------------------------- */ const existingUser = await __TURBOPACK__imported__module__$5b$project$5d2f$backend$2f$models$2f$User$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["default"].findOne({
             email
         });
         if (existingUser) {
@@ -577,7 +589,7 @@ async function POST(req) {
         });
     } catch (error) {
         return __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json({
-            message: error.message
+            message: error.message || 'Internal server error'
         }, {
             status: 500
         });
