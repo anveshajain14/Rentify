@@ -14,3 +14,4 @@ sentence-transformers
 faiss-cpu
 pydantic
 chromadb
+groq

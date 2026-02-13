@@ -62,10 +62,41 @@ def chat(req: ChatRequest):
 
 
 # ---------- Smart Product Listing Form ----------
+# @app.post("/smart-analyze")
+# async def smart_analyze(
+#     main_image: UploadFile = File(...),
+#     spec_image: UploadFile = File(...),
+# ):
+#     """
+#     Vision + OCR + LLM helper used by the product listing form.
+
+#     Response:
+#     {
+#       "object": "laptop",
+#       "category": "Electronics",
+#       "colors": ["silver", "black"],
+#       "brand": "Dell",
+#       "description": "16GB RAM, i7, 512GB SSD"
+#     }
+#     """
+#     main_bytes = await main_image.read()
+#     spec_bytes = await spec_image.read()
+
+#     result = smart_form.smart_analyze(main_bytes, spec_bytes)
+
+#     # Ensure all keys exist and use None where data is missing
+#     return {
+#         "object": result.get("object"),
+#         "category": result.get("category"),
+#         "colors": result.get("colors"),
+#         "brand": result.get("brand"),
+#         "description": result.get("description"),
+#     }
+
 @app.post("/smart-analyze")
 async def smart_analyze(
     main_image: UploadFile = File(...),
-    spec_image: UploadFile = File(...),
+    spec_image: UploadFile = File(None),  # make optional
 ):
     """
     Vision + OCR + LLM helper used by the product listing form.
@@ -74,22 +105,18 @@ async def smart_analyze(
     {
       "object": "laptop",
       "category": "Electronics",
-      "colors": ["silver", "black"],
-      "brand": "Dell",
       "description": "16GB RAM, i7, 512GB SSD"
     }
     """
+
     main_bytes = await main_image.read()
-    spec_bytes = await spec_image.read()
+    spec_bytes = await spec_image.read() if spec_image else None
 
     result = smart_form.smart_analyze(main_bytes, spec_bytes)
 
-    # Ensure all keys exist and use None where data is missing
     return {
-        "object": result.get("object"),
+        "object": result.get("object_detected"),
         "category": result.get("category"),
-        "colors": result.get("colors"),
-        "brand": result.get("brand"),
         "description": result.get("description"),
     }
 
@@ -155,3 +182,5 @@ def similar(
         )
 
     return {"similarItems": items}
+
+
