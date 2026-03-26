@@ -1,0 +1,25 @@
+"use strict";
+/*
+ * ATTENTION: An "eval-source-map" devtool has been used.
+ * This devtool is neither made for production nor for readable output files.
+ * It uses "eval()" calls to create a separate source file with attached SourceMaps in the browser devtools.
+ * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
+ * or disable the default devtool with "devtool: false".
+ * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
+ */
+exports.id = "vendor-chunks/buffer-equal-constant-time";
+exports.ids = ["vendor-chunks/buffer-equal-constant-time"];
+exports.modules = {
+
+/***/ "(rsc)/../backend/node_modules/buffer-equal-constant-time/index.js":
+/*!*******************************************************************!*\
+  !*** ../backend/node_modules/buffer-equal-constant-time/index.js ***!
+  \*******************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+eval("/*jshint node:true */\r\n\r\nvar Buffer = (__webpack_require__(/*! buffer */ \"buffer\").Buffer); // browserify\r\nvar SlowBuffer = (__webpack_require__(/*! buffer */ \"buffer\").SlowBuffer);\r\n\r\nmodule.exports = bufferEq;\r\n\r\nfunction bufferEq(a, b) {\r\n\r\n  // shortcutting on type is necessary for correctness\r\n  if (!Buffer.isBuffer(a) || !Buffer.isBuffer(b)) {\r\n    return false;\r\n  }\r\n\r\n  // buffer sizes should be well-known information, so despite this\r\n  // shortcutting, it doesn't leak any information about the *contents* of the\r\n  // buffers.\r\n  if (a.length !== b.length) {\r\n    return false;\r\n  }\r\n\r\n  var c = 0;\r\n  for (var i = 0; i < a.length; i++) {\r\n    /*jshint bitwise:false */\r\n    c |= a[i] ^ b[i]; // XOR\r\n  }\r\n  return c === 0;\r\n}\r\n\r\nbufferEq.install = function() {\r\n  Buffer.prototype.equal = SlowBuffer.prototype.equal = function equal(that) {\r\n    return bufferEq(this, that);\r\n  };\r\n};\r\n\r\nvar origBufEqual = Buffer.prototype.equal;\r\nvar origSlowBufEqual = SlowBuffer.prototype.equal;\r\nbufferEq.restore = function() {\r\n  Buffer.prototype.equal = origBufEqual;\r\n  SlowBuffer.prototype.equal = origSlowBufEqual;\r\n};\r\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiKHJzYykvLi4vYmFja2VuZC9ub2RlX21vZHVsZXMvYnVmZmVyLWVxdWFsLWNvbnN0YW50LXRpbWUvaW5kZXguanMiLCJtYXBwaW5ncyI6IkFBQUE7QUFDYTtBQUNiLGFBQWEsb0RBQXdCLEVBQUU7QUFDdkMsaUJBQWlCLHdEQUE0QjtBQUM3QztBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQSxrQkFBa0IsY0FBYztBQUNoQztBQUNBLHNCQUFzQjtBQUN0QjtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQSIsInNvdXJjZXMiOlsiQzpcXFVzZXJzXFxqYWluYVxcT25lRHJpdmVcXERvY3VtZW50c1xcR2l0SHViXFxSZW50aWZ5XFxiYWNrZW5kXFxub2RlX21vZHVsZXNcXGJ1ZmZlci1lcXVhbC1jb25zdGFudC10aW1lXFxpbmRleC5qcyJdLCJzb3VyY2VzQ29udGVudCI6WyIvKmpzaGludCBub2RlOnRydWUgKi9cclxuJ3VzZSBzdHJpY3QnO1xyXG52YXIgQnVmZmVyID0gcmVxdWlyZSgnYnVmZmVyJykuQnVmZmVyOyAvLyBicm93c2VyaWZ5XHJcbnZhciBTbG93QnVmZmVyID0gcmVxdWlyZSgnYnVmZmVyJykuU2xvd0J1ZmZlcjtcclxuXHJcbm1vZHVsZS5leHBvcnRzID0gYnVmZmVyRXE7XHJcblxyXG5mdW5jdGlvbiBidWZmZXJFcShhLCBiKSB7XHJcblxyXG4gIC8vIHNob3J0Y3V0dGluZyBvbiB0eXBlIGlzIG5lY2Vzc2FyeSBmb3IgY29ycmVjdG5lc3NcclxuICBpZiAoIUJ1ZmZlci5pc0J1ZmZlcihhKSB8fCAhQnVmZmVyLmlzQnVmZmVyKGIpKSB7XHJcbiAgICByZXR1cm4gZmFsc2U7XHJcbiAgfVxyXG5cclxuICAvLyBidWZmZXIgc2l6ZXMgc2hvdWxkIGJlIHdlbGwta25vd24gaW5mb3JtYXRpb24sIHNvIGRlc3BpdGUgdGhpc1xyXG4gIC8vIHNob3J0Y3V0dGluZywgaXQgZG9lc24ndCBsZWFrIGFueSBpbmZvcm1hdGlvbiBhYm91dCB0aGUgKmNvbnRlbnRzKiBvZiB0aGVcclxuICAvLyBidWZmZXJzLlxyXG4gIGlmIChhLmxlbmd0aCAhPT0gYi5sZW5ndGgpIHtcclxuICAgIHJldHVybiBmYWxzZTtcclxuICB9XHJcblxyXG4gIHZhciBjID0gMDtcclxuICBmb3IgKHZhciBpID0gMDsgaSA8IGEubGVuZ3RoOyBpKyspIHtcclxuICAgIC8qanNoaW50IGJpdHdpc2U6ZmFsc2UgKi9cclxuICAgIGMgfD0gYVtpXSBeIGJbaV07IC8vIFhPUlxyXG4gIH1cclxuICByZXR1cm4gYyA9PT0gMDtcclxufVxyXG5cclxuYnVmZmVyRXEuaW5zdGFsbCA9IGZ1bmN0aW9uKCkge1xyXG4gIEJ1ZmZlci5wcm90b3R5cGUuZXF1YWwgPSBTbG93QnVmZmVyLnByb3RvdHlwZS5lcXVhbCA9IGZ1bmN0aW9uIGVxdWFsKHRoYXQpIHtcclxuICAgIHJldHVybiBidWZmZXJFcSh0aGlzLCB0aGF0KTtcclxuICB9O1xyXG59O1xyXG5cclxudmFyIG9yaWdCdWZFcXVhbCA9IEJ1ZmZlci5wcm90b3R5cGUuZXF1YWw7XHJcbnZhciBvcmlnU2xvd0J1ZkVxdWFsID0gU2xvd0J1ZmZlci5wcm90b3R5cGUuZXF1YWw7XHJcbmJ1ZmZlckVxLnJlc3RvcmUgPSBmdW5jdGlvbigpIHtcclxuICBCdWZmZXIucHJvdG90eXBlLmVxdWFsID0gb3JpZ0J1ZkVxdWFsO1xyXG4gIFNsb3dCdWZmZXIucHJvdG90eXBlLmVxdWFsID0gb3JpZ1Nsb3dCdWZFcXVhbDtcclxufTtcclxuIl0sIm5hbWVzIjpbXSwiaWdub3JlTGlzdCI6WzBdLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///(rsc)/../backend/node_modules/buffer-equal-constant-time/index.js\n");
+
+/***/ })
+
+};
+;

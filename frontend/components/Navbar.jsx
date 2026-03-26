@@ -53,7 +53,7 @@ export default function Navbar() {
         <div className="flex justify-between items-center">
           <Link href="/" className="flex items-center gap-2">
             <span className="text-2xl font-bold tracking-tighter text-foreground">
-              LUXE<span className="text-emerald-500 dark:text-cyan-400">RENT</span>
+              RENT<span className="text-emerald-500 dark:text-cyan-400 italic">IFY</span>
             </span>
           </Link>
           <div className="hidden md:flex items-center gap-8">

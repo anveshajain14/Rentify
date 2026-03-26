@@ -504,21 +504,21 @@ export default function SellerDashboard() {
                     </div>
                     <button
                       type="button"
-                      disabled={isSmartAnalyzing || !formData.images.length || !formData.specImage}
+                      disabled={isSmartAnalyzing || !formData.images.length}
                       onClick={async () => {
-                        if (!formData.images.length || !formData.specImage) return;
+                        if (!formData.images.length) return;
                         setIsSmartAnalyzing(true);
                         try {
                           const fd = new FormData();
                           fd.append('main_image', formData.images[0]);
-                          fd.append('spec_image', formData.specImage);
-                          const res = await axios.post('/api/ai/smart-analyze', fd);
+                          if (formData.specImage) {
+                            fd.append('spec_image', formData.specImage);
+                          }
+                          const res = await axios.post('/api/smart-listing', fd);
                           const data = res.data || {};
                           setFormData((prev) => ({
                             ...prev,
-                            title: data.brand && data.object
-                              ? `${data.brand} ${data.object}`
-                              : prev.title || data.object || prev.title,
+                            title: data.object || prev.title,
                             description: data.description || prev.description,
                             category: data.category || prev.category,
                           }));

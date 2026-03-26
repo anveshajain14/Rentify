@@ -10,7 +10,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="space-y-4">
             <Link href="/" className="flex items-center gap-2">
-              <span className="text-xl font-bold tracking-tighter text-foreground">LUXE<span className="text-emerald-500 dark:text-cyan-400">RENT</span></span>
+              <span className="text-xl font-bold tracking-tighter text-foreground">RENT<span className="text-emerald-500 dark:text-cyan-400 italic">IFY</span></span>
             </Link>
             <p className="text-muted-foreground text-sm leading-relaxed">
               Premium rental marketplace for the modern world. Rent verified high-end products with ease.
@@ -49,7 +49,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="mt-12 pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted-foreground">
-          <p>© 2026 LuxeRent Marketplace. All rights reserved.</p>
+          <p>© 2026 RENTIFY Marketplace. All rights reserved.</p>
           <div className="flex gap-6">
             <Link href="#" className="hover:text-foreground transition-colors">Privacy Policy</Link>
             <Link href="#" className="hover:text-foreground transition-colors">Terms of Service</Link>

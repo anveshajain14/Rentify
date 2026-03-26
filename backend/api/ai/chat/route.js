@@ -1,11 +1,14 @@
 import { NextResponse } from 'next/server';
 
-const PYTHON_AI_URL = process.env.PYTHON_AI_URL || 'http://localhost:8001';
+const FASTAPI_BASE_URL =
+  process.env.FASTAPI_BASE_URL ||
+  process.env.PYTHON_AI_URL ||
+  'http://localhost:8000';
 
 export async function POST(req) {
   try {
     const body = await req.json();
-    const res = await fetch(`${PYTHON_AI_URL}/chat`, {
+    const res = await fetch(`${FASTAPI_BASE_URL}/chat`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ query: body.query }),

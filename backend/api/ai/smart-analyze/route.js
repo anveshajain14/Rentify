@@ -1,6 +1,9 @@
 import { NextResponse } from 'next/server';
 
-const PYTHON_AI_URL = process.env.PYTHON_AI_URL || 'http://localhost:8001';
+const FASTAPI_BASE_URL =
+  process.env.FASTAPI_BASE_URL ||
+  process.env.PYTHON_AI_URL ||
+  'http://localhost:8000';
 
 export async function POST(req) {
   try {
@@ -8,18 +11,20 @@ export async function POST(req) {
     const mainImage = formData.get('main_image');
     const specImage = formData.get('spec_image');
 
-    if (!mainImage || !specImage) {
+    if (!mainImage) {
       return NextResponse.json(
-        { message: 'main_image and spec_image are required' },
+        { message: 'main_image is required' },
         { status: 400 }
       );
     }
 
     const proxyForm = new FormData();
     proxyForm.append('main_image', mainImage);
-    proxyForm.append('spec_image', specImage);
+    if (specImage) {
+      proxyForm.append('spec_image', specImage);
+    }
 
-    const res = await fetch(`${PYTHON_AI_URL}/smart-analyze`, {
+    const res = await fetch(`${FASTAPI_BASE_URL}/smart-analyze`, {
       method: 'POST',
       body: proxyForm,
     });

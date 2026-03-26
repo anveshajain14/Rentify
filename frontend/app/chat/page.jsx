@@ -26,7 +26,7 @@ export default function ChatbotPage() {
     setLoading(true);
 
     try {
-      const res = await axios.post('/api/ai/chat', { query: userMessage.text });
+      const res = await axios.post('/api/chatbot', { query: userMessage.text });
       const data = res.data;
 
       const botText =
