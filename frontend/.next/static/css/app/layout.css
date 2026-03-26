@@ -635,8 +635,14 @@
   .h-full {
     height: 100%;
   }
+  .max-h-\[85vh\] {
+    max-height: 85vh;
+  }
   .max-h-\[480px\] {
     max-height: 480px;
+  }
+  .min-h-0 {
+    min-height: calc(var(--spacing) * 0);
   }
   .min-h-\[60vh\] {
     min-height: 60vh;
