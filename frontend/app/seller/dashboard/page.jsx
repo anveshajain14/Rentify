@@ -389,9 +389,9 @@ export default function SellerDashboard() {
               initial={{ opacity: 0, scale: 0.9, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.9, y: 20 }}
-              className="relative bg-card w-full max-w-2xl rounded-[40px] shadow-2xl dark:shadow-black/40 border border-border overflow-hidden"
+              className="relative bg-card w-full max-w-2xl rounded-[40px] shadow-2xl dark:shadow-black/40 border border-border overflow-hidden max-h-[85vh] flex flex-col"
             >
-              <div className="p-10">
+              <div className="p-10 flex-1 overflow-y-auto min-h-0">
                 <h2 className="text-3xl font-black mb-2 text-foreground">List New Item</h2>
                 <p className="text-muted-foreground mb-8">Fill in the details to submit your product for admin approval.</p>
 
