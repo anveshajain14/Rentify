@@ -1,7 +1,10 @@
 import { NextResponse } from 'next/server';
+import { createRequire } from 'node:module';
 import dbConnect from '../../../../lib/mongodb.js';
 import Rental from '../../../../models/Rental.js';
 import { getAuthUser } from '../../../../lib/auth.js';
+
+const require = createRequire(import.meta.url);
 
 export async function GET(req, { params }) {
   try {
@@ -24,8 +27,7 @@ export async function GET(req, { params }) {
       return NextResponse.json({ message: 'Not authorized' }, { status: 403 });
     }
 
-    const pdfkit = await import('pdfkit');
-    const PDFDocument = pdfkit.default ?? pdfkit;
+    const PDFDocument = require('pdfkit');
     const doc = new PDFDocument({ margin: 50, size: 'A4' });
     const chunks = [];
     doc.on('data', (chunk) => chunks.push(chunk));
