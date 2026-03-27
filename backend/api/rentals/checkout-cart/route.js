@@ -1,9 +1,9 @@
 import { NextResponse } from 'next/server';
-import { stripe } from '../../lib/stripe.js';
-import dbConnect from '../../lib/mongodb.js';
-import Rental from '../../models/Rental.js';
-import Product from '../../models/Product.js';
-import { getAuthUser } from '../../lib/auth.js';
+import { stripe } from '../../../lib/stripe.js';
+import dbConnect from '../../../lib/mongodb.js';
+import Rental from '../../../models/Rental.js';
+import Product from '../../../models/Product.js';
+import { getAuthUser } from '../../../lib/auth.js';
 
 function toAddressSnapshot(addr) {
   if (!addr || typeof addr !== 'object') return undefined;

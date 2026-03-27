@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
-import { stripe } from '../../lib/stripe.js';
-import dbConnect from '../../lib/mongodb.js';
-import Rental from '../../models/Rental.js';
+import { stripe } from '../../../lib/stripe.js';
+import dbConnect from '../../../lib/mongodb.js';
+import Rental from '../../../models/Rental.js';
 
 export async function POST(req) {
   try {

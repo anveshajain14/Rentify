@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useRef } from 'react';
+import { Suspense, useState, useRef } from 'react';
 import { useDispatch } from 'react-redux';
 import { setUser } from '@/store/slices/authSlice';
 import axios from 'axios';
@@ -12,7 +12,7 @@ import { Mail, Loader2, ArrowRight } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 
-export default function VerifyLoginOTPPage() {
+function VerifyLoginOTPContent() {
   const searchParams = useSearchParams();
   const emailParam = searchParams.get('email') || '';
   const [email, setEmail] = useState(emailParam);
@@ -150,5 +150,13 @@ export default function VerifyLoginOTPPage() {
       </div>
       <Footer />
     </main>
+  );
+}
+
+export default function VerifyLoginOTPPage() {
+  return (
+    <Suspense fallback={null}>
+      <VerifyLoginOTPContent />
+    </Suspense>
   );
 }

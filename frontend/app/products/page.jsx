@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useMemo } from 'react';
+import { Suspense, useState, useEffect, useMemo } from 'react';
 import { useSearchParams } from 'next/navigation';
 import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
@@ -51,7 +51,7 @@ function applyFilters(products, filters, search) {
 
 const CATEGORIES = ['All', 'Electronics', 'Furniture', 'Photography', 'Outdoor'];
 
-export default function ProductsPage() {
+function ProductsContent() {
   const searchParams = useSearchParams();
   const dispatch = useDispatch();
   const [products, setProducts] = useState([]);
@@ -173,5 +173,13 @@ export default function ProductsPage() {
 
       <Footer />
     </main>
+  );
+}
+
+export default function ProductsPage() {
+  return (
+    <Suspense fallback={null}>
+      <ProductsContent />
+    </Suspense>
   );
 }

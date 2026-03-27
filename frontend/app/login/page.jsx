@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { Suspense, useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { setUser } from '@/store/slices/authSlice';
 import axios from 'axios';
@@ -26,7 +26,7 @@ const ERROR_MESSAGES = {
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 
-export default function LoginPage() {
+function LoginContent() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
@@ -200,5 +200,13 @@ export default function LoginPage() {
       </div>
       <Footer />
     </main>
+  );
+}
+
+export default function LoginPage() {
+  return (
+    <Suspense fallback={null}>
+      <LoginContent />
+    </Suspense>
   );
 }

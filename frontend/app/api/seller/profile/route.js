@@ -1,1 +1,1 @@
-export { PATCH } from '../../../../backend/api/seller/profile/route.js';
+export { PATCH } from '../../../../../backend/api/seller/profile/route.js';
